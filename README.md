@@ -1,2 +1,11 @@
+![sittingduck003](.\images\sittingduck003.png)
+
 # Dotfiles
-Personal dotfiles including configuration and setup files for multiple operating systems.
+
+This project contains dotfiles or configuration files for various operating systems. 
+
+These configurations are currently under development and do not represent final versions. 
+
+Use them at your own risk. 
+
+![underconstruction003](.\images\underconstruction003.png)
