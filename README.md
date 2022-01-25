@@ -1,4 +1,4 @@
-![sittingduck003](.\images\sittingduck003.png)
+![sittingduck003](images/sittingduck003.png)
 
 # Dotfiles
 
@@ -8,4 +8,4 @@ These configurations are currently under development and do not represent final 
 
 Use them at your own risk. 
 
-![underconstruction003](.\images\underconstruction003.png)
+![underconstruction003](images/underconstruction003.png)
