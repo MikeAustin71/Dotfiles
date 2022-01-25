@@ -9,6 +9,7 @@
 # All imports must either be absolute paths starting with `/`, or paths relative
 # to the user's home directory starting with `~/`.
 import:
+#                  FONTS
 #  - ~/.config/alacritty/fonts/DejavuSansMono_fonts.yml
 #  - ~/.config/alacritty/fonts/jetbrains_fonts.yml
 #  - ~/.config/alacritty/fonts/Terminess_fonts.yml
@@ -23,8 +24,19 @@ import:
 #  - ~/.config/alacritty/fonts/Noto_fonts.yml
 #  - ~/.config/alacritty/fonts/CousineNerdFonts_.yml
   - ~/.config/alacritty/fonts/MesloLGS_NF_Fonts_.yml
-  - ~/.config/alacritty/colorschemes/dracula.yml
-  
+#                  COLORS  
+# - ~/.config/alacritty/colorschemes/smoooooth.yml
+#  - ~/.config/alacritty/colorschemes/nord.yaml
+#  - ~/.config/alacritty/colorschemes/Cobalt2.yaml
+#  - ~/.config/alacritty/colorschemes/snazzy.yaml
+#                 FAVORITES
+#  - ~/.config/alacritty/colorschemes/thelovelace.yaml
+#  - ~/.config/alacritty/colorschemes/dracula.yml
+#  - ~/.config/alacritty/colorschemes/solarized_dark.yaml 
+  - ~/.config/alacritty/colorschemes/tokyo-night.yaml
+#  - ~/.config/alacritty/colorschemes/moonlight_ii_vscode.yaml
+
+
 # Any items in the `env` entry below will be added as
 # environment variables. Some entries may override variables
 # set by alacritty itself.
