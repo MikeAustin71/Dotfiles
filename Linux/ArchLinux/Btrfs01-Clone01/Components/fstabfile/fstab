@@ -1,0 +1,25 @@
+# Static information about the filesystems.
+# See fstab(5) for details.
+
+# <file system> <dir> <type> <options> <dump> <pass>
+# /dev/sda3
+UUID=c501f8de-11b7-4fbe-98ef-281b0850d534	/         	btrfs     	rw,noatime,compress=lzo,space_cache=v2,subvolid=301,subvol=/@	0 0
+
+# /dev/sda1
+UUID=1F2A-D981      	/boot     	vfat      	rw,relatime,fmask=0022,dmask=0022,codepage=437,iocharset=ascii,shortname=mixed,utf8,errors=remount-ro	0 2
+
+# /dev/sda3
+UUID=c501f8de-11b7-4fbe-98ef-281b0850d534	/home     	btrfs     	rw,noatime,compress=lzo,space_cache=v2,subvolid=257,subvol=/@home	0 0
+
+# /dev/sda3
+UUID=c501f8de-11b7-4fbe-98ef-281b0850d534	/.snapshots	btrfs     	rw,noatime,compress=lzo,space_cache=v2,subvolid=258,subvol=/@snapshots	0 0
+
+# /dev/sda3
+UUID=c501f8de-11b7-4fbe-98ef-281b0850d534	/var/log  	btrfs     	rw,noatime,compress=lzo,space_cache=v2,subvolid=259,subvol=/@var_log	0 0
+
+# /dev/sda2
+UUID=24a1d55d-ec4c-42c5-8120-864f20b18925	none      	swap      	defaults  	0 0
+
+# /SharedData VMWare
+.host:/SharedData /mnt/vmShare fuse.vmhgfs-fuse nofail,allow_other 0 0
+

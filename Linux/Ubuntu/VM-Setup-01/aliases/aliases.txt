@@ -1,0 +1,7 @@
+alias aliases="cat ~/.bash_aliases"
+
+alias cls="clear"
+
+alias CLS="clear"
+
+alias la="ls -la"
