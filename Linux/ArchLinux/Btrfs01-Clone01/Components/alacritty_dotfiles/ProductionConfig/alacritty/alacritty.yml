@@ -756,10 +756,14 @@ shell:
 # in the order they were defined in.
 key_bindings:
 
+# Set Scroll Key Bindings
   - { key: PageUp,   mods: Shift,   action: ScrollPageUp   }
   - { key: PageDown, mods: Shift,   action: ScrollPageDown }
   - { key: End,      mods: Shift,   action: ScrollToBottom }
   - { key: Home,     mods: Shift,   action: ScrollToTop    }
+
+# Set Spawn New Instance of Alacritty Ctrl+Shift+Enter
+  - { key: Return, mods: Control|Shift, action: SpawnNewInstance }
 
   #- { key: Paste,                                       action: Paste          }
   #- { key: Copy,                                        action: Copy           }
