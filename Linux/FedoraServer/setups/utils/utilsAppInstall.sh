@@ -95,6 +95,12 @@ function installFkill() {
 
 }
 
+function installFontAwesome() {
+
+  sudo dnf install fontawesome-fonts -y
+
+}
+
 function installFuzzyFinder() {
 
   sudo dnf install fzf -y
@@ -239,6 +245,12 @@ function installTldr() {
 function installTrash() {
 
   sudo dnf install trash-cli -y
+
+}
+
+function installTerminusFonts() {
+
+  sudo dnf install terminus-fonts -y
 
 }
 

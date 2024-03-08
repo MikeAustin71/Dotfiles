@@ -56,6 +56,8 @@ installCurl &&
 installWget &&
 installVmwareTools &&
 installTrash &&
+installTerminusFonts &&
+installFontAwesome &&
 installCompressionUtilities &&
 installEza &&
 installAutoJump &&
