@@ -737,13 +737,13 @@ If Wget is already installed, you can skip the installation.
 ### Install Wget
 
 ```bash
-sudo apt update
+sudo dnf upgrade --release
 
-sudo apt install wget
+sudo dnf install wget
 
 ```
 
-Verify that wget was downloaded properly by entering the following command:
+Verify that *wget* was downloaded properly by entering the following command:
 
 ```bash
 wget --version
