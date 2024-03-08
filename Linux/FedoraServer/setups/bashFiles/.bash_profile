@@ -1,0 +1,11 @@
+# Mike's Environment Variables
+
+export MIKE_Scratch_t001="$HOME/scratch/t001"
+
+export MIKE_VMShared_Drive="$HOME/shares/HostVlMShared/"
+
+export MIKE_VM_Scripts="$HOME/shares/HostVlMShared/fedora_server/final_production/setupScripts/"
+
+export MIKE_Setup_Scripts="$HOME/bashOps/setups"
+
+export MIKE_Setup_Utilities="$HOME/bashOps/setups/utils"
