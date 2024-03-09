@@ -65,11 +65,13 @@ installFuzzyFinder &&
 installMidnightCommander &&
 installNano &&
 installNcdu &&
+installNeofetch &&
 installPlocate &&
 installRipGrep &&
 installBtop &&
 installCheat &&
 installTldr &&
+installZoxide &&
 runScriptMicro &&
 runScriptBroot &&
 runScriptDust &&

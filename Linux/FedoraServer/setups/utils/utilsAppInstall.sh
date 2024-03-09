@@ -17,6 +17,13 @@ function installAutoJump() {
 
 }
 
+# Installs Awesome Window Manager
+function installAwesomeWM() {
+
+  sudo dnf install awesome -y
+
+}
+
 # A replacement for cat
 # GitHub - sharkdp/bat: A cat(1) clone with wings.
 # (https://github.com/sharkdp/bat)
@@ -190,6 +197,13 @@ function installNetworkManager() {
   return 0
 }
 
+
+function installNitrogen() {
+
+  sudo dnf install nitrogen -y
+
+}
+
 function installPandoc() {
 
   sudo dnf install pandoc -y
@@ -274,3 +288,11 @@ function install_x11() {
   sudo dnf install xorg-x11-server-Xorg xorg-x11-xinit xorg-x11-xauth libX11 libXinerama libXrandr libXft xrdb xorg-x11-drv-vmware xrandr -y
 
 }
+
+# zoxide
+function installZoxide() {
+
+  sudo dnf install zoxide -y
+
+}
+
