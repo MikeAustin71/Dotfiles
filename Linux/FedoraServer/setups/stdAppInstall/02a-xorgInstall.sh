@@ -8,7 +8,6 @@ source "$MIKE_Setup_Utilities"/utilsAppInstall.sh
 # sudo dnf install awesome kitty krusader
 # picom rofi sxhkd dunst libnotify nitrogen
 # xrandr
-# https://github.com/MikeAustin71/Dotfiles.git
 install_x11 &&
 installVmwareTools &&
 installAlsaUtils &&

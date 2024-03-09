@@ -285,7 +285,7 @@ function installWget() {
 
 function install_x11() {
 
-  sudo dnf install xorg-x11-server-Xorg xorg-x11-xinit xorg-x11-xauth libX11 libXinerama libXrandr libXft xrdb xorg-x11-drv-vmware xrandr -y
+  sudo dnf install xorg-x11-server-Xorg xorg-x11-xinit xorg-x11-xauth libX11 libXinerama libXrandr libXft xrdb xorg-x11-drv-vmware xrandr xclip xsel -y
 
 }
 

@@ -9,3 +9,5 @@ export MIKE_VM_Scripts="$HOME/shares/HostVlMShared/fedora_server/final_productio
 export MIKE_Setup_Scripts="$HOME/bashOps/setups"
 
 export MIKE_Setup_Utilities="$HOME/bashOps/setups/utils"
+
+export MIKE_Git_Repos="$HOME/repos"

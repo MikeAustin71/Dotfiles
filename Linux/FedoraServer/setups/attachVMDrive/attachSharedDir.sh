@@ -9,7 +9,7 @@
 
 localShareDir="$HOME/shares"
 
-source "$MIKE_Setup_Scripts/utils/utilsLib.sh"
+source "$MIKE_Setup_Utilities"/utilsLib.sh
 
 
 
