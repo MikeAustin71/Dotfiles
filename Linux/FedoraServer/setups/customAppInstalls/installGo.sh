@@ -5,7 +5,7 @@
 app_Name="go"
 release_Ver="1.22.0"
 release_file="go$release_Ver.linux-amd64.tar.gz"
-downloadOpsDir="$HOME/scratch"
+downloadOpsDir="$MIKE_Scratch"
 archiveFile="$downloadOpsDir/$release_file"
 extractArchiveToDir="$downloadOpsDir/go"
 targetExeDir="/usr/local/go"

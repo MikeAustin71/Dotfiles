@@ -1,6 +1,6 @@
 # Mike's Environment Variables
 
-export MIKE_Scratch_t001="$HOME/scratch/t001"
+export MIKE_Scratch="$HOME/scratch"
 
 export MIKE_VMShared_Drive="$HOME/shares/HostVlMShared/"
 

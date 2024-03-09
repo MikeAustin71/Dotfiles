@@ -3,7 +3,7 @@
 #
 
 app_Name="broot"
-downloadOpsDir="$HOME/scratch"
+downloadOpsDir="$MIKE_Scratch"
 extractedBinaryFile="$downloadOpsDir/$app_Name"
 targetExeDir="/usr/local/bin"
 targetExeFile="$targetExeDir/$app_Name"
