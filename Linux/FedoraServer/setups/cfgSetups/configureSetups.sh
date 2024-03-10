@@ -140,6 +140,7 @@ function cfgPermissionsSetupsDir() {
     Top Level Setups Directory: $MIKE_Setup_Scripts\n
     Function: cfgPermissionsSetupsDir()\n
     Error Code: $errorCode\n\n"
+
     return $errorCode
   }
 
@@ -161,6 +162,7 @@ function cfgPermissionsSetupsDir() {
 		Top Level Setups Directory= $MIKE_Setup_Scripts\n
 		Function: cfgPermissionsSetupsDir()\n
 		Error Code: $errorCode\n\n"
+
 		return $errorCode
 	}
  
@@ -189,6 +191,7 @@ cfgOwnerSetupScriptsDirs() {
     Top Level Setups Directory: $MIKE_Setup_Scripts\n
     Function: cfgOwnerSetupScriptsDirs()\n
     Error Code: $errorCode\n\n"
+
     return $errorCode
   }
 
@@ -206,6 +209,7 @@ cfgOwnerSetupScriptsDirs() {
     Top Level Setups Directory: $MIKE_Setup_Scripts\n
     Function: cfgOwnerSetupScriptsDirs()\n
     Error Code: $errorCode\n\n"
+
     return $errorCode
   }
 
@@ -234,6 +238,7 @@ cfgOwnerSetupScriptsFiles() {
     Top Level Setups Directory: $MIKE_Setup_Scripts\n
     Function: cfgOwnerSetupScriptsFiles()\n
     Error Code: $errorCode\n\n"
+
     return $errorCode
   }
 
@@ -279,6 +284,7 @@ cfgPermissionsSetupScriptsDirs() {
     Top Level Setups Directory: $MIKE_Setup_Scripts\n
     Function: cfgPermissionsSetupScriptsDirs()\n
     Error Code: $errorCode\n\n"
+
     return $errorCode
   }
 
@@ -294,6 +300,7 @@ cfgPermissionsSetupScriptsDirs() {
 		Top Level Setups Directory= $MIKE_Setup_Scripts\n
 		Function: cfgPermissionsSetupScriptsDirs()\n
 		Error Code: $errorCode\n\n"
+
 		return $errorCode
 	}
 
