@@ -19,4 +19,5 @@ installKitty &&
 installKrusader &&
 installRofi &&
 installGrubCustomizer &&
+installNetworkManager &&
 successMsg "All Phase-2a Applications Installed."

@@ -169,28 +169,38 @@ function installNetworkManager() {
     'systemctl' was NOT executed.\n
     The service is NOT running.\n
     Error Code: $lastExitCode\n
-    Function: installNetworkManager()\n\n"; return "$lastExitCode"
+    Function: installNetworkManager()\n\n"
+
+    return "$lastExitCode"
   }
 
   systemctl start NetworkManager ||
   {
 
+    lastExitCode=$?
+
     echo -e "Error starting NetworkManager!\n
     'systemctl start' failed on execution.\n
     The service is NOT running.\n
     Error Code: $lastExitCode\n
-    Function: installNetworkManager()\n\n"; return "$lastExitCode"
+    Function: installNetworkManager()\n\n"
+
+    return "$lastExitCode"
 
   }
 
   systemctl enable NetworkManager  ||
   {
 
+    lastExitCode=$?
+
     echo -e "Error enabling NetworkManager!\n
     'systemctl enable' failed on execution.\n
     The service is running, but it is NOT enabled.\n
     Error Code: $lastExitCode\n
-    Function: installNetworkManager()\n\n"; return "$lastExitCode"
+    Function: installNetworkManager()\n\n"
+
+    return "$lastExitCode"
 
   }
 
