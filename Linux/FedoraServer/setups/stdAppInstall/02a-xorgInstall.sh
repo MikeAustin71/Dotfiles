@@ -18,4 +18,5 @@ installAwesomeWM &&
 installKitty &&
 installKrusader &&
 installRofi &&
+installGrubCustomizer &&
 successMsg "All Phase-2a Applications Installed."
