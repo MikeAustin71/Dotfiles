@@ -19,13 +19,10 @@ declare DOTFILES_setups="$HOME"/repos/Dotfiles/Linux/FedoraServer/setups
 declare GITREPO_setups="https://github.com/MikeAustin71/Dotfiles.git"
 
 
-declare HOME_bashOps="$HOME"/bashOps
-
-
-cd "$HOME_bashOps" ||
+cd "$MIKE_BashOps" ||
 {
 
-  mkdir -m 775 "$HOME_bashOps" ||
+  mkdir -m 775 "$MIKE_BashOps" ||
   {
 
     errorExitCode=$?
@@ -83,7 +80,21 @@ cd "$DOTFILES_fedora" ||
 
 }
 
-cp -vfr "$DOTFILES_setups"/* "$HOME_bashOps" ||
+if [[ -d $MIKE_Setup_Scripts ]]
+then
+
+  rm -rf "${MIKE_Setup_Scripts:?}/"* ||
+  {
+
+    echo -e "*** ERROR ***\n
+    Attempted removal of pre-existing scripts\n
+    directory failed!\n
+    Target Scripts Directory: "
+  }
+
+fi
+
+cp -vfr "$DOTFILES_setups"/* "$MIKE_BashOps" ||
 {
 
   errorExitCode=$?
@@ -94,7 +105,7 @@ cp -vfr "$DOTFILES_setups"/* "$HOME_bashOps" ||
   Source Git Repo Dot Files Setups Directory=\n
   $GITREPO_setups\n
   Destination 'bashOps' Directory=\n
-  $HOME_bashOps
+  $MIKE_BashOps
   Script= copyDotFilesToSetups.sh\n
   Error Code= $errorExitCode\n\n"
 

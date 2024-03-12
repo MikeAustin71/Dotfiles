@@ -675,6 +675,19 @@ function removeDir() {
 
 	targetDir=$(relpath "$paramDir")
 
+  if [[ -z $targetDir ]]
+  then
+
+    echo -e "*** ERROR ***\n
+    Input parameter #1, the target\n
+    directory is EMPTY!\n
+		 Target Director: $targetDir\n
+		 Function: removeDir()\n\n"
+
+    return 28
+
+  fi
+
 	if [[ $targetDir == "/" ]]
 	then
 
@@ -699,7 +712,7 @@ function removeDir() {
 
 	fi
 
-	sudo rm -r "$targetDir"/* ||
+	sudo rm -rf "${targetDir:?}/"* ||
     {
       echo -e "Error occurred while deleting all files in Target Directory Tree.\n
       Target Directory: $targetDir\n
@@ -791,6 +804,19 @@ function zapAllFilesInDir() {
 	local targetDir
 
 	targetDir=$(relpath "$paramDir")
+
+  if [[ -z $targetDir ]]
+  then
+
+    echo -e "*** ERROR ***\n
+    Input parameter #1, the target\n
+    directory is EMPTY!\n
+		 Target Director: $targetDir\n
+		 Function: removeDir()\n\n"
+
+    return 18
+
+  fi
 
 	if [[ $targetDir == "/" ]]
 	then
