@@ -86,15 +86,39 @@ then
   rm -rf "${MIKE_Setup_Scripts:?}/"* ||
   {
 
+    errorExitCode=$?
+
+    echo -e "*** ERROR ***\n
+    Attempted removal of pre-existing scripts\n
+    files failed!\n
+    Target Files in Scripts Directory:\n
+    $MIKE_Setup_Scripts\n
+    Script= copyDotFilesToSetups.sh\n
+    Error Code= $errorExitCode\n\n"
+
+    exit $errorExitCode
+
+ }
+
+ rmdir "$MIKE_Setup_Scripts" ||
+ {
+
+    errorExitCode=$?
+
     echo -e "*** ERROR ***\n
     Attempted removal of pre-existing scripts\n
     directory failed!\n
-    Target Scripts Directory: "
-  }
+    Target Scripts Directory: $MIKE_Setup_Scripts\n
+    Script= copyDotFilesToSetups.sh\n
+    Error Code= $errorExitCode\n\n"
+
+    exit $errorExitCode
+
+ }
 
 fi
 
-cp -vfr "$DOTFILES_setups"/* "$MIKE_BashOps" ||
+cp -vfr "${DOTFILES_setups:?}/"* "$MIKE_BashOps" ||
 {
 
   errorExitCode=$?
@@ -105,7 +129,7 @@ cp -vfr "$DOTFILES_setups"/* "$MIKE_BashOps" ||
   Source Git Repo Dot Files Setups Directory=\n
   $GITREPO_setups\n
   Destination 'bashOps' Directory=\n
-  $MIKE_BashOps
+  $MIKE_BashOps\n
   Script= copyDotFilesToSetups.sh\n
   Error Code= $errorExitCode\n\n"
 
