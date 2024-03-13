@@ -6,7 +6,7 @@
 
 sourceWallpaperDir="$MIKE_VMShared_Drive/wallpaper"
 
-targetWallpaperDir="/usr/share/backgrounds"
+targetWallpaperDir="$MIKE_Wallpaper_Directory"
 
 source "$MIKE_Setup_Scripts/utils/utilsLib.sh"
 

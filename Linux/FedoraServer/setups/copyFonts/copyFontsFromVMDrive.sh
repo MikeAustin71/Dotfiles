@@ -5,9 +5,9 @@
 
 sourceFontsDir="$MIKE_VMShared_Drive/fonts"
 
-targetFontsDir="$HOME/local/share/fonts"
+targetFontsDir="$MIKE_Fonts_Directory"
 
-source "$MIKE_Setup_Scripts/utils/utilsLib.sh"
+source "$MIKE_Setup_Scripts"/utils/utilsLib.sh
 
 copyFontsToLocal() {
 
