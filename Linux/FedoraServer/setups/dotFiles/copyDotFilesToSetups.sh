@@ -12,11 +12,9 @@
 
 declare -i errorExitCode=0
 
-declare DOTFILES_fedora="$HOME"/repos/Dotfiles/Linux/FedoraServer
+declare DOTFILES_fedora="$MIKE_DotFiles_Repo"/Linux/FedoraServer
 
-declare DOTFILES_setups="$HOME"/repos/Dotfiles/Linux/FedoraServer/setups
-
-declare GITREPO_setups="https://github.com/MikeAustin71/Dotfiles.git"
+declare DOTFILES_setups="$MIKE_DotFiles_Repo"/Linux/FedoraServer/setups
 
 
 cd "$MIKE_BashOps" ||
@@ -72,7 +70,7 @@ cd "$DOTFILES_fedora" ||
     Files Repository has NOT been properly cloned!\n
     Local Dot Files Parent Directory= $DOTFILES_fedora\n
     Target Git Repository=\n
-    $GITREPO_setups\n
+    $MIKE_GitRepo_DotFiles\n
     Script= copyDotFilesToSetups.sh\n
     Error Code= $errorExitCode\n\n"
 
@@ -83,7 +81,7 @@ cd "$DOTFILES_fedora" ||
 if [[ -d $MIKE_Setup_Scripts ]]
 then
 
-  rm -rf "${MIKE_Setup_Scripts:?}/"* ||
+  sudo rm -rf "${MIKE_Setup_Scripts:?}" ||
   {
 
     errorExitCode=$?
@@ -100,21 +98,6 @@ then
 
  }
 
- rmdir "$MIKE_Setup_Scripts" ||
- {
-
-    errorExitCode=$?
-
-    echo -e "*** ERROR ***\n
-    Attempted removal of pre-existing scripts\n
-    directory failed!\n
-    Target Scripts Directory: $MIKE_Setup_Scripts\n
-    Script= copyDotFilesToSetups.sh\n
-    Error Code= $errorExitCode\n\n"
-
-    exit $errorExitCode
-
- }
 
 fi
 

@@ -17,3 +17,7 @@ export MIKE_Setup_Scripts="$HOME/bashOps/setups"
 export MIKE_Setup_Utilities="$HOME/bashOps/setups/utils"
 
 export MIKE_Git_Repos="$HOME/repos"
+
+export MIKE_DotFiles_Repo="$HOME/repos/Dotfiles"
+
+export MIKE_GitRepo_DotFiles="https://github.com/MikeAustin71/Dotfiles.git"
