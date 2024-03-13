@@ -28,14 +28,21 @@ copyWallpaperGlobal() {
     echo "ERROR - Target Wallpaper Directory DOES NOT EXIST!"
     echo "Target Wallpaper Directory: $targetWallpaperDir"
     echo "Function: copyWallpaperGlobal()"
-    return 41
+    return 42
 
   }
 
-  cp -v -R "$sourceWallpaperDir"/* "$targetWallpaperDir" ||
+  sudo cp -v -R "$sourceWallpaperDir"/* "$targetWallpaperDir" ||
   {
 
-    return
+    echo "   ***  ERROR  ***"
+    echo "Attempt to copy wallpapers from source"
+    echo "to destination, FAILED!"
+    echo "Source Wallpaper Directory: $sourceWallpaperDir"
+    echo "Target Wallpaper Directory: $targetWallpaperDir"
+    echo "Function: copyWallpaperFromVMDrive()"
+
+    return 43
   }
 
   ls "$targetWallpaperDir"
