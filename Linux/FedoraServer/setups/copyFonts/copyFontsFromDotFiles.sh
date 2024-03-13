@@ -2,11 +2,13 @@
 # Copy Fonts to standard Fonts Directory
 # from VM Shared Drive Fonts Directory
 
+
 source "$MIKE_Setup_Scripts"/utils/utilsLib.sh
 
-copyFontsVM() {
 
-  local sourceFontsDir="$MIKE_VMShared_Drive/fonts"
+copyDotFilesFonts() {
+
+  local sourceFontsDir="$MIKE_DotFiles_Repo"/Linux/Fonts
 
   local targetFontsDir="$MIKE_Fonts_Directory"
 
@@ -15,8 +17,8 @@ copyFontsVM() {
 
     echo "  ***  ERROR  ***"
     echo "Source Fonts Directory Parameter is EMPTY!"
-    echo "Function: copyFontsVM()"
-    return 91
+    echo "Function: copyDotFilesFonts()"
+    return 111
 
   fi
 
@@ -25,8 +27,8 @@ copyFontsVM() {
 
     echo "  ***  ERROR  ***"
     echo "Target Fonts Directory Parameter is EMPTY!"
-    echo "Function: copyFontsVM()"
-    return 92
+    echo "Function: copyDotFilesFonts()"
+    return 112
 
   fi
 
@@ -41,14 +43,15 @@ copyFontsVM() {
     echo "Attempt to copy fonts from source"
     echo "VM Directory to Target Fonts Directory"
     echo "FAILED! Error Code= $errorCode"
-    echo "Function: copyFontsVM()"
+    echo "Function: copyDotFilesFonts()"
 
     return $errorCode
 
     }
 
   return 0
-}
+ }
+
 
 registerFonts() {
 
@@ -74,7 +77,8 @@ listFonts() {
   fc-list | awk '{print $1}'
 }
 
+
 makeDirIfNotExist "$targetFontsDir" "777" "" &&
-copyFontsVM &&
+copyDotFilesFonts &&
 listFonts &&
-successMsg "All Fonts Copied to Destination."
+successMsg "All Dot File Fonts Copied to Destination."
