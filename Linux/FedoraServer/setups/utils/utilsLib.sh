@@ -493,17 +493,27 @@ function makeDirIfNotExist() {
 
 	local dirOwner=$3
 
+  if [[ -z $targetDir ]]
+  then
+
+    echo "  ***  ERROR  ***"
+    echo "Target Directory Parameter is EMPTY!"
+    echo "Function: makeDirIfNotExist()"
+    return 51
+
+  fi
+
 	if [ -d "$targetDir" ]
 	then
 
 		echo -e "Target Directory $targetDir previously existed!\n\n"
 
-		return 0
+		return 52
 
 	fi
 
 
-  if [[ -n $dirOwner ]]
+  if [[ -z $dirOwner ]]
   then
 
     dirOwner=$(whoami)
