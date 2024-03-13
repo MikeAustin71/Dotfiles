@@ -10,14 +10,34 @@ targetWallpaperDir="$MIKE_Wallpaper_Directory"
 
 source "$MIKE_Setup_Scripts/utils/utilsLib.sh"
 
-copyWallpaperGlobal() {
+copyWallpaperVMDrive() {
+
+  if [[ -z $sourceWallpaperDir ]]
+  then
+
+    echo "  ***  ERROR  ***"
+    echo "Source Wallpaper Directory Parameter is EMPTY!"
+    echo "Function: copyWallpaperVMDrive()"
+    return 39
+
+  fi
+
+  if [[ -z $targetWallpaperDir ]]
+  then
+
+    echo "  ***  ERROR  ***"
+    echo "Target Wallpaper Directory Parameter is EMPTY!"
+    echo "Function: copyWallpaperVMDrive()"
+    return 40
+
+  fi
 
   doesDirectoryExist "$sourceWallpaperDir" ||
   {
 
     echo "ERROR - Source Wallpaper Directory DOES NOT EXIST!"
     echo "Source Wallpaper Directory: $sourceWallpaperDir"
-    echo "Function: copyWallpaperGlobal()"
+    echo "Function: copyWallpaperVMDrive()"
     return 41
 
   }
@@ -27,7 +47,7 @@ copyWallpaperGlobal() {
 
     echo "ERROR - Target Wallpaper Directory DOES NOT EXIST!"
     echo "Target Wallpaper Directory: $targetWallpaperDir"
-    echo "Function: copyWallpaperGlobal()"
+    echo "Function: copyWallpaperVMDrive()"
     return 42
 
   }
@@ -51,5 +71,5 @@ copyWallpaperGlobal() {
 }
 
 makeDirIfNotExist "$targetWallpaperDir" "777" "sudo" &&
-copyWallpaperGlobal &&
+copyWallpaperVMDrive &&
 successMsg "All Wallpapers Copied to Destination."
