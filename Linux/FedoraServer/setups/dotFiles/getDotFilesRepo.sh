@@ -5,12 +5,32 @@
 # https://github.com/MikeAustin71/Dotfiles.git
 #
 
+if [[ -z $MIKE_Git_Repos ]]
+then
+
+  echo "  ***  ERROR  ***"
+  echo "MIKE_Git_Repos Environment Variable is EMPTY!"
+  echo "Script= getDotFilesRepo.sh"
+  return 156
+
+fi
+
+if [[ -z $MIKE_GitRepo_DotFiles ]]
+then
+
+  echo "  ***  ERROR  ***"
+  echo "MIKE_GitRepo_DotFiles Environment Variable is EMPTY!"
+  echo "Script= getDotFilesRepo.sh"
+  return 156
+
+fi
+
 declare -i errorExitCode=0
 
-cd "$HOME"/repos ||
+cd "$MIKE_Git_Repos" ||
 {
 
-  mkdir -m 775 "$HOME"/repos ||
+  mkdir -m 775 "$MIKE_Git_Repos" ||
   {
 
     errorExitCode=$?
@@ -26,7 +46,7 @@ cd "$HOME"/repos ||
 
   }
 
-  cd "$HOME"/repos ||
+  cd "$MIKE_Git_Repos" ||
   {
 
     errorExitCode=$?
@@ -44,7 +64,7 @@ cd "$HOME"/repos ||
 
 }
 
-git clone https://github.com/MikeAustin71/Dotfiles.git ||
+git clone "$MIKE_GitRepo_DotFiles" ||
 {
 
     errorExitCode=$?
@@ -52,7 +72,7 @@ git clone https://github.com/MikeAustin71/Dotfiles.git ||
     echo -e "*** ERROR ***\n
     An error occurred while cloning the dotfiles\n
     repository:\n
-    https://github.com/MikeAustin71/Dotfiles.git\n
+    $MIKE_GitRepo_DotFiles\n
     Script= getDotFilesRepo.sh\n
     Error Code= $errorExitCode\n\n"
 
