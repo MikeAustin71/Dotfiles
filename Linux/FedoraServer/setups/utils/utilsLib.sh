@@ -647,9 +647,10 @@ function moveDirFiles() {
 	return 0
 }
 
-# This function will delete all files in the
-# designated tree before removing all directories
-# in the directory tree.
+# This function will delete all files and directories
+# in the designated tree.
+#
+#   BE CAREFUL
 #
 #	Input Parameters:
 #		$1 = target directory
@@ -712,7 +713,7 @@ function removeDir() {
 
 	fi
 
-	sudo rm -rf "${targetDir:?}/"* ||
+	sudo rm -rf "${targetDir:?}" ||
     {
       echo -e "Error occurred while deleting all files in Target Directory Tree.\n
       Target Directory: $targetDir\n
@@ -720,14 +721,6 @@ function removeDir() {
       Error Code: $?"
       return 27
     }
-
-	sudo rmdir "$targetDir" ||
-	{
-		echo -e "Error occurred while deleting Directory: $targetDir\n
-		Function: removeDir()\n
-		Error Code: $?\n\n"
-		return 26
-	}
 
 	if [[ -d $targetDir ]]
 	then
@@ -737,7 +730,7 @@ function removeDir() {
 		Attempted deletion of $targetDir FAILED!\n
 		Target Directory: $targetDir\n
 		Function: removeDir()\n\n"
-		return 25
+		return 26
 
 	else
 
