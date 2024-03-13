@@ -4,11 +4,11 @@
 
 source "$MIKE_Setup_Scripts"/utils/utilsLib.sh
 
+  sourceFontsDir="$MIKE_VMShared_Drive/fonts"
+
+  targetFontsDir="$MIKE_Fonts_Directory"
+
 copyFontsVM() {
-
-  local sourceFontsDir="$MIKE_VMShared_Drive/fonts"
-
-  local targetFontsDir="$MIKE_Fonts_Directory"
 
   if [[ -z $sourceFontsDir ]]
   then

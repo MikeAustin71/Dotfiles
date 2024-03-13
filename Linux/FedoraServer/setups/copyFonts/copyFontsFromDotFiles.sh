@@ -6,11 +6,12 @@
 source "$MIKE_Setup_Scripts"/utils/utilsLib.sh
 
 
+sourceFontsDir="$MIKE_DotFiles_Repo"/Linux/Fonts
+
+targetFontsDir="$MIKE_Fonts_Directory"
+
+
 copyDotFilesFonts() {
-
-  local sourceFontsDir="$MIKE_DotFiles_Repo"/Linux/Fonts
-
-  local targetFontsDir="$MIKE_Fonts_Directory"
 
   if [[ -z $sourceFontsDir ]]
   then
