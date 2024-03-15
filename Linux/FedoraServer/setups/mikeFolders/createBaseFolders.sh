@@ -6,7 +6,8 @@
 source "$MIKE_Setup_Scripts/utils/utilsLib.sh"
 
 makeDirIfNotExist "$HOME/.config" "776" "" &&
-makeDirIfNotExist "$HOME/.local" "776" "" &&
+makeDirIfNotExist "$HOME/.local" "775" "" &&
+makeDirIfNotExist "$HOME/.local/bin" "775" "" &&
 makeDirIfNotExist "$HOME/bashOps/scripts" "775" "" &&
 makeDirIfNotExist "$HOME/bashOps/setups" "775" "" &&
 makeDirIfNotExist "$HOME/cheatSheets" "775" "" &&

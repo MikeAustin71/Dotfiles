@@ -1,6 +1,8 @@
+# Mike's Aliases
 
+alias upgrade="sudo dnf update -y && sudo dnf upgrade -y"
 
-alias aliases="cat ~/.bash_aliases"
+alias aliases="cat ~/.config/aliases/.aliases"
 
 alias ls='eza -alF --color=always --sort=size | grep -v /'
 
@@ -17,3 +19,7 @@ alias lt='eza -al --sort=modified'
 alias cls="clear"
 
 alias CLS="clear"
+
+# alias tree="broot"
+
+# alias rm="trash-put -iv"

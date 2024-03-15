@@ -1,12 +1,27 @@
 # Mike's Environment Variables
 
+
+export XDG_CONFIG_HOME="$HOME/.config"
+
+export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
+
+export XDG_CONFIG_HOME="$HOME/.config"
+
+export XDG_DATA_HOME="$XDG_CONFIG_HOME/.local/share"
+
+export XDG_CACHE_HOME="$XDG_CONFIG_HOME/cache"
+
+export EDITOR="micro"
+
+export VISUAL="micro"
+
 export MIKE_Scratch="$HOME/scratch"
 
 export MIKE_VMShared_Drive="$HOME/shares/HostVlMShared/"
 
 export MIKE_VM_Scripts="$HOME/shares/HostVlMShared/fedora_server/final_production/setupScripts/"
 
-export MIKE_Fonts_Directory="$HOME"/local/share/fonts
+export MIKE_Fonts_Directory="$HOME"/.local/share/fonts
 
 export MIKE_Wallpaper_Directory=/usr/share/backgrounds
 
@@ -21,3 +36,4 @@ export MIKE_Git_Repos="$HOME/repos"
 export MIKE_DotFiles_Repo="$HOME/repos/Dotfiles"
 
 export MIKE_GitRepo_DotFiles="https://github.com/MikeAustin71/Dotfiles.git"
+
