@@ -23,4 +23,9 @@ if [ -d "$HOME/.local/bin" ] ;
   then PATH="$HOME/.local/bin:$PATH"
 fi
 
+source $HOME/.config/zsh/aliases/aliases.txt
 
+# You may need to manually set your language environment
+export LANG=en_US.UTF-8
+
+neofetch
