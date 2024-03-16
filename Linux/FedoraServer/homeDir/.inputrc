@@ -22,8 +22,8 @@ set completion-query-items 1000
 # bind '"\e[24~":"foobar"'
 
 # Command history search
-# "\e[A": history-search-backward
-# "\e[B": history-search-forward
+"\e[A": history-search-backward # Up Arrow
+"\e[B": history-search-forward # Down Arrow
 
 # Move forward/backward by word
 # "\e[1;5D": backward-word
@@ -31,4 +31,6 @@ set completion-query-items 1000
 
 
 # Bash Keybindings
-"\C-h":"cd ~\n" # Ctrl+H
+"\C-h":"cd ~\n" # Ctrl+H Go Home
+"\C-b":"cd ..\n" # Ctrl+B Move Up 1-Dir level
+"\es": "\C-asudo \C-e" # Alt+S prepend sudo
