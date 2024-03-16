@@ -1,0 +1,34 @@
+# Taken from Jake@Linux
+# https://github.com/jdpedersen1/dotfiles/blob/master/.inputrc
+
+
+# Prettyfi
+set colored-stats On
+set colored-completion-prefix On
+
+# Completion settings
+set show-all-if-ambiguous on
+set completion-ignore-case on
+set completion-display-width 0
+set completion-query-items 1000
+
+# ^C no longer shows on C-c keypress
+#set echo-control-characters off
+
+# \e denotes a Function Key Sequence
+# Type Function Key at terminal to
+# get key sequence.
+# Example F12 = \e[24~
+# bind '"\e[24~":"foobar"'
+
+# Command history search
+# "\e[A": history-search-backward
+# "\e[B": history-search-forward
+
+# Move forward/backward by word
+# "\e[1;5D": backward-word
+# "\e[1;5C": forward-word
+
+
+# Bash Keybindings
+"\C-h":"cd ~\n" # Ctrl+H
