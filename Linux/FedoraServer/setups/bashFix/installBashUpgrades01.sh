@@ -1,3 +1,7 @@
 #!/bin/bash
-#  Make Initial Directory Structure
 
+
+# Adding standard aliases
+if [ -f "$XDG_CONFIG_ALIASES/aliases.txt" ]; then
+   . "$XDG_CONFIG_ALIASES/aliases.txt"
+fi

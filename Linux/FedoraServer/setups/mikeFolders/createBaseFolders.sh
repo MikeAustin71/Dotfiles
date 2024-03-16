@@ -6,6 +6,7 @@
 source "$MIKE_Setup_Scripts/utils/utilsLib.sh"
 
 makeDirIfNotExist "$XDG_CONFIG_HOME" "775" "" &&
+makeDirIfNotExist "$XDG_CONFIG_ALIASES" "775" "" &&
 makeDirIfNotExist "$XDG_LOCAL_HOME" "775" "" &&
 makeDirIfNotExist "$XDG_BIN_HOME" "775" "" &&
 makeDirIfNotExist "$XDG_CACHE_HOME" "775" "" &&

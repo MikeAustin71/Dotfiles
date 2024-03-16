@@ -6,6 +6,8 @@ export VISUAL="micro"
 
 export XDG_CONFIG_HOME="$HOME/.config"
 
+export XDG_CONFIG_ALIASES="$XDG_CONFIG_HOME/aliases"
+
 export XDG_LOCAL_HOME="$HOME/.local"
 
 export XDG_SHARE_HOME="$XDG_LOCAL_HOME/share"
