@@ -23,3 +23,7 @@ alias CLS="clear"
 # alias tree="broot"
 
 # alias rm="trash-put -iv"
+
+# Zsh Directory Stack
+alias d='dirs -v'
+for index ({1..9}) alias "$index"="cd +${index}"; unset index

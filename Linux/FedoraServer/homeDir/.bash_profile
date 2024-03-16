@@ -1,19 +1,18 @@
 # Mike's Environment Variables
 
-
-export XDG_CONFIG_HOME="$HOME/.config"
-
-export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
-
-export XDG_CONFIG_HOME="$HOME/.config"
-
-export XDG_DATA_HOME="$XDG_CONFIG_HOME/.local/share"
-
-export XDG_CACHE_HOME="$XDG_CONFIG_HOME/cache"
-
 export EDITOR="micro"
 
 export VISUAL="micro"
+
+export XDG_CONFIG_HOME="$HOME/.config"
+
+export XDG_LOCAL_HOME="$HOME/.local"
+
+export XDG_SHARE_HOME="$XDG_LOCAL_HOME/share"
+
+export XDG_BIN_HOME="$XDG_LOCAL_HOME/bin"
+
+export XDG_CACHE_HOME="$XDG_LOCAL_HOME/cache"
 
 export MIKE_Scratch="$HOME/scratch"
 
@@ -21,7 +20,7 @@ export MIKE_VMShared_Drive="$HOME/shares/HostVlMShared/"
 
 export MIKE_VM_Scripts="$HOME/shares/HostVlMShared/fedora_server/final_production/setupScripts/"
 
-export MIKE_Fonts_Directory="$HOME"/.local/share/fonts
+export MIKE_Fonts_Directory="$XDG_DATA_HOME/fonts"
 
 export MIKE_Wallpaper_Directory=/usr/share/backgrounds
 
