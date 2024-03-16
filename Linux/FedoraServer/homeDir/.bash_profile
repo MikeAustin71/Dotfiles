@@ -16,6 +16,12 @@ export XDG_BIN_HOME="$XDG_LOCAL_HOME/bin"
 
 export XDG_CACHE_HOME="$XDG_LOCAL_HOME/cache"
 
+export XDG_LOCAL_STARSHIP="$XDG_LOCAL_HOME\starship"
+
+export STARSHIP_CONFIG="$XDG_LOCAL_STARSHIP/starship.toml"
+
+export STARSHIP_CACHE="XDG_CACHE_HOME/.starship/cache"
+
 export MIKE_Scratch="$HOME/scratch"
 
 export MIKE_VMShared_Drive="$HOME/shares/HostVlMShared/"

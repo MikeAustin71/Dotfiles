@@ -11,6 +11,8 @@ makeDirIfNotExist "$XDG_LOCAL_HOME" "775" "" &&
 makeDirIfNotExist "$XDG_BIN_HOME" "775" "" &&
 makeDirIfNotExist "$XDG_CACHE_HOME" "775" "" &&
 makeDirIfNotExist "$XDG_SHARE_HOME" "775" "" &&
+makeDirIfNotExist "$XDG_LOCAL_STARSHIP" "775" "" &&
+makeDirIfNotExist "$STARSHIP_CACHE" "775" "" &&
 makeDirIfNotExist "$MIKE_BashOps/scripts" "775" "" &&
 makeDirIfNotExist "$MIKE_BashOps/setups" "775" "" &&
 makeDirIfNotExist "$HOME/cheatSheets" "775" "" &&
