@@ -1,5 +1,5 @@
 #!/bin/bash
-# Downloads Latest Release of 'dust'
+# Downloads and Installs Latest Release of 'dust'
 #
 
 app_Name="dust"
