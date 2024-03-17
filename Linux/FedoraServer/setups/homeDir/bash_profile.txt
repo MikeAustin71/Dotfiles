@@ -10,7 +10,9 @@ export XDG_CONFIG_ALIASES="$XDG_CONFIG_HOME/aliases"
 
 export XDG_LOCAL_HOME="$HOME/.local"
 
-export XDG_SHARE_HOME="$XDG_LOCAL_HOME/share"
+export XDG_SHARE_DATA="$XDG_LOCAL_HOME/share"
+
+export XDG_DATA_FONTS="$XDG_SHARE_DATA/fonts"
 
 export XDG_BIN_HOME="$XDG_LOCAL_HOME/bin"
 

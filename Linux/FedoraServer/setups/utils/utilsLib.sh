@@ -516,7 +516,7 @@ function makeDirIfNotExist() {
   if [[ -z $dirOwner ]]
   then
 
-    dirOwner=$(whoami)
+    dirOwner="$(whoami)"
 
   fi
 
