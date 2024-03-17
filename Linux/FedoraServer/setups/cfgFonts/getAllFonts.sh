@@ -6,14 +6,123 @@ declare NerdFontReleaseVer="v3.1.1"
 
 source "$MIKE_Setup_Scripts/utils/utilsLib.sh"
 
-declare CURR_FONT_NAME="3270"
+source "$MIKE_Setup_Scripts/utils/utilsAppInstall.sh"
 
-makeDirIfNotExist "$XDG_DATA_FONTS/$CURR_FONT_NAME" 775 ""
+declare -a fontNames
 
-changeToDir "$XDG_DATA_FONTS/$CURR_FONT_NAME"
+declare -i fontErrCode=0
 
-curl -fLo "$CURR_FONT_NAME.zip" "https://github.com/ryanoasis/nerd-fonts/releases/download/$NerdFontReleaseVer/$CURR_FONT_NAME.zip"
+fontNames[0]="CodeNewRoman"
 
-unzip "$CURR_FONT_NAME.zip"
+fontNames[1]="DejaVuSansMono"
 
-rm "$CURR_FONT_NAME.zip"
+fontNames[2]="FiraCode"
+
+fontNames[3]="FiraMono"
+
+fontNames[4]="Go-Mono"
+
+fontNames[5]="Hack"
+
+fontNames[6]="HeavyData"
+
+fontNames[7]="InconsolataGo"
+
+fontNames[8]="Iosevka"
+
+fontNames[9]="IosevkaTerm"
+
+fontNames[10]="JetBrainsMono"
+
+fontNames[11]="Meslo"
+
+fontNames[12]="Mononoki"
+
+fontNames[13]="Noto"
+
+fontNames[14]="RobotoMono"
+
+fontNames[14]="SourceCodePro"
+
+fontNames[14]="SpaceMono"
+
+fontNames[14]="Terminus"
+
+declare currFontName=""
+
+for currFontName in "${fontNames[@]}"
+do
+
+    if [[ -d "$XDG_DATA_FONTS/$currFontName" ]]
+    then
+        zapFilesCmd "$XDG_DATA_FONTS/$currFontName/*" "-rf" "sudo"
+    else
+
+        makeDirIfNotExist "$XDG_DATA_FONTS/$currFontName" 775 "" ||
+        {
+          fontErrCode=$?
+          echo "*** ERROR ***"
+          echo "makeDirIfNotExist() FAILED!"
+          echo "Script Name: getAllFonts.sh"
+          exit $fontErrCode
+        }
+
+    fi
+
+    changeToDir "$XDG_DATA_FONTS/$currFontName" ||
+    {
+          fontErrCode=$?
+          echo "*** ERROR ***"
+          echo "changeToDir() FAILED!"
+          echo "Script Name: getAllFonts.sh"
+          exit $fontErrCode
+
+    }
+
+    curl -fLo "$currFontName.zip" "https://github.com/ryanoasis/nerd-fonts/releases/download/$NerdFontReleaseVer/$currFontName.zip"
+
+    if [ ! -f "$XDG_DATA_FONTS/$currFontName/$currFontName.zip" ]
+    then
+
+            echo "*** ERROR ***"
+            echo "Font File Failed to Download!"
+            echo "Font File= $XDG_DATA_FONTS/$currFontName/$currFontName.zip"
+            echo "Script Name: getAllFonts.sh"
+            exit 99
+    fi
+
+    unzip "$XDG_DATA_FONTS/$currFontName/$currFontName.zip" ||
+    {
+      fontErrCode=$?
+      echo "*** ERROR ***"
+      echo "'unzip' fonts file FAILED!"
+      echo "Font File= $XDG_DATA_FONTS/$currFontName/$currFontName.zip"
+      echo "Script Name: getAllFonts.sh"
+      exit $fontErrCode
+    }
+
+    rm "$XDG_DATA_FONTS/$currFontName/$currFontName.zip"
+
+    echo "Successfully Downloaded Font $currFontName"
+
+done
+
+installFontAwesome ||
+{
+    fontErrCode=$?
+    echo "*** ERROR ***"
+    echo "installFontAwesome() FAILED!"
+    echo "Script Name: getAllFonts.sh"
+    exit $fontErrCode
+}
+
+installFontTerminus ||
+{
+    fontErrCode=$?
+    echo "*** ERROR ***"
+    echo "installFontTerminus() FAILED!"
+    echo "Script Name: getAllFonts.sh"
+    exit $fontErrCode
+}
+
+exit 0

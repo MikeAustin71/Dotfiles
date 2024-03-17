@@ -108,6 +108,12 @@ function installFontAwesome() {
 
 }
 
+function installFontTerminus() {
+
+  sudo dnf install terminus-fonts -y
+
+}
+
 function installFuzzyFinder() {
 
   sudo dnf install fzf -y
