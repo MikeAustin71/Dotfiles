@@ -41,7 +41,7 @@ then
 
    fi
 
-   cat "$MIKE_Setup_Scripts/bashFix/installBashUpgrades02.txt" >> "$HOME/.bashrc" ||
+   cat "$MIKE_Setup_Scripts/bashBashrc/installBashUpgrades02.txt" >> "$HOME/.bashrc" ||
    {
        errExitCode=$?
 
