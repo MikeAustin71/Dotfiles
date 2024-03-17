@@ -26,9 +26,33 @@ then
    if [[ ! -f "$HOME/.bashrc" ]]
    then
      touch "$HOME/.bashrc"
+
+     chmod 775 "$HOME/.bashrc" ||
+     {
+        errExitCode=$?
+
+        echo "*** ERROR ***"
+        echo "chmod Failed to set 775 on .bashrc"
+        echo "Error Code= $errExitCode"
+        echo "Script: installStarship.sh"
+        echo ""
+        exit $errExitCode
+    }
+
    fi
 
-   cat "$MIKE_Setup_Scripts/bashFix/installBashUpgrades02.txt" >> "$HOME/.bashrc"
+   cat "$MIKE_Setup_Scripts/bashFix/installBashUpgrades02.txt" >> "$HOME/.bashrc" ||
+   {
+       errExitCode=$?
+
+        echo "*** ERROR ***"
+        echo "'cat' Failed to transfer text to .bashrc"
+        echo "Error Code= $errExitCode"
+        echo "Script: installStarship.sh"
+        echo ""
+        exit $errExitCode
+   }
+
 fi
 
 read -p "Configure default starship.toml file? (Y/n) " -n 1 -r
