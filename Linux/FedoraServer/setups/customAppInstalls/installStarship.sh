@@ -23,8 +23,22 @@ echo    # (optional) move to a new line
 if [[ $REPLY =~ ^[Yy]$ ]]
 then
 
-   if [[ ! -f "$HOME/.bashrc" ]]
-   then
+
+  if [ ! -f "$MIKE_Setup_Scripts/cfgBashrc/installBashUpgrades02.txt" ]
+  then
+
+        echo "*** ERROR ***"
+        echo "Source Starship .bashrc code is MISSING!"
+        echo "Missing File: $MIKE_Setup_Scripts/cfgBashrc/installBashUpgrades02.txt"
+        echo "Script: installStarship.sh"
+        echo ""
+        exit 99
+
+  fi
+
+
+  if [[ ! -f "$HOME/.bashrc" ]]
+  then
      touch "$HOME/.bashrc"
 
      chmod 775 "$HOME/.bashrc" ||
@@ -39,19 +53,19 @@ then
         exit $errExitCode
     }
 
-   fi
+  fi
 
-   cat "$MIKE_Setup_Scripts/bashBashrc/installBashUpgrades02.txt" >> "$HOME/.bashrc" ||
-   {
-       errExitCode=$?
+  cat "$MIKE_Setup_Scripts/cfgBashrc/installBashUpgrades02.txt" >> "$HOME/.bashrc" ||
+  {
+     errExitCode=$?
 
-        echo "*** ERROR ***"
-        echo "'cat' Failed to transfer text to .bashrc"
-        echo "Error Code= $errExitCode"
-        echo "Script: installStarship.sh"
-        echo ""
-        exit $errExitCode
-   }
+      echo "*** ERROR ***"
+      echo "'cat' Failed to transfer text to .bashrc"
+      echo "Error Code= $errExitCode"
+      echo "Script: installStarship.sh"
+      echo ""
+      exit $errExitCode
+  }
 
 fi
 

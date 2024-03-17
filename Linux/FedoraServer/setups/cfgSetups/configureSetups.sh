@@ -15,13 +15,26 @@
 # Permissions for all files in the setup
 # directory tree will be configured.
 
-origStartingDir=""
+declare origStartingDir=""
 
 
 # This function identifies and saves
 # the Starting Directory in which this
 # script was originally executed.
 function getStartingDir() {
+
+  if [[ ! -d $MIKE_Setup_Scripts ]]
+  then
+
+    echo "*** ERROR ***"
+    echo "The 'setups' Script Directory DOES NOT EXIST!"
+    echo "Setups Directory: $MIKE_Setup_Scripts"
+    echo "getStartingDir()"
+    echo "Script File: configureSetups.sh"
+    echo
+    return 99
+
+  fi
 
   origStartingDir=$(pwd)
 
@@ -30,8 +43,6 @@ function getStartingDir() {
   initially executed.\n
   Original Starting Director: $origStartingDir\n
   Function: getStartingDir()\n\n"
-
-  return 0
 
   return 0
 }
@@ -88,7 +99,7 @@ function cfgOwnerSetupsDir() {
 
   local currentUser
 
-  currentUser=$(whoami)
+  currentUser="$(whoami)"
 
   local oWner
 
