@@ -104,7 +104,17 @@ then
 
 fi
 
- source "$HOME/.bashrc"
+ source "$HOME/.bashrc" ||
+ {
+    aliasExitCode=$?
+
+    echo "*** ERROR ***"
+    echo "Error returned: source $HOME/.bashrc"
+    echo "Error Code: $aliasExitCode"
+    echo "Script: cfgAliases.sh"
+    echo ""
+    exit $aliasExitCode
+ }
 
 
  echo "Aliases successfully configured!"

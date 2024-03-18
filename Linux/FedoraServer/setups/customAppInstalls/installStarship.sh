@@ -84,11 +84,24 @@ then
     echo "Destination: $STARSHIP_CONFIG"
     echo "Error Code: $errExitCode"
     echo "Script: installStarship.sh"
-
+    echo ""
     exit $errExitCode
   }
 
 fi
+
+
+source "$HOME/.bashrc" ||
+{
+   errExitCode=$?
+
+    echo "*** ERROR ***"
+    echo "Error returned: source $HOME/.bashrc"
+    echo "Error Code: $errExitCode"
+    echo "Script: installStarship.sh"
+    echo ""
+    exit $errExitCode
+}
 
 echo "Successfully configured 'starship'!"
 echo
