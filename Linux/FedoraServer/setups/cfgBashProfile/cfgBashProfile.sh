@@ -81,6 +81,7 @@ cat "$sourceBashProfile" >> "$targetBashProfile" ||
  # shellcheck disable=SC1090
  source "$targetBashProfile"
 
+ echo "Environment Variables successfully configured."
  echo ".bash_profile successfully updated!"
  echo "Script File: cfgBashProfile.sh"
  exit 0
