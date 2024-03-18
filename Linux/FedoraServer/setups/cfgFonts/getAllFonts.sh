@@ -58,7 +58,7 @@ do
         zapFilesCmd "$XDG_DATA_FONTS/$currFontName/*" "-rf" "sudo"
     else
 
-        makeDirIfNotExist "$XDG_DATA_FONTS/$currFontName" 775 "" ||
+        makeDirIfNotExist "$XDG_DATA_FONTS/$currFontName" 775 "$(whoami)" ||
         {
           fontErrCode=$?
           echo "*** ERROR ***"
@@ -116,6 +116,8 @@ installFontAwesome ||
     exit $fontErrCode
 }
 
+echo "Successfully Installed Font Awesome"
+
 installFontTerminus ||
 {
     fontErrCode=$?
@@ -124,5 +126,33 @@ installFontTerminus ||
     echo "Script Name: getAllFonts.sh"
     exit $fontErrCode
 }
+
+echo "Successfully Installed Font Terminus"
+
+changeToDir "$XDG_DATA_FONTS" ||
+{
+  fontErrCode=$?
+  echo "*** ERROR ***"
+  echo "Error occurred while changing to Fonts Directory!"
+  echo "Fonts Directory: $XDG_DATA_FONTS"
+  echo "Script Name: getAllFonts.sh"
+  exit $fontErrCode
+}
+
+echo "Registering Fonts..."
+echo
+
+sudo fc-cache -fv ||
+{
+  fontErrCode=$?
+  echo "*** ERROR ***"
+  echo "Error occurred registering Fonts!"
+  echo "Command: fc-cache -fv"
+  echo "Script Name: getAllFonts.sh"
+  exit $fontErrCode
+
+}
+
+successMsg "All Fonts Successfully Installed"
 
 exit 0
