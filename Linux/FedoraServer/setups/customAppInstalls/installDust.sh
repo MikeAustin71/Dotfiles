@@ -1,6 +1,7 @@
 #!/bin/bash
 # Downloads and Installs Latest Release of 'dust'
-#
+# Github Homepage
+# https://github.com/bootandy/dust
 
 app_Name="dust"
 release_Ver="v0.9.0"

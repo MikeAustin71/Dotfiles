@@ -185,11 +185,9 @@ function changeFileOwner() {
 
   if [[ -z $newOwner ]]
   then
-		echo "*** ERROR ***"
-		echo "New Owner Parameter is EMPTY!"
-		echo "Target File: $targetFile"
-		echo "Function: changeFileOwner()"
-		exit 87
+
+		newOwner="$(whoami)"
+
   fi
 
  local -i errorCode=0

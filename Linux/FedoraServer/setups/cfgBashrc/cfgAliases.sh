@@ -104,5 +104,12 @@ then
 
 fi
 
+ source "$HOME/.bashrc"
+
+
+ echo "Aliases successfully configured!"
+ echo ".bashrc successfully updated!"
+ echo "Script File: cfgAliases.sh"
+
 exit 0
 
