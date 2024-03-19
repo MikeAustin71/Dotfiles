@@ -12,18 +12,24 @@
 
 declare -i errorExitCode=0
 
-declare DOTFILES_fedora="$MIKE_DotFiles_Repo"/Linux/FedoraServer
+declare DOTFILES_base="$HOME/repos/Dotfiles"
 
-declare DOTFILES_setups="$MIKE_DotFiles_Repo"/Linux/FedoraServer/setups
+declare DOTFILES_fedora="$DOTFILES_base/Linux/FedoraServer"
+
+declare DOTFILES_setups="$HOME/repos/Dotfiles/Linux/FedoraServer/setups"
 
 declare cfgSetupsScriptFile="configureSetups.sh"
 
-declare cfgSetupsScript="$MIKE_Setup_Scripts/cfgSetups/$cfgSetupsScriptFile"
+declare cfgHOME_bashOps="$HOME/bashOps"
 
-cd "$MIKE_BashOps" ||
+declare cfgHome_setupScripts="$HOME/bashOps/setups"
+
+declare cfgSetupsScript="$cfgHome_setupScripts/cfgSetups/$cfgSetupsScriptFile"
+
+cd "$cfgHOME_bashOps" ||
 {
 
-  mkdir -m 775 "$MIKE_BashOps" ||
+  mkdir -m 775 "$cfgHOME_bashOps" ||
   {
 
     errorExitCode=$?
@@ -32,7 +38,7 @@ cd "$MIKE_BashOps" ||
     An error occurred while attempting to\n
     create the 'bashOps' directory where\n
     dot file 'setups' will reside!\n
-    bashOps directory= $HOME_bashOps\n
+    bashOps directory= $cfgHOME_bashOps\n
     Script= copyDotFilesToSetups.sh\n
     Error Code= $errorExitCode\n\n"
 
@@ -49,12 +55,12 @@ cd "$DOTFILES_setups"  ||
     errorExitCode=$?
 
     echo -e "*** ERROR ***\n
-    The target Dot Files directory does NOT\n
+    The target Dot Files setups directory does NOT\n
     exist in the 'repos' directory! The Dot\n
     Files Repository has NOT been properly cloned!\n
     Local Dot Files Setups Directory= $DOTFILES_setups\n
     Target Git Repository=\n
-    $GITREPO_setups\n
+    $cfgHome_setupScripts\n
     Script= copyDotFilesToSetups.sh\n
     Error Code= $errorExitCode\n\n"
 
@@ -73,7 +79,7 @@ cd "$DOTFILES_fedora" ||
     Files Repository has NOT been properly cloned!\n
     Local Dot Files Parent Directory= $DOTFILES_fedora\n
     Target Git Repository=\n
-    $MIKE_GitRepo_DotFiles\n
+    $cfgHome_setupScripts\n
     Script= copyDotFilesToSetups.sh\n
     Error Code= $errorExitCode\n\n"
 
@@ -81,10 +87,10 @@ cd "$DOTFILES_fedora" ||
 
 }
 
-if [[ -d $MIKE_Setup_Scripts ]]
+if [[ -d $cfgHome_setupScripts ]]
 then
 
-  sudo rm -rf "${MIKE_Setup_Scripts:?}" ||
+  sudo rm -rf "${cfgHome_setupScripts:?}" ||
   {
 
     errorExitCode=$?
@@ -93,7 +99,7 @@ then
     Attempted removal of pre-existing scripts\n
     files failed!\n
     Target Files in Scripts Directory:\n
-    $MIKE_Setup_Scripts\n
+    $cfgHome_setupScripts\n
     Script= copyDotFilesToSetups.sh\n
     Error Code= $errorExitCode\n\n"
 
@@ -104,7 +110,7 @@ then
 
 fi
 
-cp -vfr "${DOTFILES_setups:?}/*" "$MIKE_BashOps" ||
+cp -vfr "${DOTFILES_setups:?}" "$cfgHOME_bashOps" ||
 {
 
   errorExitCode=$?
@@ -123,7 +129,7 @@ cp -vfr "${DOTFILES_setups:?}/*" "$MIKE_BashOps" ||
 
 }
 
-if [[ ! -d $MIKE_Setup_Scripts ]]
+if [[ ! -d $cfgHome_setupScripts ]]
 then
 
   echo "*** ERROR ***"
@@ -176,6 +182,7 @@ then
     echo "*** ERROR ***"
     echo "Command FAILURE:"
     echo "changeFilePermissions $HOME/$cfgSetupsScriptFile"
+    echo "New Permissions Code: 775"
     echo "Error Code= $errorExitCode"
     echo "Script= copyDotFilesToSetups.sh"
 
