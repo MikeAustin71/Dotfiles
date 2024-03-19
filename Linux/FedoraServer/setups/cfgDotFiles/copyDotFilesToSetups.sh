@@ -16,6 +16,9 @@ declare DOTFILES_fedora="$MIKE_DotFiles_Repo"/Linux/FedoraServer
 
 declare DOTFILES_setups="$MIKE_DotFiles_Repo"/Linux/FedoraServer/setups
 
+declare cfgSetupsScriptFile="configureSetups.sh"
+
+declare cfgSetupsScript="$MIKE_Setup_Scripts/cfgSetups/$cfgSetupsScriptFile"
 
 cd "$MIKE_BashOps" ||
 {
@@ -101,7 +104,7 @@ then
 
 fi
 
-cp -vfr "${DOTFILES_setups:?}/"* "$MIKE_BashOps" ||
+cp -vfr "${DOTFILES_setups:?}/*" "$MIKE_BashOps" ||
 {
 
   errorExitCode=$?
@@ -119,5 +122,81 @@ cp -vfr "${DOTFILES_setups:?}/"* "$MIKE_BashOps" ||
   exit $errorExitCode
 
 }
+
+if [[ ! -d $MIKE_Setup_Scripts ]]
+then
+
+  echo "*** ERROR ***"
+  echo "$MIKE_Setup_Scripts directory DOES NOT EXIST!"
+  echo "The copy operation FAILED!"
+  echo "Script= copyDotFilesToSetups.sh"
+  echo ""
+
+  exit 99
+
+fi
+
+if [[ -f $cfgSetupsScript ]]
+then
+
+  cp -v "$cfgSetupsScript" "$HOME/$cfgSetupsScriptFile" ||
+  {
+
+    errorExitCode=$?
+
+    echo "*** ERROR ***"
+    echo "FAILED to Copy $cfgSetupsScript to $HOME/$cfgSetupsScriptFile"
+    echo "Error Code= $errorExitCode"
+    echo "Script= copyDotFilesToSetups.sh"
+
+    exit $errorExitCode
+  }
+
+  changeFileOwner "$HOME/$cfgSetupsScriptFile" "$(whoami)" ||
+  {
+
+    errorExitCode=$?
+
+    echo "*** ERROR ***"
+    echo "Command FAILURE:"
+    echo "changeFileOwner $HOME/$cfgSetupsScriptFile"
+    echo "New Owner: $(whoami)"
+    echo "Error Code= $errorExitCode"
+    echo "Script= copyDotFilesToSetups.sh"
+
+    exit $errorExitCode
+
+  }
+
+  changeFilePermissions 775 "$HOME/$cfgSetupsScriptFile" ||
+  {
+
+    errorExitCode=$?
+
+    echo "*** ERROR ***"
+    echo "Command FAILURE:"
+    echo "changeFilePermissions $HOME/$cfgSetupsScriptFile"
+    echo "Error Code= $errorExitCode"
+    echo "Script= copyDotFilesToSetups.sh"
+
+    exit $errorExitCode
+
+  }
+
+  dos2Unix "$HOME/$cfgSetupsScriptFile" ||
+  {
+
+    errorExitCode=$?
+
+    echo "*** ERROR ***"
+    echo "Command FAILURE:"
+    echo "dos2Unix $HOME/$cfgSetupsScriptFile"
+    echo "Error Code= $errorExitCode"
+    echo "Script= copyDotFilesToSetups.sh"
+
+    exit $errorExitCode
+  }
+
+fi
 
 exit 0
