@@ -107,28 +107,6 @@ do
 
 done
 
-installFontAwesome ||
-{
-    fontErrCode=$?
-    echo "*** ERROR ***"
-    echo "installFontAwesome() FAILED!"
-    echo "Script Name: getAllFonts.sh"
-    exit $fontErrCode
-}
-
-echo "Successfully Installed Font Awesome"
-
-installFontTerminus ||
-{
-    fontErrCode=$?
-    echo "*** ERROR ***"
-    echo "installFontTerminus() FAILED!"
-    echo "Script Name: getAllFonts.sh"
-    exit $fontErrCode
-}
-
-echo "Successfully Installed Font Terminus"
-
 changeToDir "$XDG_DATA_FONTS" ||
 {
   fontErrCode=$?
