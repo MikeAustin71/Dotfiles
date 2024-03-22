@@ -21,8 +21,26 @@ then
     exit  99
 fi
 
+if [[ -f $inputRcDestinationFile ]]
+then
 
-cp -v "$inputRcSetupFile" "$inputRcTargetFile" ||
+    inputRcErrorCode=$?
+
+    rm "$inputRcDestinationFile" ||
+    {
+      echo "*** ERROR ***"
+      echo "Delete old inputrc File Operation FAILED!"
+      echo "Old inputrc File= $inputRcDestinationFile"
+      echo "Error Code: $inputRcErrorCode"
+      echo "Script File: copyInputrc.sh"
+
+      exit $inputRcErrorCode
+    }
+
+fi
+
+
+cp -v "$inputRcSetupFile" "$inputRcDestinationFile" ||
 {
 
       inputRcErrorCode=$?
@@ -38,9 +56,9 @@ cp -v "$inputRcSetupFile" "$inputRcTargetFile" ||
 
 }
 
+successMsg "Successfully copied default .inputrc file" "to Directory: $Home"
 
-
-
+exit
 
 
 
