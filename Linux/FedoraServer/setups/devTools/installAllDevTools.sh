@@ -26,7 +26,20 @@ installDevTools() {
 
 }
 
+installPython3() {
+
+  local scriptFile
+
+  scriptFile="$MIKE_Setup_Scripts"/devTools/03-installPython.sh
+
+  # shellcheck disable=SC1090
+  source "$scriptFile"
+
+
+}
+
 installCToolsLibs &&
 installDevTools &&
+installPython3 &&
 successMsg "All Development Tools Installed."
 
