@@ -10,6 +10,7 @@ installCToolsLibs() {
 
   scriptFile="$MIKE_Setup_Scripts"/devTools/01-installDevTools.sh
 
+  # shellcheck disable=SC1090
   source "$scriptFile"
 
 }
@@ -20,6 +21,7 @@ installDevTools() {
 
   scriptFile="$MIKE_Setup_Scripts"/devTools/02-installDevTools.sh
 
+  # shellcheck disable=SC1090
   source "$scriptFile"
 
 }
