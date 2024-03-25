@@ -3,13 +3,16 @@
 # .bash_profile
 #
 
-source "$MIKE_Setup_Scripts/utils/utilsLib.sh"
+declare bashOpsSetups="$HOME"/bashOps/setups
 
 declare targetBashProfile="$HOME/.bash_profile"
 
 declare sourceBashProfile="$MIKE_Setup_Scripts/homeDir/bash_profile.txt"
 
 declare -i bashProfErrCode=0
+
+source "$bashOpsSetups"/utils/utilsLib.sh
+
 
 if [[ ! -f $sourceBashProfile ]]
 then
