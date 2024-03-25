@@ -21,5 +21,5 @@ installGrubCustomizer &&
 installKitty &&
 installKrusader &&
 installCopyQ &&
-successMsg "All Wayland Components Installed."
+successMsg "All Hyprland Components Installed."
 
