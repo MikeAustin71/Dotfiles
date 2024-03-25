@@ -3,8 +3,6 @@
 #
 
 # Advanced Linux Sound Architecture (ALSA) utilities
-
-
 function installAlsaUtils() {
 
   sudo dnf install alsa-utils -y
