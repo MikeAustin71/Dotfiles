@@ -1,7 +1,7 @@
 #!/bin/bash
 # This script configures all files and
 # directories contained in the setups
-# directory ($MIKE_Setup_Scripts).
+# directory ($targetScriptsDir).
 #
 # Ownership of all directories in the
 # setup directory tree will be configured.
@@ -17,18 +17,20 @@
 
 declare origStartingDir=""
 
+declare targetScriptsDir="$HOME"/bashOps/setups
+
 
 # This function identifies and saves
 # the Starting Directory in which this
 # script was originally executed.
 function getStartingDir() {
 
-  if [[ ! -d $MIKE_Setup_Scripts ]]
+  if [[ ! -d $targetScriptsDir ]]
   then
 
     echo "*** ERROR ***"
     echo "The 'setups' Script Directory DOES NOT EXIST!"
-    echo "Setups Directory: $MIKE_Setup_Scripts"
+    echo "Setups Directory: $targetScriptsDir"
     echo "getStartingDir()"
     echo "Script File: configureSetups.sh"
     echo
@@ -94,7 +96,7 @@ function changeToStartingDir() {
 
 # This function sets the 'owner' for the
 # top level setups directory,
-# $MIKE_Setup_Scripts.
+# $targetScriptsDir.
 function cfgOwnerSetupsDir() {
 
   local currentUser
@@ -103,20 +105,20 @@ function cfgOwnerSetupsDir() {
 
   local oWner
 
-  oWner=$(stat -c '%U' "$MIKE_Setup_Scripts")
+  oWner=$(stat -c '%U' "$targetScriptsDir")
 
   if [ "$oWner" == "$currentUser" ]
   then
     return 0
   fi
 
- 	sudo chown "$currentUser":"$currentUser" "$MIKE_Setup_Scripts" ||
+ 	sudo chown "$currentUser":"$currentUser" "$targetScriptsDir" ||
  	{
  	  errorCode=$?
 
  		echo -e "An Error occurred while changing ownership\n
  		on the top level setups directory!\n
- 		Top Level Setups Directory= $MIKE_Setup_Scripts\n
+ 		Top Level Setups Directory= $targetScriptsDir\n
  		Current Owner: $oWner\n
  		New Owner= $currentUser\n
  		Function: cfgOwnerSetupsDir()\n
@@ -128,7 +130,7 @@ function cfgOwnerSetupsDir() {
 	echo -e "Successfully changed ownership on the\n
 	top level setups directory!\n
 	Top Level Setups Directory:\n
-	$MIKE_Setup_Scripts\n
+	$targetScriptsDir\n
 	Function: cfgOwnerSetupsDir()\n\n"
 
   return 0
@@ -141,14 +143,14 @@ function cfgPermissionsSetupsDir() {
 
   local -i errorCode=0
 
-  cd "$MIKE_Setup_Scripts" ||
+  cd "$targetScriptsDir" ||
   {
     errorCode=$?
 
     echo -e "*** ERROR ***\n
     Could NOT change to the Top Level\n
     Setups Directory!\n
-    Top Level Setups Directory: $MIKE_Setup_Scripts\n
+    Top Level Setups Directory: $targetScriptsDir\n
     Function: cfgPermissionsSetupsDir()\n
     Error Code: $errorCode\n\n"
 
@@ -157,20 +159,20 @@ function cfgPermissionsSetupsDir() {
 
   local perMissions
 
-  perMissions=$(stat -c '%a' "$MIKE_Setup_Scripts")
+  perMissions=$(stat -c '%a' "$targetScriptsDir")
   # Check if the permissions is "775"
 
   if [ "$perMissions" = "775" ]; then
   	return 0
   fi
 
-	sudo chmod 775 "$MIKE_Setup_Scripts" ||
+	sudo chmod 775 "$targetScriptsDir" ||
 	{
 	  
 	  errorCode=$?
 
 		echo -e "An Error occurred while changing permissions on:\n
-		Top Level Setups Directory= $MIKE_Setup_Scripts\n
+		Top Level Setups Directory= $targetScriptsDir\n
 		Function: cfgPermissionsSetupsDir()\n
 		Error Code: $errorCode\n\n"
 
@@ -179,7 +181,7 @@ function cfgPermissionsSetupsDir() {
  
 	echo -e "Successfully changed Directory Permissions\n
 	on the top level setups directory!\n
-	Top Level Setups Directory: $MIKE_Setup_Scripts\n
+	Top Level Setups Directory: $targetScriptsDir\n
 	Function: cfgPermissionsSetupsDir()\n\n"
 
   return 0
@@ -192,14 +194,14 @@ cfgOwnerSetupScriptsDirs() {
 
   local -i errorCode=0
 
-  cd "$MIKE_Setup_Scripts" ||
+  cd "$targetScriptsDir" ||
   {
     errorCode=$?
 
     echo -e "*** ERROR ***\n
     Could NOT change to the Top Level\n
     Setups Directory!\n
-    Top Level Setups Directory: $MIKE_Setup_Scripts\n
+    Top Level Setups Directory: $targetScriptsDir\n
     Function: cfgOwnerSetupScriptsDirs()\n
     Error Code: $errorCode\n\n"
 
@@ -217,7 +219,7 @@ cfgOwnerSetupScriptsDirs() {
     echo -e "*** ERROR ***\n
     Error occurred while changing directory ownership\n
     on all directories on the Setups Directory Tree!\n
-    Top Level Setups Directory: $MIKE_Setup_Scripts\n
+    Top Level Setups Directory: $targetScriptsDir\n
     Function: cfgOwnerSetupScriptsDirs()\n
     Error Code: $errorCode\n\n"
 
@@ -226,7 +228,7 @@ cfgOwnerSetupScriptsDirs() {
 
 	echo -e "Successfully changed Directory ownership\n
 	on all directories the setups directory tree!\n
-	Top Level Setups Directory: $MIKE_Setup_Scripts\n
+	Top Level Setups Directory: $targetScriptsDir\n
 	Function: cfgOwnerSetupScriptsDirs()\n\n"
 
   return 0
@@ -239,14 +241,14 @@ cfgOwnerSetupScriptsFiles() {
 
   local -i errorCode=0
 
-  cd "$MIKE_Setup_Scripts" ||
+  cd "$targetScriptsDir" ||
   {
     errorCode=$?
 
     echo -e "*** ERROR ***\n
     Could NOT change to the Top Level\n
     Setups Directory!\n
-    Top Level Setups Directory: $MIKE_Setup_Scripts\n
+    Top Level Setups Directory: $targetScriptsDir\n
     Function: cfgOwnerSetupScriptsFiles()\n
     Error Code: $errorCode\n\n"
 
@@ -263,7 +265,7 @@ cfgOwnerSetupScriptsFiles() {
                                                            echo -e "*** ERROR ***\n
    Error occurred while changing File ownership\n
    on all files in the Setups Directory Tree!\n
-   Top Level Directory: $MIKE_Setup_Scripts\n
+   Top Level Directory: $targetScriptsDir\n
    Function: cfgOwnerSetupScriptsFiles()\n
    Error Code: $errorCode\n\n"
 
@@ -272,7 +274,7 @@ cfgOwnerSetupScriptsFiles() {
 
 	echo -e "Successfully changed File ownership\n
 	on all files in the setups directory tree!\n
-	Top Level Directory: $MIKE_Setup_Scripts\n
+	Top Level Directory: $targetScriptsDir\n
 	Function: cfgOwnerSetupScriptsFiles()\n\n"
 
   return 0
@@ -285,14 +287,14 @@ cfgPermissionsSetupScriptsDirs() {
 
   local -i errorCode=0
 
-  cd "$MIKE_Setup_Scripts" ||
+  cd "$targetScriptsDir" ||
   {
     errorCode=$?
 
     echo -e "*** ERROR ***\n
     Could NOT change to the Top Level\n
     Setups Directory!\n
-    Top Level Setups Directory: $MIKE_Setup_Scripts\n
+    Top Level Setups Directory: $targetScriptsDir\n
     Function: cfgPermissionsSetupScriptsDirs()\n
     Error Code: $errorCode\n\n"
 
@@ -308,7 +310,7 @@ cfgPermissionsSetupScriptsDirs() {
 		echo -e "*** ERROR ***\n
 		An Error occurred while changing permissions\n
 		on all directories in the Setups Directory tree.\n
-		Top Level Setups Directory= $MIKE_Setup_Scripts\n
+		Top Level Setups Directory= $targetScriptsDir\n
 		Function: cfgPermissionsSetupScriptsDirs()\n
 		Error Code: $errorCode\n\n"
 
@@ -317,7 +319,7 @@ cfgPermissionsSetupScriptsDirs() {
 
 	echo -e "Successfully changed directory permissions\n
 	on all directories in the setups directory tree!\n
-	Top Level Setup Directory: $MIKE_Setup_Scripts\n
+	Top Level Setup Directory: $targetScriptsDir\n
 	Function: cfgPermissionsSetupScriptsDirs()\n\n"
 
   return 0
@@ -329,14 +331,14 @@ cfgPermissionsSetupScriptsFiles() {
 
   local -i errorCode=0
 
-  cd "$MIKE_Setup_Scripts" ||
+  cd "$targetScriptsDir" ||
   {
     errorCode=$?
 
     echo -e "*** ERROR ***\n
     Could NOT change to the Top Level\n
     Setups Directory!\n
-    Top Level Setups Directory: $MIKE_Setup_Scripts\n
+    Top Level Setups Directory: $targetScriptsDir\n
     Function: cfgPermissionsSetupScriptsFiles()\n
     Error Code: $errorCode\n\n"
     return $errorCode
@@ -349,7 +351,7 @@ cfgPermissionsSetupScriptsFiles() {
 		echo -e "*** ERROR ***\n
 		An Error occurred while changing permissions\n
 		on all files in the Setups Directory tree.\n
-		Top Level Setups Directory= $MIKE_Setup_Scripts\n
+		Top Level Setups Directory= $targetScriptsDir\n
 		Function: cfgPermissionsSetupScriptsFiles()\n
 		Error Code: $errorCode\n\n"
 		return $errorCode
@@ -357,7 +359,7 @@ cfgPermissionsSetupScriptsFiles() {
 
 	echo -e "Successfully changed files permissions\n
 	on all files in the setups directory tree!\n
-	Top Level Setup Directory: $MIKE_Setup_Scripts\n
+	Top Level Setup Directory: $targetScriptsDir\n
 	Function: cfgPermissionsSetupScriptsFiles()\n\n"
 
   return 0
@@ -369,14 +371,14 @@ convertFilesDos2Unix() {
 
   local -i errorCode=0
 
-  cd "$MIKE_Setup_Scripts" ||
+  cd "$targetScriptsDir" ||
   {
     errorCode=$?
 
     echo -e "*** ERROR ***\n
     Could NOT change to the Top Level\n
     Setups Directory!\n
-    Top Level Setups Directory: $MIKE_Setup_Scripts\n
+    Top Level Setups Directory: $targetScriptsDir\n
     Function: convertFilesDos2Unix()\n
     Error Code: $errorCode\n\n"
     return $errorCode
@@ -390,7 +392,7 @@ convertFilesDos2Unix() {
 		echo -e "*** ERROR ***\n
 		An Error occurred while executing 'dos2Unix'\n
 		on all files in the Setups Directory tree.\n
-		Top Level Setups Directory= $MIKE_Setup_Scripts\n
+		Top Level Setups Directory= $targetScriptsDir\n
 		Function: convertFilesDos2Unix()\n
 		Error Code: $errorCode\n\n"
 		return $errorCode
@@ -398,7 +400,7 @@ convertFilesDos2Unix() {
 
 	echo -e "Successfully executed 'dos2Unix' on\n
 	all files in the setups directory tree!\n
-	Top Level Setup Directory: $MIKE_Setup_Scripts\n
+	Top Level Setup Directory: $targetScriptsDir\n
 	Function: convertFilesDos2Unix()\n\n"
 
 	return 0
