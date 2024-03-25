@@ -365,7 +365,7 @@ cfgPermissionsSetupScriptsFiles() {
   return 0
 }
 
-# This function runs 'dos2Unix' on all files
+# This function runs 'dos2unix' on all files
 # in the Setups directory tree.
 convertFilesDos2Unix() {
 
@@ -385,12 +385,12 @@ convertFilesDos2Unix() {
   }
 
   # Note: -k parameter will keep original date
-	sudo find . -type f -exec dos2Unix -k {} + ||
+	sudo find . -type f -exec dos2unix -k {} + ||
 	{
 	  errorCode=$?
 
 		echo -e "*** ERROR ***\n
-		An Error occurred while executing 'dos2Unix'\n
+		An Error occurred while executing 'dos2unix'\n
 		on all files in the Setups Directory tree.\n
 		Top Level Setups Directory= $targetScriptsDir\n
 		Function: convertFilesDos2Unix()\n
@@ -398,7 +398,7 @@ convertFilesDos2Unix() {
 		return $errorCode
 	}
 
-	echo -e "Successfully executed 'dos2Unix' on\n
+	echo -e "Successfully executed 'dos2unix' on\n
 	all files in the setups directory tree!\n
 	Top Level Setup Directory: $targetScriptsDir\n
 	Function: convertFilesDos2Unix()\n\n"
