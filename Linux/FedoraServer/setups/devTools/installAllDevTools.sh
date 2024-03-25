@@ -50,9 +50,21 @@ installPython2() {
 
 }
 
+installGo() {
+
+  local scriptFile
+
+  scriptFile="$MIKE_Setup_Scripts"/customAppInstalls/installGo.sh
+
+  # shellcheck disable=SC1090
+  source "$scriptFile"
+
+}
+
 installCToolsLibs &&
 installDevTools &&
 installPython3 &&
 installPython2 &&
+installGo &&
 successMsg "All Development Tools Installed."
 

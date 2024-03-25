@@ -25,9 +25,9 @@ downloadAppArchive() {
 
   }
 
-  echo "********************"
-  echo "Starting download..."
-  echo "********************"
+  echo "***********************"
+  echo "Starting Go download..."
+  echo "***********************"
 
   local -i errorCode=0
 
