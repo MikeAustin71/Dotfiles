@@ -7,7 +7,7 @@ declare bashOpsSetups="$HOME"/bashOps/setups
 
 declare targetBashProfile="$HOME/.bash_profile"
 
-declare sourceBashProfile="$MIKE_Setup_Scripts/homeDir/bash_profile.txt"
+declare sourceBashProfile="$bashOpsSetups/homeDir/bash_profile.txt"
 
 declare -i bashProfErrCode=0
 
