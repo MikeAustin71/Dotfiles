@@ -8,9 +8,10 @@ source "$MIKE_Setup_Scripts/utils/utilsLib.sh"
 makeDirIfNotExist "$XDG_CONFIG_HOME" "775" "" &&
 makeDirIfNotExist "$XDG_CONFIG_ALIASES" "775" "" &&
 makeDirIfNotExist "$XDG_LOCAL_HOME" "775" "" &&
+makeDirIfNotExist "$XDG_SHARE_DATA" "775" "" &&
+makeDirIfNotExist "$XDG_DATA_FONTS" "775" "" &&
 makeDirIfNotExist "$XDG_BIN_HOME" "775" "" &&
 makeDirIfNotExist "$XDG_CACHE_HOME" "775" "" &&
-makeDirIfNotExist "$XDG_SHARE_HOME" "775" "" &&
 makeDirIfNotExist "$XDG_CONFIG_STARSHIP" "775" "" &&
 makeDirIfNotExist "$STARSHIP_CACHE" "775" "" &&
 makeDirIfNotExist "$MIKE_BashOps/scripts" "775" "" &&
