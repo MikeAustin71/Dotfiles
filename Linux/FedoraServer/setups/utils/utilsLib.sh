@@ -501,12 +501,24 @@ function makeDirIfNotExist() {
 
   fi
 
-	if [ -d "$targetDir" ]
+  local -i errorCode=0
+
+	if [ ! -d "$targetDir" ]
 	then
 
-		echo -e "Target Directory $targetDir previously existed!\n\n"
+    sudo mkdir -p "$targetDir" ||
+    {
+        errorCode=$?
 
-		return 52
+        echo -e "*** ERROR ***\n
+        Failed to create Target Directory!\n
+        Target Directory: $targetDir\n
+        Permission Code: $permissionCode\n
+        Function: makeDirIfNotExist()\n
+        Error Code: $errorCode"
+
+        return $errorCode
+    }
 
 	fi
 
@@ -525,52 +537,45 @@ function makeDirIfNotExist() {
 
   fi
 
-  local -i errorCode=0
+  if [ "$(stat -c '%U' "$targetDir")" != "$dirOwner" ]
+  then
 
-  sudo mkdir -p "$targetDir" ||
-      {
-        errorCode=$?
+    sudo chown "$dirOwner":"$dirOwner" "$targetDir" ||
+    {
+      errorCode=$?
 
-        echo -e "*** ERROR ***\n
-        Failed to create Target Directory!\n
-        Target Directory: $targetDir\n
-        Permission Code: $permissionCode\n
-        Function: makeDirIfNotExist()\n
-        Error Code: $errorCode"
+      echo -e "An Error occurred while setting ownership\n
+      on Target Directory!\n
+      Target Directory= $targetDir\n
+      Owner= $dirOwner\n
+      Function: makeDirIfNotExist()\n
+      Error Code: $errorCode\n\n"
 
-        return $errorCode
-      }
+      return $errorCode
 
+    }
 
-  sudo chown "$dirOwner":"$dirOwner" "$targetDir" ||
-  {
-    errorCode=$?
+  fi
 
-    echo -e "An Error occurred while setting ownership\n
-    on Target Directory!\n
-    Target Directory= $targetDir\n
-    Owner= $dirOwner\n
-    Function: makeDirIfNotExist()\n
-    Error Code: $errorCode\n\n"
+  if [[ -n $permissionCode ]]
+  then
 
-    return $errorCode
+    sudo chmod "$permissionCode" "$targetDir" ||
+    {
+          errorCode=$?
 
-  }
+          echo -e "*** ERROR ***\n
+          Failed to set permission code on Target Directory!\n
+          Target Directory: $targetDir\n
+          Permission Code: $permissionCode\n
+          Owner= $dirOwner\n
+          Function: makeDirIfNotExist()\n
+          Error Code: $errorCode"
+          return $errorCode
+    }
 
-  sudo chmod "$permissionCode" "$targetDir" ||
-  {
-        errorCode=$?
+  fi
 
-        echo -e "*** ERROR ***\n
-        Failed to set permission code on Target Directory!\n
-        Target Directory: $targetDir\n
-        Permission Code: $permissionCode\n
-        Owner= $dirOwner\n
-        Function: makeDirIfNotExist()\n
-        Error Code: $errorCode"
-        return $errorCode
-
-  }
 
 	echo -e "Successfully created new directory: $targetDir\n\n"
 
