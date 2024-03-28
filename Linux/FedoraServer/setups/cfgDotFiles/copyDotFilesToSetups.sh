@@ -190,14 +190,14 @@ then
     exit $errorExitCode
   }
 
-  changeFileOwner "$targetSetupScriptFile" "$(whoami)" ||
+  chown "$(whoami)":"$(whoami)" "$targetSetupScriptFile" ||
   {
 
     errorExitCode=$?
 
     echo "*** ERROR ***"
-    echo "Command FAILURE:"
-    echo "changeFileOwner $targetSetupScriptFile"
+    echo "chown Command FAILURE:"
+    echo "Target File: $targetSetupScriptFile"
     echo "New Owner: $(whoami)"
     echo "Error Code= $errorExitCode"
     echo "Script= copyDotFilesToSetups.sh"
@@ -206,14 +206,14 @@ then
 
   }
 
-  changeFilePermissions 775 "$targetSetupScriptFile" ||
+  chmod 775 "$targetSetupScriptFile" ||
   {
 
     errorExitCode=$?
 
     echo "*** ERROR ***"
-    echo "Command FAILURE:"
-    echo "changeFilePermissions $HOME/$cfgSetupsScriptFile"
+    echo "chmod Command FAILURE:"
+    echo "Target File: $targetSetupScriptFile"
     echo "New Permissions Code: 775"
     echo "Error Code= $errorExitCode"
     echo "Script= copyDotFilesToSetups.sh"
