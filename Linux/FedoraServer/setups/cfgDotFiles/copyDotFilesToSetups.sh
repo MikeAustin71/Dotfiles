@@ -32,7 +32,7 @@ declare cfgSetupsScript="$cfgHome_setupScripts/cfgSetups/$cfgSetupsScriptFile"
 if [[ ! -d $cfgHOME_bashOps ]]
 then
 
-  mkdir -p -m 775 "$cfgHOME_bashOps" ||
+  mkdir -p "$cfgHOME_bashOps" ||
   {
 
     errorExitCode=$?
@@ -40,6 +40,21 @@ then
     echo "*** ERROR ***"
     echo "Failed to create directory:"
     echo "   $cfgHOME_bashOps"
+    echo "Error Code= $errorExitCode"
+    echo "Script= copyDotFilesToSetups.sh"
+
+    exit $errorExitCode
+
+  }
+
+  chmod 775 "$cfgHOME_bashOps" ||
+  {
+
+    errorExitCode=$?
+
+    echo "*** ERROR ***"
+    echo "Error occurred while changing permissions"
+    echo "on Directory: $cfgHOME_bashOps"
     echo "Error Code= $errorExitCode"
     echo "Script= copyDotFilesToSetups.sh"
 
