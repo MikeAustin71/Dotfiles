@@ -252,4 +252,20 @@ cd "$HOME" ||
     exit $errorExitCode
 }
 
+# shellcheck disable=SC1090
+source "$targetSetupScriptFile" ||
+{
+
+    errorExitCode=$?
+
+    echo "*** ERROR ***"
+    echo "Script File Execution FAILED!"
+    echo "Target Script File: $targetSetupScriptFile"
+    echo "Error Code= $errorExitCode"
+    echo "Parent Script File: copyDotFilesToSetups.sh"
+
+    exit $errorExitCode
+}
+
+
 exit 0
