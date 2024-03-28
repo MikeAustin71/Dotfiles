@@ -238,6 +238,6 @@ then
 
 fi
 
-"$HOME ./$targetSetupScriptFile"
+".$targetSetupScriptFile"
 
 exit
