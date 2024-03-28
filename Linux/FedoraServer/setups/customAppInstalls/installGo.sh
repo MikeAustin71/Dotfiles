@@ -3,7 +3,7 @@
 #
 
 app_Name="go"
-release_Ver="1.22.0"
+release_Ver="1.22.1"
 release_file="go$release_Ver.linux-amd64.tar.gz"
 downloadOpsDir="$MIKE_Scratch"
 archiveFile="$downloadOpsDir/$release_file"
@@ -31,7 +31,7 @@ downloadAppArchive() {
 
   local -i errorCode=0
 
-  wget wget https://go.dev/dl/"$release_file" ||
+  wget https://go.dev/dl/"$release_file" ||
   {
     errorCode=$?
 
