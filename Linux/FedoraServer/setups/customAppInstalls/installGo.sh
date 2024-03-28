@@ -129,7 +129,7 @@ testInstalledExe() {
   zapFilesRecursive "$targetExeDir" &&
   removeDir "$targetExeDir" &&
   moveDir "$extractArchiveToDir" "$targetExeDir" &&
-  zapFilesRecursive "$extractArchiveToDir" "-rf" "sudo" &&
+  zapFilesCmd "$extractArchiveToDir" "-rf" "sudo" &&
   removeDir "$extractArchiveToDir" &&
   zapAllFilesInDir "$downloadOpsDir" &&
   testInstalledExe &&
