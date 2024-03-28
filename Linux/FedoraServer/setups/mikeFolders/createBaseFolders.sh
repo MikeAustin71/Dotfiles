@@ -27,7 +27,7 @@ makeDirIfNotExist "$HOME/playground" "775" "" &&
 makeDirIfNotExist "$HOME/Pictures" "775" "" &&
 makeDirIfNotExist "$HOME/programming" "775" "" &&
 makeDirIfNotExist "$HOME/projects" "775" "" &&
-makeDirIfNotExist "$HOME/Public" "755" "" &&
+makeDirIfNotExist "$HOME/Public" "775" "" &&
 makeDirIfNotExist "$MIKE_Git_Repos" "775" "" &&
 makeDirIfNotExist "$MIKE_DotFiles_Repo" "775" "" &&
 makeDirIfNotExist "$HOME/scratch" "777" "" &&
