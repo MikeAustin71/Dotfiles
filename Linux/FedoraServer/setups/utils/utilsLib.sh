@@ -432,6 +432,18 @@ function isCorrectCurrentDir() {
 
   directoryName=$2
 
+  if [[ -z $paramDir ]]
+  then
+
+  echo "*** ERROR ***"
+  echo "The target parameter Directory is EMPTY!"
+  echo "This is the first parameter in the Function Call."
+  echo "Function: isCorrectCurrentDir()"
+
+  return 108
+
+  fi
+
   if [[ -z $directoryName ]]
   then
 
@@ -443,10 +455,18 @@ function isCorrectCurrentDir() {
   # Remove trailing slash (if present)
   paramDir="${paramDir%/}"
 
+  echo "Param Directory after slash removal:"
+  echo "$paramDir"
+  echo ""
+
   # Convert to absolute path
   local targetDir
 
   targetDir=$(relpath "$paramDir")
+
+  echo "Param Dir After Absolute Path Conversion:"
+  echo "$targetDir"
+  echo ""
 
   local currDir
 
@@ -462,7 +482,7 @@ function isCorrectCurrentDir() {
   echo "$directoryName: $targetDir"
   echo "Current Directory: $currDir"
   echo "Function: isCorrectCurrentDir()"
-  exit 109
+  return 109
 
   fi
 
@@ -519,6 +539,10 @@ function makeDirIfNotExist() {
 
         return $errorCode
     }
+
+    echo "Created New Directory:"
+    echo "  $targetDir"
+    echo ""
 
 	fi
 
@@ -577,7 +601,10 @@ function makeDirIfNotExist() {
   fi
 
 
-	echo -e "Successfully created new directory: $targetDir\n\n"
+	echo "Success! Target Directory Exists:"
+	echo "  $targetDir"
+  echo "Function: makeDirIfNotExist()"
+  echo ""
 
 }
 
