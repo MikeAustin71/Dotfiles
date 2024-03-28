@@ -1012,11 +1012,12 @@ function zapFilesCmd() {
 	if [[ ! -d $targetDir ]]
 	then
 
-		echo "*** ERROR ***"
 		echo "Target Directory DOES NOT EXIST!"
 		echo "Target Directory: $targetDir"
 		echo "Function: zapFilesRecursive()"
-		return 18
+		echo "Proceeding..."
+		echo ""
+		return 0
 
 	fi
 

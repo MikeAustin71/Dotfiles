@@ -126,7 +126,7 @@ testInstalledExe() {
 	downloadAppArchive &&
   makeDirIfNotExist "$extractArchiveToDir" "777" "" &&
   unzipArchive &&
-  zapFilesRecursive "$targetExeDir" &&
+  zapFilesCmd "$targetExeDir" "-rf" "sudo" &&
   removeDir "$targetExeDir" &&
   moveDir "$extractArchiveToDir" "$targetExeDir" &&
   zapFilesCmd "$extractArchiveToDir" "-rf" "sudo" &&
