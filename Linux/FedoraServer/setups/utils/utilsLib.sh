@@ -921,7 +921,7 @@ function zapFileIfExists() {
     {
       echo -e "*** ERROR ***\n
         Failed to delete pre-existing App: $targetFile\n
-        Function ifAlreadyExistsZapApp()\n
+        Function zapFileIfExists()\n
         Error Code: $errorCode"
         return $errorCode
     }
@@ -935,7 +935,7 @@ function zapFileIfExists() {
 
 	fi
 
-  echo -e "Target File did Not Exist.\n
+  echo -e "Target File does Not Exist.\n
   Target file: $targetFile\n\n"
 
   return 0
@@ -1003,7 +1003,7 @@ function zapFilesCmd() {
 		 Target Directory is equal to root directory.\n
 		 You should NOT delete all files in the 'root' directory.\n
 		 Target Director: $targetDir\n
-		 Function: zapFilesRecursive()\n\n"
+		 Function: zapFilesCmd()\n\n"
 
 		 return 19
 
@@ -1014,10 +1014,9 @@ function zapFilesCmd() {
 
 		echo "Target Directory DOES NOT EXIST!"
 		echo "Target Directory: $targetDir"
-		echo "Function: zapFilesRecursive()"
+		echo "Function: zapFilesCmd()"
 		echo "Proceeding..."
 		echo ""
-		return 0
 
 	fi
 
