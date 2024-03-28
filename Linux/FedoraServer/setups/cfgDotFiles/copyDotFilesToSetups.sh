@@ -27,7 +27,7 @@ declare cfgHome_setupScripts="$HOME/bashOps/setups"
 
 declare cfgSetupsScript="$cfgHome_setupScripts/cfgSetups/$cfgSetupsScriptFile"
 
-
+declare targetSetupScriptFile="$HOME/cfgSetupsScriptFile"
 
 if [[ ! -d $cfgHOME_bashOps ]]
 then
@@ -158,27 +158,46 @@ fi
 if [[ -f $cfgSetupsScript ]]
 then
 
-  cp -v "$cfgSetupsScript" "$HOME/$cfgSetupsScriptFile" ||
+  if [[ -f $targetSetupScriptFile ]]
+  then
+
+    rm "$targetSetupScriptFile" ||
+    {
+      errorExitCode=$?
+
+      echo "*** ERROR ***"
+      echo "FAILED to delete pre-existing file:"
+      echo "   $targetSetupScriptFile"
+      echo "Error Code= $errorExitCode"
+      echo "Script= copyDotFilesToSetups.sh"
+
+      exit $errorExitCode
+
+    }
+
+  fi
+
+  cp -v "$cfgSetupsScript" "$targetSetupScriptFile" ||
   {
 
     errorExitCode=$?
 
     echo "*** ERROR ***"
-    echo "FAILED to Copy $cfgSetupsScript to $HOME/$cfgSetupsScriptFile"
+    echo "FAILED to Copy $cfgSetupsScript to $targetSetupScriptFile"
     echo "Error Code= $errorExitCode"
     echo "Script= copyDotFilesToSetups.sh"
 
     exit $errorExitCode
   }
 
-  changeFileOwner "$HOME/$cfgSetupsScriptFile" "$(whoami)" ||
+  changeFileOwner "$targetSetupScriptFile" "$(whoami)" ||
   {
 
     errorExitCode=$?
 
     echo "*** ERROR ***"
     echo "Command FAILURE:"
-    echo "changeFileOwner $HOME/$cfgSetupsScriptFile"
+    echo "changeFileOwner $targetSetupScriptFile"
     echo "New Owner: $(whoami)"
     echo "Error Code= $errorExitCode"
     echo "Script= copyDotFilesToSetups.sh"
@@ -187,7 +206,7 @@ then
 
   }
 
-  changeFilePermissions 775 "$HOME/$cfgSetupsScriptFile" ||
+  changeFilePermissions 775 "$targetSetupScriptFile" ||
   {
 
     errorExitCode=$?
@@ -203,14 +222,14 @@ then
 
   }
 
-  dos2Unix "$HOME/$cfgSetupsScriptFile" ||
+  dos2Unix "$targetSetupScriptFile" ||
   {
 
     errorExitCode=$?
 
     echo "*** ERROR ***"
     echo "Command FAILURE:"
-    echo "dos2Unix $HOME/$cfgSetupsScriptFile"
+    echo "dos2Unix $targetSetupScriptFile"
     echo "Error Code= $errorExitCode"
     echo "Script= copyDotFilesToSetups.sh"
 
@@ -219,7 +238,6 @@ then
 
 fi
 
-# shellcheck disable=SC1090
-source "$HOME/$cfgSetupsScriptFile"
+"$HOME ./$targetSetupScriptFile"
 
 exit
