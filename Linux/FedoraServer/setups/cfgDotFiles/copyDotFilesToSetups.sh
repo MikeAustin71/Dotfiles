@@ -134,7 +134,7 @@ cp -vfr "${DOTFILES_setups:?}" "$cfgHOME_bashOps" ||
   Source Git Repo Dot Files Setups Directory=\n
   $GITREPO_setups\n
   Destination 'bashOps' Directory=\n
-  $MIKE_BashOps\n
+  $cfgHOME_bashOps\n
   Script= copyDotFilesToSetups.sh\n
   Error Code= $errorExitCode\n\n"
 
@@ -146,7 +146,7 @@ if [[ ! -d $cfgHome_setupScripts ]]
 then
 
   echo "*** ERROR ***"
-  echo "$MIKE_Setup_Scripts directory DOES NOT EXIST!"
+  echo "$cfgHome_setupScripts directory DOES NOT EXIST!"
   echo "The copy operation FAILED!"
   echo "Script= copyDotFilesToSetups.sh"
   echo ""
