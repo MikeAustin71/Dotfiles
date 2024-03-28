@@ -122,13 +122,13 @@ testInstalledExe() {
 # Execute Functions
 
   makeDirIfNotExist "$downloadOpsDir" "777" "" &&
-	changeTcoDir "$downloadOpsDir" &&
+	changeToDir "$downloadOpsDir" &&
 	downloadAppArchive &&
   makeDirIfNotExist "$extractArchiveToDir" "777" "" &&
   unzipArchive &&
   zapFilesCmd "$targetExeDir" "-rf" "sudo" &&
   removeDir "$targetExeDir" &&
-  moveDir "$extractArchiveToDir" "$targetExeDir" &&
+  moveDirFiles "$extractArchiveToDir" "$targetExeDir" "" "" &&
   zapFilesCmd "$extractArchiveToDir" "-rf" "sudo" &&
   removeDir "$extractArchiveToDir" &&
   zapAllFilesInDir "$downloadOpsDir" &&

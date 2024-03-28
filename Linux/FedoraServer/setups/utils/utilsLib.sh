@@ -637,42 +637,55 @@ function moveDirFiles() {
   cmdParams=$3
   exeAuthority=$4
 
+     if [[ -z $exeAuthority ]]
+     then
+       exeAuthority="$(whoami)"
+     fi
+
   if [[ $exeAuthority != "sudo" ]]
   then
 
-    exeAuthority=""
+   mv "$cmdParams" "$sourceFile" "$destinationFile" ||
+   {
+     errorCode=$?
+
+     echo -e	"Error occurred while moving $sourceFile to
+     $destinationFile\n
+     Source File= $sourceFile\n
+     Destination File= $destinationFile\n
+     Command Parameters= $cmdParams\n
+     Execute Authority= $exeAuthority\n
+     Function: moveDirFiles()\n
+     Error Code: $errorCode\n\n"
+
+     return $errorCode
+
+   }
+
+  else
+
+    sudo mv "$cmdParams" "$sourceFile" "$destinationFile" ||
+    {
+
+     errorCode=$?
+
+     echo -e	"Error occurred while moving $sourceFile to
+     $destinationFile\n
+     Source File= $sourceFile\n
+     Destination File= $destinationFile\n
+     Command Parameters= $cmdParams\n
+     Execute Authority= sudo\n
+     Function: moveDirFiles()\n
+     Error Code: $errorCode\n\n"
+
+     return $errorCode
+
+    }
+
 
   fi
 
   local -i errorCode=0
-
-  "$exeAuthority" mv "$cmdParams" "$sourceFile" "$destinationFile" ||
-  {
-
-    errorCode=$?
-
-    if [[ -z $exeAuthority ]]
-    then
-      exeAuthority=$USER
-    fi
-
-    echo -e	"Error occurred while moving $sourceFile to
-    $destinationFile\n
-    Source File= $sourceFile\n
-    Destination File= $destinationFile\n
-    Command Parameters= $cmdParams\n
-    Execute Authority= $exeAuthority\n
-    Function: moveDirFiles()\n
-    Error Code: $errorCode\n\n"
-
-    return $errorCode
-
-  }
-
-  if [[ -z $exeAuthority ]]
-  then
-    exeAuthority=$USER
-  fi
 
   echo "***************************************************"
   echo "Successfully moved source files/directories"
