@@ -8,7 +8,8 @@ release_file="go$release_Ver.linux-amd64.tar.gz"
 downloadOpsDir="$MIKE_Scratch"
 archiveFile="$downloadOpsDir/$release_file"
 extractArchiveToDir="$downloadOpsDir/go"
-targetExeDir="/usr/local/go"
+targetExeParentDir="/usr/local"
+targetExeDir="$targetExeParentDir/go"
 targetExeFile="/usr/local/go/bin/$app_Name"
 
 source "$MIKE_Setup_Utilities"/utilsLib.sh
@@ -128,7 +129,8 @@ testInstalledExe() {
   unzipArchive &&
   zapFilesCmd "$targetExeDir" "-rf" "sudo" &&
   removeDir "$targetExeDir" &&
-  moveDirFiles "$extractArchiveToDir" "$targetExeDir" "" "" &&
+  makeDirIfNotExist "$targetExeParentDir" "777" "sudo" &&
+  moveDirFiles "$extractArchiveToDir" "$targetExeDir" "" "sudo" &&
   zapFilesCmd "$extractArchiveToDir" "-rf" "sudo" &&
   removeDir "$extractArchiveToDir" &&
   zapAllFilesInDir "$downloadOpsDir" &&
