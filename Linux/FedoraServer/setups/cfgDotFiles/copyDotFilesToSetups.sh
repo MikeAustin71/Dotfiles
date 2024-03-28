@@ -27,7 +27,7 @@ declare cfgHome_setupScripts="$HOME/bashOps/setups"
 
 declare cfgSetupsScript="$cfgHome_setupScripts/cfgSetups/$cfgSetupsScriptFile"
 
-declare targetSetupScriptFile="$HOME/cfgSetupsScriptFile"
+declare targetSetupScriptFile="$HOME/$cfgSetupsScriptFile"
 
 if [[ ! -d $cfgHOME_bashOps ]]
 then
