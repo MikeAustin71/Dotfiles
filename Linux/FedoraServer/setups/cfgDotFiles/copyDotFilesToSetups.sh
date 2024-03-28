@@ -222,7 +222,7 @@ then
 
   }
 
-  dos2Unix "$targetSetupScriptFile" ||
+  dos2unix "$targetSetupScriptFile" ||
   {
 
     errorExitCode=$?
