@@ -282,6 +282,12 @@ function installTerminusFonts() {
 
 }
 
+function installRealPath() {
+
+  sudo dnf install uu_realpath -y
+
+}
+
 function installVmwareTools() {
 
   sudo dnf install open-vm-tools -y

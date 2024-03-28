@@ -358,7 +358,7 @@ function doesDirectoryExist() {
 
   local targetDir
 
-	targetDir=$(relpath "$paramDir")
+	targetDir=$(realpath "$paramDir")
 
 	if [ ! -d "$targetDir" ]
 	then
@@ -462,7 +462,7 @@ function isCorrectCurrentDir() {
   # Convert to absolute path
   local targetDir
 
-  targetDir=$(relpath "$paramDir")
+  targetDir=$(realpath "$paramDir")
 
   echo "Param Dir After Absolute Path Conversion:"
   echo "$targetDir"
@@ -714,7 +714,7 @@ function removeDir() {
 
   local targetDir
 
-	targetDir=$(relpath "$paramDir")
+	targetDir=$(realpath "$paramDir")
 
   if [[ -z $targetDir ]]
   then
@@ -836,7 +836,7 @@ function zapAllFilesInDir() {
 	# Convert to absolute path
 	local targetDir
 
-	targetDir=$(relpath "$paramDir")
+	targetDir=$(realpath "$paramDir")
 
   if [[ -z $targetDir ]]
   then
@@ -994,7 +994,7 @@ function zapFilesCmd() {
 	# Convert to absolute path
 	local targetDir
 
-	targetDir=$(relpath "$paramDir")
+	targetDir=$(realpath "$paramDir")
 
 	if [[ $targetDir == "/" ]]
 	then

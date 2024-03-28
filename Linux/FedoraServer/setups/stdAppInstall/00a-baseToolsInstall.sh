@@ -9,9 +9,11 @@ source "$MIKE_Setup_Utilities"/utilsAppInstall.sh
 
 
 installCoreUtils &&
+installRealPath &&
 installCurl &&
 installWget &&
 installCompressionUtilities &&
 installNano &&
 installNeofetch &&
+installVmwareTools &&
 successMsg "All Base Tools Installed."
