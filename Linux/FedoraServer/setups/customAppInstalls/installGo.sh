@@ -122,7 +122,7 @@ testInstalledExe() {
 # Execute Functions
 
   makeDirIfNotExist "$downloadOpsDir" "777" "" &&
-	changeToDir "$downloadOpsDir" &&
+	changeTcoDir "$downloadOpsDir" &&
 	downloadAppArchive &&
   makeDirIfNotExist "$extractArchiveToDir" "777" "" &&
   unzipArchive &&

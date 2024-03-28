@@ -719,13 +719,25 @@ function removeDir() {
   if [[ -z $targetDir ]]
   then
 
-    echo -e "*** ERROR ***\n
-    Input parameter #1, the target\n
-    directory is EMPTY!\n
-		 Target Director: $targetDir\n
-		 Function: removeDir()\n\n"
+    echo "*** ERROR ***"
+    echo "After conversion to an absolute path,"
+    echo "the Target Directory Parameter is EMPTY!"
+    echo "Original Parameter#1 Directory:"
+    echo "    $paramDir"
+    echo "Function: removeDir()"
+    return 2
 
-    return 28
+  fi
+
+  if [[ ! -d $targetDir ]]
+  then
+
+    echo "Target Directory Does NOT Exist!"
+    echo "Target Directory Already Removed."
+    echo "Target Directory: $targetDir"
+    echo "No Error. Proceeding..."
+    echo "Function: removeDir()"
+    return 0
 
   fi
 
@@ -739,17 +751,6 @@ function removeDir() {
 		 Function: removeDir()\n\n"
 
 		 return 29
-
-	fi
-
-	if [[ ! -d $targetDir ]]
-	then
-
-		echo "*** ERROR ***"
-		echo "Target Directory DOES NOT EXIST!"
-		echo "Target Directory: $targetDir"
-		echo "Function: removeDir()"
-		exit 28
 
 	fi
 
