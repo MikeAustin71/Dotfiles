@@ -238,6 +238,18 @@ then
 
 fi
 
-".$targetSetupScriptFile"
+cd "$HOME" ||
+{
 
-exit
+    errorExitCode=$?
+
+    echo "*** ERROR ***"
+    echo "'cd' Command FAILURE:"
+    echo "Target Directory: $HOME"
+    echo "Error Code= $errorExitCode"
+    echo "Script= copyDotFilesToSetups.sh"
+
+    exit $errorExitCode
+}
+
+exit 0
