@@ -7,8 +7,9 @@
 # HOME/repos/Dotfiles/Linux/FedoraServer/setups
 #
 # This script file will copy the 'setups' directory
-# to:
-# HOME/bashOps
+# to: HOME/bashOps
+#
+# Finally, it will run the configureSetups.sh script.
 
 declare -i errorExitCode=0
 
@@ -26,27 +27,47 @@ declare cfgHome_setupScripts="$HOME/bashOps/setups"
 
 declare cfgSetupsScript="$cfgHome_setupScripts/cfgSetups/$cfgSetupsScriptFile"
 
-cd "$cfgHOME_bashOps" ||
-{
 
-  mkdir -m 775 "$cfgHOME_bashOps" ||
+
+if [[ ! -d $cfgHOME_bashOps ]]
+then
+
+  mkdir -p -m 775 "$cfgHOME_bashOps" ||
   {
 
     errorExitCode=$?
 
-    echo -e "*** ERROR ***\n
-    An error occurred while attempting to\n
-    create the 'bashOps' directory where\n
-    dot file 'setups' will reside!\n
-    bashOps directory= $cfgHOME_bashOps\n
-    Script= copyDotFilesToSetups.sh\n
-    Error Code= $errorExitCode\n\n"
+    echo "*** ERROR ***"
+    echo "Failed to create directory:"
+    echo "   $cfgHOME_bashOps"
+    echo "Error Code= $errorExitCode"
+    echo "Script= copyDotFilesToSetups.sh"
 
     exit $errorExitCode
 
   }
 
-}
+fi
+
+if [[ -d $cfgHome_setupScripts ]]
+then
+
+    sudo rm -rf "${cfgHome_setupScripts:?}" ||
+    {
+
+      errorExitCode=$?
+
+      echo "*** ERROR ***"
+      echo "Failed to remove directory:"
+      echo "   $cfgHome_setupScripts"
+      echo "Error Code= $errorExitCode"
+      echo "Script= copyDotFilesToSetups.sh"
+
+      exit $errorExitCode
+
+    }
+
+fi
 
 
 cd "$DOTFILES_setups"  ||
@@ -86,29 +107,6 @@ cd "$DOTFILES_fedora" ||
     exit $errorExitCode
 
 }
-
-if [[ -d $cfgHome_setupScripts ]]
-then
-
-  sudo rm -rf "${cfgHome_setupScripts:?}" ||
-  {
-
-    errorExitCode=$?
-
-    echo -e "*** ERROR ***\n
-    Attempted removal of pre-existing scripts\n
-    files failed!\n
-    Target Files in Scripts Directory:\n
-    $cfgHome_setupScripts\n
-    Script= copyDotFilesToSetups.sh\n
-    Error Code= $errorExitCode\n\n"
-
-    exit $errorExitCode
-
- }
-
-
-fi
 
 cp -vfr "${DOTFILES_setups:?}" "$cfgHOME_bashOps" ||
 {
@@ -206,4 +204,7 @@ then
 
 fi
 
-exit 0
+# shellcheck disable=SC1090
+source "$HOME/$cfgSetupsScriptFile"
+
+exit
