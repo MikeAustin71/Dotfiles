@@ -267,5 +267,19 @@ source "$targetSetupScriptFile" ||
     exit $errorExitCode
 }
 
+rm "$targetSetupScriptFile" ||
+{
+
+    errorExitCode=$?
+
+    echo "*** ERROR ***"
+    echo "File Deletion Failure!"
+    echo "Failed to Delete Script File:"
+    echo "  $targetSetupScriptFile"
+    echo "Error Code= $errorExitCode"
+    echo "Script File: copyDotFilesToSetups.sh"
+
+    exit $errorExitCode
+}
 
 exit 0
