@@ -62,6 +62,12 @@ function installCopyQ() {
 
 }
 
+function installCoreUtils() {
+
+  sudo dnf install coreutils -y
+
+}
+
 function installCurl() {
 
   sudo dnf install curl -y
@@ -71,12 +77,6 @@ function installCurl() {
 function installCompressionUtilities() {
 
   sudo dnf install tar gzip bzip2 lzop zip p7zip p7zip-plugins gzip lz4 -y
-
-}
-
-function installCurl() {
-
-  sudo dnf install curl -y
 
 }
 
