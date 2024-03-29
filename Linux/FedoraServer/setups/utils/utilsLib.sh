@@ -948,13 +948,15 @@ function zapAllFilesInDir() {
 		echo "Target Directory DOES NOT EXIST!"
 		echo "Target Directory: $targetDir"
 		echo "Function: zapAllFilesInDir()"
-		return 18
+		return 0
 
 	fi
 
 
-
-	sudo rm "$targetDir"/* ||
+  # The -f parameter ensures that no
+  # error message when called on an
+  # empty directory.
+	sudo rm -f "$targetDir"/* ||
 	{
 
 		echo -e "Error occurred while deleting all files\n
