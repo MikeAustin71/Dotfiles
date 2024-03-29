@@ -544,6 +544,13 @@ function makeDirIfNotExist() {
     echo "  $targetDir"
     echo ""
 
+  else
+
+    echo "Target Directory Already Existed."
+    echo "Target Directory: $targetDir"
+    echo "Function: makeDirIfNotExist()"
+    echo ""
+
 	fi
 
 
@@ -695,7 +702,8 @@ function moveDirFiles() {
   echo "Command Parameters: $overwriteCmd"
   echo "Execute Authority: $exeAuthority"
   echo "Function: moveDirFiles()"
-  echo -e "***************************************************\n\n"
+  echo "***************************************************"
+  echo ""
 
 	return 0
 }
