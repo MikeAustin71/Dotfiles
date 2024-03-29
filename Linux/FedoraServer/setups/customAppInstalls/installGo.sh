@@ -1,138 +1,84 @@
 #!/bin/bash
 # Downloads Latest Release of Go Programming Language
-#
-
-app_Name="go"
-release_Ver="1.22.1"
-release_file="go$release_Ver.linux-amd64.tar.gz"
-downloadOpsDir="$MIKE_Scratch"
-archiveFile="$downloadOpsDir/$release_file"
-extractArchiveToDir="$downloadOpsDir/go"
-targetExeParentDir="/usr/local"
-targetExeDir="$targetExeParentDir/go"
-targetExeFile="/usr/local/go/bin/$app_Name"
+# Taken from 'Coding with Cody'
+# https://codingwithcody.com/2022/03/09/install-latest-version-go-bash/
 
 source "$MIKE_Setup_Utilities"/utilsLib.sh
 
+# Fetch the latest version number
+LATEST_GO_VERSION=$(curl 'https://go.dev/VERSION?m=text')
 
-downloadAppArchive() {
+downloadInstallGo() {
 
-  isCorrectCurrentDir "$downloadOpsDir" "Target Directory" ||
+  # Are we in the correct directory?
+  isCorrectCurrentDir "$MIKE_Scratch" "Target Directory" ||
   {
 
     echo "Invalid Current Directory"
+    echo "Expected Directory: $MIKE_Scratch"
+    echo "Actual Directory: $(pwd)"
     echo "Function: downloadAppArchive()"
     return 119
 
   }
 
-  echo "***********************"
-  echo "Starting Go download..."
-  echo "***********************"
-
   local -i errorCode=0
 
-  wget https://go.dev/dl/"$release_file" ||
-  {
-    errorCode=$?
-
-    echo -e "*** ERROR ***\n
-    Download Operation FAILED!\n
-    Expected Download File: $archiveFile\n
-    Function: downloadAppArchive()\n
-    Error Code: $errorCode"
-    return $errorCode
-  }
-
-  if [ ! -f "$archiveFile" ]
-  then
-
-  echo "*** ERROR ***"
-    echo "Download File DOES NOT EXIST!"
-    echo "Download File: $archiveFile"
-    echo "Function: downloadAppArchive()"
-    exit 53
-
-  else
-
-  echo "********************************************"
-  echo "Successfully Downloaded Archive File"
-  echo "Archive File: $archiveFile"
-  echo "Function: downloadAppArchive()"
-  echo "********************************************"
-
-  fi
-
-  return 0
-}
-
-unzipArchive() {
-
-	if [[ ! -f $archiveFile ]]
-	then
-		echo "*** ERROR ***"
-		echo "Download File COULD NOT BE FOUND!"
-		echo "Expected File: $archiveFile"
-		echo "Function: unzipArchive()"
-		return 73
-	fi
-
-  local -i errorCode=0
-
-  tar -xzf "$archiveFile" -C ./go ||
+  # Download the tarball
+  wget "https://go.dev/dl/$LATEST_GO_VERSION.linux-amd64.tar.gz" ||
   {
 
     errorCode=$?
 
-    echo -e "*** ERROR ***\n
-    Extraction Operation FAILED!\n
-    Error Code= $errorCode\n
-    Archive File: $archiveFile\n
-    Function: unzipArchive()\n\n"
+    echo "*** ERROR ***"
+    echo "'wget' failed to download the 'go' tarball!"
+    echo "Error Code= $errorCode"
+    echo "Function: downloadInstallGo()"
+
     return $errorCode
   }
 
+  # Clear old installations
+  rm -rf /usr/local/go
 
-  echo "********************************************"
-  echo "Successfully Extracted Go Files"
-  echo "Archive File: $archiveFile"
-  echo "********************************************"
-  echo " "
 
-	return 0
-}
+  # Unpack the tarball
+  tar -C /usr/local -xzf "$LATEST_GO_VERSION".linux-amd64.tar.gz ||
+  {
+    errorCode=$?
 
-testInstalledExe() {
+    echo "*** ERROR ***"
+    echo "'tar' failed to unpack the 'go' tarball!"
+    echo "'go' was NOT installed!"
+    echo "Error Code= $errorCode"
+    echo "Function: downloadInstallGo()"
 
-	if [[ ! -f $targetExeFile ]]
-	then
+    return $errorCode
 
-		echo "*** ERROR ***"
-		echo "Final Verification Failed!"
-		echo "Target Executable File DOES NOT EXIST!"
-		echo "Target Executable: $targetExeFile"
-		echo "Function: testInstalledExe()"
-		return 201
+  }
 
-	fi
+  # Cleanup the download
+  rm "$LATEST_GO_VERSION".linux-amd64.tar.gz ||
+  {
+    errorCode=$?
+
+     echo "*** ERROR ***"
+     echo "Failed to delete tarball after"
+     echo "'go' was installed!"
+     echo "The 'go' installation was successful,"
+     echo "but the 'go' tarball remains."
+     echo "Error Code= $errorCode"
+     echo "Function: downloadInstallGo()"
+
+     return $errorCode
+
+  }
 
   return 0
 }
 
-
-# Execute Functions
-# Updated 2024-03-29 00:51
-  makeDirIfNotExist "$downloadOpsDir" "777" "" &&
-	changeToDir "$downloadOpsDir" &&
-	downloadAppArchive &&
-  makeDirIfNotExist "$extractArchiveToDir" "777" "" &&
-  unzipArchive &&
-  zapFilesCmd "$targetExeDir" "-rf" "sudo" &&
-  removeDir "$targetExeDir" &&
-  makeDirIfNotExist "$targetExeParentDir" "751" "sudo" &&
-  moveDirFiles "$extractArchiveToDir" "$targetExeDir" "" "sudo" &&
-  zapFilesCmd "$extractArchiveToDir" "-rf" "sudo" &&
-  removeDir "$extractArchiveToDir" &&
-  zapAllFilesInDir "$downloadOpsDir" &&
-  testInstalledExe &&
-  successMsg  "Downloaded and configured Go Programming Language Compiler." "Application Name: $app_Name" "Installed Executable: $targetExeFile"
+makeDirIfNotExist "$MIKE_Scratch" "777" "" &&
+zapAllFilesInDir "$MIKE_Scratch" &&
+changeToDir "$MIKE_Scratch" &&
+downloadInstallGo &&
+successMsg  "Downloaded and Installed Latest Go Programming Language Compiler." "Go Version: $LATEST_GO_VERSION"
