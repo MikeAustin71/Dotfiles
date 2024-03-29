@@ -129,7 +129,7 @@ testInstalledExe() {
   unzipArchive &&
   zapFilesCmd "$targetExeDir" "-rf" "sudo" &&
   removeDir "$targetExeDir" &&
-  makeDirIfNotExist "$targetExeParentDir" "777" "sudo" &&
+  makeDirIfNotExist "$targetExeParentDir" "751" "sudo" &&
   moveDirFiles "$extractArchiveToDir" "$targetExeDir" "" "sudo" &&
   zapFilesCmd "$extractArchiveToDir" "-rf" "sudo" &&
   removeDir "$extractArchiveToDir" &&

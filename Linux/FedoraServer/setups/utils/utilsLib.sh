@@ -644,51 +644,105 @@ function moveDirFiles() {
   cmdParams=$3
   exeAuthority=$4
 
-     if [[ -z $exeAuthority ]]
-     then
-       exeAuthority="$(whoami)"
-     fi
+  if [[ -z $exeAuthority ]]
+  then
+   exeAuthority="$(whoami)"
+  fi
 
   if [[ $exeAuthority != "sudo" ]]
   then
+    # Execution Authority is local user
+    if [[ -z $cmdParams ]]
+    then
 
-   mv "$cmdParams" "$sourceFile" "$destinationFile" ||
-   {
-     errorCode=$?
+      mv "$sourceFile" "$destinationFile" ||
+      {
 
-     echo -e	"Error occurred while moving $sourceFile to
-     $destinationFile\n
-     Source File= $sourceFile\n
-     Destination File= $destinationFile\n
-     Command Parameters= $cmdParams\n
-     Execute Authority= $exeAuthority\n
-     Function: moveDirFiles()\n
-     Error Code: $errorCode\n\n"
+       errorCode=$?
 
-     return $errorCode
+       echo "Error occurred while moving source file(s)"
+       echo "to destination file(s)."
+       echo "Source File= $sourceFile"
+       echo "Destination File= $destinationFile"
+       echo "Execute Authority= $exeAuthority"
+       echo "Function: moveDirFiles()"
+       echo "Error Code: $errorCode"
+       echo ""
 
-   }
+       return $errorCode
+
+      }
+
+    else
+
+      mv "$cmdParams" "$sourceFile" "$destinationFile" ||
+      {
+
+       errorCode=$?
+
+       echo "Error occurred while moving source file(s)"
+       echo "to destination file(s)."
+       echo "Source File= $sourceFile"
+       echo "Destination File= $destinationFile"
+       echo "Command Parameters= $cmdParams"
+       echo "Execute Authority= $exeAuthority"
+       echo "Function: moveDirFiles()"
+       echo "Error Code: $errorCode"
+       echo ""
+
+       return $errorCode
+
+      }
+
+    fi
 
   else
+  # Execution Authority is 'sudo'
 
-    sudo mv "$cmdParams" "$sourceFile" "$destinationFile" ||
-    {
+    if [[ -z $cmdParams ]]
+    then
 
-     errorCode=$?
+      # We DO NOT HAVE command parameters
+      sudo mv "$sourceFile" "$destinationFile" ||
+      {
 
-     echo -e	"Error occurred while moving $sourceFile to
-     $destinationFile\n
-     Source File= $sourceFile\n
-     Destination File= $destinationFile\n
-     Command Parameters= $cmdParams\n
-     Execute Authority= sudo\n
-     Function: moveDirFiles()\n
-     Error Code: $errorCode\n\n"
+       errorCode=$?
 
-     return $errorCode
+       echo "Error occurred while moving source file(s)"
+       echo "to destination file(s)."
+       echo "Source File= $sourceFile"
+       echo "Destination File= $destinationFile"
+       echo "Execute Authority= $exeAuthority"
+       echo "Function: moveDirFiles()"
+       echo "Error Code: $errorCode"
+       echo ""
 
-    }
+       return $errorCode
 
+      }
+
+    else
+      # We HAVE command parameters
+      sudo mv "$cmdParams" "$sourceFile" "$destinationFile" ||
+      {
+
+       errorCode=$?
+
+       echo "Error occurred while moving source file(s)"
+       echo "to destination file(s)."
+       echo "Source File= $sourceFile"
+       echo "Destination File= $destinationFile"
+       echo "Command Parameters= $cmdParams"
+       echo "Execute Authority= $exeAuthority"
+       echo "Function: moveDirFiles()"
+       echo "Error Code: $errorCode"
+       echo ""
+
+       return $errorCode
+
+      }
+
+    fi
 
   fi
 
@@ -796,9 +850,10 @@ function removeDir() {
 
 	else
 
-		echo -e "SUCCESS!\n
-		Target Directory Was Deleted!\n
-		Target Directory: $targetDir\n\n"
+	echo "Target Directory Was Deleted!"
+	echo "Target Directory: $targetDir"
+	echo "Function: removeDir()"
+	echo ""
 
 	fi
 
