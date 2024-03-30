@@ -952,11 +952,19 @@ function zapAllFilesInDir() {
 
 	fi
 
+  if [ "$(find "$targetDir" -maxdepth 1 -type f | wc -l)" -eq 0 ]
+  then
 
-  # The -f parameter ensures that no
-  # error message when called on an
-  # empty directory.
-	sudo rm -f "$targetDir"/* ||
+    echo "The target directory is empty and contains"
+    echo "zero files. No error. Nothing to do."
+    echo "Target Directory: $targetDir"
+    echo "Function: zapAllFilesInDir()"
+
+    echo 0
+
+  fi
+
+	sudo rm "$targetDir"/* ||
 	{
 
 		echo -e "Error occurred while deleting all files\n
