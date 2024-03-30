@@ -46,5 +46,8 @@ export MIKE_DotFiles_Repo="$HOME/repos/Dotfiles"
 
 export MIKE_GitRepo_DotFiles="https://github.com/MikeAustin71/Dotfiles.git"
 
+# ghq root directory
+# GitHub page:
+#    https://github.com/x-motemen/ghq
 export GHQ_ROOT="$HOME/repos"
 
