@@ -1,5 +1,11 @@
 #!/bin/bash
 # Downloads Latest Release of 'peco'
+# Filtering Tool
+# Improvement over 'grep'
+# Github:
+#    https://github.com/peco/peco
+# Wiki:
+#    https://github.com/peco/peco/wiki/Sample-Usage
 #
 
 app_Name="peco"

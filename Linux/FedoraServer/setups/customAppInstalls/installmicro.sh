@@ -86,6 +86,7 @@ testInstalledExe() {
 }
 
   makeDirIfNotExist "$downloadOpsDir" "777" "" &&
+  zapAllFilesInDir "$downloadOpsDir" &&
   changeToDir "$downloadOpsDir" &&
   downloadAppArchive &&
   changeFileOwner "$extractedBinaryFile" "root" &&
