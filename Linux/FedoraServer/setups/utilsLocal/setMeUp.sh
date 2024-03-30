@@ -6,19 +6,55 @@ declare targFileName="copyDotFilesToSetups.sh"
 
 declare targHomeFile="$HOME/$targFileName"
 
+declare -i errExitCode=0
+
 if [[ -f $targHomeFile ]]
 then
-	rm $targHomeFile
+	rm "$targHomeFile"
 fi
 
-cd "$HOME"/repos/Dotfiles
+cd "$HOME"/repos/Dotfiles ||
+{
+  errExitCode=$?
+
+  echo "cd $HOME/repos/Dotfiles FAILED!"
+  echo "Error Code: $errExitCode"
+  echo "Script File: setMeUp.sh"
+  exit $errExitCode
+}
 
 git pull origin main
 
-cp "$HOME/repos/Dotfiles/Linux/FedoraServer/setups/cfgDotFiles/$targFileName" "$targHomeFile"
+cp "$HOME/repos/Dotfiles/Linux/FedoraServer/setups/cfgDotFiles/$targFileName" "$targHomeFile" ||
+{
+  errExitCode=$?
 
-cd "$HOME"
+  echo "Copy Target File FAILED!"
+  echo "Target File: $targHomeFile"
+  echo "Error Code: $errExitCode"
+  echo "Script File: setMeUp.sh"
+  exit $errExitCode
 
-chmod 775 ./"$targFileName"
+}
+
+cd "$HOME" ||
+{
+  errExitCode=$?
+
+  echo "cd $HOME FAILED!"
+  echo "Error Code: $errExitCode"
+  echo "Script File: setMeUp.sh"
+  exit $errExitCode
+}
+
+chmod 775 ./"$targFileName" ||
+{
+  errExitCode=$?
+
+  echo "chmod 775 ./$targFileName FAILED!"
+  echo "Error Code: $errExitCode"
+  echo "Script File: setMeUp.sh"
+  exit $errExitCode
+}
 
 ./"$targFileName"
