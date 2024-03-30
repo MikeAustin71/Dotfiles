@@ -22,9 +22,10 @@ downloadAppArchive() {
   }
 
 
- echo "********************"
+ echo "**************************"
+ echo "Application: $app_Name"
  echo "Starting download..."
- echo "********************"
+ echo "**************************"
 
   local -i errorCode=0
 
@@ -84,6 +85,7 @@ testInstalledExe() {
 
 
   makeDirIfNotExist "$downloadOpsDir" "777" "" &&
+  zapAllFilesInDir "$downloadOpsDir" &&
 	changeToDir "$downloadOpsDir" &&
 	downloadAppArchive &&
 	changeFileOwner "$extractedBinaryFile" "root" &&

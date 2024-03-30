@@ -92,8 +92,40 @@ downloadInstallGo() {
   return 0
 }
 
+testInstalledExe() {
+
+  local goBaseDir="/usr/local/go"
+  local goBinDir="$goBaseDir/bin"
+
+	if [[ ! -d $goBaseDir ]]
+	then
+
+		echo "*** ERROR ***"
+		echo "Final Verification Failed!"
+		echo "Go Base Directory DOES NOT EXIST!"
+		echo "Go Base Directory: $goBaseDir"
+		echo "Function: testInstalledExe()"
+		return 201
+
+	fi
+
+  if [[ ! -d $goBinDir ]]
+  then
+
+		echo "*** ERROR ***"
+		echo "Final Verification Failed!"
+		echo "Go Bin Directory DOES NOT EXIST!"
+		echo "Go Bin Directory: $goBinDir"
+		echo "Function: testInstalledExe()"
+		return 202
+  fi
+
+  return 0
+}
+
 makeDirIfNotExist "$MIKE_Scratch" "777" "" &&
 zapFilesCmd "$MIKE_Scratch/*" "-f" "" &&
 changeToDir "$MIKE_Scratch" &&
 downloadInstallGo &&
+testInstalledExe &&
 successMsg  "Installed Latest Go Programming Language Compiler." "Go Version: $LATEST_GO_VERSION" "Be sure to add Path Variables!" "/usr/local/go /usr/local/go/bin"

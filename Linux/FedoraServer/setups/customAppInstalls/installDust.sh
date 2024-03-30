@@ -4,7 +4,7 @@
 # https://github.com/bootandy/dust
 
 app_Name="dust"
-release_Ver="v0.9.0"
+release_Ver="v1.0.0"
 baseReleaseName="dust-$release_Ver-x86_64-unknown-linux-gnu"
 release_file="$baseReleaseName.tar.gz"
 downloadOpsDir="$MIKE_Scratch"
@@ -131,7 +131,7 @@ testInstalledExe() {
 		echo "Target Executable File DOES NOT EXIST!"
 		echo "Target Executable: $targetExeFile"
 		echo "Function: testInstalledExe()"
-		exit 201
+		return 201
 
 	fi
 
@@ -139,7 +139,8 @@ testInstalledExe() {
 }
 
 
- makeDirIfNotExist "$downloadOpsDir" "777" "" &&
+  makeDirIfNotExist "$downloadOpsDir" "777" "" &&
+  zapAllFilesInDir "$downloadOpsDir" &&
 	changeToDir "$downloadOpsDir" &&
 	downloadAppArchive &&
 	unzipArchive &&
