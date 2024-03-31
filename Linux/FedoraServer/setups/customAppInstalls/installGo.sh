@@ -52,11 +52,11 @@ downloadInstallGo() {
   }
 
   # Clear old installations
-  rm -rf /usr/local/go
+  sudo rm -rf /usr/local/go
 
 
   # Unpack the tarball
-  tar -C /usr/local -xzf "$LATEST_GO_VERSION".linux-amd64.tar.gz ||
+  sudo tar -C /usr/local -xzf "$LATEST_GO_VERSION".linux-amd64.tar.gz ||
   {
     errorCode=$?
 
@@ -73,7 +73,7 @@ downloadInstallGo() {
   }
 
   # Cleanup the download
-  rm "$LATEST_GO_VERSION".linux-amd64.tar.gz ||
+  sudo rm "$LATEST_GO_VERSION".linux-amd64.tar.gz ||
   {
     errorCode=$?
 
