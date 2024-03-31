@@ -118,6 +118,16 @@ function installFuzzyFinder() {
 
 }
 
+# ghq application
+# git clone assistance
+# GitHub page:
+#    https://github.com/x-motemen/ghq
+function installGHQ() {
+
+ go install github.com/x-motemen/ghq@latest
+
+}
+
 function installGrubCustomizer() {
 
   sudo dnf install grub-customizer -y

@@ -62,6 +62,7 @@ installCompressionUtilities &&
 installEza &&
 installAutoJump &&
 installFuzzyFinder &&
+installGHQ &&
 installMidnightCommander &&
 installNano &&
 installNcdu &&
