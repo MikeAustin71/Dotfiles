@@ -5,7 +5,7 @@
 
 app_Name="dust"
 release_Ver="v1.0.0"
-baseReleaseName="dust-$release_Ver-x86_64-unknown-linux-gnu"
+baseReleaseName="dust-$release_Ver.0-x86_64-unknown-linux-gnu"
 release_file="$baseReleaseName.tar.gz"
 downloadOpsDir="$MIKE_Scratch"
 archiveFile="$downloadOpsDir/$release_file"
@@ -28,14 +28,15 @@ downloadAppArchive() {
 
   }
 
-  echo "********************"
-  echo "Starting download..."
-  echo "********************"
+  echo "**********************"
+  echo "Application: $app_Name"
+  echo "Starting download...  "
+  echo "**********************"
 
   local -i errorCode=0
 
 
-  # wget -v https://github.com/bootandy/dust/releases/download/v0.9.0/dust-v0.9.0-x86_64-unknown-linux-gnu.tar.gz
+  # wget -v https://github.com/bootandy/dust/releases/download/v0.9/dust-v0.9.0-x86_64-unknown-linux-gnu.tar.gz
   wget -v https://github.com/bootandy/dust/releases/tag/"$release_Ver"/dust-"$release_Ver".0-x86_64-unknown-linux-gnu.tar.gz ||
   {
 
