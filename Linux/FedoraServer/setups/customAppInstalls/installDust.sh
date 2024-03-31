@@ -138,17 +138,17 @@ testInstalledExe() {
   return 0
 }
 
-
+  echo "Starting $app_Name Installation"
   makeDirIfNotExist "$downloadOpsDir" "777" "" &&
-  zapAllFilesInDir "$downloadOpsDir" &&
-	changeToDir "$downloadOpsDir" &&
-	downloadAppArchive &&
-	unzipArchive &&
-	changeFileOwner "$extractedBinaryFile" "root" &&
-	changeFilePermissions "$extractedBinaryFile" "775" &&
-	zapFileIfExists "$targetExeFile" &&
-	moveDirFiles "$extractedBinaryFile" "$targetExeFile" "" "sudo" &&
-	removeDir "$extractArchiveToDir" &&
-	zapAllFilesInDir "$downloadOpsDir" &&
-	testInstalledExe &&
-	successMsg  "Downloaded, extracted and configured Application Binary." "Application Name: $app_Name" "Installed Executable: $targetExeFile"
+  zapFilesCmd "$downloadOpsDir/*" "-f" "" &&
+  changeToDir "$downloadOpsDir" &&
+  downloadAppArchive &&
+  unzipArchive &&
+  changeFileOwner "$extractedBinaryFile" "root" &&
+  changeFilePermissions "$extractedBinaryFile" "775" &&
+  zapFileIfExists "$targetExeFile" &&
+  moveDirFiles "$extractedBinaryFile" "$targetExeFile" "" "sudo" &&
+  removeDir "$extractArchiveToDir" &&
+  zapFilesCmd "$downloadOpsDir/*" "-f" "" &&
+  testInstalledExe &&
+  successMsg  "Downloaded, extracted and configured Application Binary." "Application Name: $app_Name" "Installed Executable: $targetExeFile"

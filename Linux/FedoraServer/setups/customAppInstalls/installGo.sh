@@ -127,5 +127,6 @@ makeDirIfNotExist "$MIKE_Scratch" "777" "" &&
 zapFilesCmd "$MIKE_Scratch/*" "-f" "" &&
 changeToDir "$MIKE_Scratch" &&
 downloadInstallGo &&
+zapFilesCmd "$MIKE_Scratch/*" "-f" "" &&
 testInstalledExe &&
 successMsg  "Installed Latest Go Programming Language Compiler." "Go Version: $LATEST_GO_VERSION" "Be sure to add Path Variables!" "/usr/local/go /usr/local/go/bin"

@@ -138,7 +138,9 @@ testInstalledExe() {
 
 # Execute Functions
 
+  echo "Starting $app_Name Installation"
   makeDirIfNotExist "$downloadOpsDir" "777" "" &&
+  zapFilesCmd "$downloadOpsDir/*" "-f" "" &&
 	changeToDir "$downloadOpsDir" &&
 	downloadAppArchive &&
 	unzipArchive &&
@@ -147,6 +149,6 @@ testInstalledExe() {
 	zapFileIfExists "$targetExeFile" &&
 	moveDirFiles "$extractedBinaryFile" "$targetExeFile"  "" "sudo" &&
 	removeDir "$extractArchiveToDir" &&
-	zapAllFilesInDir "$downloadOpsDir" &&
+	zapFilesCmd "$downloadOpsDir/*" "-f" "" &&
 	testInstalledExe &&	
 	successMsg  "Downloaded, extracted and configured Application Binary." "Application Name: $app_Name" "Installed Executable: $targetExeFile"

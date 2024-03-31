@@ -23,8 +23,9 @@ installGHQ() {
 
 }
 
+  echo "Starting 'ghq' Installation"
   makeDirIfNotExist "$downloadOpsDir" "777" "" &&
-  zapAllFilesInDir "$downloadOpsDir" &&
-	changeToDir "$downloadOpsDir" &&
+  zapFilesCmd "$downloadOpsDir/*" "-f" "" &&
+  changeToDir "$downloadOpsDir" &&
   installGHQ &&
   successMsg  "Downloaded, extracted and configured Application Binary." "Application Name: ghq"
