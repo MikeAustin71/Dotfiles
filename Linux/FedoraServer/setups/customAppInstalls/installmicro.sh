@@ -25,9 +25,10 @@ downloadAppArchive() {
   }
 
 
- echo "********************"
+ echo "**********************"
+ echo "Application: $app_Name"
  echo "Starting download..."
- echo "********************"
+ echo "**********************"
 
   local -i errorCode=0
 

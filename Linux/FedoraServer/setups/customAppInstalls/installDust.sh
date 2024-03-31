@@ -10,7 +10,7 @@ release_file="$baseReleaseName.tar.gz"
 downloadOpsDir="$MIKE_Scratch"
 archiveFile="$downloadOpsDir/$release_file"
 extractArchiveToDir="$downloadOpsDir/$baseReleaseName"
-extractedBinaryFile="$extractArchiveToDir/$app_Name"
+extractedBinaryFile="$extractArchiveToDir/$release_file"
 targetExeDir="/usr/local/bin"
 targetExeFile="$targetExeDir/$app_Name"
 
@@ -37,16 +37,19 @@ downloadAppArchive() {
 
 
   # wget -v https://github.com/bootandy/dust/releases/download/v0.9/dust-v0.9.0-x86_64-unknown-linux-gnu.tar.gz
+  # wget -v https://github.com/bootandy/dust/releases/tag/v1.0.0/dust-v1.0.0.0-x86_64-unknown-linux-gnu.tar.gz
+
   wget -v https://github.com/bootandy/dust/releases/tag/"$release_Ver"/dust-"$release_Ver".0-x86_64-unknown-linux-gnu.tar.gz ||
   {
 
     errorCode=$?
 
-    echo -e "*** ERROR ***\n
-    Download Operation FAILED!\n
-    Expected Download File: $archiveFile\n
-    Function: downloadAppArchive()\n
-    Error Code: $errorCode"
+    echo "*** ERROR ***"
+    echo "Download Operation FAILED!"
+    echo "Expected Download File: $archiveFile"
+    echo "Function: downloadAppArchive()"
+    echo "Script File: installDust.sh"
+    echo "Error Code: $errorCode"
     return $errorCode
 
   }
@@ -86,6 +89,8 @@ unzipArchive() {
 
   local -i errorCode=0
 
+
+  # tar -xvf
   tar -xvf "$archiveFile" ||
   {
 

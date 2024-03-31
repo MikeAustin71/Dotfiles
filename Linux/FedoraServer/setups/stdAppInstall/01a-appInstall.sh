@@ -51,22 +51,15 @@ function runScriptPeco() {
 }
 
 
-installNano &&
-installCurl &&
-installWget &&
-installVmwareTools &&
 installTrash &&
 installTerminusFonts &&
 installFontAwesome &&
-installCompressionUtilities &&
 installEza &&
 installAutoJump &&
 installFuzzyFinder &&
 installGHQ &&
 installMidnightCommander &&
-installNano &&
 installNcdu &&
-installNeofetch &&
 installPlocate &&
 installRipGrep &&
 installBtop &&
