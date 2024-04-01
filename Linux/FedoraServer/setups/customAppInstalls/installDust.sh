@@ -91,7 +91,7 @@ unzipArchive() {
 
 
   # tar -xvf
-  tar -xzf "$archiveFile" ||
+  tar -xvzf "$archiveFile" ||
   {
 
       errorCode=$?
