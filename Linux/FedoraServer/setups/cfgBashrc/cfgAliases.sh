@@ -14,7 +14,7 @@ declare aliasSourceFile="$MIKE_Setup_Scripts/configDir/aliases/aliases.txt"
 
 declare -i aliasExitCode=0
 
-if [[ -f $aliasSourceFile ]]
+if [[ ! -f $aliasSourceFile ]]
 then
     echo "*** ERROR ***"
     echo "Alias Source File DOES NOT EXIST!"
