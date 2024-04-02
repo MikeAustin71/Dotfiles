@@ -16,15 +16,6 @@ function runScriptBroot() {
     source "$scriptFile"
 }
 
-function runScriptDust() {
-
-    local scriptFile
-
-    scriptFile="$MIKE_Setup_Scripts"/customAppInstalls/installDust.sh
-
-     # shellcheck source="$HOME"/bashOps/setups/customAppInstalls/installDust.sh
-   source "$scriptFile"
-}
 
 function runScriptMicro() {
 
@@ -57,7 +48,7 @@ installFontAwesome &&
 installEza &&
 installAutoJump &&
 installFuzzyFinder &&
-installGHQ &&
+installDuf &&
 installMidnightCommander &&
 installNcdu &&
 installPlocate &&
@@ -68,6 +59,5 @@ installTldr &&
 installZoxide &&
 runScriptMicro &&
 runScriptBroot &&
-runScriptDust &&
 runScriptPeco &&
 successMsg "All Phase-1a Applications Installed."

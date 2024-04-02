@@ -74,6 +74,12 @@ function installCurl() {
 
 }
 
+function installDuf() {
+
+  sudo dnf install duf -y
+
+}
+
 function installCompressionUtilities() {
 
   sudo dnf install tar gzip bzip2 lzop zip p7zip p7zip-plugins gzip lz4 -y
