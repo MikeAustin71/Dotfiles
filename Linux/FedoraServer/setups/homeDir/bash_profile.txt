@@ -22,7 +22,7 @@ export XDG_CONFIG_STARSHIP="$XDG_CONFIG_HOME/starship"
 
 export STARSHIP_CONFIG="$XDG_CONFIG_STARSHIP/starship.toml"
 
-export STARSHIP_CACHE="XDG_CACHE_HOME/.starship/cache"
+export STARSHIP_CACHE="$XDG_CACHE_HOME/.starship/cache"
 
 export MIKE_Scratch="$HOME/scratch"
 
