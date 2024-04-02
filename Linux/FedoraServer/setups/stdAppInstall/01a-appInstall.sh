@@ -54,6 +54,7 @@ installNcdu &&
 installPlocate &&
 installRipGrep &&
 installBtop &&
+installBashCompletion &&
 installCheat &&
 installTldr &&
 installZoxide &&

@@ -22,6 +22,11 @@ function installAwesomeWM() {
 
 }
 
+function installBashCompletion() {
+
+  sudo dnf install bash-completion -y
+}
+
 # A replacement for cat
 # GitHub - sharkdp/bat: A cat(1) clone with wings.
 # (https://github.com/sharkdp/bat)
