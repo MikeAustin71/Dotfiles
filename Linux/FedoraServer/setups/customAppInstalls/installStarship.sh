@@ -6,7 +6,7 @@ declare -i errExitCode=0
 
 source "$MIKE_Setup_Scripts/utils/utilsLib.sh"
 
-curl -fsSL https://starship.rs/install.sh | bash ||
+curl -fsSL https://starship.rs/install.sh | sh ||
 {
     errExitCode=$?
 
@@ -18,6 +18,8 @@ curl -fsSL https://starship.rs/install.sh | bash ||
     exit $errExitCode
 }
 
+echo ""
+echo ""
 read -p "Configure Starship in .bashrc? (Y/n) " -n 1 -r
 echo   # (optional) move to a new line
 if [[ $REPLY =~ ^[Yy]$ ]]
