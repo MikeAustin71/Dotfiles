@@ -10,6 +10,7 @@ function runEnableFreeRepos {
 
     scriptFile="$MIKE_Setup_Scripts/enableRepos/01-enableFreeRepos.sh"
 
+    # shellcheck disable=SC1090
     source "$scriptFile"
 
 }
@@ -19,25 +20,29 @@ function runEnableNonFreeRepos {
 
     scriptFile="$MIKE_Setup_Scripts/enableRepos/02-enableNonFreeRepos.sh"
 
+    # shellcheck disable=SC1090
     source "$scriptFile"
 }
 
 function runEnableGUIPackMan {
 
-     local scriptFile
+    local scriptFile
 
-        scriptFile="$MIKE_Setup_Scripts/enableRepos/03-EnableGUIPackMan.sh"
+    scriptFile="$MIKE_Setup_Scripts/enableRepos/03-EnableGUIPackMan.sh"
 
+    # shellcheck disable=SC1090
     source "$scriptFile"
 }
 
 function runEnableFlathub {
 
-   local scriptFile
+  local scriptFile
 
-   scriptFile="$MIKE_Setup_Scripts/enableRepos/04-enableFlathub.sh"
+  # shellcheck disable=SC1090
+  scriptFile="$MIKE_Setup_Scripts/enableRepos/04-enableFlathub.sh"
 
-    source "$scriptFile"
+  # shellcheck disable=SC1090
+  source "$scriptFile"
 }
 
 function runEnableFlatpack {
@@ -46,6 +51,7 @@ function runEnableFlatpack {
 
     scriptFile="$MIKE_Setup_Scripts/enableRepos/05-addFlatpackRepo.sh"
 
+    # shellcheck disable=SC1090
     source "$scriptFile"
 }
 
