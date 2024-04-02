@@ -10,7 +10,7 @@ declare aliasTargetDir="$XDG_CONFIG_ALIASES"
 
 declare aliasTargetFile="$aliasTargetDir/aliases.txt"
 
-declare aliasSourceFile="$MIKE_Setup_Scripts/configDir/aliases.txt"
+declare aliasSourceFile="$MIKE_Setup_Scripts/configDir/aliases/aliases.txt"
 
 declare -i aliasExitCode=0
 
