@@ -124,6 +124,12 @@ function installFuzzyFinder() {
 
 }
 
+function installGit() {
+
+  sudo dnf install git -y
+
+}
+
 # ghq application
 # git clone assistance
 # GitHub page:

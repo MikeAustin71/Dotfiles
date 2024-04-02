@@ -7,7 +7,7 @@ source "$MIKE_Setup_Utilities"/utilsLib.sh
 source "$MIKE_Setup_Utilities"/utilsAppInstall.sh
 
 
-
+installGit &&
 installCoreUtils &&
 installRealPath &&
 installCurl &&
