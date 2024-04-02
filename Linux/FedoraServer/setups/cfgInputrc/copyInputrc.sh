@@ -39,8 +39,8 @@ then
 
 fi
 
-
-cp -v "$inputRcSetupFile" "$inputRcDestinationFile" ||
+# cp -v "$MIKE_Setup_Scripts/homeDir/inputrc.txt"  "$HOME/.inputrc"
+cp -v "$inputRcSourceFile" "$inputRcDestinationFile" ||
 {
 
       inputRcErrorCode=$?
