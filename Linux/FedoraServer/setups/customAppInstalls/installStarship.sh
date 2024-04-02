@@ -19,7 +19,7 @@ curl -fsSL https://starship.rs/install.sh | bash ||
 }
 
 read -p "Configure Starship in .bashrc? (Y/n) " -n 1 -r
-echo    # (optional) move to a new line
+echo   # (optional) move to a new line
 if [[ $REPLY =~ ^[Yy]$ ]]
 then
 
