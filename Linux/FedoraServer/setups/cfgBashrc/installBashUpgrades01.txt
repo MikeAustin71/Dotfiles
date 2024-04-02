@@ -1,6 +1,6 @@
 
 # Adding standard aliases
-if [ -f "$XDG_CONFIG_ALIASES/aliases.txt" ]; then
-   . "$XDG_CONFIG_ALIASES/aliases.txt"
+if [ -f "$HOME/.config/aliases/aliases.txt" ]; then
+   . "$HOME/.config/aliases/aliases.txt"
 fi
 
