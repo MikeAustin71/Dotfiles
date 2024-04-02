@@ -1,6 +1,7 @@
 
 # Adding standard aliases
-if [ -f "$HOME/.config/aliases/aliases.txt" ]; then
+if [ -f "$HOME/.config/aliases/aliases.txt" ]
+then
    . "$HOME/.config/aliases/aliases.txt"
 fi
 
