@@ -3,19 +3,19 @@
 # Do NOT run this as sudo
 
 
-source "$MIKE_Setup_Scripts/utils/utilsLib.sh"
+source "$HOME"/bashOps/setups/utils/utilsLib.sh
 
-makeDirIfNotExist "$XDG_CONFIG_HOME" "775" "" &&
-makeDirIfNotExist "$XDG_CONFIG_ALIASES" "775" "" &&
-makeDirIfNotExist "$XDG_LOCAL_HOME" "775" "" &&
-makeDirIfNotExist "$XDG_SHARE_DATA" "775" "" &&
-makeDirIfNotExist "$XDG_DATA_FONTS" "775" "" &&
-makeDirIfNotExist "$XDG_BIN_HOME" "775" "" &&
-makeDirIfNotExist "$XDG_CACHE_HOME" "775" "" &&
-makeDirIfNotExist "$XDG_CONFIG_STARSHIP" "775" "" &&
-makeDirIfNotExist "$STARSHIP_CACHE" "775" "" &&
-makeDirIfNotExist "$MIKE_BashOps/scripts" "775" "" &&
-makeDirIfNotExist "$MIKE_BashOps/setups" "775" "" &&
+makeDirIfNotExist "$HOME/.config" "775" "" &&
+makeDirIfNotExist "$HOME/.config/aliases" "775" "" &&
+makeDirIfNotExist "$HOME/.local" "775" "" &&
+makeDirIfNotExist "$HOME/.local/share" "775" "" &&
+makeDirIfNotExist "$HOME/.local/share/fonts" "775" "" &&
+makeDirIfNotExist "$HOME/.local/bin" "775" "" &&
+makeDirIfNotExist "$HOME/.local/cache" "775" "" &&
+makeDirIfNotExist "$HOME/.config/starship" "775" "" &&
+makeDirIfNotExist "$HOME/.local/cache/.starship/cache" "775" "" &&
+makeDirIfNotExist "$HOME/bashOps/scripts" "775" "" &&
+makeDirIfNotExist "$HOME/bashOps/setups" "775" "" &&
 makeDirIfNotExist "$HOME/cheatSheets" "775" "" &&
 makeDirIfNotExist "$HOME/dev" "775" "" &&
 makeDirIfNotExist "$HOME/Desktop" "775" "" &&
@@ -28,7 +28,7 @@ makeDirIfNotExist "$HOME/Pictures" "775" "" &&
 makeDirIfNotExist "$HOME/programming" "775" "" &&
 makeDirIfNotExist "$HOME/projects" "775" "" &&
 makeDirIfNotExist "$HOME/Public" "775" "" &&
-makeDirIfNotExist "$MIKE_Git_Repos" "775" "" &&
+makeDirIfNotExist "$HOME/repos" "775" "" &&
 makeDirIfNotExist "$MIKE_DotFiles_Repo" "775" "" &&
 makeDirIfNotExist "$HOME/scratch" "777" "" &&
 makeDirIfNotExist "$HOME/workNotes" "777" "" &&
