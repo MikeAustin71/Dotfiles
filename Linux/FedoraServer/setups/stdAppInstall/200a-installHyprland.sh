@@ -8,7 +8,8 @@ source "$MIKE_Setup_Utilities"/utilsAppInstall.sh
 source "$MIKE_Setup_Utilities"/utilsWaylandInstalls.sh
 
 
-
+installLibdrm &&
+installImageMagick &&
 install_Wayland_wlclipboard &&
 install_Wayland_waybar &&
 # Consider using rofi-wayland
@@ -19,7 +20,7 @@ install_Wayland_hyprlandDevel &&
 install_Wayland_hyprcursor &&
 installGrubCustomizer &&
 installKitty &&
-installKrusader &&
+installDolfin &&
 installCopyQ &&
 successMsg "All Hyprland Components Installed."
 

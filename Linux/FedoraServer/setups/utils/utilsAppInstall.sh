@@ -79,6 +79,12 @@ function installCurl() {
 
 }
 
+function installDolfin() {
+
+  sudo dnf install dolphin -y
+
+}
+
 function installDuf() {
 
   sudo dnf install duf -y
@@ -151,6 +157,14 @@ function installGrubCustomizer() {
 
 }
 
+# An X application for displaying and
+# manipulating images
+function installImageMagick() {
+
+  sudo dnf install ImageMagick -y
+
+}
+
 function installKitty() {
 
   sudo dnf install kitty -y
@@ -160,6 +174,12 @@ function installKitty() {
 function installKrusader() {
 
   sudo dnf install krusader -y
+
+}
+
+function installLibdrm() {
+
+  sudo dnf install libdrm -y
 
 }
 

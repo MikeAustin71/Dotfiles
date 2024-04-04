@@ -1,8 +1,10 @@
 # Mike's Environment Variables
 
-export EDITOR="micro"
+export EDITOR="nano"
 
-export VISUAL="micro"
+export VISUAL="nano"
+
+export VIEWER="nano"
 
 export XDG_CONFIG_HOME="$HOME/.config"
 

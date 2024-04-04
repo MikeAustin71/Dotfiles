@@ -5,6 +5,11 @@
 source "$MIKE_Setup_Utilities"/utilsLib.sh
 
 
+install_Wayland_egl_Wayland() {
+
+  sudo dnf install egl-wayland -y
+}
+
 install_Wayland_hyprcursor() {
 
   sudo dnf install hyprcursor -y
