@@ -290,6 +290,13 @@ function installPlocate() {
 
 }
 
+# https://github.com/ranger/ranger
+function installRanger() {
+
+  sudo dnf install ranger -y
+
+}
+
 function installRipGrep() {
 
   sudo dnf install ripgrep -y

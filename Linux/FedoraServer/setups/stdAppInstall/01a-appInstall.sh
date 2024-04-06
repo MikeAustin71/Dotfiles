@@ -50,6 +50,7 @@ installAutoJump &&
 installFuzzyFinder &&
 installDuf &&
 installMidnightCommander &&
+installRanger &&
 installNcdu &&
 installPlocate &&
 installRipGrep &&
