@@ -97,6 +97,8 @@ function installCompressionUtilities() {
 
 }
 
+# Notification daemon
+# https://github.com/dunst-project/dunst
 function installDunst() {
 
   sudo dnf install dunst libnotify -y
