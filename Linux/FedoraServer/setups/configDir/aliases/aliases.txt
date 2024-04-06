@@ -2,7 +2,7 @@
 
 alias upgrade="sudo dnf update -y && sudo dnf upgrade -y"
 
-alias aliases="cat ~/.config/aliases/.aliases"
+alias aliases="cat ~/.config/aliases/aliases.txt"
 
 # ld - lists only directories (no files)
 alias ld='eza -lD'
