@@ -93,7 +93,7 @@ function installDuf() {
 
 function installCompressionUtilities() {
 
-  sudo dnf install tar gzip bzip2 lzop zip p7zip p7zip-plugins gzip lz4 -y
+  sudo dnf install tar gzip bzip2 lzop zip p7zip p7zip-plugins gzip lz4 perl-Archive-Extract -y
 
 }
 
@@ -367,6 +367,8 @@ function install_x11() {
 }
 
 # zoxide
+# zoxide is a smarter cd command, inspired by z and autojump.
+# https://github.com/ajeetdsouza/zoxide
 function installZoxide() {
 
   sudo dnf install zoxide -y
