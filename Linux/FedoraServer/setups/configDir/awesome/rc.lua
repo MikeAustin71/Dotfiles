@@ -561,3 +561,15 @@ end)
 client.connect_signal("mouse::enter", function(c)
     c:activate { context = "mouse_enter", raise = false }
 end)
+
+-- Autorun programs
+autorun = true
+autorunApps = {
+    "picom --config $HOME/.config/picom/picom.conf -b"
+}
+
+if autorun then
+    for app = 1, #autorunApps do
+        awful.util.spawn(autorunApps[app])
+    end
+end
