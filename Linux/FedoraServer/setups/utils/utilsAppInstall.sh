@@ -273,6 +273,7 @@ function installPandoc() {
 
 }
 
+# Compositor for xorg
 function installPicom() {
 
   sudo dnf install picom -y

@@ -9,7 +9,6 @@ source "$MIKE_Setup_Utilities"/utilsAppInstall.sh
 # picom rofi sxhkd dunst libnotify nitrogen
 # xrandr
 install_x11 &&
-installVmwareTools &&
 installAlsaUtils &&
 installSxhkd &&
 installDunst &&
@@ -20,4 +19,5 @@ installKrusader &&
 installRofi &&
 installGrubCustomizer &&
 installNetworkManager &&
+installNitrogen &&
 successMsg "All Phase-2a Applications Installed."
