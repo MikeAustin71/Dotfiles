@@ -28,7 +28,7 @@ function changeDirOwner() {
 
 	if [[ -z $targetDir ]]
 	then
-		echo "*** ERROR ***"
+		echo "*** Error ***"
 		echo "Target Directory Parameter is EMPTY!"
 		echo "Target Directory: $targetDir"
 		echo "Function: changeDirOwner()"
@@ -38,7 +38,7 @@ function changeDirOwner() {
 
 	if [[ ! -d $targetDir ]]
 	then
-		echo "*** ERROR ***"
+		echo "*** Error ***"
 		echo "Target Directory DOES NOT EXIST!"
 		echo "Target Directory: $targetDir"
 		echo "Function: changeDirOwner()"
@@ -48,7 +48,7 @@ function changeDirOwner() {
 
   if [[ -z $newOwner ]]
   then
-		echo "*** ERROR ***"
+		echo "*** Error ***"
 		echo "New Owner Parameter is EMPTY!"
 		echo "Target Directory: $targetDir"
 		echo "Function: changeDirOwner()"
@@ -98,7 +98,7 @@ function changeDirectoryPermissions() {
 	if [[ -z $targetDir ]]
 	then
 
-		echo -e "*** ERROR ***\n
+		echo -e "*** Error ***\n
 		Target Directory Parameter is EMPTY!\n
 		Function: changeDirectoryPermissions()\n\n"
 
@@ -109,7 +109,7 @@ function changeDirectoryPermissions() {
 	if [[ ! -f $targetDir ]]
 	then
 
-		echo -e "*** ERROR ***\n
+		echo -e "*** Error ***\n
 		Target Directory DOES NOT EXIST!\n
 		Target Directory: $targetDir\n
 		Function: changeDirectoryPermissions()\n\n"
@@ -120,7 +120,7 @@ function changeDirectoryPermissions() {
 
   if [[ -z $newPermissions ]]
   then
-		echo "*** ERROR ***"
+		echo "*** Error ***"
 		echo "New Permissions Parameter is EMPTY!"
 		echo "Target Directory: $targetDir"
 		echo "Function: changeDirectoryPermissions()"
@@ -168,7 +168,7 @@ function changeFileOwner() {
 
 	if [[ -z $targetFile ]]
 	then
-		echo "*** ERROR ***"
+		echo "*** Error ***"
 		echo "Target File Parameter is EMPTY!"
 		echo "Function: changeFileOwner()"
 		exit 89
@@ -176,7 +176,7 @@ function changeFileOwner() {
 
 	if [[ ! -f $targetFile ]]
 	then
-		echo "*** ERROR ***"
+		echo "*** Error ***"
 		echo "Target File DOES NOT EXIST!"
 		echo "Target File: $targetFile"
 		echo "Function: changeFileOwner()"
@@ -235,7 +235,7 @@ function changeFilePermissions() {
 	if [[ -z $targetFile ]]
 	then
 
-		echo -e "*** ERROR ***\n
+		echo -e "*** Error ***\n
 		Target File Parameter is EMPTY!\n
 		Function: changeFilePermissions()\n\n"
 		return 79
@@ -245,7 +245,7 @@ function changeFilePermissions() {
 	if [[ ! -f $targetFile ]]
 	then
 
-		echo -e "*** ERROR ***\n
+		echo -e "*** Error ***\n
 		Target File DOES NOT EXIST!\n
 		Target File: $targetFile\n
 		Function: changeFilePermissions()\n\n"
@@ -256,7 +256,7 @@ function changeFilePermissions() {
 
   if [[ -z $newPermissions ]]
   then
-		echo "*** ERROR ***"
+		echo "*** Error ***"
 		echo "New Permissions Parameter is EMPTY!"
 		echo "Target File: $targetFile"
 		echo "Function: changeFilePermissions()"
@@ -296,7 +296,7 @@ function changeToDir() {
 	if [[ ! -d $targetDir ]]
 	then
 
-		echo "*** ERROR ***"
+		echo "*** Error ***"
 		echo "The Target Directory DOES NOT EXIST!"
 		echo "Target Directory: $targetDir"
 		echo "Function: changeToDir()"
@@ -310,7 +310,7 @@ function changeToDir() {
   {
     errorCode=$?
 
-    echo -e "*** ERROR ***\nCould NOT change to the Target Directory!\n
+    echo -e "*** Error ***\nCould NOT change to the Target Directory!\n
     Target Directory: $targetDir\n
     Function: changeToDir()\n
     Error Code: $errorCode\n\n"
@@ -407,6 +407,28 @@ function doesFileExist() {
   return 0
 }
 
+# This function will display error messages.
+# Individual text lines should be equal to or
+# less than 50-characters.
+function errXMsg() {
+
+ echo
+ echo "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+ echo "                  &*! Error &*!"
+
+    for arg in "$@"; do
+        if [[ -n $arg ]]; then
+            echo "$arg"
+        fi
+    done
+
+  echo "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+
+  echo
+
+  return 0
+}
+
 # This function will test the current
 # working directory to verify that it
 # is equal to the target directory passed
@@ -435,7 +457,7 @@ function isCorrectCurrentDir() {
   if [[ -z $paramDir ]]
   then
 
-  echo "*** ERROR ***"
+  echo "*** Error ***"
   echo "The target parameter Directory is EMPTY!"
   echo "This is the first parameter in the Function Call."
   echo "Function: isCorrectCurrentDir()"
@@ -476,7 +498,7 @@ function isCorrectCurrentDir() {
   if [[ $currDir != "$targetDir" ]]
   then
 
-  echo "*** ERROR ***"
+  echo "*** Error ***"
   echo "The Current Directory is NOT equal"
   echo "to the $directoryName!"
   echo "$directoryName: $targetDir"
@@ -514,7 +536,7 @@ function makeDirIfNotExist() {
   if [[ -z $targetDir ]]
   then
 
-    echo "  ***  ERROR  ***"
+    echo "  ***  Error  ***"
     echo "Target Directory Parameter is EMPTY!"
     echo "Function: makeDirIfNotExist()"
     return 51
@@ -530,7 +552,7 @@ function makeDirIfNotExist() {
     {
         errorCode=$?
 
-        echo -e "*** ERROR ***\n
+        echo -e "*** Error ***\n
         Failed to create Target Directory!\n
         Target Directory: $targetDir\n
         Permission Code: $permissionCode\n
@@ -595,7 +617,7 @@ function makeDirIfNotExist() {
     {
           errorCode=$?
 
-          echo -e "*** ERROR ***\n
+          echo -e "*** Error ***\n
           Failed to set permission code on Target Directory!\n
           Target Directory: $targetDir\n
           Permission Code: $permissionCode\n
@@ -794,7 +816,7 @@ function removeDir() {
   if [[ -z $targetDir ]]
   then
 
-    echo "*** ERROR ***"
+    echo "*** Error ***"
     echo "After conversion to an absolute path,"
     echo "the Target Directory Parameter is EMPTY!"
     echo "Original Parameter#1 Directory:"
@@ -819,7 +841,7 @@ function removeDir() {
 	if [[ $targetDir == "/" ]]
 	then
 
-		echo -e "*** ERROR ***\n
+		echo -e "*** Error ***\n
 		 Target Directory is equal to root directory.\n
 		 You should NOT delete the 'root' directory.\n
 		 Target Director: $targetDir\n
@@ -841,7 +863,7 @@ function removeDir() {
 	if [[ -d $targetDir ]]
 	then
 
-		echo -e "*** ERROR ***\n
+		echo -e "*** Error ***\n
 		Target Directory STILL EXISTS!\n
 		Attempted deletion of $targetDir FAILED!\n
 		Target Directory: $targetDir\n
@@ -918,7 +940,7 @@ function zapAllFilesInDir() {
   if [[ -z $targetDir ]]
   then
 
-    echo -e "*** ERROR ***\n
+    echo -e "*** Error ***\n
     Input parameter #1, the target\n
     directory is EMPTY!\n
 		 Target Director: $targetDir\n
@@ -931,7 +953,7 @@ function zapAllFilesInDir() {
 	if [[ $targetDir == "/" ]]
 	then
 
-		echo -e "*** ERROR ***\n
+		echo -e "*** Error ***\n
 		 Target Directory is equal to root directory.\n
 		 You should NOT delete all files in the 'root' directory.\n
 		 Target Director: $targetDir\n
@@ -944,7 +966,7 @@ function zapAllFilesInDir() {
 	if [[ ! -d $targetDir ]]
 	then
 
-		echo "*** ERROR ***"
+		echo "*** Error ***"
 		echo "Target Directory DOES NOT EXIST!"
 		echo "Target Directory: $targetDir"
 		echo "Function: zapAllFilesInDir()"
@@ -1006,7 +1028,7 @@ function zapFileIfExists() {
 
    sudo rm "$targetFile" ||
     {
-      echo -e "*** ERROR ***\n
+      echo -e "*** Error ***\n
         Failed to delete pre-existing App: $targetFile\n
         Function zapFileIfExists()\n
         Error Code: $errorCode"
@@ -1086,7 +1108,7 @@ function zapFilesCmd() {
 	if [[ $targetDir == "/" ]]
 	then
 
-		echo -e "*** ERROR ***\n
+		echo -e "*** Error ***\n
 		 Target Directory is equal to root directory.\n
 		 You should NOT delete all files in the 'root' directory.\n
 		 Target Director: $targetDir\n
