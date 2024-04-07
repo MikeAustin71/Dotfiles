@@ -30,6 +30,7 @@ installAwesomeWM &&
 installKitty &&
 installKrusader &&
 installRofi &&
+install_x_Copy &&
 installCopyQ &&
 installGrubCustomizer &&
 installNetworkManager &&

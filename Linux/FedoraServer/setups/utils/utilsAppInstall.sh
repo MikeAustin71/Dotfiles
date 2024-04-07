@@ -366,6 +366,13 @@ function install_x11() {
 
 }
 
+function install_x_Copy() {
+
+  sudo dnf install xclip xsel
+
+
+}
+
 # zoxide
 # zoxide is a smarter cd command, inspired by z and autojump.
 # https://github.com/ajeetdsouza/zoxide
