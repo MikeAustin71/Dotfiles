@@ -34,5 +34,5 @@ ex ()
   fi
 }
 
-
+eval "$(zoxide init bash)"
 
