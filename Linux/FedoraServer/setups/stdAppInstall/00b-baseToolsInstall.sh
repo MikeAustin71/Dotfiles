@@ -34,6 +34,8 @@ installCoreUtils &&
 installRealPath &&
 installCurl &&
 installWget &&
+installBashCompletion &&
+installBat &&
 installCompressionUtilities &&
 installNano &&
 installNeofetch &&

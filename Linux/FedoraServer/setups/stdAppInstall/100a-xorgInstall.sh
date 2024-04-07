@@ -30,6 +30,7 @@ installAwesomeWM &&
 installKitty &&
 installKrusader &&
 installRofi &&
+installCopyQ &&
 installGrubCustomizer &&
 installNetworkManager &&
 installNitrogen &&
