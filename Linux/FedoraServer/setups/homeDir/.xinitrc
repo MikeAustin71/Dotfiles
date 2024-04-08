@@ -1,4 +1,6 @@
 
 
 sxhkd &
+dunst &
+
 exec awesome
