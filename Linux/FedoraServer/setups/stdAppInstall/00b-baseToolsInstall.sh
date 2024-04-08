@@ -42,4 +42,4 @@ installNeofetch &&
 installVmwareTools &&
 getFonts &&
 getWallpaper &&
-successMsg "All Base Tools Installed." "All Fonts Installed" "All Wallpapers Installed"
+successMsg "All Base Tools Installed." "All Fonts Installed" "All Wallpapers Installed" || errXMsg "00b-baseToolsInstall.sh Execution Failed" "Error-Exit!"

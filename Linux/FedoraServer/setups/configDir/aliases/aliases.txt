@@ -2,7 +2,13 @@
 
 alias upgrade="sudo dnf update -y && sudo dnf upgrade -y"
 
-alias aliases="cat ~/.config/aliases/aliases.txt"
+alias aliases="bat ~/.config/aliases/aliases.txt"
+
+alias ip='ip -color'
+
+alias cat='bat -paging=never'
+
+alias pat='bat -paging=always'
 
 # ld - lists only directories (no files)
 alias ld='eza -lD'

@@ -61,4 +61,5 @@ installZoxide &&
 runScriptMicro &&
 runScriptBroot &&
 runScriptPeco &&
-successMsg "All Phase-1a Applications Installed."
+successMsg "All Phase-1a Applications Installed." "01a-appInstall.sh" || errXMsg "01a-appInstall.sh Execution Failed" "Error-Exit!"
+
