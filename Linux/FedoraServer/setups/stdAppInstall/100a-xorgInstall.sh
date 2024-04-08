@@ -85,7 +85,6 @@ installAwesomeWM &&
 installKitty &&
 installKrusader &&
 installRofi &&
-installRofiDefaultCfg &&
 install_x_Copy &&
 installCopyQ &&
 installGrubCustomizer &&
