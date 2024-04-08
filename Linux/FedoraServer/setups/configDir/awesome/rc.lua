@@ -563,13 +563,18 @@ client.connect_signal("mouse::enter", function(c)
 end)
 
 -- Autorun programs
-autorun = true
-autorunApps = {
-    "picom --config $HOME/.config/picom/picom.conf -b"
-}
+-- autorun = true
+-- autorunApps = {
+--     "picom --config $HOME/.config/picom/picom.conf -b"
+-- }
 
-if autorun then
-    for app = 1, #autorunApps do
-        awful.util.spawn(autorunApps[app])
-    end
-end
+-- if autorun then
+--     for app = 1, #autorunApps do
+--         awful.util.spawn(autorunApps[app])
+--     end
+-- end
+
+-- Autostart Applications
+awful.spawn.with_shell("picom --config $HOME/.config/picom/picom.conf -b")
+
+awful.spawn.with_shell("nitrogen --restore")
