@@ -10,4 +10,5 @@ installBless &&
 installFirefox &&
 installSamba &&
 installFirefox &&
+installGeany &&
 successMsg "All Phase-500a Applications Installed." "500a-appInstall.sh" || errXMsg "500a-appInstall.sh Execution Failed" "Error-Exit!"
