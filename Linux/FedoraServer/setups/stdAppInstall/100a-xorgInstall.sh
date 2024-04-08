@@ -73,33 +73,6 @@ function installAwesomeCfg() {
   return 0
 }
 
-function installRofiDefaultCfg() {
-
-  local -i errorCode=0
-
-  makeDirIfNotExist "$XDG_CONFIG_HOME/rofi" "777" "$(whoami)" || {
-
-    errorCode=$?
-
-    errXMsg "Call to 'makeDirIfNotExist' Failed!" "Function: installRofiDefaultCfg()" "Error Code: $errorCode"
-
-     return $errorCode
-
-  }
-
-  rofi -dump-config > "$XDG_CONFIG_HOME"/rofi/config.rasi || {
-
-    errorCode=$?
-
-    errXMsg "rofi -dump-config Failed" "-> $XDG_CONFIG_HOME/rofi/config.rasi" "Function: installRofiDefaultCfg()" "Error Code: $errorCode"
-
-    return $errorCode
-
-  }
-
-  return 0
-}
-
 # sudo dnf install awesome kitty krusader
 # picom rofi sxhkd dunst libnotify nitrogen
 # xrandr
