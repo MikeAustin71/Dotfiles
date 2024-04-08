@@ -147,7 +147,7 @@ function installFuzzyFinder() {
 # Install geany GUI Editor
 function installGeany() {
 
-  sudo dnf install geany geany-plugins geany-themes -y
+  sudo dnf install geany geany-plugins-addons gtkd-geany-tags ldc-phobos-geany-tags geany-themes -y
 
 }
 
