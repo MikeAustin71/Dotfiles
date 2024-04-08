@@ -26,7 +26,7 @@ function installPicomCfg() {
 
   local -i errorCode=0
 
-  cp "$MIKE_Setup_Scripts"/configDir/picom "$XDG_CONFIG_HOME" || {
+  cp -r "$MIKE_Setup_Scripts"/configDir/picom "$XDG_CONFIG_HOME" || {
 
     errorCode=$?
 
@@ -43,7 +43,7 @@ function installKrusaderCfg() {
 
   local -i errorCode=0
 
-  cp "$MIKE_Setup_Scripts"/configDir/krusader "$XDG_CONFIG_HOME" || {
+  cp -r "$MIKE_Setup_Scripts"/configDir/krusader "$XDG_CONFIG_HOME" || {
 
     errorCode=$?
 
@@ -60,7 +60,7 @@ function installAwesomeCfg() {
 
   local -i errorCode=0
 
-  cp "$MIKE_Setup_Scripts"/configDir/awesome "$XDG_CONFIG_HOME" || {
+  cp -r "$MIKE_Setup_Scripts"/configDir/awesome "$XDG_CONFIG_HOME" || {
 
     errorCode=$?
 
