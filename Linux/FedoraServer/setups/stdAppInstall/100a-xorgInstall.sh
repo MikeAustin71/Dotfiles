@@ -121,6 +121,4 @@ installNitrogen &&
 installXintrc &&
 installPicomCfg &&
 installKrusaderCfg &&
-installUdiskie &&
-installFirefox &&
 successMsg "All 100a-xorgInstall.sh Applications Installed." || errXMsg "100a-xorgInstall.sh Execution Failed" "Error-Exit!"

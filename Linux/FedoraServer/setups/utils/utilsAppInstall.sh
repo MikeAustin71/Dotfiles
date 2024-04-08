@@ -119,6 +119,7 @@ function installFirefox() {
 
 }
 
+# https://github.com/sindresorhus/fkill-cli
 function installFkill() {
 
   sudo dnf install fkill-cli -y

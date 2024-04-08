@@ -48,12 +48,14 @@ installFontAwesome &&
 installEza &&
 installAutoJump &&
 installFuzzyFinder &&
+installFkill &&
 installDuf &&
 installMidnightCommander &&
 installRanger &&
 installNcdu &&
 installPlocate &&
 installRipGrep &&
+installRealPath &&
 installBtop &&
 installCheat &&
 installTldr &&
@@ -61,5 +63,6 @@ installZoxide &&
 runScriptMicro &&
 runScriptBroot &&
 runScriptPeco &&
+installUdiskie &&
 successMsg "All Phase-1a Applications Installed." "01a-appInstall.sh" || errXMsg "01a-appInstall.sh Execution Failed" "Error-Exit!"
 

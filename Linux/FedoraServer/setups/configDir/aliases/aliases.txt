@@ -32,7 +32,7 @@ alias cls="clear"
 
 alias CLS="clear"
 
-alias tree="broot"
+alias tree="br"
 
 alias rm="trash-put -iv"
 
