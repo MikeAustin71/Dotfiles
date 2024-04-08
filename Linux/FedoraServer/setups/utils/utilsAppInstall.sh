@@ -113,6 +113,12 @@ function installEza() {
 
 }
 
+function installFirefox() {
+
+  sudo dnf install firefox -y
+
+}
+
 function installFkill() {
 
   sudo dnf install fkill-cli -y
@@ -304,6 +310,7 @@ function installRipGrep() {
 
 }
 
+# https://github.com/davatorium/rofi
 function installRofi() {
 
   sudo dnf install rofi -y
@@ -342,6 +349,12 @@ function installTerminusFonts() {
 function installRealPath() {
 
   sudo dnf install uu_realpath -y
+
+}
+
+function installUdiskie() {
+
+  sudo dnf install python3-udiskie -y
 
 }
 

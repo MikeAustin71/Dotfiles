@@ -423,7 +423,6 @@ function errXMsg() {
     done
 
   echo "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
-
   echo
 
   return 0
@@ -635,6 +634,7 @@ function makeDirIfNotExist() {
   echo "Function: makeDirIfNotExist()"
   echo ""
 
+  return 0
 }
 
 # This function will move source files or directories
