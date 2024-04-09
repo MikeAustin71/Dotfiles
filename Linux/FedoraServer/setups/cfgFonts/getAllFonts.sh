@@ -2,7 +2,7 @@
 # Download and Install preferred fonts
 #
 
-declare NerdFontReleaseVer="v3.1.1"
+declare NerdFontReleaseVer="v3.2.0"
 
 source "$MIKE_Setup_Scripts/utils/utilsLib.sh"
 
