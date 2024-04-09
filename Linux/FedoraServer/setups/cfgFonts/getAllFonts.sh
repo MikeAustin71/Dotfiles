@@ -1,6 +1,8 @@
 #!/bin/bash
 # Download and Install preferred fonts
-#
+# https://github.com/ryanoasis/nerd-fonts
+# https://www.nerdfonts.com/font-downloads
+
 
 declare NerdFontReleaseVer="v3.2.0"
 
