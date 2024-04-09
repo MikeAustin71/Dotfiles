@@ -16,4 +16,16 @@ declare -i errorCode=0
 
   }
 
+  # Make color schemes available for import into
+  # krusader
+  sudo cp "$MIKE_Setup_Scripts"/configDir/krusader/color_schemes/* usr/share/krusader/ || {
+
+    errorCode=$?
+
+    errXMsg "'krusader' color schemes Copy Failed" "$MIKE_Setup_Scripts/configDir/krusader/color_schemes/* -> usr/share/krusader/" "Script: configKrusader.sh" "Error Code: $errorCode"
+
+    exit $errorCode
+
+  }
+
 exit 0
