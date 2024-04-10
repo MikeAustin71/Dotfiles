@@ -2,6 +2,7 @@
 # 1. Creates directory structure
 # 2. Creates .bash_profile
 #
+source "$HOME"/bashOps/setups/utils/utilsLib.sh
 source "$HOME"/bashOps/setups/utils/utilsAppConfig.sh
 
 
@@ -22,4 +23,4 @@ configDirStructure &&
 configEnvars &&
 configAliases &&
 configBashProfile &&
-successMsg "All Phase-00a Structures Created." "REBOOT YOUR COMPUTER!"
+successMsg "All Phase-00a Structures Created." "REBOOT YOUR COMPUTER!" || errXMsg "00a-createBaseStructure.sh Execution Failed" "Error-Exit!"
