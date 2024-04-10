@@ -8,7 +8,7 @@ export VIEWER="nano"
 
 export XDG_CONFIG_HOME="$HOME/.config"
 
-export XDG_CONFIG_ALIASES="$XDG_CONFIG_HOME/aliases"
+export XDG_CONFIG_ALIASES="$XDG_CONFIG_HOME/bash/aliases"
 
 export XDG_LOCAL_HOME="$HOME/.local"
 
