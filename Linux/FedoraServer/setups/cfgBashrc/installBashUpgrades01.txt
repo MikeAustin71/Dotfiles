@@ -36,3 +36,9 @@ ex ()
 
 eval "$(zoxide init bash)"
 
+# Activate bash-completion
+if [ -f /etc/profile.d/bash_completion.sh ]
+then
+  source /etc/profile.d/bash_completion.sh
+fi
+
