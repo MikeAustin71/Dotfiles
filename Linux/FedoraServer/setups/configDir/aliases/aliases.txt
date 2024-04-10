@@ -10,6 +10,12 @@ alias cat='bat -paging=never'
 
 alias pat='bat -paging=always'
 
+# eza file listing utility
+# eza website
+# https://eza.rocks/
+# https://github.com/eza-community/eza
+# =======================================
+
 # ld - lists only directories (no files)
 alias ld='eza -lD'
 
@@ -19,14 +25,17 @@ alias lf='eza -lF --color=always | grep -v /'
 # lh - lists only hidden files (no directories)
 alias lh='eza -al .* --group-directories-first'
 
-# ll - lists everything with directories first
-alias ll='eza -al --group-directories-first'
+# ls - lists everything with directories first
+alias ls='eza -al --group-directories-first'
 
-# ls - lists only files sorted by size
-alias ls='eza -alF --color=always --sort=size | grep -v /'
+# lfs - lists only files sorted by size
+alias lfs='eza -alF --color=always --sort=size | grep -v /'
 
 # lt - lists everything sorted by time updated
 alias lt='eza -al --sort=modified'
+
+# ===================================================
+
 
 alias cls="clear"
 
