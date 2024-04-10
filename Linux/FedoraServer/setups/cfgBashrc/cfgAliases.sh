@@ -4,15 +4,19 @@
 #   .bashrc
 # User has option to update .bashrc
 
-source "$MIKE_Setup_Scripts/utils/utilsLib.sh"
 
-declare aliasTargetDir="$XDG_CONFIG_ALIASES"
+declare setupScripts="$HOME/bashOps/setups"
+
+declare aliasTargetDir="$HOME/.config/shell/aliases"
 
 declare aliasTargetFile="$aliasTargetDir/aliases.sh"
 
-declare aliasSourceFile="$MIKE_Setup_Scripts/configDir/bash/aliases/aliases.sh"
+declare aliasSourceFile="$HOME/bashOps/setups/configDir/bash/aliases/aliases.sh"
 
 declare -i aliasExitCode=0
+
+source "$setupScripts/utils/utilsLib.sh"
+
 
 if [[ ! -f $aliasSourceFile ]]
 then
@@ -60,12 +64,12 @@ echo    # (optional) move to a new line
 if [[ $REPLY =~ ^[Yy]$ ]]
 then
 
-  if [ ! -f "$MIKE_Setup_Scripts/cfgBashrc/installBashUpgrades01.txt" ]
+  if [ ! -f "$setupScripts/cfgBashrc/installBashUpgrades01.txt" ]
   then
 
         echo "*** ERROR ***"
         echo "Source Starship .bashrc code is MISSING!"
-        echo "Missing File: $MIKE_Setup_Scripts/cfgBashrc/installBashUpgrades01.txt"
+        echo "Missing File: $setupScripts/cfgBashrc/installBashUpgrades01.txt"
         echo "Script: cfgAliases.sh"
         echo ""
         exit 99
@@ -90,7 +94,7 @@ then
 
    fi
 
-   cat "$MIKE_Setup_Scripts/cfgBashrc/installBashUpgrades01.txt" >> "$HOME/.bashrc" ||
+   cat "$setupScripts/cfgBashrc/installBashUpgrades01.txt" >> "$HOME/.bashrc" ||
    {
        aliasExitCode=$?
 

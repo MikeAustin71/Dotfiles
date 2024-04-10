@@ -29,15 +29,9 @@ function getWallpaper() {
   source "$scriptFile"
 }
 
-installGit &&
 installCoreUtils &&
 installRealPath &&
-installCurl &&
-installWget &&
-installBashCompletion &&
-installBat &&
 installCompressionUtilities &&
-installNano &&
 installNeofetch &&
 installVmwareTools &&
 getFonts &&

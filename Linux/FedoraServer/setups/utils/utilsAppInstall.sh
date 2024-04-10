@@ -43,6 +43,16 @@ function installBless() {
 
 }
 
+function installScriptBroot() {
+
+    local scriptFile
+
+    scriptFile="$MIKE_Setup_Scripts"/customAppInstalls/installbroot.sh
+
+    # shellcheck source="$HOME"/bashOps/setups/customAppInstalls/installbroot.sh
+    source "$scriptFile"
+}
+
 function installBtop() {
 
   sudo dnf install btop -y
@@ -173,14 +183,6 @@ function installGrubCustomizer() {
 
 }
 
-# An X application for displaying and
-# manipulating images
-function installImageMagick() {
-
-  sudo dnf install ImageMagick -y
-
-}
-
 function installKitty() {
 
   sudo dnf install kitty -y
@@ -196,6 +198,26 @@ function installKrusader() {
 function installLibdrm() {
 
   sudo dnf install libdrm -y
+
+}
+
+# An X application for displaying and
+# manipulating images
+function installImageMagick() {
+
+  sudo dnf install ImageMagick -y
+
+}
+
+function installScriptMicro() {
+
+    local scriptFile
+
+    scriptFile="$MIKE_Setup_Scripts"/customAppInstalls/installmicro.sh
+
+
+  # shellcheck source="$HOME"/bashOps/setups/customAppInstalls/installmicro.sh
+   source "$scriptFile"
 
 }
 
@@ -284,6 +306,18 @@ function installNitrogen() {
 function installPandoc() {
 
   sudo dnf install pandoc -y
+
+}
+
+function installScriptPeco() {
+
+    local scriptFile
+
+    scriptFile="$MIKE_Setup_Scripts"/customAppInstalls/installpeco.sh
+
+
+  # shellcheck source="$HOME"/bashOps/setups/customAppInstalls/installpeco.sh
+   source "$scriptFile"
 
 }
 

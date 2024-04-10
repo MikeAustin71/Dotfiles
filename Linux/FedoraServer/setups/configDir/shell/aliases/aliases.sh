@@ -44,6 +44,6 @@ alias tree="br"
 
 alias rm="trash-put -iv"
 
-alias update="sudo dnf update -y && sudo dnf upgrade -y"
+alias update="sudo dnf update -y && sudo dnf upgrade"
 
-alias update2="sudo dnf update -y --refresh && sudo dnf upgrade -y"
+alias update2="sudo dnf update -y --refresh && sudo dnf upgrade"

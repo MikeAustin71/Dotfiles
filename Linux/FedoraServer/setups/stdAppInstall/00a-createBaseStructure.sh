@@ -2,40 +2,24 @@
 # 1. Creates directory structure
 # 2. Creates .bash_profile
 #
-
-function runCreateBashProfile() {
-
-    local scriptFile
-
-    #/setups/cfgBashProfile/cfgBashProfile.sh
-    scriptFile="$HOME"/bashOps/setups/cfgBashProfile/cfgBashProfile.sh
+source "$HOME"/bashOps/setups/utils/utilsAppConfig.sh
 
 
-   # shellcheck disable=SC1090
-   source "$scriptFile"
-
-   local scriptBashProfile
-
-   scriptBashProfile="$HOME"/.bash_profile
-
-  # shellcheck disable=SC1090
-  source "$scriptBashProfile"
-
-}
-
-function createDirStructure() {
-
-  local scriptFile
-
-   #Linux/FedoraServer/setups/mikeFolders/createBaseFolders.sh
-   scriptFile="$HOME"/bashOps/setups/mikeFolders/createBaseFolders.sh
-
-
-   # shellcheck disable=SC1090
-   source "$scriptFile"
-
-}
-
-runCreateBashProfile &&
-createDirStructure &&
+installNano &&
+installCurl &&
+installWget &&
+installEza &&
+installScriptMicro &&
+installScriptBroot &&
+installBashCompletion &&
+installBat &&
+installGit &&
+installCheat &&
+installTldr &&
+installZoxide &&
+installTrash &&
+configDirStructure &&
+configEnvars &&
+configAliases &&
+configBashProfile &&
 successMsg "All Phase-00a Structures Created." "REBOOT YOUR COMPUTER!"
