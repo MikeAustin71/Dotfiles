@@ -8,9 +8,9 @@ source "$MIKE_Setup_Scripts/utils/utilsLib.sh"
 
 declare aliasTargetDir="$XDG_CONFIG_ALIASES"
 
-declare aliasTargetFile="$aliasTargetDir/aliases.txt"
+declare aliasTargetFile="$aliasTargetDir/aliases.sh"
 
-declare aliasSourceFile="$MIKE_Setup_Scripts/configDir/aliases/aliases.txt"
+declare aliasSourceFile="$MIKE_Setup_Scripts/configDir/aliases/aliases.sh"
 
 declare -i aliasExitCode=0
 

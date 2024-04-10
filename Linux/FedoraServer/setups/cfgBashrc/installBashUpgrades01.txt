@@ -1,8 +1,8 @@
 
 # Adding standard aliases
-if [ -f "$HOME/.config/aliases/aliases.txt" ]
+if [ -f "$HOME/.config/aliases/aliases.sh" ]
 then
-   . "$HOME/.config/aliases/aliases.txt"
+   source "$HOME/.config/aliases/aliases.sh"
 fi
 
 
