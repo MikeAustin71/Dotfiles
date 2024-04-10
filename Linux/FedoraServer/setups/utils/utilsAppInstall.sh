@@ -103,7 +103,7 @@ function installDuf() {
 
 function installCompressionUtilities() {
 
-  sudo dnf install tar gzip bzip2 lzop zip p7zip p7zip-plugins gzip lz4 perl-Archive-Extract -y
+  sudo dnf install tar gzip bzip2 lzop zip p7zip p7zip-plugins gzip lz4 unrar perl-Archive-Extract -y
 
 }
 
