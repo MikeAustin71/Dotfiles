@@ -5,6 +5,12 @@ then
    source "$HOME/.config/shell/aliases/aliases.sh"
 fi
 
+# Activate bash-completion
+if [ -f /etc/profile.d/bash_completion.sh ]
+then
+  source /etc/profile.d/bash_completion.sh
+fi
+
 
 ###---------- ARCHIVE EXTRACT ----------###
 ### [Jake@Linux - YouTube](https://www.youtube.com/@JakeLinux)
@@ -35,10 +41,4 @@ ex ()
 }
 
 eval "$(zoxide init bash)"
-
-# Activate bash-completion
-if [ -f /etc/profile.d/bash_completion.sh ]
-then
-  source /etc/profile.d/bash_completion.sh
-fi
 
