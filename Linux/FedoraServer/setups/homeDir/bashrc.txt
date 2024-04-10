@@ -24,3 +24,7 @@ if [ -d ~/.bashrc.d ]; then
 fi
 unset rc
 
+# #####################################################
+# bash-completion
+# This 'Might' be needed!
+# source /etc/profile.d/bash_completion.sh
