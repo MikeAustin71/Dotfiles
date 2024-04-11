@@ -6,7 +6,7 @@ function configAliases() {
 
     local scriptFile
 
-    scriptFile="$HOME"/bashOps/setups/customAppConfig/configAwesome.sh
+    scriptFile="$HOME"/bashOps/setups/cfgBashrc/cfgAliases.sh
 
 
   # shellcheck source="$MIKE_Setup_Scripts"/customAppConfig/configAwesome.sh
@@ -79,6 +79,17 @@ function configKrusader() {
    source "$scriptFile"
 
  }
+
+function configUserPath() {
+
+    local scriptFile
+
+    scriptFile="$Home"/bashOps/setups/cfgEnvars/cfgEnvars.sh
+
+
+  # shellcheck source="$Home"/bashOps/setups/cfgEnvars/cfgEnvars.sh
+   source "$scriptFile"
+}
 
 function configPicom() {
 

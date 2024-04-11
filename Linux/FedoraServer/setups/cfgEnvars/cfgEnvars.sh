@@ -27,7 +27,7 @@ makeDirIfNotExist "$targetEnvarsDir" "775" "" ||
 {
   errorCode=$?
 
-  errXMsg "Error Creating $targetEnvarsDir" "Script: cfgEnvars.sh" "Error Code: $errorCode"
+  errXMsg "Error Creating Target Envars Directory:" "$targetEnvarsDir" "Script: cfgEnvars.sh" "Error Code: $errorCode"
 
   exit $errorCode
 }
