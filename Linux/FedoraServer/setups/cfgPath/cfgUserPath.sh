@@ -12,11 +12,11 @@ declare sourcePathParmsFile="$bashOpsSetups"/configDir/shell/path/userPath.sh
 
 declare targetPathDir="$HOME"/.config/shell/path
 
-declare targetPathFile="$targetEnvarsDir"/path/userPath.sh
+declare targetPathFile="$targetPathDir"/userPath.sh
 
 declare -i errorCode=0
 
-if [[ ! -f $sourceEnvarsFile ]]
+if [[ ! -f $sourcePathParmsFile ]]
 then
 
     errXMsg "Source User Path Parms file is missing!" "Path File: $sourcePathParmsFile" "Script: cfgUserPath.sh" "Error Code: 99"
@@ -33,11 +33,11 @@ makeDirIfNotExist "$targetPathDir" "775" "" ||
   return $errorCode
 }
 
-cp -v "$sourceEnvarsFile" "$targetPathFile" ||
+cp -v "$sourcePathParmsFile" "$targetPathFile" ||
 {
    errorCode=$?
 
-  errXMsg "Error - Copy Operation Failed!" "$sourceEnvarsFile -> $targetPathFile" "Script: cfgUserPath.sh" "Error Code: $errorCode"
+  errXMsg "Error - Copy Operation Failed!" "$sourcePathParmsFile -> $targetPathFile" "Script: cfgUserPath.sh" "Error Code: $errorCode"
 
   return $errorCode
 }
