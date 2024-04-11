@@ -57,4 +57,5 @@ chmod 775 ./"$targFileName" ||
   return $errExitCode
 }
 
-./"$targFileName"
+# shellcheck disable=SC1090
+source "$targFileName"
