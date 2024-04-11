@@ -4,6 +4,9 @@
 
 function configAliases() {
 
+    # shellcheck disable=SC2164
+    cd "$HOME"
+
     local scriptFile
 
     scriptFile="$HOME"/bashOps/setups/cfgBashrc/cfgAliases.sh
@@ -15,6 +18,9 @@ function configAliases() {
 
 function configAwesome() {
 
+    # shellcheck disable=SC2164
+    cd "$HOME"
+
     local scriptFile
 
     scriptFile="$MIKE_Setup_Scripts"/customAppConfig/configAwesome.sh
@@ -25,6 +31,9 @@ function configAwesome() {
 }
 
 function configBashProfile() {
+
+    # shellcheck disable=SC2164
+    cd "$HOME"
 
     local scriptFile
 
@@ -46,6 +55,9 @@ function configBashProfile() {
 
 function configDirStructure() {
 
+  # shellcheck disable=SC2164
+  cd "$HOME"
+
   local scriptFile
 
    #Linux/FedoraServer/setups/mikeFolders/createBaseFolders.sh
@@ -59,6 +71,9 @@ function configDirStructure() {
 
 function configEnvars() {
 
+  # shellcheck disable=SC2164
+  cd "$HOME"
+
     local scriptFile
      # Linux/FedoraServer/setups/cfgEnvars/cfgEnvars.sh
     scriptFile="$HOME"/bashOps/setups/cfgEnvars/cfgEnvars.sh
@@ -69,6 +84,9 @@ function configEnvars() {
 }
 
 function configKrusader() {
+
+  # shellcheck disable=SC2164
+  cd "$HOME"
 
     local scriptFile
 
@@ -82,9 +100,12 @@ function configKrusader() {
 
 function configUserPath() {
 
+  # shellcheck disable=SC2164
+  cd "$HOME"
+
     local scriptFile
 
-    scriptFile="$HOME"/bashOps/setups/cfgEnvars/cfgEnvars.sh
+    scriptFile="$HOME"/bashOps/setups/cfgPath/cfgUserPath.sh
 
 
   # shellcheck source="$HOME"/bashOps/setups/cfgEnvars/cfgEnvars.sh
@@ -92,6 +113,9 @@ function configUserPath() {
 }
 
 function configPicom() {
+
+    # shellcheck disable=SC2164
+    cd "$HOME"
 
     local scriptFile
 
@@ -103,6 +127,9 @@ function configPicom() {
 }
 
 function configXintrc() {
+
+    # shellcheck disable=SC2164
+    cd "$HOME"
 
     local scriptFile=""
 
