@@ -1,8 +1,17 @@
 
-# Adding standard aliases
-if [ -f "$HOME/.config/shell/aliases/aliases.sh" ]
+# Adding User Path Parameters
+
+if [ -f "$HOME"/.config/shell/path/userPath.sh ]
 then
-   source "$HOME/.config/shell/aliases/aliases.sh"
+
+  source "$HOME"/.config/shell/path/userPath.sh
+
+fi
+
+# Adding standard aliases
+if [ -f "$HOME"/.config/shell/aliases/aliases.sh ]
+then
+   source "$HOME"/.config/shell/aliases/aliases.sh
 fi
 
 # Activate bash-completion

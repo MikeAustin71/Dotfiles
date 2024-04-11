@@ -1,4 +1,7 @@
 # .bashrc
+# This is an example of default
+# .bashrc file contents.
+
 
 # Source global definitions
 if [ -f /etc/bashrc ]; then
@@ -23,8 +26,3 @@ if [ -d ~/.bashrc.d ]; then
     done
 fi
 unset rc
-
-# #####################################################
-# bash-completion
-# This 'Might' be needed!
-# source /etc/profile.d/bash_completion.sh

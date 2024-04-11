@@ -5,9 +5,11 @@
 
 source "$HOME"/bashOps/setups/utils/utilsLib.sh
 
+makeDirIfNotExist "$HOME/bin" "775" "" &&
 makeDirIfNotExist "$HOME/.config" "775" "" &&
 makeDirIfNotExist "$HOME/.config/shell/aliases" "775" "" &&
 makeDirIfNotExist "$HOME/.config/shell/envars" "775" "" &&
+makeDirIfNotExist "$HOME/.config/shell/path" "775" "" &&
 makeDirIfNotExist "$HOME/.local" "775" "" &&
 makeDirIfNotExist "$HOME/.local/share" "775" "" &&
 makeDirIfNotExist "$HOME/.local/share/fonts" "775" "" &&
@@ -21,6 +23,7 @@ makeDirIfNotExist "$HOME/cheatSheets" "775" "" &&
 makeDirIfNotExist "$HOME/dev" "775" "" &&
 makeDirIfNotExist "$HOME/Desktop" "775" "" &&
 makeDirIfNotExist "$HOME/Documents" "775" "" &&
+makeDirIfNotExist "$HOME/Downloads" "775" "" &&
 makeDirIfNotExist "$HOME/gowork" "775" "" &&
 makeDirIfNotExist "$HOME/math" "775" "" &&
 makeDirIfNotExist "$HOME/Paladin" "775" "" &&

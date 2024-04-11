@@ -4,7 +4,7 @@
 #
 source "$HOME"/bashOps/setups/utils/utilsLib.sh
 source "$HOME"/bashOps/setups/utils/utilsAppConfig.sh
-
+source "$HOME"/bashOps/setups/utils/utilsAppInstall.sh
 
 installNano &&
 installCurl &&
