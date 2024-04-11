@@ -26,3 +26,5 @@ if [ -d ~/.bashrc.d ]; then
     done
 fi
 unset rc
+
+source /home/mike/.config/broot/launcher/bash/br
