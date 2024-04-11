@@ -1,6 +1,6 @@
 #!/bin/bash
 # Copies a pre-configured inputrc file to
-# $Home/.inputrc
+# $HOME/.inputrc
 
 source "$MIKE_Setup_Scripts/utils/utilsLib.sh"
 
@@ -56,7 +56,7 @@ cp -v "$inputRcSourceFile" "$inputRcDestinationFile" ||
 
 }
 
-successMsg "Successfully copied default .inputrc file" "to Directory: $Home"
+successMsg "Successfully copied default .inputrc file" "to Directory: $HOME"
 
 return
 
