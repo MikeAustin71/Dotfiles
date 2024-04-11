@@ -33,7 +33,7 @@ function changeDirOwner() {
 		echo "Target Directory: $targetDir"
 		echo "Function: changeDirOwner()"
 		echo " "
-		exit 88
+		return 88
 	fi
 
 	if [[ ! -d $targetDir ]]
@@ -43,7 +43,7 @@ function changeDirOwner() {
 		echo "Target Directory: $targetDir"
 		echo "Function: changeDirOwner()"
 		echo " "
-		exit 87
+		return 87
 	fi
 
   if [[ -z $newOwner ]]
@@ -53,7 +53,7 @@ function changeDirOwner() {
 		echo "Target Directory: $targetDir"
 		echo "Function: changeDirOwner()"
 		echo " "
-		exit 86
+		return 86
   fi
 
 	sudo chown "$newOwner":"$newOwner" "$targetDir" ||
@@ -171,7 +171,7 @@ function changeFileOwner() {
 		echo "*** Error ***"
 		echo "Target File Parameter is EMPTY!"
 		echo "Function: changeFileOwner()"
-		exit 89
+		return 89
 	fi
 
 	if [[ ! -f $targetFile ]]
@@ -180,7 +180,7 @@ function changeFileOwner() {
 		echo "Target File DOES NOT EXIST!"
 		echo "Target File: $targetFile"
 		echo "Function: changeFileOwner()"
-		exit 88
+		return 88
 	fi
 
   if [[ -z $newOwner ]]
@@ -260,7 +260,7 @@ function changeFilePermissions() {
 		echo "New Permissions Parameter is EMPTY!"
 		echo "Target File: $targetFile"
 		echo "Function: changeFilePermissions()"
-		exit 78
+		return 78
   fi
 
 

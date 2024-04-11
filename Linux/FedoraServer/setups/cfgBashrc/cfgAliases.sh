@@ -24,7 +24,7 @@ then
     echo "Alias Source File DOES NOT EXIST!"
     echo "Alias Source File= $aliasSourceFile"
     echo "Script Name: cfgAliases.sh"
-    exit 99
+    return 99
 fi
 
 if [[ -f $aliasTargetFile ]]
@@ -39,7 +39,7 @@ then
       echo "Removal of Old Alias Target File FAILED!"
       echo "Alias Target File= $aliasTargetFile"
       echo "Script Name: cfgAliases.sh"
-      exit $aliasExitCode
+      return $aliasExitCode
 
     }
 
@@ -55,7 +55,7 @@ cp -v "$aliasSourceFile" "$aliasTargetFile" ||
        echo "Alias Source File= $aliasSourceFile"
       echo "Alias Target File= $aliasTargetFile"
       echo "Script Name: cfgAliases.sh"
-      exit $aliasExitCode
+      return $aliasExitCode
 
 }
 
@@ -72,7 +72,7 @@ then
         echo "Missing File: $setupScripts/cfgBashrc/installBashUpgrades01.txt"
         echo "Script: cfgAliases.sh"
         echo ""
-        exit 99
+        return 99
 
   fi
 
@@ -89,7 +89,7 @@ then
         echo "Error Code= $aliasExitCode"
         echo "Script: cfgAliases.sh"
         echo ""
-        exit $aliasExitCode
+        return $aliasExitCode
     }
 
    fi
@@ -103,7 +103,7 @@ then
         echo "Error Code= $aliasExitCode"
         echo "Script: cfgAliases.sh"
         echo ""
-        exit $aliasExitCode
+        return $aliasExitCode
    }
 
 fi
@@ -117,7 +117,7 @@ fi
     echo "Error Code: $aliasExitCode"
     echo "Script: cfgAliases.sh"
     echo ""
-    exit $aliasExitCode
+    return $aliasExitCode
  }
 
 
@@ -125,5 +125,5 @@ fi
  echo ".bashrc successfully updated!"
  echo "Script File: cfgAliases.sh"
 
-exit 0
+return 0
 

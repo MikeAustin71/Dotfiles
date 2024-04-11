@@ -12,8 +12,8 @@ declare -i errorCode=0
 
     errXMsg "'awesome' Directory Copy Failed" "$MIKE_Setup_Scripts/configDir/awesome -> $XDG_CONFIG_HOME" "Script: configAwesome.sh" "Error Code: $errorCode"
 
-    exit $errorCode
+    return $errorCode
 
   }
 
-exit 0
+return 0

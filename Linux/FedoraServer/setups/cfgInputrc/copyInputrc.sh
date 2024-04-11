@@ -18,7 +18,7 @@ then
     echo "'inputrc' Source File: $inputRcSourceFile"
     echo "Script File: copyInputrc.sh"
     echo ""
-    exit  99
+    return  99
 fi
 
 if [[ -f $inputRcDestinationFile ]]
@@ -34,7 +34,7 @@ then
       echo "Error Code: $inputRcErrorCode"
       echo "Script File: copyInputrc.sh"
 
-      exit $inputRcErrorCode
+      return $inputRcErrorCode
     }
 
 fi
@@ -52,13 +52,13 @@ cp -v "$inputRcSourceFile" "$inputRcDestinationFile" ||
       echo "Error Code: $inputRcErrorCode"
       echo "Script File: copyInputrc.sh"
 
-      exit $inputRcErrorCode
+      return $inputRcErrorCode
 
 }
 
 successMsg "Successfully copied default .inputrc file" "to Directory: $Home"
 
-exit
+return
 
 
 

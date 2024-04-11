@@ -42,7 +42,7 @@ cd "$MIKE_Git_Repos" ||
     Script= getDotFilesRepo.sh\n
     Error Code= $errorExitCode\n\n"
 
-    exit $errorExitCode
+    return $errorExitCode
 
   }
 
@@ -58,7 +58,7 @@ cd "$MIKE_Git_Repos" ||
     Script= getDotFilesRepo.sh\n
     Error Code= $errorExitCode\n\n"
 
-    exit $errorExitCode
+    return $errorExitCode
 
  }
 
@@ -76,8 +76,8 @@ git clone "$MIKE_GitRepo_DotFiles" ||
     Script= getDotFilesRepo.sh\n
     Error Code= $errorExitCode\n\n"
 
-    exit $errorExitCode
+    return $errorExitCode
 
 }
 
-exit 0
+return 0

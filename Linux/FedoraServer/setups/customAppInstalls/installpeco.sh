@@ -59,7 +59,7 @@ downloadAppArchive() {
     echo "Download File DOES NOT EXIST!"
     echo "Download File: $archiveFile"
     echo "Function: downloadAppArchive()"
-    exit 53
+    return 53
 
   else
 

@@ -12,8 +12,8 @@ cp -r "$MIKE_Setup_Scripts"/configDir/picom "$XDG_CONFIG_HOME" || {
 
   errXMsg "'picom' Directory Copy Failed" "$MIKE_Setup_Scripts/configDir/picom -> $XDG_CONFIG_HOME" "Script: configPicom.sh" "Error Code: $errorCode"
 
-  exit $errorCode
+  return $errorCode
 
  }
 
-exit 0
+return 0

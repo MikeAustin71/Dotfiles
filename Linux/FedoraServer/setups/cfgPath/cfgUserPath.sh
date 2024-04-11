@@ -21,7 +21,7 @@ then
 
     errXMsg "Source User Path Parms file is missing!" "Path File: $sourcePathParmsFile" "Script: cfgUserPath.sh" "Error Code: 99"
 
-    exit 99
+    return 99
 fi
 
 makeDirIfNotExist "$targetPathDir" "775" "" ||
@@ -30,7 +30,7 @@ makeDirIfNotExist "$targetPathDir" "775" "" ||
 
   errXMsg "Error Creating Target Path Directory:" "$targetPathDir" "Script: cfgUserPath.sh" "Error Code: $errorCode"
 
-  exit $errorCode
+  return $errorCode
 }
 
 cp -v "$sourceEnvarsFile" "$targetPathFile" ||
@@ -39,9 +39,9 @@ cp -v "$sourceEnvarsFile" "$targetPathFile" ||
 
   errXMsg "Error - Copy Operation Failed!" "$sourceEnvarsFile -> $targetPathFile" "Script: cfgUserPath.sh" "Error Code: $errorCode"
 
-  exit $errorCode
+  return $errorCode
 }
 
-exit 0
+return 0
 
 

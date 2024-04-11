@@ -20,7 +20,7 @@ then
     echo "*** ERROR ***"
     echo "$sourceBashProfile Does Not Exist"
     echo "Script File: cfgBashProfile.sh"
-    exit 99
+    return 99
 fi
 
 
@@ -37,7 +37,7 @@ then
     echo "The attempt to create this file FAILED!"
     echo "Error Code: $bashProfErrCode"
     echo "Script File: cfgBashProfile.sh"
-    exit $bashProfErrCode
+    return $bashProfErrCode
   }
 
   changeFileOwner "$targetBashProfile" "$(whoami)" ||
@@ -50,7 +50,7 @@ then
     echo "Requested new owner: $(whoami)"
     echo "Error Code: $bashProfErrCode"
     echo "Script File: cfgBashProfile.sh"
-    exit $bashProfErrCode
+    return $bashProfErrCode
   }
 
   changeFilePermissions "$targetBashProfile" "775" ||
@@ -63,7 +63,7 @@ then
     echo "Requested Permissions: 775"
     echo "Error Code: $bashProfErrCode"
     echo "Script File: cfgBashProfile.sh"
-    exit $bashProfErrCode
+    return $bashProfErrCode
 
   }
 
@@ -78,7 +78,7 @@ cat "$sourceBashProfile" >> "$targetBashProfile" ||
       echo "Error Code= $bashProfErrCode"
       echo "Script: cfgBashProfile.sh"
       echo ""
-      exit $bashProfErrCode
+      return $bashProfErrCode
  }
 
  # shellcheck disable=SC1090
@@ -87,5 +87,5 @@ cat "$sourceBashProfile" >> "$targetBashProfile" ||
  echo "Environment Variables successfully configured."
  echo ".bash_profile successfully updated!"
  echo "Script File: cfgBashProfile.sh"
- exit 0
+ return 0
 

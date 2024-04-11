@@ -43,7 +43,7 @@ then
     echo "Error Code= $errorExitCode"
     echo "Script= copyDotFilesToSetups.sh"
 
-    exit $errorExitCode
+    return $errorExitCode
 
   }
 
@@ -58,7 +58,7 @@ then
     echo "Error Code= $errorExitCode"
     echo "Script= copyDotFilesToSetups.sh"
 
-    exit $errorExitCode
+    return $errorExitCode
 
   }
 
@@ -78,7 +78,7 @@ then
       echo "Error Code= $errorExitCode"
       echo "Script= copyDotFilesToSetups.sh"
 
-      exit $errorExitCode
+      return $errorExitCode
 
     }
 
@@ -100,7 +100,7 @@ cd "$DOTFILES_setups"  ||
     Script= copyDotFilesToSetups.sh\n
     Error Code= $errorExitCode\n\n"
 
-    exit $errorExitCode
+    return $errorExitCode
 
 }
 
@@ -119,7 +119,7 @@ cd "$DOTFILES_fedora" ||
     Script= copyDotFilesToSetups.sh\n
     Error Code= $errorExitCode\n\n"
 
-    exit $errorExitCode
+    return $errorExitCode
 
 }
 
@@ -138,7 +138,7 @@ cp -vfr "${DOTFILES_setups:?}" "$cfgHOME_bashOps" ||
   Script= copyDotFilesToSetups.sh\n
   Error Code= $errorExitCode\n\n"
 
-  exit $errorExitCode
+  return $errorExitCode
 
 }
 
@@ -151,7 +151,7 @@ then
   echo "Script= copyDotFilesToSetups.sh"
   echo ""
 
-  exit 99
+  return 99
 
 fi
 
@@ -171,7 +171,7 @@ then
       echo "Error Code= $errorExitCode"
       echo "Script= copyDotFilesToSetups.sh"
 
-      exit $errorExitCode
+      return $errorExitCode
 
     }
 
@@ -187,7 +187,7 @@ then
     echo "Error Code= $errorExitCode"
     echo "Script= copyDotFilesToSetups.sh"
 
-    exit $errorExitCode
+    return $errorExitCode
   }
 
   chown "$(whoami)":"$(whoami)" "$targetSetupScriptFile" ||
@@ -202,7 +202,7 @@ then
     echo "Error Code= $errorExitCode"
     echo "Script= copyDotFilesToSetups.sh"
 
-    exit $errorExitCode
+    return $errorExitCode
 
   }
 
@@ -218,7 +218,7 @@ then
     echo "Error Code= $errorExitCode"
     echo "Script= copyDotFilesToSetups.sh"
 
-    exit $errorExitCode
+    return $errorExitCode
 
   }
 
@@ -233,7 +233,7 @@ then
     echo "Error Code= $errorExitCode"
     echo "Script= copyDotFilesToSetups.sh"
 
-    exit $errorExitCode
+    return $errorExitCode
   }
 
 fi
@@ -249,7 +249,7 @@ cd "$HOME" ||
     echo "Error Code= $errorExitCode"
     echo "Script= copyDotFilesToSetups.sh"
 
-    exit $errorExitCode
+    return $errorExitCode
 }
 
 # shellcheck disable=SC1090
@@ -264,7 +264,7 @@ source "$targetSetupScriptFile" ||
     echo "Error Code= $errorExitCode"
     echo "Parent Script File: copyDotFilesToSetups.sh"
 
-    exit $errorExitCode
+    return $errorExitCode
 }
 
 rm "$targetSetupScriptFile" ||
@@ -279,7 +279,7 @@ rm "$targetSetupScriptFile" ||
     echo "Error Code= $errorExitCode"
     echo "Script File: copyDotFilesToSetups.sh"
 
-    exit $errorExitCode
+    return $errorExitCode
 }
 
-exit 0
+return 0

@@ -12,7 +12,7 @@ declare -i errorCode=0
 
     errXMsg "'krusader' Directory Copy Failed" "$MIKE_Setup_Scripts/configDir/krusader -> $XDG_CONFIG_HOME" "Script: configKrusader.sh" "Error Code: $errorCode"
 
-    exit $errorCode
+    return $errorCode
 
   }
 
@@ -24,8 +24,8 @@ declare -i errorCode=0
 
     errXMsg "'krusader' color schemes Copy Failed" "$MIKE_Setup_Scripts/configDir/krusader/color_schemes/* -> usr/share/krusader/" "Script: configKrusader.sh" "Error Code: $errorCode"
 
-    exit $errorCode
+    return $errorCode
 
   }
 
-exit 0
+return 0

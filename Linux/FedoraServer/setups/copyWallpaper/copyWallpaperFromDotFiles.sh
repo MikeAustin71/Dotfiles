@@ -19,7 +19,7 @@ then
   echo "Dot Files Directory: $MIKE_DotFiles_Repo"
   echo "Download the Dot Files!"
   echo "Script Name: copyWallpaperFromDotFiles.sh"
-  exit 89
+  return 89
 
 fi
 
@@ -31,7 +31,7 @@ then
   echo "Source Wallpapers Directory: $srcWallPaperDir"
   echo "Download the Dot Files with Wallpapers Directory!"
   echo "Script Name: copyWallpaperFromDotFiles.sh"
-  exit 88
+  return 88
 
 fi
 
@@ -49,7 +49,7 @@ then
     echo "Error Code: $loadWallpaperExitCode"
     echo "Script Name: copyWallpaperFromDotFiles.sh"
 
-    exit $loadWallpaperExitCode
+    return $loadWallpaperExitCode
 
   }
 
@@ -69,9 +69,9 @@ sudo cp -Tv "$srcWallPaperDir/*" "$destWallPaperDir" ||
     echo "Error Code: $loadWallpaperExitCode"
     echo "Script Name: copyWallpaperFromDotFiles.sh"
 
-    exit $loadWallpaperExitCode
+    return $loadWallpaperExitCode
 }
 
 successMsg "Wallpapers Successfully copied to: $destWallPaperDir"
 
-exit 0
+return 0

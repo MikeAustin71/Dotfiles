@@ -60,7 +60,7 @@ function configDirStructure() {
 function configEnvars() {
 
     local scriptFile
-
+     # Linux/FedoraServer/setups/cfgEnvars/cfgEnvars.sh
     scriptFile="$Home"/bashOps/setups/cfgEnvars/cfgEnvars.sh
 
 

@@ -15,7 +15,7 @@ curl -fsSL https://starship.rs/install.sh | sh ||
     echo "Error Code= $errExitCode"
     echo "Script: installStarship.sh"
     echo ""
-    exit $errExitCode
+    return $errExitCode
 }
 
 echo ""
@@ -34,7 +34,7 @@ then
         echo "Missing File: $MIKE_Setup_Scripts/cfgBashrc/installBashUpgrades02.txt"
         echo "Script: installStarship.sh"
         echo ""
-        exit 99
+        return 99
 
   fi
 
@@ -52,7 +52,7 @@ then
         echo "Error Code= $errExitCode"
         echo "Script: installStarship.sh"
         echo ""
-        exit $errExitCode
+        return $errExitCode
     }
 
   fi
@@ -66,7 +66,7 @@ then
       echo "Error Code= $errExitCode"
       echo "Script: installStarship.sh"
       echo ""
-      exit $errExitCode
+      return $errExitCode
   }
 
 fi
@@ -87,7 +87,7 @@ then
     echo "Error Code: $errExitCode"
     echo "Script: installStarship.sh"
     echo ""
-    exit $errExitCode
+    return $errExitCode
   }
 
 fi
@@ -102,10 +102,10 @@ source "$HOME/.bashrc" ||
     echo "Error Code: $errExitCode"
     echo "Script: installStarship.sh"
     echo ""
-    exit $errExitCode
+    return $errExitCode
 }
 
 echo "Successfully configured 'starship'!"
 echo
 
-exit 0
+return 0

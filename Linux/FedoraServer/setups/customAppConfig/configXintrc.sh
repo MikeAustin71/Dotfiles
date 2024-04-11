@@ -13,9 +13,9 @@ cp "$MIKE_Setup_Scripts"/homeDir/.xinitrc "$HOME" ||
 
     errXMsg "'.xinitrc' File Copy Failed" "$MIKE_Setup_Scripts/homeDir/.xinitrc -> $HOME" "Script: configXintrc.sh" "Error Code: $errorCode"
 
-    exit $errorCode
+    return $errorCode
 }
 
 successMsg "Configured .xinitrc in Home Directory." "Script: configXintrc.sh"
 
-exit 0
+return 0

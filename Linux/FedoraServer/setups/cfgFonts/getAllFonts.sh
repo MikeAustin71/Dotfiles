@@ -66,7 +66,7 @@ do
           echo "*** ERROR ***"
           echo "makeDirIfNotExist() FAILED!"
           echo "Script Name: getAllFonts.sh"
-          exit $fontErrCode
+          return $fontErrCode
         }
 
     fi
@@ -77,7 +77,7 @@ do
           echo "*** ERROR ***"
           echo "changeToDir() FAILED!"
           echo "Script Name: getAllFonts.sh"
-          exit $fontErrCode
+          return $fontErrCode
 
     }
 
@@ -90,7 +90,7 @@ do
             echo "Font File Failed to Download!"
             echo "Font File= $XDG_DATA_FONTS/$currFontName/$currFontName.zip"
             echo "Script Name: getAllFonts.sh"
-            exit 99
+            return 99
     fi
 
     unzip "$XDG_DATA_FONTS/$currFontName/$currFontName.zip" ||
@@ -100,7 +100,7 @@ do
       echo "'unzip' fonts file FAILED!"
       echo "Font File= $XDG_DATA_FONTS/$currFontName/$currFontName.zip"
       echo "Script Name: getAllFonts.sh"
-      exit $fontErrCode
+      return $fontErrCode
     }
 
     rm "$XDG_DATA_FONTS/$currFontName/$currFontName.zip"
@@ -116,7 +116,7 @@ changeToDir "$XDG_DATA_FONTS" ||
   echo "Error occurred while changing to Fonts Directory!"
   echo "Fonts Directory: $XDG_DATA_FONTS"
   echo "Script Name: getAllFonts.sh"
-  exit $fontErrCode
+  return $fontErrCode
 }
 
 echo "Registering Fonts..."
@@ -129,10 +129,10 @@ sudo fc-cache -fv ||
   echo "Error occurred registering Fonts!"
   echo "Command: fc-cache -fv"
   echo "Script Name: getAllFonts.sh"
-  exit $fontErrCode
+  return $fontErrCode
 
 }
 
 successMsg "All Fonts Successfully Installed"
 
-exit 0
+return 0

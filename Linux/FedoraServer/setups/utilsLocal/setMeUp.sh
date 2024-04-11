@@ -20,7 +20,7 @@ cd "$HOME"/repos/Dotfiles ||
   echo "cd $HOME/repos/Dotfiles FAILED!"
   echo "Error Code: $errExitCode"
   echo "Script File: setMeUp.sh"
-  exit $errExitCode
+  return $errExitCode
 }
 
 git pull origin main
@@ -33,7 +33,7 @@ cp "$HOME/repos/Dotfiles/Linux/FedoraServer/setups/cfgDotFiles/$targFileName" "$
   echo "Target File: $targHomeFile"
   echo "Error Code: $errExitCode"
   echo "Script File: setMeUp.sh"
-  exit $errExitCode
+  return $errExitCode
 
 }
 
@@ -44,7 +44,7 @@ cd "$HOME" ||
   echo "cd $HOME FAILED!"
   echo "Error Code: $errExitCode"
   echo "Script File: setMeUp.sh"
-  exit $errExitCode
+  return $errExitCode
 }
 
 chmod 775 ./"$targFileName" ||
@@ -54,7 +54,7 @@ chmod 775 ./"$targFileName" ||
   echo "chmod 775 ./$targFileName FAILED!"
   echo "Error Code: $errExitCode"
   echo "Script File: setMeUp.sh"
-  exit $errExitCode
+  return $errExitCode
 }
 
 ./"$targFileName"
