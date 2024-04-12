@@ -126,7 +126,7 @@ function configPicom() {
    source "$scriptFile"
 }
 
-function configXintrc() {
+function configXorgXintrc() {
 
     # shellcheck disable=SC2164
     cd "$HOME"

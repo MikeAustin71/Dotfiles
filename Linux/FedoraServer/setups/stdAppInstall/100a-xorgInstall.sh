@@ -23,7 +23,7 @@ installCopyQ &&
 installGrubCustomizer &&
 installNetworkManager &&
 installNitrogen &&
-configXintrc &&
+configXorgXintrc &&
 configPicom &&
 configKrusader &&
 configAwesome &&
