@@ -12,6 +12,7 @@ makeDirIfNotExist "$HOME/.config/shell/envars" "775" "" &&
 makeDirIfNotExist "$HOME/.config/shell/path" "775" "" &&
 makeDirIfNotExist "$HOME/.config/starship" "775" "" &&
 makeDirIfNotExist "$HOME/.config/shell/xorg" "775" "" &&
+makeDirIfNotExist "$HOME/.config/shell/xorg/awesome" "775" "" &&
 makeDirIfNotExist "$HOME/.local" "775" "" &&
 makeDirIfNotExist "$HOME/.local/share" "775" "" &&
 makeDirIfNotExist "$HOME/.local/share/fonts" "775" "" &&

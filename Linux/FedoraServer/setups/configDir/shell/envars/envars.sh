@@ -13,6 +13,8 @@ export XDG_CONFIG_ALIASES="$XDG_CONFIG_HOME/shell/aliases"
 
 export XDG_CONFIG_ENVARS="$XDG_CONFIG_HOME/shell/envars"
 
+export XDG_CONFIG_XORG="$XDG_CONFIG_HOME/xorg"
+
 export XDG_LOCAL_HOME="$HOME/.local"
 
 export XDG_SHARE_DATA="$XDG_LOCAL_HOME/share"
