@@ -1,9 +1,12 @@
 
 
-// Add Environmental Variables
+# Add Environmental Variables
 if [ -f "$HOME/.config/shell/envars/envars.sh" ]
 then
 
   source "$HOME/.config/shell/envars/envars.sh"
 
 fi
+
+# Add tty color scheme
+wal -Rn > /dev/null
