@@ -11,7 +11,7 @@ declare aliasTargetDir="$HOME/.config/shell/aliases"
 
 declare aliasTargetFile="$aliasTargetDir/aliases.sh"
 
-declare aliasSourceFile="$HOME/bashOps/setups/configDir/bash/aliases/aliases.sh"
+declare aliasSourceFile="$HOME/bashOps/setups/configDir/shell/aliases/aliases.sh"
 
 declare -i aliasExitCode=0
 
