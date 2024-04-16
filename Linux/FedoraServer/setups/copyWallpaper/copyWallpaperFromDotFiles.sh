@@ -57,7 +57,7 @@ fi
 
 # sudo cp -Tv "$MIKE_DotFiles_Repo/Linux/Wallpaper/*" "$MIKE_Wallpaper_Directory/"
 
-sudo cp -Tv "$srcWallPaperDir/*" "$destWallPaperDir" ||
+sudo cp -v "$srcWallPaperDir/*" "$destWallPaperDir" ||
 {
 
     loadWallpaperExitCode=$?
