@@ -9,4 +9,4 @@ then
 fi
 
 # Add tty color scheme
-wal -Rn > /dev/null
+# wal -Rn > /dev/null

@@ -25,4 +25,4 @@ configUserPath &&
 # Configures Aliases and .bashrc
 configAliases &&
 configBashProfile &&
-successMsg "All Phase-00a Structures Created." "REBOOT YOUR COMPUTER!" || errXMsg "00a-createBaseStructure.sh Execution Failed" "Error-Exit!"
+successMsg "All Phase-00a Structures Created." "REBOOT YOUR COMPUTER!" "Script: 00a-createBaseStructure.sh" || errXMsg "00a-createBaseStructure.sh Execution Failed" "Error-Exit!"
