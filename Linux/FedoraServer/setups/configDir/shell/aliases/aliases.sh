@@ -5,7 +5,9 @@ alias aliases="bat ~/.config/aliases/aliases.txt"
 
 alias ip='ip -color'
 
-alias cat='bat -paging=never'
+# alias cat='bat -paging=never'
+
+alias pnt='bat -paging=never'
 
 alias pat='bat -paging=always'
 
