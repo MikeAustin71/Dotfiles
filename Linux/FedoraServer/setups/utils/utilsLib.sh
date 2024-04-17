@@ -293,8 +293,7 @@ function changeToDir() {
 
 	local targetDir=$1
 
-	if [[ ! -d $targetDir ]]
-	then
+	[[ ! -d $targetDir ]] || {
 
 		echo "*** Error ***"
 		echo "The Target Directory DOES NOT EXIST!"
@@ -302,7 +301,7 @@ function changeToDir() {
 		echo "Function: changeToDir()"
 		return 99
 
-	fi
+	}
 
   local -i errorCode=0
 
@@ -310,14 +309,20 @@ function changeToDir() {
   {
     errorCode=$?
 
-    echo -e "*** Error ***\nCould NOT change to the Target Directory!\n
-    Target Directory: $targetDir\n
-    Function: changeToDir()\n
-    Error Code: $errorCode\n\n"
+    echo "*** Error ***"
+    echo "Could NOT change to the Target Directory!"
+    echo "Target Directory: $targetDir"
+    echo "Function: changeToDir()"
+    echo "Script: utilsLib.sh"
+    echo "Error Code: $errorCode"
+    echo
+
     return $errorCode
   }
 
-	echo -e "Success: Changed current working directory to:\n $targetDir\n\n"
+	echo "Success: Changed current working directory to:"
+	echo "$targetDir"
+	echo
 
   return 0
 }
@@ -1024,28 +1029,33 @@ function zapFileIfExists() {
  if [[ -f $targetFile ]]
  then
 
-  errorCode=$?
-
    sudo rm "$targetFile" ||
     {
-      echo -e "*** Error ***\n
-        Failed to delete pre-existing App: $targetFile\n
-        Function zapFileIfExists()\n
-        Error Code: $errorCode"
-        return $errorCode
+
+      errorCode=$?
+
+      echo "*** Error ***"
+      echo "Failed to delete pre-existing App:"
+      echo "$targetFile"
+      echo "Function zapFileIfExists()"
+      echo  "Error Code: $errorCode"
+
+      return $errorCode
     }
 
 	else
 
-		echo -e "The target file for deletion did NOT exist!\n
-		Target File: $targetFile\n\n"
+		echo "The target file for deletion did NOT exist!"
+		echo "Target File: $targetFile"
+		echo
 
 		return 0
 
 	fi
 
-  echo -e "Target File does Not Exist.\n
-  Target file: $targetFile\n\n"
+  echo "Target File does Not Exist."
+  echo "Target file: $targetFile"
+  echo
 
   return 0
 }
