@@ -55,7 +55,7 @@ then
 
 fi
 
-# sudo cp -v "$MIKE_DotFiles_Repo/Linux/Wallpaper/*" "$MIKE_Wallpaper_Directory/"
+# sudo cp -v "$HOME/repo/Linux/Wallpaper/*" "$MIKE_Wallpaper_Directory/"
 
 sudo cp -v "$srcWallPaperDir"/* "$destWallPaperDir" ||
 {
