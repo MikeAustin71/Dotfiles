@@ -7,10 +7,9 @@
 #
 # Run this script as sudo
 
-localShareDir="$HOME/shares"
-
 source "$MIKE_Setup_Utilities"/utilsLib.sh
 
+localShareDir="$HOME/shares"
 
 
 attachSharedVMDir() {
@@ -21,9 +20,12 @@ sudo /usr/bin/vmhgfs-fuse .host:/ "$localShareDir" -o subtype=vmhgfs-fuse,allow_
   {
     lastExitCode=$?
 
-    echo -e "Error attaching VM Shared Directory!\n
-    Error Code: $lastExitCode\n
-    Function: attachSharedVMDir()" ; return "$lastExitCode"
+    echo "Error attaching VM Shared Directory!"
+    echo "Error Code: $lastExitCode"
+    echo "Function: attachSharedVMDir()"
+    echo "Script: attachSharedDir.sh"
+
+    return "$lastExitCode"
   }
 
 
