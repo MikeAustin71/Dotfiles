@@ -232,53 +232,69 @@ function changeFilePermissions() {
 
 	newPermissions=$2
 
+  local -i errorCode=0
+
 	if [[ -z $targetFile ]]
 	then
 
-		echo -e "*** Error ***\n
-		Target File Parameter is EMPTY!\n
-		Function: changeFilePermissions()\n\n"
-		return 79
+    errorCode=79
+
+		echo "*** Error ***"
+		echo "Target File Parameter is EMPTY!"
+		echo "Error Code: $errorCode"
+		echo "Function: changeFilePermissions()"
+		echo
+
+		return $errorCode
 
 	fi
 
-	if [[ ! -f $targetFile ]]
-	then
+	[[ -f $targetFile ]] || {
 
-		echo -e "*** Error ***\n
-		Target File DOES NOT EXIST!\n
-		Target File: $targetFile\n
-		Function: changeFilePermissions()\n\n"
-		return 78
+    errorCode=78
 
-	fi
+		echo "*** Error ***"
+		echo "Target File DOES NOT EXIST!"
+		echo "Error Code: $errorCode"
+	  echo "Target File: $targetFile"
+		echo "Function: changeFilePermissions()"
+		echo
 
+		return $errorCode
+	}
 
   if [[ -z $newPermissions ]]
   then
+
+    errorCode=77
+
 		echo "*** Error ***"
 		echo "New Permissions Parameter is EMPTY!"
-		echo "Target File: $targetFile"
+		echo "Error Code: $errorCode"
+	  echo "Target File: $targetFile"
 		echo "Function: changeFilePermissions()"
-		return 78
+		echo
+		return $errorCode
   fi
 
 
-  local -i errorCode=0
 
 	sudo chmod "$newPermissions" "$targetFile" ||
 	{
 	  errorCode=$?
 
-		echo -e "An Error occurred while changing permissions on:\n
-		Target File: $targetFile\n
-		Function: changeFilePermissions()\n
-		Error Code: $errorCode\n\n"
+		echo "An Error occurred while changing permissions on:"
+		echo "Target File: $targetFile"
+		echo "Error Code: $errorCode"
+	  echo "Function: changeFilePermissions()"
+		echo
+
 		return $errorCode
 	}
 
-	echo -e "Successfully changed File Permissions on\n
-	 Target File: $targetFile\n\n"
+	echo "Successfully changed File Permissions on"
+	echo "Target File: $targetFile"
+	echo
 
   return 0
 }
@@ -293,7 +309,7 @@ function changeToDir() {
 
 	local targetDir=$1
 
-	[[ ! -d $targetDir ]] || {
+	[[ -d $targetDir ]] || {
 
 		echo "*** Error ***"
 		echo "The Target Directory DOES NOT EXIST!"

@@ -58,6 +58,7 @@ function copyXorgAwesomeXinitrcFile() {
   return 0
 }
 
+changeToDir "$HOME" &&
 copyXorgAwesomeXinitrcFile &&
 changeToDir "$HOME" &&
 successMsg "Configured .xinitrc in Directory:" "$targetXorgAwesomeDir" "Script:configXintrc.sh"
