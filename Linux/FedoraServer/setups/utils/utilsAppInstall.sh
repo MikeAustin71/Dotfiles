@@ -144,7 +144,7 @@ function installFirefox() {
 # https://github.com/sindresorhus/fkill-cli
 function installFkill() {
 
-  npm install --global fkill-cli
+  sudo npm install --global fkill-cli
 
 }
 
