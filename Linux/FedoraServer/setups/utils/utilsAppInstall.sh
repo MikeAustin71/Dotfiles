@@ -144,7 +144,7 @@ function installFirefox() {
 # https://github.com/sindresorhus/fkill-cli
 function installFkill() {
 
-  sudo dnf install fkill-cli -y
+  npm install --global fkill-cli
 
 }
 
@@ -312,6 +312,12 @@ function installNetworkManager() {
 function installNitrogen() {
 
   sudo dnf install nitrogen -y
+
+}
+
+function installNodeJs() {
+
+  sudo dnf install nodejs -y
 
 }
 

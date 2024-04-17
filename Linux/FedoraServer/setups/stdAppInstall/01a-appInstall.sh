@@ -12,6 +12,7 @@ installTerminusFonts &&
 installFontAwesome &&
 installAutoJump &&
 installFuzzyFinder &&
+installNodeJs &&
 installFkill &&
 installDuf &&
 installMidnightCommander &&
