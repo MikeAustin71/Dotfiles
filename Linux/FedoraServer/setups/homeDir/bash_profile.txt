@@ -7,6 +7,3 @@ then
   source "$HOME/.config/shell/envars/envars.sh"
 
 fi
-
-# Add tty color scheme
-# wal -Rn > /dev/null
