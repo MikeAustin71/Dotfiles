@@ -37,10 +37,6 @@ fi
 
 if [[ ! -d "$destWallPaperDir" ]]
 then
-
-  makeDirIfNotExist "$destWallPaperDir" "776" "sudo" ||
-  {
-
     loadWallpaperExitCode=$?
 
     echo "*** ERROR ***"
@@ -50,9 +46,6 @@ then
     echo "Script Name: copyWallpaperFromDotFiles.sh"
 
     return $loadWallpaperExitCode
-
-  }
-
 fi
 
 # sudo cp -v "$HOME/repo/Linux/Wallpaper/*" "$MIKE_Wallpaper_Directory/"
