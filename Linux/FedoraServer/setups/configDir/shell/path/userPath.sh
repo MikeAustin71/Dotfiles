@@ -1,12 +1,11 @@
 #!/bin/bash
 # Mike's $HOME Directory Path Parameters
 
-
 # User specific environment
-if ! [[ "$PATH" =~ "$HOME"/.local/bin:"$HOME"/bin:/usr/local/go:/usr/local/go/bin ]]
+if ! [[ "$PATH" =~ "$HOME"/.local/bin:"$HOME"/bin:"$HOME"/go/bin:/usr/local/go:/usr/local/go/bin ]]
 then
 
-    PATH="$HOME/.local/bin:$HOME/bin:/usr/local/go:/usr/local/go/bin:$PATH"
+    PATH="$HOME/.local/bin:$HOME/bin:$HOME/go/bin:/usr/local/go:/usr/local/go/bin:$PATH"
 
 fi
 
