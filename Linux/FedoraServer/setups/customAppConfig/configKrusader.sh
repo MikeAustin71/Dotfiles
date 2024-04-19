@@ -18,7 +18,7 @@ declare -i errorCode=0
 
   # Make color schemes available for import into
   # krusader
-  sudo cp "$MIKE_Setup_Scripts"/configDir/krusader/color_schemes/* usr/share/krusader/ || {
+  sudo cp "$MIKE_Setup_Scripts"/configDir/krusader/color_schemes/* /usr/share/krusader/ || {
 
     errorCode=$?
 

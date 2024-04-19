@@ -42,6 +42,8 @@ alias cls="clear"
 
 alias CLS="clear"
 
+# alias cd="z"
+
 alias tree="br"
 
 alias top="btop"
