@@ -179,14 +179,31 @@ function installGit() {
 
 }
 
-# ghq application
-# git clone assistance
-# GitHub page:
-#    https://github.com/x-motemen/ghq
-function installGHQ() {
+function installScriptGHQ() {
 
- go install github.com/x-motemen/ghq@latest
+  local -i ghqFuncErrorCode=0
 
+  cd "$HOME" || {
+
+    ghqFuncErrorCode=$?
+
+    echo "*** ERROR ***"
+    echo "Error returned while changing"
+    echo "active working directory to:"
+    echo "$HOME"
+    echo "Error Code: $ghqFuncErrorCode"
+    echo "Function: installScriptGHQ()"
+    echo "Script: utilsAppInstall.sh"
+
+    return $ghqFuncErrorCode
+  }
+
+    local scriptFile
+
+    scriptFile="$HOME"/bashops/setups/customAppInstalls/installGHQ.sh
+
+  # shellcheck source="$MIKE_Setup_Scripts"/customAppConfig/configKrusader.sh
+   source "$scriptFile"
 }
 
 function installGrubCustomizer() {
