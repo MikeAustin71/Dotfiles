@@ -44,6 +44,8 @@ alias CLS="clear"
 
 alias tree="br"
 
+alias top="btop"
+
 alias rm="trash-put -iv"
 
 alias update="sudo dnf update -y && sudo dnf upgrade"
