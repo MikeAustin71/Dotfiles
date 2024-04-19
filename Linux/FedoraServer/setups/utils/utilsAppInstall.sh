@@ -292,7 +292,7 @@ function installNetworkManager() {
     return "$lastExitCode"
   }
 
-  systemctl start NetworkManager ||
+  sudo systemctl start NetworkManager ||
   {
 
     lastExitCode=$?
@@ -307,7 +307,7 @@ function installNetworkManager() {
 
   }
 
-  systemctl enable NetworkManager  ||
+  sudo systemctl enable NetworkManager  ||
   {
 
     lastExitCode=$?
