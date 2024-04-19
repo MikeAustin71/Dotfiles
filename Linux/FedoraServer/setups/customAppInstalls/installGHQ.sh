@@ -17,15 +17,41 @@
 #    https://github.com/x-motemen/ghq
 # Remember, you must install 'go' before
 # calling this function!
+
+source "$HOME"/bashOps/setups/utils/utilsLib.sh
+
+declare ghqDownloadOpsDir="$HOME"/scratch
+
+declare -i ghqErrorCode=0
+
 installGHQ() {
 
- go install github.com/x-motemen/ghq@latest
+
+ go install github.com/x-motemen/ghq@latest || {
+
+
+    ghqErrorCode=$?
+
+   errXMsg "'ghq' Installation Failed!" "Error Code: $ghqErrorCode" "Function: installGHQ()" "Script: installGHQ.sh"
+
+    return $ghqErrorCode
+
+ }
 
 }
 
   echo "Starting 'ghq' Installation"
-  makeDirIfNotExist "$downloadOpsDir" "777" "" &&
-  zapFilesCmd "$downloadOpsDir/*" "-f" "" &&
-  changeToDir "$downloadOpsDir" &&
+  changeToDir "$HOME" &&
+  makeDirIfNotExist "$ghqDownloadOpsDir" "777" "" &&
+  zapFilesCmd "$ghqDownloadOpsDir/*" "-f" "" &&
+  changeToDir "$ghqDownloadOpsDir" &&
   installGHQ &&
-  successMsg  "Downloaded, extracted and configured Application Binary." "Application Name: ghq"
+  changeToDir "$HOME" &&
+  successMsg  "Downloaded, extracted and configured 'ghq' Application." || {
+
+    ghqErrorCode=$?
+
+    errXMsg "installGHQ.sh Execution Failed" "Error Code: $ghqErrorCode"
+
+     return $ghqErrorCode
+  }
