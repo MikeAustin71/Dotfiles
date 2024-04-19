@@ -26,6 +26,7 @@ makeDirIfNotExist "$HOME/dev" "775" "" &&
 makeDirIfNotExist "$HOME/Desktop" "775" "" &&
 makeDirIfNotExist "$HOME/Documents" "775" "" &&
 makeDirIfNotExist "$HOME/Downloads" "775" "" &&
+makeDirIfNotExist "$HOME/go/bin" "755" "" &&
 makeDirIfNotExist "$HOME/gowork" "775" "" &&
 makeDirIfNotExist "$HOME/math" "775" "" &&
 makeDirIfNotExist "$HOME/Paladin" "775" "" &&
