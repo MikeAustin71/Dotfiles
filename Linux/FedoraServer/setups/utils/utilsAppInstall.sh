@@ -423,6 +423,12 @@ function installTerminusFonts() {
 
 }
 
+function installTmux() {
+
+  sudo dnf install -y tmux
+
+}
+
 function installRealPath() {
 
   sudo dnf install uu_realpath -y

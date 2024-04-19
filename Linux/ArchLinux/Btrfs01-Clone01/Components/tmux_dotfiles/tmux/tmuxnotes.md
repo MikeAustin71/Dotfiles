@@ -12,6 +12,10 @@
 
 [Tmux Home Page](https://github.com/tmux/tmux/wiki)
 
+[Getting Started · tmux/tmux Wiki · GitHub](https://github.com/tmux/tmux/wiki/Getting-Started)
+
+
+
 ### Clipboard
 
 [Clipboard · tmux/tmux Wiki · GitHub](https://github.com/tmux/tmux/wiki/Clipboard)
@@ -136,7 +140,7 @@ exit
 
 ### Some Helpful Commands
 
-Another fantastic feature of Tmux is that we can “save” a specific session. For example, if we are using [htop](https://hisham.hm/htop/) and we use the detach command (**CTRL+B, D**) when we run Tmux again we will find the process still works. This is very useful for performing commands that take a long time to run, like backups.**0**
+Another fantastic feature of Tmux is that we can “save” a specific session. For example, if we are using [htop,](https://hisham.hm/htop/) and we use the detach command (**CTRL+B, D**) when we run Tmux again we will find the process still works. This is very useful for performing commands that take a long time to run, like backups.**0**
 
 So, we can start a new session by typing in this command into the command line:
 
@@ -162,7 +166,7 @@ tmux attach -t 0
 
 And we will be back to our previous session.
 
-It is possible to do several sessions with the command **C**. To navigate between them we use the identifier number. For example, the first session we create from the regular terminal would be **0**. If we create another session it corresponds to the number **1**.
+It is possible to do several sessions with the command **C**. To navigate between them, we use the identifier number. For example, the first session we create from the regular terminal would be **0**. If we create another session it corresponds to the number **1**.
 
 ```
 CTRL+B, 1
@@ -692,7 +696,7 @@ For example, if we want to turn a window with two panes into two windows, we can
 <prefix> + !Copy
 ```
 
-Once entered, the effect will take place immediately and we’ll see the new windows.
+Once entered, the effect will take place immediately, and we’ll see the new windows.
 
 ### 6.4. Switching to Different Pane
 

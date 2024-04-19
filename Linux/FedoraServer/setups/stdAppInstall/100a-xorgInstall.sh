@@ -16,6 +16,7 @@ installDunst &&
 installPicom &&
 installAwesomeWM &&
 installKitty &&
+installTmux &&
 installKrusader &&
 installRofi &&
 install_x_Copy &&
