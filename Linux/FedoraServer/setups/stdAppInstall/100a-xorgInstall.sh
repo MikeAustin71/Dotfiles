@@ -23,6 +23,7 @@ install_x_Copy &&
 installCopyQ &&
 installGrubCustomizer &&
 installNetworkManager &&
+installLLVM &&
 installNitrogen &&
 configXorgXintrc &&
 configPicom &&

@@ -250,6 +250,14 @@ function installScriptMicro() {
 
 }
 
+# Low Level Virtual Machine
+# https://en.wikipedia.org/wiki/LLVM
+function installLLVM() {
+
+  sudo dnf install llvm -y
+
+}
+
 function installMidnightCommander() {
 
   sudo dnf install mc -y
