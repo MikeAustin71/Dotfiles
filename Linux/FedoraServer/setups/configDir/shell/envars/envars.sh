@@ -59,6 +59,3 @@ export MIKE_GitRepo_DotFiles="https://github.com/MikeAustin71/Dotfiles.git"
 export GHQ_ROOT="$HOME/repos"
 
 export EZA_COLORS="da=32"
-
-# Need for XORG GUI Ops
-export LIBGL_ALWAYS_INDIRECT=1

@@ -477,6 +477,13 @@ function install_x_Copy() {
 
 }
 
+function install_x_Drivers_ati() {
+
+  sudo dnf install xorg-x11-drv-ati
+
+
+}
+
 # zoxide
 # zoxide is a smarter cd command, inspired by z and autojump.
 # https://github.com/ajeetdsouza/zoxide
