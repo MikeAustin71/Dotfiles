@@ -12,7 +12,7 @@ function configAlacritty() {
     scriptFile="$HOME"/bashOps/setups/customAppConfig/configAlacritty.sh
 
 
-  # shellcheck source="$MIKE_Setup_Scripts"/customAppConfig/configAwesome.sh
+  # shellcheck source="$MIKE_Setup_Scripts"/customAppConfig/configAlacritty.sh
    source "$scriptFile"
 }
 
@@ -94,6 +94,21 @@ function configEnvars() {
 
 
   # shellcheck source="$HOME"/bashOps/setups/cfgEnvars/cfgEnvars.sh
+   source "$scriptFile"
+}
+
+
+function configKitty() {
+
+    # shellcheck disable=SC2164
+    cd "$HOME"
+
+    local scriptFile
+
+    scriptFile="$HOME"/bashOps/setups/customAppConfig/configKitty.sh
+
+
+  # shellcheck source="$MIKE_Setup_Scripts"/customAppConfig/configKitty.sh
    source "$scriptFile"
 }
 

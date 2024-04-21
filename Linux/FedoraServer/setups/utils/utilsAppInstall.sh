@@ -5,7 +5,7 @@
 # Alacritty Terminal Emulator
 function installAlacritty() {
 
-  sudo dnf install alsa-utils -y
+  sudo dnf install alacritty -y
 
 }
 
