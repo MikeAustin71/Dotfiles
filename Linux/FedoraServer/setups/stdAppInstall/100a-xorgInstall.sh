@@ -16,6 +16,7 @@ installSxhkd &&
 installDunst &&
 installPicom &&
 installAwesomeWM &&
+configAlacritty &&
 installKitty &&
 installTmux &&
 installKrusader &&

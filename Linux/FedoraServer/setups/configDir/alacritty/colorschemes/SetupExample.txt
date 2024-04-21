@@ -1,0 +1,12 @@
+# Add this to main alacritty.yml file:
+import:
+  - /path/to/dracula.yml
+
+# Important. For alacritty you have to 
+# use the entire path. Example:
+#  ~/.config/alacritty/colorschemes/dracula.yml
+
+
+# Note: All files with a ".yaml" extension were
+# extracted from: 
+#   https://github.com/eendroroy/alacritty-theme  

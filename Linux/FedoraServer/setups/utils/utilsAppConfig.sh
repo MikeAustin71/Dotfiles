@@ -2,6 +2,20 @@
 # Utilities Library for Application Configuration
 #
 
+function configAlacritty() {
+
+    # shellcheck disable=SC2164
+    cd "$HOME"
+
+    local scriptFile
+
+    scriptFile="$HOME"/bashOps/setups/customAppConfig/configAlacritty.sh
+
+
+  # shellcheck source="$MIKE_Setup_Scripts"/customAppConfig/configAwesome.sh
+   source "$scriptFile"
+}
+
 function configAliases() {
 
     # shellcheck disable=SC2164

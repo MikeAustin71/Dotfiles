@@ -2,6 +2,13 @@
 # Standard Application Installations
 #
 
+# Alacritty Terminal Emulator
+function installAlacritty() {
+
+  sudo dnf install alsa-utils -y
+
+}
+
 # Advanced Linux Sound Architecture (ALSA) utilities
 function installAlsaUtils() {
 
