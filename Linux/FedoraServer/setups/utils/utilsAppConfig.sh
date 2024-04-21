@@ -155,6 +155,20 @@ function configPicom() {
    source "$scriptFile"
 }
 
+function configTmux() {
+
+    # shellcheck disable=SC2164
+    cd "$HOME"
+
+    local scriptFile
+
+    scriptFile="$HOME"/bashOps/setups/customAppConfig/configTmux.sh
+
+
+  # shellcheck source="$MIKE_Setup_Scripts"/customAppConfig/configKitty.sh
+   source "$scriptFile"
+}
+
 function configXorgXintrc() {
 
     # shellcheck disable=SC2164

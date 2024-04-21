@@ -16,12 +16,15 @@ installSxhkd &&
 installDunst &&
 installPicom &&
 installAwesomeWM &&
+configAwesome &&
 installAlacritty &&
 configAlacritty &&
 installKitty &&
 configKitty &&
 installTmux &&
+configTmux &&
 installKrusader &&
+configKrusader &&
 installRofi &&
 install_x_Copy &&
 installCopyQ &&
@@ -31,6 +34,4 @@ installLLVM &&
 installNitrogen &&
 configXorgXintrc &&
 configPicom &&
-configKrusader &&
-configAwesome &&
 successMsg "All 100a-xorgInstall.sh Applications Installed." || errXMsg "100a-xorgInstall.sh Execution Failed" "Error-Exit!"
