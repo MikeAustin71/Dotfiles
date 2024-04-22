@@ -1,0 +1,41 @@
+import = ["/home/mike/.config/alacritty/fonts/MesloLGS_NF_Fonts_.toml", "/home/mike/.config/alacritty/colorschemes/tokyo-night.toml"]
+
+[env]
+TERM = "alacritty"
+
+[[keyboard.bindings]]
+action = "ScrollPageUp"
+key = "PageUp"
+mods = "Shift"
+
+[[keyboard.bindings]]
+action = "ScrollPageDown"
+key = "PageDown"
+mods = "Shift"
+
+[[keyboard.bindings]]
+action = "ScrollToBottom"
+key = "End"
+mods = "Shift"
+
+[[keyboard.bindings]]
+action = "ScrollToTop"
+key = "Home"
+mods = "Shift"
+
+[[keyboard.bindings]]
+action = "SpawnNewInstance"
+key = "Return"
+mods = "Control|Shift"
+
+[scrolling]
+history = 10000
+multiplier = 3
+
+[shell]
+args = ["-l", "-c", "tmux a || tmux"]
+program = "/bin/bash"
+
+[window.padding]
+x = 2
+y = 2

@@ -28,27 +28,29 @@ fontNames[5]="Hack"
 
 fontNames[6]="HeavyData"
 
-fontNames[7]="InconsolataGo"
+fontNames[7]="Hermit"
 
-fontNames[8]="Iosevka"
+fontNames[8]="InconsolataGo"
 
-fontNames[9]="IosevkaTerm"
+fontNames[9]="Iosevka"
 
-fontNames[10]="JetBrainsMono"
+fontNames[10]="IosevkaTerm"
 
-fontNames[11]="Meslo"
+fontNames[11]="JetBrainsMono"
 
-fontNames[12]="Mononoki"
+fontNames[12]="Meslo"
 
-fontNames[13]="Noto"
+fontNames[13]="Mononoki"
 
-fontNames[14]="RobotoMono"
+fontNames[14]="Noto"
 
-fontNames[14]="SourceCodePro"
+fontNames[15]="RobotoMono"
 
-fontNames[14]="SpaceMono"
+fontNames[16]="SourceCodePro"
 
-fontNames[14]="Terminus"
+fontNames[17]="SpaceMono"
+
+fontNames[18]="Terminus"
 
 declare currFontName=""
 
