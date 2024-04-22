@@ -11,6 +11,7 @@ source "$MIKE_Setup_Utilities"/utilsAppConfig.sh
 # xrandr
 install_x11 &&
 install_x_Drivers_ati &&
+installMesaVulkanDrivers &&
 installAlsaUtils &&
 installSxhkd &&
 installDunst &&

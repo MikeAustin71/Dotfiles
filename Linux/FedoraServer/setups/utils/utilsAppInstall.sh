@@ -277,6 +277,12 @@ function installLuaRocks() {
 
 }
 
+function installMesaVulkanDrivers() {
+
+  sudo dnf install mesa-vulkan-drivers -y
+
+}
+
 function installMidnightCommander() {
 
   sudo dnf install mc -y
