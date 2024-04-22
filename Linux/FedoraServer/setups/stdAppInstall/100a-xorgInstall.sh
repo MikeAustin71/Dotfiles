@@ -17,6 +17,8 @@ installDunst &&
 installPicom &&
 installAwesomeWM &&
 configAwesome &&
+installLua &&
+installLuaRocks &&
 installAlacritty &&
 configAlacritty &&
 installKitty &&

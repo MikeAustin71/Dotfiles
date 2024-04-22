@@ -265,6 +265,18 @@ function installLLVM() {
 
 }
 
+function installLua() {
+
+  sudo dnf install lua -y
+
+}
+
+function installLuaRocks() {
+
+  sudo dnf install luarocks -y
+
+}
+
 function installMidnightCommander() {
 
   sudo dnf install mc -y
