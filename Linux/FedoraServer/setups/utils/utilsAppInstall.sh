@@ -271,6 +271,12 @@ function installLua() {
 
 }
 
+function installPapirusIconTheme() {
+
+  sudo dnf install papirus-icon-theme -y
+
+}
+
 function installLuaRocks() {
 
   sudo dnf install luarocks -y

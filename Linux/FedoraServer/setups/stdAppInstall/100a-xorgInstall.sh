@@ -29,6 +29,7 @@ configTmux &&
 installKrusader &&
 configKrusader &&
 installRofi &&
+installPapirusIconTheme &&
 install_x_Copy &&
 installCopyQ &&
 installGrubCustomizer &&
