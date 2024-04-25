@@ -2,17 +2,26 @@
 size = 12
 
 [font.bold]
-family = "JetBrainsMono NL Nerd Font"
+family = "JetBrains Mono"
 style = "Bold"
 
 [font.bold_italic]
-family = "JetBrainsMono NL Nerd Font"
+family = "JetBrains Mono"
 style = "Bold Italic"
 
 [font.italic]
-family = "JetBrainsMono NL Nerd Font"
+family = "JetBrains Mono"
 style = "Italic"
 
 [font.normal]
-family = "JetBrainsMono NL Nerd Font"
+family = "JetBrains Mono"
 style = "Regular"
+
+[font.glyph_offset]
+x = 0
+y = 0
+
+[font.offset]
+x = 0
+y = 0
+

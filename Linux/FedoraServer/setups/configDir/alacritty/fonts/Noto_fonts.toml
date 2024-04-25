@@ -2,19 +2,19 @@
 size = 12
 
 [font.bold]
-family = "Meslo LG M DZ"
+family = "NotoSansMono Nerd Font"
 style = "Bold"
 
 [font.bold_italic]
-family = "Meslo LG M DZ"
+family = "NotoSansMono Nerd Font"
 style = "Bold Italic"
 
 [font.italic]
-family = "Meslo LG M DZ"
+family = "NotoSansMono Nerd Font"
 style = "Italic"
 
 [font.normal]
-family = "Meslo LG M DZ"
+family = "NotoSansMono Nerd Font"
 style = "Regular"
 
 [font.glyph_offset]
@@ -24,5 +24,3 @@ y = 0
 [font.offset]
 x = 0
 y = 0
-
-
