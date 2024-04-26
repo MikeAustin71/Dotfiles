@@ -1,0 +1,26 @@
+[font]
+size = 12
+
+[font.bold]
+family = "Terminess Mono Nerd Font"
+style = "Bold"
+
+[font.bold_italic]
+family = "Terminess Mono Nerd Font"
+style = "Bold Italic"
+
+[font.italic]
+family = "Terminess Mono Nerd Font"
+style = "Italic"
+
+[font.normal]
+family = "Terminess Mono Nerd Font"
+style = "Regular"
+
+[font.glyph_offset]
+x = 0
+y = 0
+
+[font.offset]
+x = 0
+y = 0
