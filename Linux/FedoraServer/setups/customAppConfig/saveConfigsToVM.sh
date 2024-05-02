@@ -28,7 +28,7 @@ function deleteHomeConfigVMShare() {
 
   [[ ! -d $vmShareTargetCfgDir ]] || {
 
-    zapFilesCmd "$vmShareTargetCfgDir" "-rfv" "" || {
+    zapFilesCmd "$vmShareTargetCfgDir" "-rfv" "sudo" || {
 
       saveConfigsToVM_ErrorCode=$?
 
