@@ -20,11 +20,11 @@ function copyHomeConfigToVMShare() {
   local sourceDir="/home/mike/.config"
 
 
-   [[ -d sourceDir ]] || {
+   [[ -d $sourceDir ]] || {
 
     saveConfigsToVM_ErrorCode=199
 
-    errXMsg "Copy Source Directory Does NOT Exist!" "$sourceDir" "Script: saveConfigsToVM.sh" "Error Code: $errorCode"
+    errXMsg "Copy Source Directory Does NOT Exist!" "$sourceDir" "Script: saveConfigsToVM.sh" "Error Code: $saveConfigsToVM_ErrorCode"
 
     return $saveConfigsToVM_ErrorCode
   }
@@ -33,7 +33,7 @@ function copyHomeConfigToVMShare() {
 
     saveConfigsToVM_ErrorCode=198
 
-    errXMsg "VM Target Base Directory Does NOT Exist!" "$targetBaseDir" "Script: saveConfigsToVM.sh" "Error Code: $errorCode"
+    errXMsg "VM Target Base Directory Does NOT Exist!" "$targetBaseDir" "Script: saveConfigsToVM.sh" "Error Code: $saveConfigsToVM_ErrorCodee"
 
     return $saveConfigsToVM_ErrorCode
   }
@@ -44,7 +44,7 @@ function copyHomeConfigToVMShare() {
 
       saveConfigsToVM_ErrorCode=$?
 
-      errXMsg "Attempted deletion of target VM Directory Failed" "$targetDir" "Script: saveConfigsToVM.sh" "Error Code: $errorCode"
+      errXMsg "Attempted deletion of target VM Directory Failed" "$targetDir" "Script: saveConfigsToVM.sh" "Error Code: $saveConfigsToVM_ErrorCode"
 
       return $saveConfigsToVM_ErrorCode
 
