@@ -63,7 +63,7 @@ function copyHomeConfigToVMShare() {
     return $saveConfigsToVM_ErrorCode
   }
 
-  cp -rv "$sourceDir" "$vmShareTargetBaseDir" || {
+  sudo cp -rv "$sourceDir" "$vmShareTargetBaseDir" || {
 
       saveConfigsToVM_ErrorCode=$?
 
