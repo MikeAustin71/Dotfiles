@@ -44,7 +44,17 @@ function deleteHomeConfigVMShare() {
     echo "Function: deleteHomeConfigVMShare"
     echo "Script: saveConfigsToVM.sh"
     echo
+
+    return 0
   }
+
+  echo
+  echo "VM Config Directory Does NOT Exist."
+  echo "Setups Dir: $vmShareTargetCfgDir"
+  echo "Continuing with 'copy' operation."
+  echo "Function: deleteHomeConfigVMShare"
+  echo "Script: saveConfigsToVM.sh"
+  echo
 
   return 0
 }
@@ -78,7 +88,7 @@ function copyHomeConfigToVMShare() {
 
 deleteHomeConfigVMShare &&
 copyHomeConfigToVMShare &&
-successMsg "saveConfigsToVM.sh - Successful Completion!" || {
+successMsg "saveConfigsToVM.sh - Successful Completion!" "Copied Home Configs to VM Drive" || {
 
   saveConfigsToVM_ErrorCode=$?
   errXMsg "saveConfigsToVM.sh" "Error-Exit!" "Error Code: $saveConfigsToVM_ErrorCode"
