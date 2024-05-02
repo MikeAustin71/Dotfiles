@@ -219,6 +219,12 @@ function installGrubCustomizer() {
 
 }
 
+function installKdiff3() {
+
+  sudo dnf install kdiff3 -y
+
+}
+
 function installKitty() {
 
   sudo dnf install kitty -y

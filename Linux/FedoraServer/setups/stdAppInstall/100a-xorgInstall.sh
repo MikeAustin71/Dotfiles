@@ -28,6 +28,7 @@ installTmux &&
 configTmux &&
 installKrusader &&
 configKrusader &&
+installKdiff3 &&
 installRofi &&
 installPapirusIconTheme &&
 install_x_Copy &&
