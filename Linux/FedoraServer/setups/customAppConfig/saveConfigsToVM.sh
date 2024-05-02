@@ -40,7 +40,7 @@ function copyHomeConfigToVMShare() {
 
   [[ ! -d $targetDir ]] || {
 
-    zapFilesCmd "$targetDir/*" "-rfv" "" || {
+    zapFilesCmd "$targetDir" "-rfv" "" || {
 
       saveConfigsToVM_ErrorCode=$?
 
@@ -52,11 +52,11 @@ function copyHomeConfigToVMShare() {
 
   }
 
-  cp -rv "$sourceDir" "$targetDir" || {
+  cp -rv "$sourceDir" "$targetBaseDir" || {
 
       saveConfigsToVM_ErrorCode=$?
 
-      errXMsg "Copy Operation Failed" "Source Dir: $sourceDir" "Target Dir: $targetDir" "Script: saveConfigsToVM.sh" "Error Code: $saveConfigsToVM_ErrorCode"
+      errXMsg "Copy Operation Failed" "Source Dir: $sourceDir" "Target Base Dir: $targetBaseDir" "Script: saveConfigsToVM.sh" "Error Code: $saveConfigsToVM_ErrorCode"
 
       return $saveConfigsToVM_ErrorCode
 
