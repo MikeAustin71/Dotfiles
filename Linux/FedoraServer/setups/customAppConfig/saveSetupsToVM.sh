@@ -73,7 +73,8 @@ function copyHomeSetupsToVMShare() {
     return $saveSetupsToVM_ErrorCode
   }
 
-  sudo cp -rfLv "$sourceDir"/ "$vmShareTargetBaseDir" || {
+  #sudo rsync -L --archive --ignore-errors --force /home/mike/.config /home/mike/shares/HostVlMShared/fedora_server/final_production
+  sudo rsync -L --archive --ignore-errors --force "$sourceDir" "$vmShareTargetBaseDir" || {
 
       saveSetupsToVM_ErrorCode=$?
 

@@ -50,7 +50,7 @@ function deleteHomeConfigVMShare() {
 
   echo
   echo "VM Config Directory Does NOT Exist."
-  echo "Setups Dir: $vmShareTargetCfgDir"
+  echo "VM Configs Dir: $vmShareTargetCfgDir"
   echo "Continuing with 'copy' operation."
   echo "Function: deleteHomeConfigVMShare"
   echo "Script: saveConfigsToVM.sh"
@@ -73,7 +73,8 @@ function copyHomeConfigToVMShare() {
     return $saveConfigsToVM_ErrorCode
   }
 
-  sudo cp -rfLv "$sourceDir"/ "$vmShareTargetBaseDir" || {
+  # sudo rsync -L --archive --ignore-errors --force /home/mike/.config /home/mike/shares/HostVlMShared/fedora_server/final_production
+  sudo rsync -L --archive --ignore-errors --force  "$sourceDir" "$vmShareTargetBaseDir" || {
 
       saveConfigsToVM_ErrorCode=$?
 
@@ -82,6 +83,14 @@ function copyHomeConfigToVMShare() {
       return $saveConfigsToVM_ErrorCode
 
   }
+
+  echo 
+  echo "Successfully Copied configs to VM Config Directory"
+  echo "Source Dir: $sourceDir"
+  echo "Target Dir: $vmShareTargetCfgDir"
+  echo "Function: copyHomeConfigToVMShare"
+  echo "Script: saveConfigsToVM.sh"
+  echo 
 
   return 0
 }
