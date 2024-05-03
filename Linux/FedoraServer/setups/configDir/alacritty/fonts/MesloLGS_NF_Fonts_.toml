@@ -16,3 +16,15 @@ style = "Italic"
 [font.normal]
 family = "MesloLGS Nerd Font"
 style = "Regular"
+
+
+[font.glyph_offset]
+x = 0
+y = 0
+
+
+[font.offset]
+x = 0
+y = 0
+
+

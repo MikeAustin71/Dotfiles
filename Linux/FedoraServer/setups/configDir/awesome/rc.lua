@@ -49,6 +49,7 @@ beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
 
 -- This is used later as the default terminal and editor to run.
 terminal = "kitty"
+terminal2= "alacritty"
 editor = os.getenv("EDITOR") or "vi"
 editor_cmd = terminal .. " -e " .. editor
 
@@ -91,7 +92,12 @@ myawesomemenu = {
 }
 
 mymainmenu = awful.menu({ items = { { "awesome", myawesomemenu, beautiful.awesome_icon },
-                                    { "open terminal", terminal }
+                                    { "open kitty", terminal },
+                                    { "open alacritty", terminal2 },
+                                    { "geany", "geany"},
+                                    { "krusader", "krusader" },
+                                    { "dolphin", "dolphin" },
+                                    { "Firefox", "firefox" }
                                   }
                         })
 
@@ -276,11 +282,24 @@ globalkeys = gears.table.join(
     -- Standard program
     awful.key({ modkey,           }, "Return", function () awful.spawn(terminal) end,
               {description = "open a terminal", group = "launcher"}),
+              
+    awful.key({ modkey,  "Control"    }, "Return", function () awful.spawn.with_shell("LIBGL_ALWAYS_SOFTWARE=1 alacritty") end,
+           {description = "open a terminal", group = "launcher"}),
+    
+    awful.key({ modkey,   "Shift"        }, "e", function () awful.spawn("geany") end,
+              {description = "geany", group = "applications"}),
+ 
+    awful.key({ modkey,   "Shift"        }, "k", function () awful.spawn("krusader") end,
+              {description = "krusader", group = "applications"}),
+                     
+ 
+    awful.key({ modkey,   "Shift"        }, "f", function () awful.spawn("firefox") end,
+              {description = "firefox", group = "applications"}),
+                     
     awful.key({ modkey, "Control" }, "r", awesome.restart,
               {description = "reload awesome", group = "awesome"}),
     awful.key({ modkey, "Shift"   }, "q", awesome.quit,
               {description = "quit awesome", group = "awesome"}),
-
     awful.key({ modkey,           }, "l",     function () awful.tag.incmwfact( 0.05)          end,
               {description = "increase master width factor", group = "layout"}),
     awful.key({ modkey,           }, "h",     function () awful.tag.incmwfact(-0.05)          end,

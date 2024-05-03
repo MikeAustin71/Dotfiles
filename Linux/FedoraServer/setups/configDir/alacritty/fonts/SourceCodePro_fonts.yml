@@ -3,10 +3,10 @@
 # These are name 'Sauce Code'
 font:
   normal:
-    family: "SauceCodePro Mono Nerd Font"
+    family: "SauceCodePro Nerd Font"
     style: Medium
   bold:
-    family: "SauceCodePro Mono Nerd Font"
+    family: "SauceCodePro Nerd Font"
     style: Bold
 
   # Italic font face
@@ -15,7 +15,7 @@ font:
     #
     # If the italic family is not specified, it will fall back to the
     # value specified for the normal font.
-    family: "SauceCodePro Mono Nerd Font"
+    family: "SauceCodePro Nerd Font"
 
     # The `style` can be specified to pick a specific face.
     style: Italic

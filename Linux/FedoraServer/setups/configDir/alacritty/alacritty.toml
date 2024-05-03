@@ -25,73 +25,85 @@ action = "Paste"
 key = "V"
 mods = "Control|Shift"
 
-
+[[keyboard.bindings]]
+action = "ClearSelection"
+key = "Z"
+mods = "Control|Shift"
 
 [[keyboard.bindings]]
 action = "Copy"
 key = "C"
 mods = "Control|Shift"
 
-
-
-
 [[keyboard.bindings]]
 action = "ScrollPageUp"
 key = "PageUp"
 mods = "Shift"
-
-
 
 [[keyboard.bindings]]
 action = "ScrollPageDown"
 key = "PageDown"
 mods = "Shift"
 
-
 [[keyboard.bindings]]
 action = "ScrollToBottom"
 key = "End"
 mods = "Shift"
-
 
 [[keyboard.bindings]]
 action = "ScrollToTop"
 key = "Home"
 mods = "Shift"
 
-
 [[keyboard.bindings]]
 action = "SpawnNewInstance"
 key = "Return"
 mods = "Control|Shift"
 
+[[keyboard.bindings]]
+action = "CreateNewWindow"
+key = "n"
+mods = "Control|Shift"
+
+[[keyboard.bindings]]
+action = "ToggleMaximized"
+key = "F11"
+mods = "Control"
+
+[[keyboard.bindings]]
+action = "ToggleFullscreen"
+key = "F12"
+mods = "Control"
 
 [[keyboard.bindings]]
 action = "ResetFontSize"
 key = "Key0"
 mods = "Control"
 
-
 [[keyboard.bindings]]
 action = "IncreaseFontSize"
 key = "Plus"
 mods = "Control"
-
-
 
 [[keyboard.bindings]]
 action = "DecreaseFontSize"
 key = "Minus"
 mods = "Control"
 
-
+[[keyboard.bindings]]
+action = "Quit"
+key = "q"
+mods = "Ctrl+Shift"
 
 [[keyboard.bindings]]
-action = "ToggleFullscreen"
-key = "F11"
-mods = "None"
+action = "SearchForward"
+key = "f"
+mods = "Ctrl+Shift"
 
-
+[[keyboard.bindings]]
+action = "SearchBackward"
+key = "b"
+mods = "Ctrl+Shift"
 
 [selection]
 save_to_clipboard = true
