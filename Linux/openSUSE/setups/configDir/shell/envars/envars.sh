@@ -1,7 +1,7 @@
 #!/bin/bash
 # Mike's Environment Variables
 
-export EDITOR="nano"
+export EDITOR="geany"
 
 export VISUAL="geany"
 
@@ -35,7 +35,7 @@ export MIKE_Scratch="$HOME/scratch"
 
 export MIKE_VMShared_Drive="$HOME/shares/HostVlMShared"
 
-export MIKE_VM_Scripts="$HOME/shares/HostVlMShared/fedora_server/final_production/setupScripts"
+export MIKE_VM_Scripts="$HOME/shares/HostVlMShared/openSUSE/final_production/setups"
 
 export MIKE_Fonts_Directory="$XDG_DATA_HOME/fonts"
 

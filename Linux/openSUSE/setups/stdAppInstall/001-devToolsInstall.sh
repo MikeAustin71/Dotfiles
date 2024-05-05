@@ -3,6 +3,7 @@
 # Run this as sudo
 
 source "$MIKE_Setup_Scripts/utils/utilsLib.sh"
+source "$MIKE_Setup_Utilities"/utilsAppInstall.sh
 
 installCToolsLibs() {
 
@@ -38,6 +39,18 @@ installPython3() {
 
 }
 
+installPython3Libs() {
+
+  local scriptFile
+
+  scriptFile="$MIKE_Setup_Scripts"/devTools/03b-installPythonLibs.sh
+
+  # shellcheck disable=SC1090
+  source "$scriptFile"
+
+
+}
+
 installPython2() {
 
   local scriptFile
@@ -61,10 +74,16 @@ installGo() {
 
 }
 
+installNano &&
+installCurl &&
+installWget &&
 installCToolsLibs &&
 installDevTools &&
 installPython3 &&
+installPython3Libs &&
 installPython2 &&
+installNpm &&
+installNodeJs &&
 installGo &&
 successMsg "All Development Tools Installed."
 

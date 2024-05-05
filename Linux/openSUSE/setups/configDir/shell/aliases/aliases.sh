@@ -50,6 +50,8 @@ alias top="btop"
 
 alias rm="trash-put -iv"
 
-alias update="sudo zypper update  && sudo zypper upgrade"
+alias update="sudo zypper update"
 
-alias update2="sudo zypper update  --refresh && sudo zypper upgrade"
+alias update2="sudo zypper dup"
+
+alias refresh="sudo zypper refresh"

@@ -6,22 +6,24 @@ source "$HOME"/bashOps/setups/utils/utilsLib.sh
 source "$HOME"/bashOps/setups/utils/utilsAppConfig.sh
 source "$HOME"/bashOps/setups/utils/utilsAppInstall.sh
 
-installNano &&
-installCurl &&
-installWget &&
 installEza &&
 installMicro &&
 installBroot &&
+installBtop &&
+installFd &&
+installFuzzyFinder &&
+installFkill &&
+installMidnightCommander &&
 installBashCompletion &&
 installBat &&
 installTldr &&
 installZoxide &&
 installTrash &&
+installScriptGHQ &&
 configDirStructure &&
 configEnvars &&
 configUserPath &&
 # Configures Aliases and .bashrc
 configAliases &&
 configBashProfile &&
-installScriptGHQ &&
 successMsg "All Phase-00a Structures Created." "REBOOT YOUR COMPUTER!" "Script: 00a-createBaseStructure.sh" || errXMsg "00a-createBaseStructure.sh Execution Failed" "Error-Exit!"

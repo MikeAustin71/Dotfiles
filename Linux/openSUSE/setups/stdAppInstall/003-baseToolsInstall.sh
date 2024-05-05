@@ -30,9 +30,7 @@ function getWallpaper() {
 }
 
 # installCoreUtils &&
-installRealPath &&
 installCompressionUtilities &&
-installFd &&
 installNeofetch &&
 installVmwareTools &&
 getFonts &&

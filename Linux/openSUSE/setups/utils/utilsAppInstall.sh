@@ -5,7 +5,7 @@
 # Alacritty Terminal Emulator
 function installAlacritty() {
 
-  sudo zypper install alacritty 
+  sudo zypper install alacritty alacritty-bash-completion
 
 }
 
@@ -86,6 +86,12 @@ function installCoreUtils() {
 
 }
 
+function installCompressionUtilities() {
+
+  sudo zypper install tar gzip bzip2 lzop zip p7zip p7zip-plugins gzip lz4 unrar
+
+}
+
 function installCurl() {
 
   sudo zypper install curl 
@@ -101,12 +107,6 @@ function installDolfin() {
 function installDuf() {
 
   sudo zypper install duf 
-
-}
-
-function installCompressionUtilities() {
-
-  sudo zypper install tar gzip bzip2 lzop zip p7zip p7zip-plugins gzip lz4 unrar perl-Archive-Extract 
 
 }
 
@@ -134,7 +134,7 @@ function installEza() {
 # use cases.
 function installFd() {
 
-  sudo zypper install fd-find 
+  sudo zypper install fd
 
 }
 
@@ -147,7 +147,7 @@ function installFirefox() {
 # https://github.com/sindresorhus/fkill-cli
 function installFkill() {
 
-  sudo npm install --global fkill-cli
+  sudo npm install -g fkill-cli
 
 }
 
@@ -157,22 +157,16 @@ function installFontAwesome() {
 
 }
 
-function installFontTerminus() {
-
-  sudo zypper install terminus-fonts 
-
-}
-
 function installFuzzyFinder() {
 
-  sudo zypper install fzf 
+  sudo zypper install fzf fzf-bash-integration fzf-tmux
 
 }
 
 # Install geany GUI Editor
 function installGeany() {
 
-  sudo zypper install geany geany-plugins-addons gtkd-geany-tags geany-themes 
+  sudo zypper install geany geany-doc geany-lang geany-plugins geany-plugins-lang libgeany0
 
 }
 
@@ -217,39 +211,25 @@ function installGrubCustomizer() {
 
 function installKdiff3() {
 
-  sudo zypper install kdiff3 
+  sudo zypper install kdiff3 kdiff3-lang
 
 }
 
 function installKitty() {
 
-  sudo zypper install kitty 
+  sudo zypper install kitty kitty-shell-integration
 
 }
 
 function installKrusader() {
 
-  sudo zypper install krusader 
+  sudo zypper install krusader krusader-doc krusader-lang
 
 }
 
 function installLibdrm() {
 
   sudo zypper install libdrm 
-
-}
-
-# An X application for displaying and
-# manipulating images
-function installImageMagick() {
-
-  sudo zypper install ImageMagick 
-
-}
-
-function installMicro() {
-
-  sudo zypper install micro-editor
 
 }
 
@@ -264,6 +244,26 @@ function installLLVM() {
 function installLua() {
 
   sudo zypper install lua 
+
+}
+
+# An X application for displaying and
+# manipulating images
+function installImageMagick() {
+
+  sudo zypper install ImageMagick
+
+}
+
+function installMicro() {
+
+  sudo zypper install micro-editor
+
+}
+
+function installNpm() {
+
+  sudo zypper install npm-default
 
 }
 
@@ -369,7 +369,7 @@ function installNitrogen() {
 
 function installNodeJs() {
 
-  sudo zypper install nodejs 
+  sudo zypper install nodejs-common nodejs-default nodejs-devel-default
 
 }
 
@@ -443,36 +443,30 @@ function installSxhkd() {
 
 function installTldr() {
 
-  sudo zypper install tldr 
+  sudo npm install -g tldr
 }
 
 function installTrash() {
 
-  sudo zypper install trash-cli 
+  sudo pipx install trash-cli
 
 }
 
 function installTerminusFonts() {
 
-  sudo zypper install terminus-fonts 
+  sudo zypper install terminus-ttf-fonts
 
 }
 
 function installTmux() {
 
-  sudo zypper install  tmux
-
-}
-
-function installRealPath() {
-
-  sudo zypper install uu_realpath 
+  sudo zypper install tmux tmux-powerline
 
 }
 
 function installUdiskie() {
 
-  sudo zypper install python3-udiskie 
+  sudo zypper install udiskie udiskie-lang
 
 }
 
