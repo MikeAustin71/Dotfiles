@@ -1,5 +1,8 @@
 #!/bin/bash
-# Installs GNU C and Development Tools
-# Run this as sudo
+# Installs GNU C and C++ Development Tools
+# https://www.pragmaticlinux.com/2022/01/how-to-install-build-essential-on-opensuse/
+# zypper search -t pattern
+# zypper info -t pattern devel_basis
 
-sudo zypper groupinstall "C Development Tools and Libraries" "Development Tools"
+sudo zypper install -t pattern devel_basis devel_C_C++ gdb
+
