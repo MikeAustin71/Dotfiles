@@ -29,7 +29,7 @@ function getWallpaper() {
   source "$scriptFile"
 }
 
-installCoreUtils &&
+# installCoreUtils &&
 installRealPath &&
 installCompressionUtilities &&
 installFd &&

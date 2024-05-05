@@ -10,7 +10,7 @@ installNano &&
 installCurl &&
 installWget &&
 installEza &&
-installScriptMicro &&
+installMicro &&
 installBroot &&
 installBashCompletion &&
 installBat &&

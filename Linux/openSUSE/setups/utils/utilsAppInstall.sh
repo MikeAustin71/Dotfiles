@@ -31,7 +31,7 @@ function installAwesomeWM() {
 
 function installBashCompletion() {
 
-  sudo zypper install bash-completion 
+  sudo zypper install bash-completion bash-completion-doc
 }
 
 # A replacement for cat
@@ -247,15 +247,9 @@ function installImageMagick() {
 
 }
 
-function installScriptMicro() {
+function installMicro() {
 
-    local scriptFile
-
-    scriptFile="$MIKE_Setup_Scripts"/customAppInstalls/installmicro.sh
-
-
-  # shellcheck source="$HOME"/bashOps/setups/customAppInstalls/installmicro.sh
-   source "$scriptFile"
+  sudo zypper install micro-editor
 
 }
 
