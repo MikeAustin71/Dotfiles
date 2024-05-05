@@ -50,7 +50,7 @@ function installBless() {
 
 }
 
-function installScriptBroot() {
+function installBroot() {
 
   sudo zypper install broot 
   

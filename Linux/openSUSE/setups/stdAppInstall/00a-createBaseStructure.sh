@@ -11,7 +11,7 @@ installCurl &&
 installWget &&
 installEza &&
 installScriptMicro &&
-installScriptBroot &&
+installBroot &&
 installBashCompletion &&
 installBat &&
 installGit &&
