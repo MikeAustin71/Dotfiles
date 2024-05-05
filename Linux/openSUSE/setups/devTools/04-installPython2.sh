@@ -2,4 +2,4 @@
 # Installs Python version 2
 # Run this as sudo
 
-sudo zypper install python2
+sudo zypper install libpython2_7-1_0
