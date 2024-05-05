@@ -14,8 +14,6 @@ installScriptMicro &&
 installBroot &&
 installBashCompletion &&
 installBat &&
-installGit &&
-installCheat &&
 installTldr &&
 installZoxide &&
 installTrash &&
