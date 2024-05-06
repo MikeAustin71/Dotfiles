@@ -54,4 +54,4 @@ alias update="sudo zypper update"
 
 alias update2="sudo zypper dup"
 
-alias refresh="sudo zypper refresh"
+alias update3="sudo zypper refresh && sudo zypper dup"
