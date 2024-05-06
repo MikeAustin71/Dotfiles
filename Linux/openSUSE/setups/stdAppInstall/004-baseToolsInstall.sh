@@ -30,9 +30,14 @@ function getWallpaper() {
 }
 
 # installCoreUtils &&
+msgNotify "Installing Compression Utilities" &&
 installCompressionUtilities &&
+msgNotify "Installing Neofetch" &&
 installNeofetch &&
+msgNotify "Installing VmWare Tools" &&
 installVmwareTools &&
+msgNotify "Installing Fonts" &&
 getFonts &&
+msgNotify "Installing Wallpapers" &&
 getWallpaper &&
-successMsg "All Base Tools Installed." "All Fonts Installed" "All Wallpapers Installed" || errXMsg "00b-baseToolsInstall.sh Execution Failed" "Error-Exit!"
+successMsg "All Base Tools Installed." "All Fonts and Wallpapers Installed" "004-baseToolsInstall.sh" || errXMsg "004-baseToolsInstall.sh Execution Failed" "Error-Exit!"

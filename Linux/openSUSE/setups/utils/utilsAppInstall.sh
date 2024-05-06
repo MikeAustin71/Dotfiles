@@ -46,7 +46,7 @@ function installBat() {
 # Hex Editor
 function installBless() {
 
-  sudo zypper install bless 
+  sudo zypper install bless bless-doc
 
 }
 
@@ -59,12 +59,6 @@ function installBroot() {
 function installBtop() {
 
   sudo zypper install btop 
-
-}
-
-function installCalculators() {
-
-  sudo zypper install qalculate speedcrunch genius 
 
 }
 
@@ -168,6 +162,11 @@ function installGeany() {
 
   sudo zypper install geany geany-doc geany-lang geany-plugins geany-plugins-lang libgeany0
 
+}
+
+# Calculator: speedcrunch
+function installGenius() {
+  sudo zypper install genius
 }
 
 function installGit() {
@@ -409,6 +408,12 @@ function installPlocate() {
 
 }
 
+# Calculator: qalculate
+function installQalculate() {
+
+ sudo zypper install qalculate qalculate-data libqalculate22 libqalculate-devel
+}
+
 # https://github.com/ranger/ranger
 function installRanger() {
 
@@ -432,7 +437,14 @@ function installRofi() {
 
 function installSamba() {
 
-  sudo zypper install samba samba-client 
+  sudo zypper install samba samba-client yast2-samba*
+}
+
+# Calculator: speedcrunch
+function installSpeedcrunch() {
+
+  sudo zypper install speedcrunch
+
 }
 
 function installSxhkd() {

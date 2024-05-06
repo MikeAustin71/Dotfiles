@@ -76,16 +76,27 @@ installGo() {
 
 }
 
+msgNotify "Installing 'nano'" &&
 installNano &&
+msgNotify "Installing 'curl'" &&
 installCurl &&
+msgNotify "Installing 'wget'" &&
 installWget &&
+msgNotify "Installing C and C++ Tools" &&
 installCToolsLibs &&
+msgNotify "Installing Dev Tools" &&
 installDevTools &&
+msgNotify "Installing Python 3" &&
 installPython3 &&
+msgNotify "Installing Python 3 Libs" &&
 installPython3Libs &&
+msgNotify "Installing Python 2" &&
 installPython2 &&
+msgNotify "Installing 'npm'" &&
 installNpm &&
+msgNotify "Installing NodeJS" &&
 installNodeJs &&
+msgNotify "Installing Go" &&
 installGo &&
-successMsg "All Development Tools Installed."
+successMsg "Phase-1 Development Tools Installed." "001-devToolsInstall.sh"  || errXMsg "001-devToolsInstall.sh Execution Failed" "Error-Exit!"
 

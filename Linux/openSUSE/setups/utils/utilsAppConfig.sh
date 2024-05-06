@@ -157,6 +157,20 @@ function configPicom() {
    source "$scriptFile"
 }
 
+function configStarship() {
+
+  # shellcheck disable=SC2164
+  cd "$HOME"
+
+  local scriptFile
+
+    scriptFile="$utilAppCfgSetups"/customAppInstalls/installStarship.sh
+
+     # shellcheck source="$HOME"/bashOps/setups/customAppInstalls/installStarship.sh
+    source "$scriptFile"
+
+}
+
 function configTmux() {
 
     # shellcheck disable=SC2164
