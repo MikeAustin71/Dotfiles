@@ -1,7 +1,7 @@
 #!/bin/bash
 # Mike's Aliases
 
-alias aliases="bat ~/.config/aliases/aliases.txt"
+alias aliases="bat ~/.config/shell/aliases/aliases.sh"
 
 alias ip='ip -color'
 
