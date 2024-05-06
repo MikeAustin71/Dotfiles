@@ -36,8 +36,6 @@ makeDirIfNotExist "$HOME/programming" "775" "" &&
 makeDirIfNotExist "$HOME/projects" "775" "" &&
 makeDirIfNotExist "$HOME/Public" "775" "" &&
 makeDirIfNotExist "$HOME/repos" "775" "" &&
-makeDirIfNotExist "$MIKE_DotFiles_Repo" "775" "" &&
-makeDirIfNotExist "$HOME/scratch" "777" "" &&
 makeDirIfNotExist "$HOME/scratch" "777" "" &&
 makeDirIfNotExist "$HOME/shares" "776" "" &&
 makeDirIfNotExist "$HOME/workNotes" "777" "" &&
