@@ -4,9 +4,15 @@
 
 declare -i errExitCode=0
 
-source "$MIKE_Setup_Scripts/utils/utilsLib.sh"
+declare starshipSetupsDir="$HOME"/bashOps/setups
 
-curl -fsSL https://starship.rs/install.sh | sh ||
+declare starshipCfgDir="$HOME"/.config/starship
+
+declare starshipCfgFile="$starshipCfgDir"/starship.toml
+
+source "$starshipSetupsDir/utils/utilsLib.sh"
+
+sudo curl -fsSL https://starship.rs/install.sh | sh ||
 {
     errExitCode=$?
 
@@ -26,12 +32,12 @@ if [[ $REPLY =~ ^[Yy]$ ]]
 then
 
 
-  if [ ! -f "$MIKE_Setup_Scripts/cfgBashrc/installBashUpgrades02.txt" ]
+  if [ ! -f "$starshipSetupsDir/cfgBashrc/installBashUpgrades02.txt" ]
   then
 
         echo "*** ERROR ***"
         echo "Source Starship .bashrc code is MISSING!"
-        echo "Missing File: $MIKE_Setup_Scripts/cfgBashrc/installBashUpgrades02.txt"
+        echo "Missing File: $starshipSetupsDir/cfgBashrc/installBashUpgrades02.txt"
         echo "Script: installStarship.sh"
         echo ""
         return 99
@@ -57,7 +63,7 @@ then
 
   fi
 
-  cat "$MIKE_Setup_Scripts/cfgBashrc/installBashUpgrades02.txt" >> "$HOME/.bashrc" ||
+  cat "$starshipSetupsDir/cfgBashrc/installBashUpgrades02.txt" >> "$HOME/.bashrc" ||
   {
      errExitCode=$?
 
@@ -77,13 +83,13 @@ echo    # (optional) move to a new line
 if [[ $REPLY =~ ^[Yy]$ ]]
 then
 
-  cp "$MIKE_Setup_Scripts/configDir/starship/starship.toml"  "$STARSHIP_CONFIG" ||
+  cp "$starshipSetupsDir/configDir/starship/starship.toml"  "$starshipCfgFile" ||
   {
     errExitCode=$?
 
     echo "*** ERROR ***"
     echo "Error occurred while copying starship.toml"
-    echo "Destination: $STARSHIP_CONFIG"
+    echo "Destination: $starshipCfgFile"
     echo "Error Code: $errExitCode"
     echo "Script: installStarship.sh"
     echo ""
