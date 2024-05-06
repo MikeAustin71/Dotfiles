@@ -428,6 +428,23 @@ function doesFileExist() {
   return 0
 }
 
+
+# This function will display a standard message.
+function msgNotify() {
+
+ echo
+
+    for arg in "$@"; do
+        if [[ -n $arg ]]; then
+            echo "$arg"
+        fi
+    done
+
+  echo
+
+  return 0
+}
+
 # This function will display error messages.
 # Individual text lines should be equal to or
 # less than 50-characters.

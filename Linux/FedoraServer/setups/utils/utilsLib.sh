@@ -658,6 +658,22 @@ function makeDirIfNotExist() {
   return 0
 }
 
+# This function will display a standard message.
+function msgNotify() {
+
+ echo
+
+    for arg in "$@"; do
+        if [[ -n $arg ]]; then
+            echo "$arg"
+        fi
+    done
+
+  echo
+
+  return 0
+}
+
 # This function will move source files or directories
 # to a destination path and/or file name(s).
 #
