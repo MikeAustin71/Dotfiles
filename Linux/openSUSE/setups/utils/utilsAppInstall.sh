@@ -196,7 +196,7 @@ function installScriptGHQ() {
 
     local scriptFile
 
-    scriptFile="$HOME"/bashops/setups/customAppInstalls/installGHQ.sh
+    scriptFile="$HOME"/bashOps/setups/customAppInstalls/installGHQ.sh
 
   # shellcheck source="$MIKE_Setup_Scripts"/customAppConfig/configKrusader.sh
    source "$scriptFile"
