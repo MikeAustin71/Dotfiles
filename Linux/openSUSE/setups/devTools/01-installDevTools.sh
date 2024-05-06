@@ -4,5 +4,10 @@
 # zypper search -t pattern
 # zypper info -t pattern devel_basis
 
-sudo zypper install -t pattern devel_basis devel_C_C++ gdb
+
+echo
+echo "Installing C & C++ Packages"
+echo
+
+sudo zypper install -t pattern devel_basis devel_C_C++
 

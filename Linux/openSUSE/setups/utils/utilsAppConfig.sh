@@ -2,6 +2,8 @@
 # Utilities Library for Application Configuration
 #
 
+declare utilAppCfgSetups="$HOME"/bashOps/setups
+
 function configAlacritty() {
 
     # shellcheck disable=SC2164
@@ -9,7 +11,7 @@ function configAlacritty() {
 
     local scriptFile
 
-    scriptFile="$HOME"/bashOps/setups/customAppConfig/configAlacritty.sh
+    scriptFile="$utilAppCfgSetups"/customAppConfig/configAlacritty.sh
 
 
   # shellcheck source="$MIKE_Setup_Scripts"/customAppConfig/configAlacritty.sh
@@ -23,7 +25,7 @@ function configAliases() {
 
     local scriptFile
 
-    scriptFile="$HOME"/bashOps/setups/cfgBashrc/cfgAliases.sh
+    scriptFile="$utilAppCfgSetups"/cfgBashrc/cfgAliases.sh
 
 
   # shellcheck source="$MIKE_Setup_Scripts"/customAppConfig/configAwesome.sh
@@ -37,7 +39,7 @@ function configAwesome() {
 
     local scriptFile
 
-    scriptFile="$MIKE_Setup_Scripts"/customAppConfig/configAwesome.sh
+    scriptFile="$utilAppCfgSetups"/customAppConfig/configAwesome.sh
 
 
   # shellcheck source="$MIKE_Setup_Scripts"/customAppConfig/configAwesome.sh
@@ -52,7 +54,7 @@ function configBashProfile() {
     local scriptFile
 
     #/setups/cfgBashProfile/cfgBashProfile.sh
-    scriptFile="$HOME"/bashOps/setups/cfgBashProfile/cfgBashProfile.sh
+    scriptFile="$utilAppCfgSetups"/cfgBashProfile/cfgBashProfile.sh
 
 
    # shellcheck disable=SC1090
@@ -75,7 +77,7 @@ function configDirStructure() {
   local scriptFile
 
    #Linux/FedoraServer/setups/mikeFolders/createBaseFolders.sh
-   scriptFile="$HOME"/bashOps/setups/mikeFolders/createBaseFolders.sh
+   scriptFile="$utilAppCfgSetups"/mikeFolders/createBaseFolders.sh
 
 
    # shellcheck source="$HOME"/bashOps/setups/mikeFolders/createBaseFolders.sh
@@ -90,7 +92,7 @@ function configEnvars() {
 
     local scriptFile
      # Linux/FedoraServer/setups/cfgEnvars/cfgEnvars.sh
-    scriptFile="$HOME"/bashOps/setups/cfgEnvars/cfgEnvars.sh
+    scriptFile="$utilAppCfgSetups"/cfgEnvars/cfgEnvars.sh
 
 
   # shellcheck source="$HOME"/bashOps/setups/cfgEnvars/cfgEnvars.sh
@@ -105,7 +107,7 @@ function configKitty() {
 
     local scriptFile
 
-    scriptFile="$HOME"/bashOps/setups/customAppConfig/configKitty.sh
+    scriptFile="$utilAppCfgSetups"/customAppConfig/configKitty.sh
 
 
   # shellcheck source="$MIKE_Setup_Scripts"/customAppConfig/configKitty.sh
@@ -119,7 +121,7 @@ function configKrusader() {
 
     local scriptFile
 
-    scriptFile="$MIKE_Setup_Scripts"/customAppConfig/configKrusader.sh
+    scriptFile="$utilAppCfgSetups"/customAppConfig/configKrusader.sh
 
 
   # shellcheck source="$MIKE_Setup_Scripts"/customAppConfig/configKrusader.sh
@@ -134,7 +136,7 @@ function configUserPath() {
 
     local scriptFile
 
-    scriptFile="$HOME"/bashOps/setups/cfgPath/cfgUserPath.sh
+    scriptFile="$utilAppCfgSetups"/cfgPath/cfgUserPath.sh
 
 
   # shellcheck source="$HOME"/bashOps/setups/cfgEnvars/cfgEnvars.sh
@@ -148,7 +150,7 @@ function configPicom() {
 
     local scriptFile
 
-    scriptFile="$MIKE_Setup_Scripts"/customAppConfig/configPicom.sh
+    scriptFile="$utilAppCfgSetups"/customAppConfig/configPicom.sh
 
 
   # shellcheck source="$MIKE_Setup_Scripts"/customAppConfig/configPicom.sh
@@ -162,7 +164,7 @@ function configTmux() {
 
     local scriptFile
 
-    scriptFile="$HOME"/bashOps/setups/customAppConfig/configTmux.sh
+    scriptFile="$utilAppCfgSetups"/customAppConfig/configTmux.sh
 
 
   # shellcheck source="$MIKE_Setup_Scripts"/customAppConfig/configKitty.sh
@@ -176,7 +178,7 @@ function configXorgXintrc() {
 
     local scriptFile=""
 
-    scriptFile="$MIKE_Setup_Scripts"/customAppConfig/configXintrc.sh
+    scriptFile="$utilAppCfgSetups"/customAppConfig/configXintrc.sh
 
 
   # shellcheck source="$MIKE_Setup_Scripts"/customAppConfig/configXintrc.sh

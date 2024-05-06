@@ -11,7 +11,9 @@
 # variable.
 # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
-source "$MIKE_Setup_Utilities"/utilsLib.sh
+declare goScratchDir="$HOME"/scratch
+
+source "$HOME"/bashOps/utils/utilsLib.sh
 
 # Fetch the latest version number
 # echo "go1.22.1\ntime 2024-02-29T18:18:48Z" | grep -oP 'go\d+\.\d+\.\d+'
@@ -22,11 +24,11 @@ LATEST_GO_VERSION=$(echo "$RAW_GO_VERSION" | grep -oP 'go\d+\.\d+\.\d+')
 downloadInstallGo() {
 
   # Are we in the correct directory?
-  isCorrectCurrentDir "$MIKE_Scratch" "Target Directory" ||
+  isCorrectCurrentDir "$goScratchDir" "Target Directory" ||
   {
 
     echo "Invalid Current Directory"
-    echo "Expected Directory: $MIKE_Scratch"
+    echo "Expected Directory: $goScratchDir"
     echo "Actual Directory: $(pwd)"
     echo "Function: downloadAppArchive()"
     return 119
@@ -123,10 +125,10 @@ testInstalledExe() {
   return 0
 }
 
-makeDirIfNotExist "$MIKE_Scratch" "777" "" &&
-zapFilesCmd "$MIKE_Scratch/*" "-f" "" &&
-changeToDir "$MIKE_Scratch" &&
+makeDirIfNotExist "$goScratchDir" "777" "" &&
+zapFilesCmd "$goScratchDir/*" "-f" "" &&
+changeToDir "$goScratchDir" &&
 downloadInstallGo &&
-zapFilesCmd "$MIKE_Scratch/*" "-f" "" &&
+zapFilesCmd "$goScratchDir/*" "-f" "" &&
 testInstalledExe &&
 successMsg  "Installed Latest Go Programming Language Compiler." "Go Version: $LATEST_GO_VERSION" "Be sure to add Path Variables!" "/usr/local/go /usr/local/go/bin"

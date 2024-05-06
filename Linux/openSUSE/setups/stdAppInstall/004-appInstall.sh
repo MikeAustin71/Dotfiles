@@ -21,5 +21,5 @@ configTmux &&
 installKrusader &&
 configKrusader &&
 installKdiff3 &&
-successMsg "All Phase-1a Applications Installed." "01a-appInstall.sh" || errXMsg "01a-appInstall.sh Execution Failed" "Error-Exit!"
+successMsg "All Phase-1a Applications Installed." "004-appInstall.sh" || errXMsg "004-appInstall.sh Execution Failed" "Error-Exit!"
 
