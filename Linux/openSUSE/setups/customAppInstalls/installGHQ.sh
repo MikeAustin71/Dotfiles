@@ -22,6 +22,8 @@ source "$HOME"/bashOps/setups/utils/utilsLib.sh
 
 declare ghqDownloadOpsDir="$HOME"/scratch
 
+declare ghqInstallDir="$HOME"/go/pkg
+
 declare -i ghqErrorCode=0
 
 installGHQ() {
@@ -42,6 +44,7 @@ installGHQ() {
 
   echo "Starting 'ghq' Installation"
   changeToDir "$HOME" &&
+  makeDirIfNotExist "$ghqInstallDir" "775" "" &&
   makeDirIfNotExist "$ghqDownloadOpsDir" "777" "" &&
   zapFilesCmd "$ghqDownloadOpsDir/*" "-f" "" &&
   changeToDir "$ghqDownloadOpsDir" &&
