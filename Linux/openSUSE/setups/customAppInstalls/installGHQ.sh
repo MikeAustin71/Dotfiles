@@ -27,7 +27,7 @@ declare -i ghqErrorCode=0
 installGHQ() {
 
 
- go install github.com/x-motemen/ghq@latest || {
+ sudo go install github.com/x-motemen/ghq@latest || {
 
 
     ghqErrorCode=$?
