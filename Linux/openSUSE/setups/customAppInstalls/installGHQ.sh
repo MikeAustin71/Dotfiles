@@ -22,17 +22,19 @@ source "$HOME"/bashOps/setups/utils/utilsLib.sh
 
 declare ghqDownloadOpsDir="$HOME"/scratch
 
+declare ghqInstallDir="$HOME"/go/pkg
+
 declare -i ghqErrorCode=0
 
+# Downloads and installs the application 'ghq'
 installGHQ() {
 
-
- sudo go install github.com/x-motemen/ghq@latest || {
+    go install github.com/x-motemen/ghq@latest || {
 
 
     ghqErrorCode=$?
 
-   errXMsg "'ghq' Installation Failed!" "Error Code: $ghqErrorCode" "Function: installGHQ()" "Script: installGHQ.sh"
+    errXMsg "'ghq' Installation Failed!" "Error Code: $ghqErrorCode" "Function: installGHQ()" "Script: installGHQ.sh"
 
     return $ghqErrorCode
 
@@ -42,6 +44,7 @@ installGHQ() {
 
   echo "Starting 'ghq' Installation"
   changeToDir "$HOME" &&
+  makeDirIfNotExist "$ghqInstallDir" "775" "" &&
   makeDirIfNotExist "$ghqDownloadOpsDir" "777" "" &&
   zapFilesCmd "$ghqDownloadOpsDir/*" "-f" "" &&
   changeToDir "$ghqDownloadOpsDir" &&
