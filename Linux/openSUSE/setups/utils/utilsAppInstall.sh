@@ -477,7 +477,21 @@ function installTrash() {
     return $errorCode
   }
 
-  sudo zypper refresh
+  sudo zypper refresh || {
+
+    errorCode=$?
+
+    echo
+    echo "*** ERROR ***"
+    echo "'zypper refresh' Failed !"
+    echo "Error Code: $errorCode"
+    echo "Function: installTrash()"
+    echo "Script: utilsAppInstall.sh"
+    echo
+
+    return $errorCode
+
+  }
 
   sudo zypper install trash-cli
 
