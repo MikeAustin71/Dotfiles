@@ -460,7 +460,26 @@ function installTldr() {
 
 function installTrash() {
 
-  sudo pipx install trash-cli
+  local -i errorCode=0
+
+  sudo zypper addrepo https://download.opensuse.org/repositories/home:X0F/openSUSE_Tumbleweed/home:X0F.repo || {
+
+    errorCode=$?
+
+    echo
+    echo "*** ERROR ***"
+    echo "Failed to add home:X0F.repo !"
+    echo "Error Code: $errorCode"
+    echo "Function: installTrash()"
+    echo "Script: utilsAppInstall.sh"
+    echo
+
+    return $errorCode
+  }
+
+  sudo zypper refresh
+
+  sudo zypper install trash-cli
 
 }
 
