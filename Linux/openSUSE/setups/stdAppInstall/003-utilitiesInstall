@@ -8,8 +8,6 @@ declare baseSetups5Dir="$HOME"/bashOps/setups
 source "$baseSetups5Dir"/utils/utilsLib.sh
 source "$baseSetups5Dir"/utils/utilsAppInstall.sh
 
-msgNotify "Installing 'eza'" &&
-installEza &&
 msgNotify "Installing 'micro'" &&
 installMicro &&
 msgNotify "Installing 'broot'" &&
@@ -30,10 +28,6 @@ msgNotify "Installing 'bat'" &&
 installBat &&
 msgNotify "Installing 'tldr'" &&
 installTldr &&
-msgNotify "Installing 'zoxide'" &&
-installZoxide &&
-msgNotify "Installing 'trash-cli'" &&
-installTrash &&
 msgNotify "Installing 'ghq'" &&
 installScriptGHQ &&
 successMsg "All Phase-3 Utilities Installed." "003-utilitiesInstall" || errXMsg "003-utilitiesInstall Execution Failed" "Error-Exit!"

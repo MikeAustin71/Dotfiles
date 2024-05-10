@@ -4,6 +4,8 @@
 
 declare utilAppCfgSetups="$HOME"/bashOps/setups
 
+source "$utilAppCfgSetups"/utils/utilsLib.sh
+
 function configAlacritty() {
 
     # shellcheck disable=SC2164
@@ -30,6 +32,93 @@ function configAliases() {
 
   # shellcheck source="$MIKE_Setup_Scripts"/customAppConfig/configAwesome.sh
    source "$scriptFile"
+}
+
+
+# Configures Aliases to substitute
+# 'eza' for 'ls' command
+function configAliasesEza() {
+
+  local -i ezaAliasErrCode=0
+
+  local sourceTxtFile="$utilAppCfgSetups"/cfgShellSetups/installEzaAliases.txt
+
+  local targetAliasesDir="$HOME"/.config/shell/aliases
+
+  local targetAliasesFile="targetAliasesDir"/aliases.sh
+
+  [[ -f $sourceTxtFile ]] || {
+
+    ezaAliasErrCode=99
+
+    errXMsg "EZA Aliases Source File Does NOT Exist!" "EZA Aliases Source File: $sourceTxtFile" "Error Code: $ezaAliasErrCode" "Function: configAliasesEza()" "Script File: utilsAppConfig.sh"
+
+      return $ezaAliasErrCode
+    }
+
+  [[ -d $targetAliasesDir ]] || {
+
+    makeDirIfNotExist "$targetAliasesDir" "775" "" || {
+
+      ezaAliasErrCode=$?
+
+      echo "Call to 'makeDirIfNotExist' Failed!"
+      echo "Error Code: $ezaAliasErrCode"
+      echo "Function: configAliasesEza()"
+      echo "Script File: utilsAppConfig.sh"
+      echo
+
+      return $ezaAliasErrCode
+    }
+
+  }
+
+  [[ -f $targetAliasesFile ]] || {
+
+    touch $targetAliasesFile
+
+    changeFileOwner "$targetAliasesFile" "$(whoami)" || {
+
+      ezaAliasErrCode=$?
+
+      echo "Call to 'changeFileOwner' Failed!"
+      echo "Target File: $targetAliasesFile"
+      echo "Error Code: $ezaAliasErrCode"
+      echo "Function: configAliasesEza()"
+      echo "Script File: utilsAppConfig.sh"
+      echo
+
+      return $ezaAliasErrCode
+   }
+
+   changeFilePermissions "$targetAliasesFile" "775" || {
+
+      ezaAliasErrCode=$?
+
+      echo "Call to 'changeFilePermissions' Failed!"
+      echo "Target File: $targetAliasesFile"
+      echo "Error Code: $ezaAliasErrCode"
+      echo "Function: configAliasesEza()"
+      echo "Script File: utilsAppConfig.sh"
+      echo
+
+      return $ezaAliasErrCode
+
+   }
+
+  }
+
+  cat "$sourceTxtFile" >> "$targetAliasesFile" || {
+
+    ezaAliasErrCode=99
+
+    errXMsg "cat sourceTxtFile >> targetAliasesFile Failed" "Source File: $sourceTxtFile" "Target File: $targetAliasesFile" "Error Code: $ezaAliasErrCode" "Function: configAliasesEza()" "Script File: utilsAppConfig.sh"
+
+      return $ezaAliasErrCode
+
+  }
+
+  return 0
 }
 
 function configAwesome() {

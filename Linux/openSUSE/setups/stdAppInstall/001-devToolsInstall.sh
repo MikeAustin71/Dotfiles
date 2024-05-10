@@ -5,6 +5,7 @@
 declare baseSetupsDir="$HOME"/bashOps/setups
 
 source "$baseSetupsDir"/utils/utilsLib.sh
+source "$baseSetupsDir"/utils/utilsAppConfig.sh
 source "$baseSetupsDir"/utils/utilsAppInstall.sh
 
 installCToolsLibs() {
@@ -98,5 +99,13 @@ msgNotify "Installing NodeJS" &&
 installNodeJs &&
 msgNotify "Installing Go" &&
 installGo &&
+msgNotify "Installing 'eza'" &&
+installEza &&
+msgNotify "Configuring 'eza' Aliases" &&
+configAliasesEza &&
+msgNotify "Installing 'zoxide'" &&
+installZoxide &&
+msgNotify "Installing 'trash-cli'" &&
+installTrash &&
 successMsg "Phase-1 Development Tools Installed." "001-devToolsInstall.sh"  || errXMsg "001-devToolsInstall.sh Execution Failed" "Error-Exit!"
 
