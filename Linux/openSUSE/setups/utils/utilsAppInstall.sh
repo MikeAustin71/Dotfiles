@@ -462,7 +462,8 @@ function installTrash() {
 
   local -i errorCode=0
 
-  sudo zypper addrepo https://download.opensuse.org/repositories/home:X0F/openSUSE_Tumbleweed/home:X0F.repo || {
+  zypper addrepo https://download.opensuse.org/repositories/home:our-obo-ros/openSUSE_Tumbleweed/home:our-obo-ros.repo || {
+
 
     errorCode=$?
 
@@ -493,8 +494,23 @@ function installTrash() {
 
   }
 
-  sudo zypper install trash-cli
+  sudo zypper install trash-cli || {
 
+     errorCode=$?
+
+     echo
+     echo "*** ERROR ***"
+     echo "'zypper refresh' Failed !"
+     echo "Error Code: $errorCode"
+     echo "Function: installTrash()"
+     echo "Script: utilsAppInstall.sh"
+     echo
+
+     return $errorCode
+
+   }
+
+  return 0
 }
 
 function installTerminusFonts() {
