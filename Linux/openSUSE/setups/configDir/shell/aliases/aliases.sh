@@ -11,7 +11,6 @@ alias pnt='bat -paging=never'
 
 alias pat='bat -paging=always'
 
-
 alias cls="clear"
 
 alias CLS="clear"
