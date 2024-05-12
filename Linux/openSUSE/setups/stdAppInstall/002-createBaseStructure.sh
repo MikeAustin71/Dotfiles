@@ -51,6 +51,10 @@ msgNotify "Installing 'zoxide'" &&
 installZoxide &&
 msgNotify "Configuring 'zoxide' in .bashrc" &&
 configBashrcZoxide &&
-msgNotify "Configuring Starship" &&
+msgNotify "Installing Starship" &&
+installStarship &&
+msgNotify "Copying Starship Config Files" &&
 configStarship &&
+msgNotify "Configuring 'starship' in .bashrc" &&
+configBashrcStarship &&
 successMsg "All Phase-2 Structures Created." "REBOOT YOUR COMPUTER!" "Script: 002-createBaseStructure.sh" || errXMsg "002-createBaseStructure.sh Execution Failed" "Error-Exit!"

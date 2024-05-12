@@ -531,6 +531,58 @@ function configBashrcFuncs() {
   return 0
 }
 
+# Inserts starship activation code in .bashrc file
+function configBashrcStarship() {
+  
+  local sourceTxtFile="$utilAppCfgSetups"/cfgBashrc/installBashrcStarship.txt
+ 
+  local bashrcTargetDir="$HOME"
+
+  local bashrcTargetFileName=".bashrc"
+
+  local bashrcTargetFile="$bashrcTargetDir"/"$bashrcTargetFileName"
+
+  local -i bashrcStarshipErrCode=0
+
+  [[ -f $sourceTxtFile ]] || {
+
+    bashrcStarshipErrCode=89
+
+    errXMsg ".bashrc Starship Source File Does NOT Exist!" ".bashrc Starship Source File:" "  $sourceTxtFile" "Error Code: $bashrcStarshipErrCode" "Function: configBashrcStarship()" "Script File: utilsAppConfig.sh"
+
+    return $bashrcStarshipErrCode
+  }
+
+  appendTextToFile "$sourceTxtFile" "$bashrcTargetDir" "$bashrcTargetFileName" "775" "$(whoami)" || {
+
+    bashrcStarshipErrCode=$?
+
+    echo
+    echo "Error calling appendTextToFile()"
+    echo "Target File: $bashrcTargetFile"
+    echo "Error Code: $bashrcStarshipErrCode"
+    echo "Function: configBashrcStarship()"
+    echo "Script File: utilsAppConfig.sh"
+    echo
+
+    return $bashrcStarshipErrCode
+  }
+
+  # shellcheck disable=SC1090
+  source "$bashrcTargetFile" || {
+
+    bashrcStarshipErrCode=$?
+
+    errXMsg "Error returned by 'source' command:" "source $bashrcTargetFile" "Error Code: $bashrcStarshipErrCode" "Function: configBashrcStarship()" "Script File: utilsAppConfig.sh"
+
+    return $bashrcStarshipErrCode
+  }
+
+  msgNotify "    --------------" "'.bashrc' Starship Startup Code Successfully Configured and Now Active" "Sourced Target File:" "$bashrcTargetFile" "    --------------"
+
+  return 0
+}
+
 # Configures the user path activation in .bashrc file
 function configBashrcUserPath() {
 
@@ -832,18 +884,66 @@ function configPicom() {
    source "$scriptFile"
 }
 
+# Copies starship configuration files to HOME/.config
 function configStarship() {
 
+  local sourceConfigDir="$utilAppCfgSetups"/configDir/starship
+  
+  local targetConfigDir="$HOME"/.config
+  
+  local targetConfigStarshipDir="$targetConfigDir"/sharship
+
+  local -i cfgStarshipErrCode=0
+
   # shellcheck disable=SC2164
-  cd "$HOME"
+  cd "$HOME" || {
+   
+      cfgStarshipErrCode=$?
+    
+      errXMsg "Error returned by 'cd' command:" "cd $HOME" "Error Code: $cfgStarshipErrCode" "Function: configStarship()" "Script File: utilsAppConfig.sh"  
+ 
+      return $cfgStarshipErrCode
+  }
 
-  local scriptFile
+  [[ ! -d $targetConfigStarshipDir ]] || {
+    
+    sudo rm -rfv "$targetConfigStarshipDir" || {
+   
+      cfgStarshipErrCode=$?
+    
+      errXMsg "Error returned by 'rm' command:" "sudo rm -rfv $targetConfigStarshipDir" "Error Code: $cfgStarshipErrCode" "Function: configStarship()" "Script File: utilsAppConfig.sh"  
+     
+      
+      return $cfgStarshipErrCode
+ 
+    }
+    
+  }
 
-    scriptFile="$utilAppCfgSetups"/customAppInstalls/installStarship.sh
+  makeDirIfNotExist "$targetConfigDir" "775" "$(whoami)" || {
+ 
+    cfgStarshipErrCode=$?
 
-     # shellcheck source="$HOME"/bashOps/setups/customAppInstalls/installStarship.sh
-    source "$scriptFile"
+    echo
+    echo "Error calling makeDirIfNotExist()"
+    echo "Error Code: $cfgStarshipErrCode"
+    echo "Function: configStarship()"
+    echo "Script File: utilsAppConfig.sh"
+    echo
 
+    return $cfgStarshipErrCode
+  }
+
+  cp -rfv "$sourceConfigDir"/* "$targetConfigDir" || {
+  
+      cfgStarshipErrCode=$?
+    
+      errXMsg "Error returned by 'cp' command:" "cp -rfv $sourceConfigDir/* $targetConfigDir" "Error Code: $cfgStarshipErrCode" "Function: configStarship()" "Script File: utilsAppConfig.sh"  
+ 
+      return $cfgStarshipErrCode
+  }  
+
+  msgNotify "    --------------" "Starship Configuration Files Successfully Copied to $HOME/.config" "    --------------"
 }
 
 function configTmux() {

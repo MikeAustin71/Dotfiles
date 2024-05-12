@@ -454,6 +454,28 @@ function installSpeedcrunch() {
 
 }
 
+# Installs 'starship' shell prompt
+# https://starship.rs/
+function installStarship() {
+
+ local -i starShipErrCode=0
+
+  sudo curl -fsSL https://starship.rs/install.sh | sh ||
+  {
+      starShipErrCode=$?
+
+      echo "*** ERROR ***"
+      echo "Error returned from Starship Installation!"
+      echo "Error Code= $starShipErrCode"
+      echo "Function: installStarship()"
+      echo "Script: utilsAppInstall.sh"
+      echo
+      return $starShipErrCode
+  }
+
+  return 0
+}
+
 function installSxhkd() {
 
   sudo zypper install sxhkd 
