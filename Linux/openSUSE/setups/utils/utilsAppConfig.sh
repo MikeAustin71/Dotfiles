@@ -697,20 +697,73 @@ function configKrusader() {
   # shellcheck source="$MIKE_Setup_Scripts"/customAppConfig/configKrusader.sh
    source "$scriptFile"
 
- }
+}
 
+# Configures the User Path
 function configUserPath() {
 
-  # shellcheck disable=SC2164
-  cd "$HOME"
+  local sourceFile="$utilAppCfgSetups"/configDir/shell/path/userPath.sh
 
-    local scriptFile
+  local userPathTargetDir="$HOME/.config/shell/userPath"
 
-    scriptFile="$utilAppCfgSetups"/cfgPath/cfgUserPath.sh
+  local userPathTargetFileName="userPath.sh"
 
+  local userPathTargetFile="$userPathTargetDir"/"$userPathTargetFileName"
 
-  # shellcheck source="$HOME"/bashOps/setups/cfgEnvars/cfgEnvars.sh
-   source "$scriptFile"
+  local -i userPathErrCode=0
+
+  [[ -f $sourceFile ]] || {
+
+    userPathErrCode=79
+
+    errXMsg "userPath Source File Does NOT Exist!" "userPath Source File: $sourceFile" "Error Code: $userPathErrCode" "Function: configUserPath()" "Script File: utilsAppConfig.sh"
+
+    return $userPathErrCode
+  }
+
+  [[ ! -f $userPathTargetFile ]] || {
+
+      sudo rm "$userPathTargetFile" ||
+      {
+
+        userPathErrCode=$?
+
+        errXMsg "Removal of Old userPath Target File FAILED!" "userPath Target File= $userPathTargetFile" "Error Code: $userPathErrCode" "Function: configUserPath()" "Script Name: utilsAppConfig.sh"
+
+        return $userPathErrCode
+
+      }
+
+      msgNotify "Deleted old userPath File:" "$userPathTargetFile" "Function: configUserPath()" "Script Name: utilsAppConfig.sh"
+ }
+
+  appendTextToFile "$sourceFile" "$userPathTargetDir" "$userPathTargetFileName" "775" "$(whoami)" || {
+
+    userPathErrCode=$?
+
+    echo
+    echo "Error calling appendTextToFile()"
+    echo "Error Code: $userPathErrCode"
+    echo "Function: configUserPath()"
+    echo "Script File: utilsAppConfig.sh"
+    echo
+
+    return $userPathErrCode
+  }
+
+  # shellcheck disable=SC1090
+  source "$userPathTargetFile" || {
+
+    userPathErrCode=$?
+
+    errXMsg "Error returned by 'source' command:" "source $userPathTargetFile" "Error Code: $userPathErrCode" "Function: configUserPath()" "Script File: utilsAppConfig.sh"
+
+    return $userPathErrCode
+  }
+
+  msgNotify "    --------------" "userPath File Successfully Configured and Now Active" "Sourced userPath Target File:" "  $userPathTargetFile" "   --------------"
+
+  return 0
 }
 
 function configPicom() {
