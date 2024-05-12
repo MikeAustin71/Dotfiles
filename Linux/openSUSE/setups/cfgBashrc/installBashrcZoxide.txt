@@ -1,0 +1,6 @@
+
+# Activate zoxide on startup
+# https://github.com/ajeetdsouza/zoxide
+
+eval "$(zoxide init bash)"
+

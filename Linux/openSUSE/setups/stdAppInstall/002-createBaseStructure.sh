@@ -18,8 +18,8 @@ configUserPath &&
 # Configures Aliases and .bashrc
 msgNotify "Configuring Aliases" &&
 configAliases &&
+msgNotify "Configuring Aliases in .bashrc" &&
+configAliasesBashrc &&
 msgNotify "Configuring Starship" &&
 configStarship &&
-msgNotify "Configuring .bash_profile" &&
-configBashProfile &&
 successMsg "All Phase-2 Structures Created." "REBOOT YOUR COMPUTER!" "Script: 002-createBaseStructure.sh" || errXMsg "002-createBaseStructure.sh Execution Failed" "Error-Exit!"

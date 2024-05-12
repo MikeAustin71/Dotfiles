@@ -87,6 +87,58 @@ function configAliases() {
   return 0
 }
 
+# Adds alias sourcing to .bashrc file
+function configAliasesBashrc() {
+
+  local sourceTxtFile="$utilAppCfgSetups"/cfgBashrc/installBashrcAliases.txt
+
+  local bashrcTargetDir="$HOME"
+
+  local bashrcTargetFileName=".bashrc"
+
+  local bashrcTargetFile="$bashrcTargetDir"/"$bashrcTargetFileName"
+
+  local -i bashrcAliasesErrCode=0
+
+  [[ -f $sourceTxtFile ]] || {
+
+    bashrcAliasesErrCode=89
+
+    errXMsg ".bashrc Aliases Source File Does NOT Exist!" ".bashrc Aliases Source File:" "  $sourceTxtFile" "Error Code: $bashrcAliasesErrCode" "Function: configAliasesBashrc()" "Script File: utilsAppConfig.sh"
+
+    return $bashrcAliasesErrCode
+  }
+
+  appendTextToFile "$sourceTxtFile" "$bashrcTargetDir" "$bashrcTargetFile" "775" "$(whoami)" || {
+
+    bashrcAliasesErrCode=$?
+
+    echo
+    echo "Error calling appendTextToFile()"
+    echo "Target File: $bashrcTargetFile"
+    echo "Error Code: $bashrcAliasesErrCode"
+    echo "Function: configAliasesBashrc()"
+    echo "Script File: utilsAppConfig.sh"
+    echo
+
+    return $bashrcAliasesErrCode
+  }
+
+  # shellcheck disable=SC1090
+  source "$bashrcTargetFile" || {
+
+    bashrcAliasesErrCode=$?
+
+    errXMsg "Error returned by 'source' command:" "source $bashrcTargetFile" "Error Code: $bashrcAliasesErrCode" "Function: configAliases()" "Script File: utilsAppConfig.sh"
+
+    return $bashrcAliasesErrCode
+  }
+
+  msgNotify "    --------------" "'.bashrc' Aliases Successfully Configured and Now Active" "Sourced Alias Target File:" "$bashrcTargetFile" "    --------------"
+
+  return 0
+}
+
 
 # Configures Aliases for 'bat' utility.
 # 'bat' is a substitute for 'cat'
@@ -117,6 +169,7 @@ function configAliasesBat() {
 
     echo
     echo "Error calling appendTextToFile()"
+    echo "Target File: $targetAliasesFile"
     echo "Error Code: $batAliasErrCode"
     echo "Function: configAliasesBat()"
     echo "Script File: utilsAppConfig.sh"
