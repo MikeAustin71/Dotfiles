@@ -1,4 +1,7 @@
 #!/bin/bash
+# ###################################
+# DEPRECATED!!! NO LONGER USED!!!
+# ###################################
 # Copy Environment Variables
 # to $HOME/.config/shell/envars
 

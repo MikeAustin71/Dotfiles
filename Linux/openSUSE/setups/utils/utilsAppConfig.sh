@@ -53,6 +53,7 @@ function configAliases() {
         echo "*** ERROR ***"
         echo "Removal of Old Alias Target File FAILED!"
         echo "Alias Target File= $aliasTargetFile"
+        echo "Error Code: $aliasesErrCode"
         echo "Function: configAliases()"
         echo "Script Name: utilsAppConfig.sh"
         echo
@@ -82,6 +83,23 @@ function configAliases() {
     return $aliasesErrCode
   }
 
+  # shellcheck disable=SC1090
+  source "$aliasTargetFile" || {
+
+    aliasesErrCode=$?
+
+    echo
+    echo "  *** ERROR ***"
+    echo "Error returned by command:"
+    echo "source $aliasTargetFile"
+    echo "Error Code: $aliasesErrCode"
+    echo "Function: configAliases()"
+    echo "Script File: utilsAppConfig.sh"
+    echo
+
+    return $aliasesErrCode
+  }
+
   echo
   echo "Aliases File Successfully Configured"
   echo "$aliasTargetFile"
@@ -100,6 +118,8 @@ function configAliasesBat() {
   local targetAliasesDir="$HOME"/.config/shell/aliases
 
   local targetAliasesFileName="aliases.sh"
+
+  local targetAliasesFile="$targetAliasesDir"/"$targetAliasesFileName"
 
   local -i batAliasErrCode=0
 
@@ -126,6 +146,23 @@ function configAliasesBat() {
     return $batAliasErrCode
   }
 
+  # shellcheck disable=SC1090
+  source "$targetAliasesFile" || {
+
+    batAliasErrCode=$?
+
+    echo
+    echo "  *** ERROR ***"
+    echo "Error returned by command:"
+    echo "source $targetAliasesFile"
+    echo "Error Code: $batAliasErrCode"
+    echo "Function: configAliases()"
+    echo "Script File: utilsAppConfig.sh"
+    echo
+
+    return $batAliasErrCode
+  }
+
   return 0
 }
 
@@ -138,6 +175,8 @@ function configAliasesBroot() {
   local targetAliasesDir="$HOME"/.config/shell/aliases
 
   local targetAliasesFileName="aliases.sh"
+
+  local targetAliasesFile="$targetAliasesDir"/"$targetAliasesFileName"
 
   local -i brootAliasErrCode=0
 
@@ -164,6 +203,23 @@ function configAliasesBroot() {
     return $brootAliasErrCode
   }
 
+  # shellcheck disable=SC1090
+  source "$targetAliasesFile" || {
+
+    brootAliasErrCode=$?
+
+    echo
+    echo "  *** ERROR ***"
+    echo "Error returned by command:"
+    echo "source $targetAliasesFile"
+    echo "Error Code: $brootAliasErrCode"
+    echo "Function: configAliases()"
+    echo "Script File: utilsAppConfig.sh"
+    echo
+
+    return $brootAliasErrCode
+  }
+
   return 0
 }
 
@@ -176,6 +232,8 @@ function configAliasesEza() {
   local targetAliasesDir="$HOME"/.config/shell/aliases
 
   local targetAliasesFileName="aliases.sh"
+
+  local targetAliasesFile="$targetAliasesDir"/"$targetAliasesFileName"
 
   local -i ezaAliasErrCode=0
 
@@ -203,6 +261,23 @@ function configAliasesEza() {
     return $ezaAliasErrCode
   }
 
+  # shellcheck disable=SC1090
+  source "$targetAliasesFile" || {
+
+    ezaAliasErrCode=$?
+
+    echo
+    echo "  *** ERROR ***"
+    echo "Error returned by command:"
+    echo "source $targetAliasesFile"
+    echo "Error Code: $ezaAliasErrCode"
+    echo "Function: configAliases()"
+    echo "Script File: utilsAppConfig.sh"
+    echo
+
+    return $ezaAliasErrCode
+  }
+
   return 0
 }
 
@@ -217,6 +292,8 @@ function configAliasesTrash() {
   local targetAliasesDir="$HOME"/.config/shell/aliases
 
   local targetAliasesFileName="aliases.sh"
+
+  local targetAliasesFile="$targetAliasesDir"/"$targetAliasesFileName"
 
   local -i trashAliasErrCode=0
 
@@ -238,6 +315,23 @@ function configAliasesTrash() {
     echo "Error calling appendTextToFile()"
     echo "Error Code: $trashAliasErrCode"
     echo "Function: configAliasesTrash()"
+    echo "Script File: utilsAppConfig.sh"
+    echo
+
+    return $trashAliasErrCode
+  }
+
+  # shellcheck disable=SC1090
+  source "$targetAliasesFile" || {
+
+    trashAliasErrCode=$?
+
+    echo
+    echo "  *** ERROR ***"
+    echo "Error returned by command:"
+    echo "source $targetAliasesFile"
+    echo "Error Code: $trashAliasErrCode"
+    echo "Function: configAliases()"
     echo "Script File: utilsAppConfig.sh"
     echo
 
@@ -302,16 +396,90 @@ function configDirStructure() {
 
 function configEnvars() {
 
-  # shellcheck disable=SC2164
-  cd "$HOME"
+  local sourceFile="$utilAppCfgSetups"/configDir/shell/envars/envars.sh
 
-    local scriptFile
-     # Linux/FedoraServer/setups/cfgEnvars/cfgEnvars.sh
-    scriptFile="$utilAppCfgSetups"/cfgEnvars/cfgEnvars.sh
+  local targetEnvarsDir="$HOME"/.config/shell/envars
+
+  local targetEnvarsFileName="envars.sh"
+
+  local targetEnvarsFile="$targetEnvarsDir"/"$targetEnvarsFileName"
+
+  local -i envarsErrCode=0
+
+  [[ -f $sourceFile ]] || {
+
+    envarsErrCode=79
+
+    errXMsg "Aliases Source File Does NOT Exist!" "Aliases Source File: $sourceFile" "Error Code: $envarsErrCode" "Function: configEnvars()" "Script File: utilsAppConfig.sh"
+
+    return $envarsErrCode
+  }
+
+  [[ ! -f $targetEnvarsFile ]] || {
+
+      sudo rm "$targetEnvarsFile" ||
+      {
+
+        envarsErrCode=$?
+
+        echo
+        echo "*** ERROR ***"
+        echo "Removal of Old Envars Target File FAILED!"
+        echo "Envars Target File= $targetEnvarsFile"
+        echo "Error Code: $envarsErrCode"
+        echo "Function: configEnvars()"
+        echo "Script Name: utilsAppConfig.sh"
+        echo
+        return $envarsErrCode
+
+      }
+
+      echo
+      echo "Deleted old Envars File:"
+      echo "$targetEnvarsFile"
+      echo "Function: configEnvars()"
+      echo "Script Name: utilsAppConfig.sh"
+      echo
+ }
+
+  appendTextToFile "$sourceFile" "$targetEnvarsDir" "$targetEnvarsFileName" "775" "$(whoami)" || {
+
+    envarsErrCode=$?
+
+    echo
+    echo "Error calling appendTextToFile()"
+    echo "Error Code: $envarsErrCode"
+    echo "Function: configEnvars()"
+    echo "Script File: utilsAppConfig.sh"
+    echo
+
+    return $envarsErrCode
+  }
+
+  # shellcheck disable=SC1090
+  source "$targetEnvarsFile" || {
+
+    envarsErrCode=$?
+
+    echo
+    echo "  *** ERROR ***"
+    echo "Error returned by command:"
+    echo "source $targetEnvarsFile"
+    echo "Error Code: $envarsErrCode"
+    echo "Function: configEnvars()"
+    echo "Script File: utilsAppConfig.sh"
+    echo
+
+    return $envarsErrCode
+  }
 
 
-  # shellcheck source="$HOME"/bashOps/setups/cfgEnvars/cfgEnvars.sh
-   source "$scriptFile"
+  echo
+  echo "Envars File Successfully Configured"
+  echo "$targetEnvarsFile"
+  echo
+
+  return 0
 }
 
 
