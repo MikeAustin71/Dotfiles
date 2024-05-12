@@ -49,24 +49,13 @@ function configAliases() {
 
         aliasesErrCode=$?
 
-        echo
-        echo "*** ERROR ***"
-        echo "Removal of Old Alias Target File FAILED!"
-        echo "Alias Target File= $aliasTargetFile"
-        echo "Error Code: $aliasesErrCode"
-        echo "Function: configAliases()"
-        echo "Script Name: utilsAppConfig.sh"
-        echo
+        errXMsg "Removal of Old Alias Target File FAILED!" "Alias Target File= $aliasTargetFile" "Error Code: $aliasesErrCode" "Function: configAliases()" "Script Name: utilsAppConfig.sh"
+
         return $aliasesErrCode
 
       }
 
-      echo
-      echo "Deleted old Aliases File:"
-      echo "$aliasTargetFile"
-      echo "Function: configAliases()"
-      echo "Script Name: utilsAppConfig.sh"
-      echo
+      msgNotify "Deleted old Aliases File:" "$aliasTargetFile" "Function: configAliases()" "Script Name: utilsAppConfig.sh"
  }
 
   appendTextToFile "$sourceFile" "$aliasTargetDir" "$aliasTargetFileName" "775" "$(whoami)" || {
@@ -88,22 +77,12 @@ function configAliases() {
 
     aliasesErrCode=$?
 
-    echo
-    echo "  *** ERROR ***"
-    echo "Error returned by command:"
-    echo "source $aliasTargetFile"
-    echo "Error Code: $aliasesErrCode"
-    echo "Function: configAliases()"
-    echo "Script File: utilsAppConfig.sh"
-    echo
+    errXMsg "Error returned by 'source' command:" "source $aliasTargetFile" "Error Code: $aliasesErrCode" "Function: configAliases()" "Script File: utilsAppConfig.sh"
 
     return $aliasesErrCode
   }
 
-  echo
-  echo "Aliases File Successfully Configured"
-  echo "$aliasTargetFile"
-  echo
+  msgNotify "    --------------" "Aliases File Successfully Configured and Now Active" "Sourced Alias Target File:" "  $aliasTargetFile" "   --------------"
 
   return 0
 }
@@ -127,7 +106,7 @@ function configAliasesBat() {
 
     batAliasErrCode=89
 
-    errXMsg "Bat Aliases Source File Does NOT Exist!" "Bat Aliases Source File: $sourceTxtFile" "Error Code: $batAliasErrCode" "Function: configAliasesBat()" "Script File: utilsAppConfig.sh"
+    errXMsg "Bat Aliases Source File Does NOT Exist!" "Bat Aliases Source File:" "  $sourceTxtFile" "Error Code: $batAliasErrCode" "Function: configAliasesBat()" "Script File: utilsAppConfig.sh"
 
     return $batAliasErrCode
   }
@@ -151,17 +130,12 @@ function configAliasesBat() {
 
     batAliasErrCode=$?
 
-    echo
-    echo "  *** ERROR ***"
-    echo "Error returned by command:"
-    echo "source $targetAliasesFile"
-    echo "Error Code: $batAliasErrCode"
-    echo "Function: configAliases()"
-    echo "Script File: utilsAppConfig.sh"
-    echo
+    errXMsg "Error returned by 'source' command:" "source $targetAliasesFile" "Error Code: $batAliasErrCode" "Function: configAliases()" "Script File: utilsAppConfig.sh"
 
     return $batAliasErrCode
   }
+
+  msgNotify "    --------------" "'bat' Aliases Successfully Configured and Now Active" "Sourced Alias Target File:" "$targetAliasesFile" "    --------------"
 
   return 0
 }
@@ -210,7 +184,7 @@ function configAliasesBroot() {
 
     echo
     echo "  *** ERROR ***"
-    echo "Error returned by command:"
+    echo "Error returned by 'source' command:"
     echo "source $targetAliasesFile"
     echo "Error Code: $brootAliasErrCode"
     echo "Function: configAliases()"
@@ -219,6 +193,8 @@ function configAliasesBroot() {
 
     return $brootAliasErrCode
   }
+
+  msgNotify "    --------------" "'broot' Aliases Successfully Configured and Now Active" "Sourced Alias Target File:" "$targetAliasesFile" "    --------------"
 
   return 0
 }
@@ -241,7 +217,7 @@ function configAliasesEza() {
 
     ezaAliasErrCode=99
 
-    errXMsg "EZA Aliases Source File Does NOT Exist!" "EZA Aliases Source File: $sourceTxtFile" "Error Code: $ezaAliasErrCode" "Function: configAliasesEza()" "Script File: utilsAppConfig.sh"
+    errXMsg "'eza' Aliases Source File Does NOT Exist!" "'eza' Aliases Source File: $sourceTxtFile" "Error Code: $ezaAliasErrCode" "Function: configAliasesEza()" "Script File: utilsAppConfig.sh"
 
       return $ezaAliasErrCode
     }
@@ -266,17 +242,12 @@ function configAliasesEza() {
 
     ezaAliasErrCode=$?
 
-    echo
-    echo "  *** ERROR ***"
-    echo "Error returned by command:"
-    echo "source $targetAliasesFile"
-    echo "Error Code: $ezaAliasErrCode"
-    echo "Function: configAliases()"
-    echo "Script File: utilsAppConfig.sh"
-    echo
+    errXMsg "Error returned by source command:" "source $targetAliasesFile" "Error Code: $ezaAliasErrCode" "Function: configAliases()" "Script File: utilsAppConfig.sh"
 
     return $ezaAliasErrCode
   }
+
+  msgNotify "    --------------" "'eza' Aliases Successfully Configured and Now Active" "Sourced Alias Target File:" "$targetAliasesFile" "    --------------"
 
   return 0
 }
@@ -326,17 +297,12 @@ function configAliasesTrash() {
 
     trashAliasErrCode=$?
 
-    echo
-    echo "  *** ERROR ***"
-    echo "Error returned by command:"
-    echo "source $targetAliasesFile"
-    echo "Error Code: $trashAliasErrCode"
-    echo "Function: configAliases()"
-    echo "Script File: utilsAppConfig.sh"
-    echo
+    errXMsg "Error returned by 'source' command:" "source $targetAliasesFile" "Error Code: $trashAliasErrCode" "Function: configAliases()" "Script File: utilsAppConfig.sh"
 
     return $trashAliasErrCode
   }
+
+  msgNotify "    --------------" "'trash-cli' Aliases Successfully Configured and Now Active" "Sourced Alias Target File:" "$targetAliasesFile" "    --------------"
 
   return 0
 }
@@ -410,7 +376,7 @@ function configEnvars() {
 
     envarsErrCode=79
 
-    errXMsg "Aliases Source File Does NOT Exist!" "Aliases Source File: $sourceFile" "Error Code: $envarsErrCode" "Function: configEnvars()" "Script File: utilsAppConfig.sh"
+    errXMsg "Envars Source File Does NOT Exist!" "Envars Source File: $sourceFile" "Error Code: $envarsErrCode" "Function: configEnvars()" "Script File: utilsAppConfig.sh"
 
     return $envarsErrCode
   }
@@ -422,24 +388,13 @@ function configEnvars() {
 
         envarsErrCode=$?
 
-        echo
-        echo "*** ERROR ***"
-        echo "Removal of Old Envars Target File FAILED!"
-        echo "Envars Target File= $targetEnvarsFile"
-        echo "Error Code: $envarsErrCode"
-        echo "Function: configEnvars()"
-        echo "Script Name: utilsAppConfig.sh"
-        echo
+        errXMsg "Removal of Old Envars Target File FAILED!" "Envars Target File= $targetEnvarsFile" "Error Code: $envarsErrCode" "Function: configEnvars()" "Script Name: utilsAppConfig.sh"
+
         return $envarsErrCode
 
       }
 
-      echo
-      echo "Deleted old Envars File:"
-      echo "$targetEnvarsFile"
-      echo "Function: configEnvars()"
-      echo "Script Name: utilsAppConfig.sh"
-      echo
+      msgNotify "Deleted old Envars File:" "$targetEnvarsFile" "Function: configEnvars()" "Script Name: utilsAppConfig.sh"
  }
 
   appendTextToFile "$sourceFile" "$targetEnvarsDir" "$targetEnvarsFileName" "775" "$(whoami)" || {
@@ -461,23 +416,13 @@ function configEnvars() {
 
     envarsErrCode=$?
 
-    echo
-    echo "  *** ERROR ***"
-    echo "Error returned by command:"
-    echo "source $targetEnvarsFile"
-    echo "Error Code: $envarsErrCode"
-    echo "Function: configEnvars()"
-    echo "Script File: utilsAppConfig.sh"
-    echo
+    errXMsg "Error returned by 'source' command:" "source $targetEnvarsFile" "Error Code: $envarsErrCode" "Function: configEnvars()""Script File: utilsAppConfig.sh"
 
     return $envarsErrCode
   }
 
 
-  echo
-  echo "Envars File Successfully Configured"
-  echo "$targetEnvarsFile"
-  echo
+  msgNotify "    --------------" "Envars File Successfully Configured and Now Active" "Sourced Envars Target File:" "$targetEnvarsFile"
 
   return 0
 }
