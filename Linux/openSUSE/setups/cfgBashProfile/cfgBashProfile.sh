@@ -1,4 +1,5 @@
 #!/bin/bash
+# DEPRECATED!!!!  NO LONGER USED!!!!
 # Configure environment variables in
 # .bash_profile
 #

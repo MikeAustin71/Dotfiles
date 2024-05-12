@@ -13,6 +13,8 @@ msgNotify "Configuring 'HOME' Directory Structure" &&
 configDirStructure &&
 msgNotify "Configuring Environment Variables" &&
 configEnvars &&
+msgNotify "Configuring Environment Variables in .bash_profile" &&
+configBashProfileEnvars &&
 msgNotify "Configuring PATH Environment Variable" &&
 configUserPath &&
 # Configures Aliases and .bashrc

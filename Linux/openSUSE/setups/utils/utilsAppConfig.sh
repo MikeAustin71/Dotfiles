@@ -321,27 +321,56 @@ function configAwesome() {
    source "$scriptFile"
 }
 
-function configBashProfile() {
+# Configures Envars Variables in .bash_profile
+function configBashProfileEnvars() {
+ 
+  local sourceTxtFile="$utilAppCfgSetups"/cfgBashProfile/installBashProfileEnvars.txt
+ 
+  local bashProfileTargetDir="$HOME"
 
-    # shellcheck disable=SC2164
-    cd "$HOME"
+  local bashProfileTargetFileName=".bash_profile"
 
-    local scriptFile
+  local bashProfileTargetFile="$bashProfileTargetDir"/"$bashProfileTargetFileName"
 
-    #/setups/cfgBashProfile/cfgBashProfile.sh
-    scriptFile="$utilAppCfgSetups"/cfgBashProfile/cfgBashProfile.sh
+  local -i bashProfileEnvarsErrCode=0
 
+  [[ -f $sourceTxtFile ]] || {
 
-   # shellcheck disable=SC1090
-   source "$scriptFile"
+    bashProfileEnvarsErrCode=89
 
-   local scriptBashProfile
+    errXMsg ".bash_profile Envars Source File Does NOT Exist!" ".bash_profile Envars Source File:" "  $sourceTxtFile" "Error Code: $bashProfileEnvarsErrCode" "Function: configBashProfileEnvars()" "Script File: utilsAppConfig.sh"
 
-   scriptBashProfile="$HOME"/.bash_profile
+    return $bashProfileEnvarsErrCode
+  }
+
+  appendTextToFile "$sourceTxtFile" "$bashProfileTargetDir" "$bashProfileTargetFileName" "775" "$(whoami)" || {
+
+    bashProfileEnvarsErrCode=$?
+
+    echo
+    echo "Error calling appendTextToFile()"
+    echo "Target File: $bashProfileTargetFile"
+    echo "Error Code: $bashProfileEnvarsErrCode"
+    echo "Function: configBashProfileEnvars()"
+    echo "Script File: utilsAppConfig.sh"
+    echo
+
+    return $bashProfileEnvarsErrCode
+  }
 
   # shellcheck disable=SC1090
-  source "$scriptBashProfile"
+  source "$bashProfileTargetFile" || {
 
+    bashProfileEnvarsErrCode=$?
+
+    errXMsg "Error returned by 'source' command:" "source $bashProfileTargetFile" "Error Code: $bashProfileEnvarsErrCode" "Function: configBashProfileEnvars()" "Script File: utilsAppConfig.sh"
+
+    return $bashProfileEnvarsErrCode
+  }
+
+  msgNotify "    --------------" "'.bash_profile' Custom Functions Successfully Configured and Now Active" "Sourced Target File:" "$bashProfileTargetFile" "    --------------"
+
+  return 0
 }
 
 # Adds alias sourcing to .bashrc file
@@ -438,11 +467,11 @@ function configBashrcBroot() {
   # shellcheck disable=SC1090
   source "$bashrcTargetFile" || {
 
-    bashrcAliasesErrCode=$?
+    bashrcBrootErrCode=$?
 
-    errXMsg "Error returned by 'source' command:" "source $bashrcTargetFile" "Error Code: $bashrcAliasesErrCode" "Function: configBashrcBroot()" "Script File: utilsAppConfig.sh"
+    errXMsg "Error returned by 'source' command:" "source $bashrcTargetFile" "Error Code: $bashrcBrootErrCode" "Function: configBashrcBroot()" "Script File: utilsAppConfig.sh"
 
-    return $bashrcAliasesErrCode
+    return $bashrcBrootErrCode
   }
 
   msgNotify "    --------------" "'.bashrc' Broot Parameters Successfully Configured and Now Active" "Sourced Target File:" "$bashrcTargetFile" "    --------------"
@@ -490,11 +519,11 @@ function configBashrcFuncs() {
   # shellcheck disable=SC1090
   source "$bashrcTargetFile" || {
 
-    bashrcAliasesErrCode=$?
+    bashrcFuncsErrCode=$?
 
     errXMsg "Error returned by 'source' command:" "source $bashrcTargetFile" "Error Code: $bashrcAliasesErrCode" "Function: configBashrcFuncs()" "Script File: utilsAppConfig.sh"
 
-    return $bashrcAliasesErrCode
+    return $bashrcFuncsErrCode
   }
 
   msgNotify "    --------------" "'.bashrc' Custom Functions Successfully Configured and Now Active" "Sourced Target File:" "$bashrcTargetFile" "    --------------"
@@ -542,11 +571,11 @@ function configBashrcZoxide() {
   # shellcheck disable=SC1090
   source "$bashrcTargetFile" || {
 
-    bashrcAliasesErrCode=$?
+    bashrcZoxideErrCode=$?
 
-    errXMsg "Error returned by 'source' command:" "source $bashrcTargetFile" "Error Code: $bashrcAliasesErrCode" "Function: configBashrcZoxide()" "Script File: utilsAppConfig.sh"
+    errXMsg "Error returned by 'source' command:" "source $bashrcTargetFile" "Error Code: $bashrcZoxideErrCode" "Function: configBashrcZoxide()" "Script File: utilsAppConfig.sh"
 
-    return $bashrcAliasesErrCode
+    return $bashrcZoxideErrCode
   }
 
   msgNotify "    --------------" "'.bashrc' Zoxide Parameters Successfully Configured and Now Active" "Sourced Target File:" "$bashrcTargetFile" "    --------------"
@@ -571,6 +600,8 @@ function configDirStructure() {
 
 }
 
+# Configures Envars Variables in 
+# HOME/.config/shell/envars directory.
 function configEnvars() {
 
   local sourceFile="$utilAppCfgSetups"/configDir/shell/envars/envars.sh
