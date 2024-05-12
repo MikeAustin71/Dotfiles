@@ -11,10 +11,6 @@ source "$baseSetups5Dir"/utils/utilsAppConfig.sh
 
 msgNotify "Installing 'micro'" &&
 installMicro &&
-msgNotify "Installing 'broot'" &&
-installBroot &&
-msgNotify "Configuring 'broot' Aliases" &&
-configAliasesBroot &&
 msgNotify "Installing 'btop'" &&
 installBtop &&
 msgNotify "Installing 'fd'(find)" &&
@@ -25,12 +21,6 @@ msgNotify "Installing 'fkill'(Process Killer)" &&
 installFkill &&
 msgNotify "Installing 'mc'(Midnight Commander)" &&
 installMidnightCommander &&
-msgNotify "Installing 'bash-completion'" &&
-installBashCompletion &&
-msgNotify "Installing 'bat'" &&
-installBat &&
-msgNotify "Configuring 'bat' Aliases" &&
-configAliasesBat &&
 msgNotify "Installing 'tldr'" &&
 installTldr &&
 msgNotify "Installing 'lswh'" &&

@@ -99,15 +99,5 @@ msgNotify "Installing NodeJS" &&
 installNodeJs &&
 msgNotify "Installing Go" &&
 installGo &&
-msgNotify "Installing 'eza'" &&
-installEza &&
-msgNotify "Configuring 'eza' Aliases" &&
-configAliasesEza &&
-msgNotify "Installing 'zoxide'" &&
-installZoxide &&
-msgNotify "Installing 'trash-cli'" &&
-installTrash &&
-msgNotify "Configuring 'trash-cli' Aliases" &&
-configAliasesTrash &&
 successMsg "Phase-1 Development Tools Installed." "001-devToolsInstall.sh"  || errXMsg "001-devToolsInstall.sh Execution Failed" "Error-Exit!"
 

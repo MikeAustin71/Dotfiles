@@ -344,7 +344,6 @@ function configBashProfile() {
 
 }
 
-
 # Adds alias sourcing to .bashrc file
 function configBashrcAliases() {
 
@@ -367,7 +366,7 @@ function configBashrcAliases() {
     return $bashrcAliasesErrCode
   }
 
-  appendTextToFile "$sourceTxtFile" "$bashrcTargetDir" "$bashrcTargetFile" "775" "$(whoami)" || {
+  appendTextToFile "$sourceTxtFile" "$bashrcTargetDir" "$bashrcTargetFileName" "775" "$(whoami)" || {
 
     bashrcAliasesErrCode=$?
 
@@ -397,6 +396,111 @@ function configBashrcAliases() {
   return 0
 }
 
+# Configures 'broot' startup in .bashrc file.
+# 'broot' is a replacement for the 'tree' command.
+# https://github.com/Canop/broot
+function configBashrcBroot() {
+  
+  local sourceTxtFile="$utilAppCfgSetups"/cfgBashrc/installBashrcBroot.txt
+ 
+  local bashrcTargetDir="$HOME"
+
+  local bashrcTargetFileName=".bashrc"
+
+  local bashrcTargetFile="$bashrcTargetDir"/"$bashrcTargetFileName"
+
+  local -i bashrcBrootErrCode=0
+
+  [[ -f $sourceTxtFile ]] || {
+
+    bashrcBrootErrCode=89
+
+    errXMsg ".bashrc Broot Source File Does NOT Exist!" ".bashrc Broot Source File:" "  $sourceTxtFile" "Error Code: $bashrcBrootErrCode" "Function: configBashrcBroot()" "Script File: utilsAppConfig.sh"
+
+    return $bashrcBrootErrCode
+  }
+
+  appendTextToFile "$sourceTxtFile" "$bashrcTargetDir" "$bashrcTargetFileName" "775" "$(whoami)" || {
+
+    bashrcBrootErrCode=$?
+
+    echo
+    echo "Error calling appendTextToFile()"
+    echo "Target File: $bashrcTargetFile"
+    echo "Error Code: $bashrcBrootErrCode"
+    echo "Function: configBashrcBroot()"
+    echo "Script File: utilsAppConfig.sh"
+    echo
+
+    return $bashrcBrootErrCode
+  }
+
+  # shellcheck disable=SC1090
+  source "$bashrcTargetFile" || {
+
+    bashrcAliasesErrCode=$?
+
+    errXMsg "Error returned by 'source' command:" "source $bashrcTargetFile" "Error Code: $bashrcAliasesErrCode" "Function: configBashrcBroot()" "Script File: utilsAppConfig.sh"
+
+    return $bashrcAliasesErrCode
+  }
+
+  msgNotify "    --------------" "'.bashrc' Broot Parameters Successfully Configured and Now Active" "Sourced Alias Target File:" "$bashrcTargetFile" "    --------------"
+
+  return 0
+}
+
+# Configures Zoxide startup in .bashrc file.
+function configBashrcZoxide() {
+  
+  local sourceTxtFile="$utilAppCfgSetups"/cfgBashrc/installBashrcZoxide.txt
+ 
+  local bashrcTargetDir="$HOME"
+
+  local bashrcTargetFileName=".bashrc"
+
+  local bashrcTargetFile="$bashrcTargetDir"/"$bashrcTargetFileName"
+
+  local -i bashrcZoxideErrCode=0
+
+  [[ -f $sourceTxtFile ]] || {
+
+    bashrcZoxideErrCode=89
+
+    errXMsg ".bashrc Zoxide Source File Does NOT Exist!" ".bashrc Zoxide Source File:" "  $sourceTxtFile" "Error Code: $bashrcZoxideErrCode" "Function: configBashrcZoxide()" "Script File: utilsAppConfig.sh"
+
+    return $bashrcZoxideErrCode
+  }
+
+  appendTextToFile "$sourceTxtFile" "$bashrcTargetDir" "$bashrcTargetFileName" "775" "$(whoami)" || {
+
+    bashrcZoxideErrCode=$?
+
+    echo
+    echo "Error calling appendTextToFile()"
+    echo "Target File: $bashrcTargetFile"
+    echo "Error Code: $bashrcZoxideErrCode"
+    echo "Function: configBashrcZoxide()"
+    echo "Script File: utilsAppConfig.sh"
+    echo
+
+    return $bashrcZoxideErrCode
+  }
+
+  # shellcheck disable=SC1090
+  source "$bashrcTargetFile" || {
+
+    bashrcAliasesErrCode=$?
+
+    errXMsg "Error returned by 'source' command:" "source $bashrcTargetFile" "Error Code: $bashrcAliasesErrCode" "Function: configBashrcZoxide()" "Script File: utilsAppConfig.sh"
+
+    return $bashrcAliasesErrCode
+  }
+
+  msgNotify "    --------------" "'.bashrc' Zoxide Parameters Successfully Configured and Now Active" "Sourced Alias Target File:" "$bashrcTargetFile" "    --------------"
+
+  return 0
+}
 
 
 function configDirStructure() {

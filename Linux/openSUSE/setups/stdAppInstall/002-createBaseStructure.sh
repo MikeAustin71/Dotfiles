@@ -20,6 +20,30 @@ msgNotify "Configuring Aliases" &&
 configAliases &&
 msgNotify "Configuring Aliases in .bashrc" &&
 configBashrcAliases &&
+msgNotify "Installing 'bash-completion'" &&
+installBashCompletion &&
+msgNotify "Installing 'eza'" &&
+installEza &&
+msgNotify "Configuring 'eza' Aliases" &&
+configAliasesEza &&
+msgNotify "Installing 'trash-cli'" &&
+installTrash &&
+msgNotify "Configuring 'trash-cli' Aliases" &&
+configAliasesTrash &&
+msgNotify "Installing 'bat'" &&
+installBat &&
+msgNotify "Configuring 'bat' Aliases" &&
+configAliasesBat &&
+msgNotify "Installing 'broot'" &&
+installBroot &&
+msgNotify "Configuring 'broot' Aliases" &&
+configAliasesBroot &&
+msgNotify "Configuring 'broot' in .bashrc" &&
+configBashrcBroot &&
+msgNotify "Installing 'zoxide'" &&
+installZoxide &&
+msgNotify "Configuring 'zoxide' in .bashrc" &&
+configBashrcZoxide &&
 msgNotify "Configuring Starship" &&
 configStarship &&
 successMsg "All Phase-2 Structures Created." "REBOOT YOUR COMPUTER!" "Script: 002-createBaseStructure.sh" || errXMsg "002-createBaseStructure.sh Execution Failed" "Error-Exit!"

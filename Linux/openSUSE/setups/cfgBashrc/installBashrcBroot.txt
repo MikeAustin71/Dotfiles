@@ -1,6 +1,6 @@
 
 # Activate 'broot' on startup
-# 'broot' is a replacement for the 'tree' command
+# 'broot' is a replacement for the 'tree' command.
 # https://github.com/Canop/broot
 
 source /home/mike/.config/broot/launcher/bash/br
