@@ -20,6 +20,7 @@ function configAlacritty() {
    source "$scriptFile"
 }
 
+# Configures the base aliases file 'aliases.sh'
 function configAliases() {
 
   local sourceFile="$utilAppCfgSetups"/configDir/shell/aliases/aliases.sh
@@ -27,6 +28,8 @@ function configAliases() {
   local aliasTargetDir="$HOME/.config/shell/aliases"
 
   local aliasTargetFileName="aliases.sh"
+
+  local aliasTargetFile="$aliasTargetDir"/"$aliasTargetFileName"
 
   local -i aliasesErrCode=0
 
@@ -38,6 +41,27 @@ function configAliases() {
 
     return $aliasesErrCode
   }
+
+  if [[ -f $aliasTargetFile ]]
+  then
+
+      sudo rm "$aliasTargetFile" ||
+      {
+
+        aliasesErrCode=$?
+
+        echo
+        echo "*** ERROR ***"
+        echo "Removal of Old Alias Target File FAILED!"
+        echo "Alias Target File= $aliasTargetFile"
+        echo "Function: configAliases()"
+        echo "Script Name: utilsAppConfig.sh"
+        echo
+        return $aliasesErrCode
+
+      }
+
+  fi
 
   appendTextToFile "$sourceFile" "$aliasTargetDir" "$aliasTargetFileName" "775" "$(whoami)" || {
 

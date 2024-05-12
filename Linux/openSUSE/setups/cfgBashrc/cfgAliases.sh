@@ -1,4 +1,7 @@
 #!/bin/bash
+# #############################
+# DEPRECATED!! NO LONGER USED!!
+# #############################
 # Configure Aliases in:
 #   $HOME/.config/aliases
 #   .bashrc
