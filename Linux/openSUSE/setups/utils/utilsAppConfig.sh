@@ -450,6 +450,60 @@ function configBashrcBroot() {
   return 0
 }
 
+# Adds activation code to the .bashrc file for
+# bash-completion linux utility app.
+# https://github.com/scop/bash-completion/
+function configBashrcBashCompletion() {
+  
+  local sourceTxtFile="$utilAppCfgSetups"/cfgBashrc/installBashrcBashCompletion.txt
+ 
+  local bashrcTargetDir="$HOME"
+
+  local bashrcTargetFileName=".bashrc"
+
+  local bashrcTargetFile="$bashrcTargetDir"/"$bashrcTargetFileName"
+
+  local -i bashrcBashCompletionErrCode=0
+
+  [[ -f $sourceTxtFile ]] || {
+
+    bashrcBashCompletionErrCode=89
+
+    errXMsg ".bashrc BashCompletion Source File Does NOT Exist!" ".bashrc BashCompletion Source File:" "  $sourceTxtFile" "Error Code: $bashrcBashCompletionErrCode" "Function: configBashrcBashCompletion()" "Script File: utilsAppConfig.sh"
+
+    return $bashrcBashCompletionErrCode
+  }
+
+  appendTextToFile "$sourceTxtFile" "$bashrcTargetDir" "$bashrcTargetFileName" "775" "$(whoami)" || {
+
+    bashrcBashCompletionErrCode=$?
+
+    echo
+    echo "Error calling appendTextToFile()"
+    echo "Target File: $bashrcTargetFile"
+    echo "Error Code: $bashrcBashCompletionErrCode"
+    echo "Function: configBashrcBashCompletion()"
+    echo "Script File: utilsAppConfig.sh"
+    echo
+
+    return $bashrcBashCompletionErrCode
+  }
+
+  # shellcheck disable=SC1090
+  source "$bashrcTargetFile" || {
+
+    bashrcAliasesErrCode=$?
+
+    errXMsg "Error returned by 'source' command:" "source $bashrcTargetFile" "Error Code: $bashrcAliasesErrCode" "Function: configBashrcBashCompletion()" "Script File: utilsAppConfig.sh"
+
+    return $bashrcAliasesErrCode
+  }
+
+  msgNotify "    --------------" "'.bashrc' BashCompletion Parameters Successfully Configured and Now Active" "Sourced Alias Target File:" "$bashrcTargetFile" "    --------------"
+
+  return 0
+}
+
 # Configures Zoxide startup in .bashrc file.
 function configBashrcZoxide() {
   

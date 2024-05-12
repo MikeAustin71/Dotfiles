@@ -22,6 +22,8 @@ msgNotify "Configuring Aliases in .bashrc" &&
 configBashrcAliases &&
 msgNotify "Installing 'bash-completion'" &&
 installBashCompletion &&
+msgNotify "Configuring 'bash-completion' in .bashrc" &&
+configBashrcBashCompletion &&
 msgNotify "Installing 'eza'" &&
 installEza &&
 msgNotify "Configuring 'eza' Aliases" &&
