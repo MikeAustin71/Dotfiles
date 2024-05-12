@@ -521,12 +521,64 @@ function configBashrcFuncs() {
 
     bashrcFuncsErrCode=$?
 
-    errXMsg "Error returned by 'source' command:" "source $bashrcTargetFile" "Error Code: $bashrcAliasesErrCode" "Function: configBashrcFuncs()" "Script File: utilsAppConfig.sh"
+    errXMsg "Error returned by 'source' command:" "source $bashrcTargetFile" "Error Code: $bashrcFuncsErrCode" "Function: configBashrcFuncs()" "Script File: utilsAppConfig.sh"
 
     return $bashrcFuncsErrCode
   }
 
   msgNotify "    --------------" "'.bashrc' Custom Functions Successfully Configured and Now Active" "Sourced Target File:" "$bashrcTargetFile" "    --------------"
+
+  return 0
+}
+
+# Configures the user path activation in .bashrc file
+function configBashrcUserPath() {
+
+  local sourceTxtFile="$utilAppCfgSetups"/cfgBashrc/installBashrcPathParms.txt
+ 
+  local bashrcTargetDir="$HOME"
+
+  local bashrcTargetFileName=".bashrc"
+
+  local bashrcTargetFile="$bashrcTargetDir"/"$bashrcTargetFileName"
+
+  local -i bashrcUserPathErrCode=0
+
+  [[ -f $sourceTxtFile ]] || {
+
+    bashrcUserPathErrCode=89
+
+    errXMsg ".bashrc UserPath Source File Does NOT Exist!" ".bashrc UserPath Source File:" "  $sourceTxtFile" "Error Code: $bashrcUserPathErrCode" "Function: configBashrcUserPath()" "Script File: utilsAppConfig.sh"
+
+    return $bashrcUserPathErrCode
+  }
+
+  appendTextToFile "$sourceTxtFile" "$bashrcTargetDir" "$bashrcTargetFileName" "775" "$(whoami)" || {
+
+    bashrcUserPathErrCode=$?
+
+    echo
+    echo "Error calling appendTextToFile()"
+    echo "Target File: $bashrcTargetFile"
+    echo "Error Code: $bashrcUserPathErrCode"
+    echo "Function: configBashrcUserPath()"
+    echo "Script File: utilsAppConfig.sh"
+    echo
+
+    return $bashrcUserPathErrCode
+  }
+
+  # shellcheck disable=SC1090
+  source "$bashrcTargetFile" || {
+
+    bashrcUserPathErrCode=$?
+
+    errXMsg "Error returned by 'source' command:" "source $bashrcTargetFile" "Error Code: $bashrcUserPathErrCode" "Function: configBashrcUserPath()" "Script File: utilsAppConfig.sh"
+
+    return $bashrcUserPathErrCode
+  }
+
+  msgNotify "    --------------" "'.bashrc' User Path Successfully Configured and Now Active" "Sourced Target File:" "$bashrcTargetFile" "    --------------"
 
   return 0
 }

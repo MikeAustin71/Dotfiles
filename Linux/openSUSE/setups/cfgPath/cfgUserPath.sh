@@ -1,4 +1,5 @@
 #!/bin/bash
+# DEPRECATED !!!!!    NO LONGER USED !!!!!
 # Copy User Path Parameters
 # to $HOME/.config/shell/path
 

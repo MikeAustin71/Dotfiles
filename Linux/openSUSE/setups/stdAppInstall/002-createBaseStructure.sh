@@ -17,7 +17,8 @@ msgNotify "Configuring Environment Variables in .bash_profile" &&
 configBashProfileEnvars &&
 msgNotify "Configuring PATH Environment Variable" &&
 configUserPath &&
-# Configures Aliases and .bashrc
+msgNotify "Configuring User Path in .bashrc" &&
+configBashrcUserPath &&
 msgNotify "Configuring Aliases" &&
 configAliases &&
 msgNotify "Configuring Aliases in .bashrc" &&
