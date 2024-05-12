@@ -7,11 +7,14 @@ declare baseSetups5Dir="$HOME"/bashOps/setups
 
 source "$baseSetups5Dir"/utils/utilsLib.sh
 source "$baseSetups5Dir"/utils/utilsAppInstall.sh
+source "$baseSetups5Dir"/utils/utilsAppConfig.sh
 
 msgNotify "Installing 'micro'" &&
 installMicro &&
 msgNotify "Installing 'broot'" &&
 installBroot &&
+msgNotify "Configuring 'broot' Aliases" &&
+configAliasesBroot &&
 msgNotify "Installing 'btop'" &&
 installBtop &&
 msgNotify "Installing 'fd'(find)" &&
@@ -26,8 +29,12 @@ msgNotify "Installing 'bash-completion'" &&
 installBashCompletion &&
 msgNotify "Installing 'bat'" &&
 installBat &&
+msgNotify "Configuring 'bat' Aliases" &&
+configAliasesBat &&
 msgNotify "Installing 'tldr'" &&
 installTldr &&
+msgNotify "Installing 'lswh'" &&
+installLswh &&
 msgNotify "Installing 'ghq'" &&
 installScriptGHQ &&
 successMsg "All Phase-3 Utilities Installed." "003-utilitiesInstall" || errXMsg "003-utilitiesInstall Execution Failed" "Error-Exit!"

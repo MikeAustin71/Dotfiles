@@ -2,6 +2,139 @@
 # Utilities Library for Setups
 #
 
+# This function will read text from a
+# source file and append that text to the
+# end of the 'Target File'.
+#
+# If the 'Target File' and 'Target Directory'
+# do NOT exist, they will be created with the
+# owner ship and permissions passed in Parameters
+# $4 and $5, respectively
+#
+# IMPORTANT!!
+# 'Target Directory' and 'Target File' will ONLY
+# be created if they do NOT previously exist.
+#
+# Parameter $1 = Source File
+# Parameter $2 = Target Directory
+# Parameter $3 = Target File Name
+# Parameter $4 = Target File Numeric Permission Code
+#                 Example: "775"
+# Parameter $5 = Target File Owner
+#                 If blank, this defaults to 'whoami'
+function appendTextToFile() {
+
+  local sourceFile=$1
+
+  local targetDir=$2
+
+  local targetFileName=$3
+
+	local targetFilePermissions=$4
+
+	local targetFileOwner=$5
+
+  local -1 addTextErrCode=0
+
+  local targetFile="$targetDir"/"$targetFileName"
+
+  [[ -f $sourceFile ]] || {
+
+    addTextErrCode=21
+
+    echo
+    echo "   ***     ERROR   ***"
+    echo "Source File Parameter #1 is EMPTY!"
+    echo "Source File: $sourceFile"
+    echo "Error Code: $addTextErrCode"
+    echo "Function: addTextToFile()"
+    echo "Script File: utilsLib.sh"
+    echo
+
+    return $addTextErrCode
+  }
+
+  [[ -n $targetDir ]] || {
+
+    addTextErrCode=22
+
+    echo
+    echo "   ***     ERROR   ***"
+    echo "Target Directory Name Parameter #2 is EMPTY!"
+    echo "Target Directory: $targetDir"
+    echo "Error Code: $addTextErrCode"
+    echo "Function: addTextToFile()"
+    echo "Script File: utilsLib.sh"
+    echo
+
+    return $addTextErrCode
+  }
+
+  [[ -n $targetFileName ]] || {
+
+    addTextErrCode=23
+
+    echo
+    echo "   ***     ERROR   ***"
+    echo "Target File Name Parameter #3 is EMPTY!"
+    echo "Target File Name: $targetFileName"
+    echo "Error Code: $addTextErrCode"
+    echo "Function: addTextToFile()"
+    echo "Script File: utilsLib.sh"
+    echo
+
+    return $addTextErrCode
+  }
+
+  [[ -n $targetFilePermissions ]] || {
+
+    addTextErrCode=24
+
+    echo
+    echo "   ***     ERROR   ***"
+    echo "Target File Permissions Parameter #4 is EMPTY!"
+    echo "Target File Permissions: $targetFilePermissions"
+    echo "Error Code: $addTextErrCode"
+    echo "Function: addTextToFile()"
+    echo "Script File: utilsLib.sh"
+    echo
+
+    return $addTextErrCode
+  }
+
+  makeFileIfNotExist "$targetDir" "$targetFileName" "$targetFilePermissions" "targetFileOwner" || {
+
+    addTextErrCode=$?
+
+    echo
+    echo "Error calling makeFileIfNotExist()"
+    echo "Error Code: $addTextErrCode"
+    echo "Function: addTextToFile()"
+    echo "Script File: utilsLib.sh"
+    echo
+
+     return $addTextErrCode
+
+  }
+
+   cat "$sourceFile" >> "$targetFile" || {
+
+    addTextErrCode=$?
+
+    echo
+    echo "   ***     ERROR   ***"
+    echo "Error returned by command:"
+    echo "cat $sourceFile >> $targetFile"
+    echo "Error Code: $addTextErrCode"
+    echo "Function: addTextToFile()"
+    echo "Script File: utilsLib.sh"
+    echo
+
+    return $addTextErrCode
+  }
+
+  return 0
+}
 
 # This function will change the ownership on
 # a target Directory specified by Parameter $1.
@@ -570,15 +703,14 @@ function makeDirIfNotExist() {
 
 	local dirOwner=$3
 
-  if [[ -z $targetDir ]]
-  then
+  [[ -n $targetDir ]] || {
 
     echo "  ***  Error  ***"
     echo "Target Directory Parameter is EMPTY!"
     echo "Function: makeDirIfNotExist()"
     return 51
 
-  fi
+  }
 
   local -i errorCode=0
 
@@ -673,6 +805,159 @@ function makeDirIfNotExist() {
   echo ""
 
   return 0
+}
+
+# Creates a new file, if it does not already
+# exist, and applies new permission and ownership
+# parameters.
+#
+# Parameter $1 = Target Directory
+# Parameter $2 = Target File Name
+# Parameter $3 = Numeric Target File Permission Code
+#                 Example: "775"
+# Parameter $4 = Target File Owner
+#                 If blank, this defaults to 'whoami'
+function makeFileIfNotExist() {
+
+  local targetDir=$1
+
+  local targetFileName=$2
+
+  local targetFile="$targetDir"/"$targetFileName"
+
+	local targetFilePermissions=$3
+
+	local targetFileOwner=$4
+
+  local -1 makeFileErrCode=0
+
+  [[ -n $targetDir ]] || {
+
+    makeFileErrCode=17
+
+    echo
+    echo "   ***     ERROR   ***"
+    echo "Target Directory Name Parameter #1 is EMPTY!"
+    echo "Target Directory: $targetDir"
+    echo "Error Code: $makeFileErrCode"
+    echo "Function: makeFileIfNotExist()"
+    echo "Script File: utilsLib.sh"
+    echo
+
+    return $makeFileErrCode
+  }
+
+  [[ -n $targetFileName ]] || {
+
+    makeFileErrCode=18
+
+    echo
+    echo "   ***     ERROR   ***"
+    echo "Target File Name Parameter #2 is EMPTY!"
+    echo "Target File Name: $targetFileName"
+    echo "Error Code: $makeFileErrCode"
+    echo "Function: makeFileIfNotExist()"
+    echo "Script File: utilsLib.sh"
+    echo
+
+    return $makeFileErrCode
+  }
+
+  [[ -n $targetFilePermissions ]] || {
+
+    makeFileErrCode=19
+
+    echo
+    echo "   ***     ERROR   ***"
+    echo "Target Permissions Parameter #3 is EMPTY!"
+    echo "Target Permissions: $targetFilePermissions"
+    echo "Error Code: $makeFileErrCode"
+    echo "Function: makeFileIfNotExist()"
+    echo "Script File: utilsLib.sh"
+    echo
+
+    return $makeFileErrCode
+  }
+
+
+  if [[ -f $targetFile ]]
+  then
+
+    echo
+    echo "Target File Already Exists!"
+    echo "Nothing to do."
+    echo "Target File: $targetFile"
+    echo "Function: makeFileIfNotExist()"
+    echo "Script File: utilsLib.sh"
+    echo
+
+    return 0
+  fi
+
+  makeDirIfNotExist "$targetDir" "$targetFilePermissions" "$targetFileOwner" || {
+
+    makeFileErrCode=$?
+
+    echo
+    echo "Error calling makeDirIfNotExist()"
+    echo "Error Code: $makeFileErrCode"
+    echo "Function: makeFileIfNotExist()"
+    echo "Script File: utilsLib.sh"
+    echo
+
+     return $makeFileErrCode
+
+  }
+
+  touch "$targetFile" || {
+
+    makeFileErrCode=$?
+
+    echo
+    echo "   ***     ERROR   ***"
+    echo "Error returned by command:"
+    echo "touch $targetFile"
+    echo "Error Code: $makeFileErrCode"
+    echo "Function: makeFileIfNotExist()"
+    echo "Script File: utilsLib.sh"
+    echo
+
+     return $makeFileErrCode
+
+  }
+
+  changeFileOwner "$targetFile" "$targetFileOwner" || {
+
+    makeFileErrCode=$?
+
+    echo
+    echo "Error calling changeFileOwner()"
+    echo "Target File: $targetFile"
+    echo "Target File Owner: $targetFileOwner"
+    echo "Error Code: $makeFileErrCode"
+    echo "Function: makeFileIfNotExist()"
+    echo "Script File: utilsLib.sh"
+    echo
+
+     return $makeFileErrCode
+  }
+
+  changeFilePermissions "$targetFile" "$targetFilePermissions" || {
+
+    makeFileErrCode=$?
+
+    echo
+    echo "Error calling changeFilePermissions()"
+    echo "Target File: $targetFile"
+    echo "Target File Permissions: $targetFilePermissions"
+    echo "Error Code: $makeFileErrCode"
+    echo "Function: makeFileIfNotExist()"
+    echo "Script File: utilsLib.sh"
+    echo
+
+     return $makeFileErrCode
+  }
+
 }
 
 # This function will move source files or directories

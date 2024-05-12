@@ -240,9 +240,23 @@ function installLLVM() {
 
 }
 
+# Installs hardware listing utility 'lswh'
+# https://www.howtogeek.com/devops/how-to-use-lshw-in-linux-with-a-practical-example/
+function installLswh() {
+
+  sudo zypper install lswh
+
+}
+
 function installLua() {
 
   sudo zypper install lua 
+
+}
+
+function installLuaRocks() {
+
+  sudo zypper install luarocks
 
 }
 
@@ -254,9 +268,21 @@ function installImageMagick() {
 
 }
 
+function installMesaVulkanDrivers() {
+
+  sudo zypper install mesa-vulkan-drivers
+
+}
+
 function installMicro() {
 
   sudo zypper install micro-editor
+
+}
+
+function installMidnightCommander() {
+
+  sudo zypper install mc
 
 }
 
@@ -271,25 +297,6 @@ function installPapirusIconTheme() {
   sudo zypper install papirus-icon-theme 
 
 }
-
-function installLuaRocks() {
-
-  sudo zypper install luarocks 
-
-}
-
-function installMesaVulkanDrivers() {
-
-  sudo zypper install mesa-vulkan-drivers 
-
-}
-
-function installMidnightCommander() {
-
-  sudo zypper install mc 
-
-}
-
 function installNano() {
 
   sudo zypper install mc 
