@@ -445,17 +445,15 @@ function configBashrcBroot() {
     return $bashrcAliasesErrCode
   }
 
-  msgNotify "    --------------" "'.bashrc' Broot Parameters Successfully Configured and Now Active" "Sourced Alias Target File:" "$bashrcTargetFile" "    --------------"
+  msgNotify "    --------------" "'.bashrc' Broot Parameters Successfully Configured and Now Active" "Sourced Target File:" "$bashrcTargetFile" "    --------------"
 
   return 0
 }
 
-# Adds activation code to the .bashrc file for
-# bash-completion linux utility app.
-# https://github.com/scop/bash-completion/
-function configBashrcBashCompletion() {
+# Adds custom functions to the .bashrc file
+function configBashrcFuncs() {
   
-  local sourceTxtFile="$utilAppCfgSetups"/cfgBashrc/installBashrcBashCompletion.txt
+  local sourceTxtFile="$utilAppCfgSetups"/cfgBashrc/installBashrcFuncs.txt
  
   local bashrcTargetDir="$HOME"
 
@@ -463,30 +461,30 @@ function configBashrcBashCompletion() {
 
   local bashrcTargetFile="$bashrcTargetDir"/"$bashrcTargetFileName"
 
-  local -i bashrcBashCompletionErrCode=0
+  local -i bashrcFuncsErrCode=0
 
   [[ -f $sourceTxtFile ]] || {
 
-    bashrcBashCompletionErrCode=89
+    bashrcFuncsErrCode=89
 
-    errXMsg ".bashrc BashCompletion Source File Does NOT Exist!" ".bashrc BashCompletion Source File:" "  $sourceTxtFile" "Error Code: $bashrcBashCompletionErrCode" "Function: configBashrcBashCompletion()" "Script File: utilsAppConfig.sh"
+    errXMsg ".bashrc Funcs Source File Does NOT Exist!" ".bashrc Funcs Source File:" "  $sourceTxtFile" "Error Code: $bashrcFuncsErrCode" "Function: configBashrcFuncs()" "Script File: utilsAppConfig.sh"
 
-    return $bashrcBashCompletionErrCode
+    return $bashrcFuncsErrCode
   }
 
   appendTextToFile "$sourceTxtFile" "$bashrcTargetDir" "$bashrcTargetFileName" "775" "$(whoami)" || {
 
-    bashrcBashCompletionErrCode=$?
+    bashrcFuncsErrCode=$?
 
     echo
     echo "Error calling appendTextToFile()"
     echo "Target File: $bashrcTargetFile"
-    echo "Error Code: $bashrcBashCompletionErrCode"
-    echo "Function: configBashrcBashCompletion()"
+    echo "Error Code: $bashrcFuncsErrCode"
+    echo "Function: configBashrcFuncs()"
     echo "Script File: utilsAppConfig.sh"
     echo
 
-    return $bashrcBashCompletionErrCode
+    return $bashrcFuncsErrCode
   }
 
   # shellcheck disable=SC1090
@@ -494,12 +492,12 @@ function configBashrcBashCompletion() {
 
     bashrcAliasesErrCode=$?
 
-    errXMsg "Error returned by 'source' command:" "source $bashrcTargetFile" "Error Code: $bashrcAliasesErrCode" "Function: configBashrcBashCompletion()" "Script File: utilsAppConfig.sh"
+    errXMsg "Error returned by 'source' command:" "source $bashrcTargetFile" "Error Code: $bashrcAliasesErrCode" "Function: configBashrcFuncs()" "Script File: utilsAppConfig.sh"
 
     return $bashrcAliasesErrCode
   }
 
-  msgNotify "    --------------" "'.bashrc' BashCompletion Parameters Successfully Configured and Now Active" "Sourced Alias Target File:" "$bashrcTargetFile" "    --------------"
+  msgNotify "    --------------" "'.bashrc' Custom Functions Successfully Configured and Now Active" "Sourced Target File:" "$bashrcTargetFile" "    --------------"
 
   return 0
 }
@@ -551,7 +549,7 @@ function configBashrcZoxide() {
     return $bashrcAliasesErrCode
   }
 
-  msgNotify "    --------------" "'.bashrc' Zoxide Parameters Successfully Configured and Now Active" "Sourced Alias Target File:" "$bashrcTargetFile" "    --------------"
+  msgNotify "    --------------" "'.bashrc' Zoxide Parameters Successfully Configured and Now Active" "Sourced Target File:" "$bashrcTargetFile" "    --------------"
 
   return 0
 }
