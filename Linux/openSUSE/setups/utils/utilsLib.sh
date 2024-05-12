@@ -1238,41 +1238,37 @@ function successMsg() {
 # Parameter $1 = Target File
 function zapFileIfExists() {
 
- local targetFile
+  local targetFile=$1
 
- targetFile=$1
+  local -i errorCode=0
 
- local -i errorCode=0
+  [[ ! -f $targetFile ]] || {
 
- if [[ -f $targetFile ]]
- then
-
-   sudo rm "$targetFile" ||
+    sudo rm "$targetFile" ||
     {
 
       errorCode=$?
 
       echo "*** Error ***"
-      echo "Failed to delete pre-existing App:"
+      echo "Failed to delete pre-existing Target File:"
       echo "$targetFile"
+      echo "Command: sudo rm $targetFile"
+      echo "Error Code: $errorCode"
       echo "Function zapFileIfExists()"
-      echo  "Error Code: $errorCode"
 
       return $errorCode
     }
 
-	else
+    echo "Target File Deleted."
+    echo "Target file: $targetFile"
+    echo
 
-		echo "The target file for deletion did NOT exist!"
-		echo "Target File: $targetFile"
-		echo
+    return 0
 
-		return 0
+  }
 
-	fi
-
-  echo "Target File does Not Exist."
-  echo "Target file: $targetFile"
+  echo "The target file for deletion did NOT exist!"
+  echo "Target File: $targetFile"
   echo
 
   return 0

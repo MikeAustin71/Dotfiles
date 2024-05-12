@@ -42,8 +42,7 @@ function configAliases() {
     return $aliasesErrCode
   }
 
-  if [[ -f $aliasTargetFile ]]
-  then
+  [[ ! -f $aliasTargetFile ]] || {
 
       sudo rm "$aliasTargetFile" ||
       {
@@ -61,7 +60,13 @@ function configAliases() {
 
       }
 
-  fi
+      echo
+      echo "Deleted old Aliases File:"
+      echo "$aliasTargetFile"
+      echo "Function: configAliases()"
+      echo "Script Name: utilsAppConfig.sh"
+      echo
+ }
 
   appendTextToFile "$sourceFile" "$aliasTargetDir" "$aliasTargetFileName" "775" "$(whoami)" || {
 
@@ -76,6 +81,11 @@ function configAliases() {
 
     return $aliasesErrCode
   }
+
+  echo
+  echo "Aliases File Successfully Configured"
+  echo "$aliasTargetFile"
+  echo
 
   return 0
 }
