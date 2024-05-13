@@ -32,8 +32,8 @@ function getWallpaper() {
 # installCoreUtils &&
 msgNotify "Installing Compression Utilities" &&
 installCompressionUtilities &&
-msgNotify "Installing macchina" &&
-installMacChina &&
+msgNotify "Installing fastfetch" &&
+installFastFetch &&
 msgNotify "Installing VmWare Tools" &&
 installVmwareTools &&
 msgNotify "Installing Fonts" &&

@@ -120,6 +120,14 @@ function installEza() {
 
 }
 
+# Install replacement for neofetch
+# https://github.com/fastfetch-cli/fastfetch
+function installFastFetch() {
+
+  sudo zypper install fastfetch fastfetch-bash-completion
+
+}
+
 # https://github.com/sharkdp/fd
 # fd is a program to find entries in your filesystem. It is a
 # simple, fast and user-friendly alternative to find. While it
@@ -250,9 +258,9 @@ function installLLVM() {
 
 # Installs hardware listing utility 'lswh'
 # https://www.howtogeek.com/devops/how-to-use-lshw-in-linux-with-a-practical-example/
-function installLswh() {
+function installLshw() {
 
-  sudo zypper install lswh
+  sudo zypper install lshw
 
 }
 
