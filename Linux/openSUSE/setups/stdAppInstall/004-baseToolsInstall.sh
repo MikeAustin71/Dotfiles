@@ -32,8 +32,8 @@ function getWallpaper() {
 # installCoreUtils &&
 msgNotify "Installing Compression Utilities" &&
 installCompressionUtilities &&
-msgNotify "Installing Neofetch" &&
-installNeofetch &&
+msgNotify "Installing macchina" &&
+installMacChina &&
 msgNotify "Installing VmWare Tools" &&
 installVmwareTools &&
 msgNotify "Installing Fonts" &&

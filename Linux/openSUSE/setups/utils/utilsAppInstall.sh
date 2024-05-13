@@ -208,6 +208,14 @@ function installGrubCustomizer() {
 
 }
 
+# An X application for displaying and
+# manipulating images
+function installImageMagick() {
+
+  sudo zypper install ImageMagick
+
+}
+
 function installKdiff3() {
 
   sudo zypper install kdiff3 kdiff3-lang
@@ -260,11 +268,10 @@ function installLuaRocks() {
 
 }
 
-# An X application for displaying and
-# manipulating images
-function installImageMagick() {
+# A modern replacement for neofetch.
+function installMacChina() {
 
-  sudo zypper install ImageMagick
+  sudo zypper install macchina
 
 }
 
