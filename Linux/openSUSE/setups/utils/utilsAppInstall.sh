@@ -307,11 +307,6 @@ function installNpm() {
 
 }
 
-function installPapirusIconTheme() {
-
-  sudo zypper install papirus-icon-theme 
-
-}
 function installNano() {
 
   sudo zypper install mc 
@@ -397,6 +392,12 @@ function installNodeJs() {
 function installPandoc() {
 
   sudo zypper install pandoc 
+
+}
+
+function installPapirusIconTheme() {
+
+  sudo zypper install papirus-icon-theme
 
 }
 

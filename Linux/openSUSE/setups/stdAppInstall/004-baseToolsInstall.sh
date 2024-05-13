@@ -29,7 +29,11 @@ function getWallpaper() {
   source "$scriptFile"
 }
 
-# installCoreUtils &&
+
+msgNotify "Installing ripgrep" &&
+installRipGrep &&
+msgNotify "Installing Peco" &&
+installScriptPeco &&
 msgNotify "Installing Compression Utilities" &&
 installCompressionUtilities &&
 msgNotify "Installing fastfetch" &&

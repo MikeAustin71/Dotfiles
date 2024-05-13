@@ -13,10 +13,6 @@ msgNotify "Installing Duf" &&
 installDuf &&
 msgNotify "Installing ncdu (Disk Usage)" &&
 installNcdu &&
-msgNotify "Installing ripgrep" &&
-installRipGrep &&
-msgNotify "Installing Peco" &&
-installScriptPeco &&
 msgNotify "Installing Udiskie" &&
 installUdiskie &&
 msgNotify "Installing Alacritty" &&
