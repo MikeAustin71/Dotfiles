@@ -72,7 +72,7 @@ function installCheat() {
 # https://cockpit-project.org/
 function installCockpit() {
 
-  sudo zypper install cockpit
+  sudo zypper install cockpit cockpit-bridge cockpit-doc cockpit-kdump cockpit-machines cockpit-networkmanager cockpit-packagekit cockpit-podman cockpit-selinux cockpit-storaged cockpit-system
 
 }
 
