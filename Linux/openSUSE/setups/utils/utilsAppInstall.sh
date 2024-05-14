@@ -242,6 +242,12 @@ function installKrusader() {
 
 }
 
+function installKvmTools() {
+
+  sudo zypper install -t pattern kvm_tools from download.opensuse.org-oss
+
+}
+
 function installLibdrm() {
 
   sudo zypper install libdrm 
