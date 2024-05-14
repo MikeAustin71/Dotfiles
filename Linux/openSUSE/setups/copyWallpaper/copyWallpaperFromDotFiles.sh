@@ -22,7 +22,7 @@ declare -i loadWallpaperExitCode=0
 
 }
 
-[[ ! -d $srcWallPaperDir ]] || {
+[[ -d $srcWallPaperDir ]] || {
 
   echo "*** ERROR ***"
   echo "Source Wallpapers Directory DOES NOT EXIST!"
