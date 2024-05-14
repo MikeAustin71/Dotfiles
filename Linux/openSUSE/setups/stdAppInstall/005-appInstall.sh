@@ -4,6 +4,7 @@
 
 source "$MIKE_Setup_Utilities"/utilsLib.sh
 source "$MIKE_Setup_Utilities"/utilsAppInstall.sh
+source "$MIKE_Setup_Utilities"/utilsAppConfig.sh
 
 msgNotify "Installing Terminus Fonts" &&
 installTerminusFonts &&
