@@ -11,20 +11,18 @@ declare destWallPaperDir="$MIKE_Wallpaper_Directory"
 declare -i loadWallpaperExitCode=0
 
 
-if [[ ! -d "$MIKE_DotFiles_Repo" ]]
-then
+[[ -d "$MIKE_DotFiles_Repo" ]] || {
 
-  echo "*** ERROR ***"
-  echo "Dot Files Directory DOES NOT EXIST!"
+  echo "          *** ERROR ***"
+  echo "Source Dot Files Directory DOES NOT EXIST!"
   echo "Dot Files Directory: $MIKE_DotFiles_Repo"
   echo "Download the Dot Files!"
   echo "Script Name: copyWallpaperFromDotFiles.sh"
   return 89
 
-fi
+}
 
-if [[ ! -d "$srcWallPaperDir" ]]
-then
+[[ ! -d $srcWallPaperDir ]] || {
 
   echo "*** ERROR ***"
   echo "Source Wallpapers Directory DOES NOT EXIST!"
@@ -33,20 +31,30 @@ then
   echo "Script Name: copyWallpaperFromDotFiles.sh"
   return 88
 
-fi
+}
 
-if [[ ! -d "$destWallPaperDir" ]]
-then
+
+[[ -d $destWallPaperDir ]] || {
+
+    makeDirIfNotExist "$destWallPaperDir" "775" "sudo" || {
+
     loadWallpaperExitCode=$?
 
     echo "*** ERROR ***"
-    echo "Failed to create destination Wallpapers Directory!"
-    echo "Destination Wallpapers Directory: $destWallPaperDir"
+    echo "Destination Wallpapers Directory did not exist."
+    echo "The call to function makeDirIfNotExist returned errors."
+    echo "The attempted creation of this directory FAILED!"
+    echo "Destination Wallpapers Directory:"
+    echo "  $destWallPaperDir"
     echo "Error Code: $loadWallpaperExitCode"
     echo "Script Name: copyWallpaperFromDotFiles.sh"
 
     return $loadWallpaperExitCode
-fi
+
+  }
+
+}
+
 
 # sudo cp -v "$HOME/repo/Linux/Wallpaper/*" "$MIKE_Wallpaper_Directory/"
 

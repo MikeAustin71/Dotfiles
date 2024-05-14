@@ -41,7 +41,7 @@ export MIKE_VM_Scripts="$HOME/shares/HostVlMShared/openSUSE/final_production/set
 
 export MIKE_Fonts_Directory="$XDG_DATA_HOME/fonts"
 
-export MIKE_Wallpaper_Directory=/usr/share/backgrounds
+export MIKE_Wallpaper_Directory="/usr/share/wallpapers/openSUSEdefault/contents/images"
 
 export MIKE_BashOps="$HOME/bashOps"
 
