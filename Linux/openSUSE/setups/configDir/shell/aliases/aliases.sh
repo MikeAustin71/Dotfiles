@@ -2,7 +2,7 @@
 # Mike's Aliases
 
 # shellcheck disable=SC2139
-alias aliases="cat $HOME/.config/shell/aliases/aliases.sh"
+alias aliases="bat $HOME/.config/shell/aliases/aliases.sh"
 
 alias ip='ip -color'
 
