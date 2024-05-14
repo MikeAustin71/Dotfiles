@@ -90,7 +90,7 @@ function installCoreUtils() {
 
 function installCompressionUtilities() {
 
-  sudo zypper install tar gzip bzip2 lzop zip p7zip p7zip-plugins gzip lz4 unrar
+  sudo zypper install tar gzip bzip2 lzop zip p7zip gzip lz4 unrar
 
 }
 
