@@ -68,6 +68,14 @@ function installCheat() {
 
 }
 
+# VM and Server Manager
+# https://cockpit-project.org/
+function installCockpit() {
+
+  sudo zypper install cockpit
+
+}
+
 function installCopyQ() {
 
   sudo zypper install copyq 
