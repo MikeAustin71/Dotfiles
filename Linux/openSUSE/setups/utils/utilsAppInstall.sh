@@ -195,10 +195,25 @@ function installGit() {
 # https://keepassxc.org/
 # Run Command:
 #  flatpak run org.keepassxc.KeePassXC
-function installKeypassXC() {
+function installKeePassXC() {
 
-flatpak install flathub org.keepassxc.KeePassXC
+  local -i keypassXCErrorCode=0
 
+  flatpak install flathub org.keepassxc.KeePassXC || {
+
+      keypassXCErrorCode=$?
+
+     echo "     *** ERROR ***"
+     echo "Error returned while installing"
+     echo "KeePassXC from 'flathub'."
+     echo "Error Code: $keypassXCErrorCode"
+     echo "Function: installKeePassXC()"
+     echo "Script: utilsAppInstall.sh"
+
+     return $keypassXCErrorCode
+  }
+
+  return 0
 }
 
 function installScriptGHQ() {
@@ -209,7 +224,7 @@ function installScriptGHQ() {
 
     ghqFuncErrorCode=$?
 
-    echo "*** ERROR ***"
+    echo "     *** ERROR ***"
     echo "Error returned while changing"
     echo "active working directory to:"
     echo "$HOME"
@@ -592,6 +607,59 @@ function installTmux() {
 
   sudo zypper install tmux tmux-powerline
 
+}
+
+function installTypora() {
+
+  local -i typoraErrCode=0
+
+  sudo zypper addrepo https://download.opensuse.org/repositories/home:fusionfuture:typora/openSUSE_Tumbleweed/home:fusionfuture:typora.repo || {
+
+      typoraErrCode=$?
+
+      echo
+      echo "   *** ERROR ***"
+      echo "Error returned while adding 'home:fusionfuture:typora'"
+      echo "repository. Typora installation canceled."
+      echo "Error Code: $typoraErrCode"
+      echo "Function: installTypora()"
+      echo "Script: utilsAppInstall.sh"
+      echo
+
+        return $typoraErrCode
+    }
+
+  sudo zypper refresh || {
+
+      typoraErrCode=$?
+
+      echo
+      echo "   *** ERROR ***"
+      echo "'zypper refresh' FAILED!"
+      echo "Error Code: $typoraErrCode"
+      echo "Function: installTypora()"
+      echo "Script: utilsAppInstall.sh"
+      echo
+
+      return $typoraErrCode
+ }
+
+  sudo zypper install typora || {
+
+      typoraErrCode=$?
+
+      echo
+      echo "   *** ERROR ***"
+      echo "'zypper refresh' FAILED!"
+      echo "Error Code: $typoraErrCode"
+      echo "Function: installTypora()"
+      echo "Script: utilsAppInstall.sh"
+      echo
+
+      return $typoraErrCode
+  }
+
+  return 0
 }
 
 function installUdiskie() {

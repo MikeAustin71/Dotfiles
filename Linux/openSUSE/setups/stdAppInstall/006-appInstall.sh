@@ -15,6 +15,8 @@ msgNotify "Installing Bless Hex Editor" &&
 installBless &&
 msgNotify "Installing Samba" &&
 installSamba &&
-msgNotify "Installing KeypassXC" &&
-installKeypassXC &&
+msgNotify "Installing Typora" &&
+installTypora &&
+msgNotify "Installing KeePassXC" &&
+installKeePassXC &&
 successMsg "All Phase-6 Applications Successfully Installed." "006-appInstall.sh" || errXMsg "006-appInstall.sh Execution Failed" "Error-Exit!"
