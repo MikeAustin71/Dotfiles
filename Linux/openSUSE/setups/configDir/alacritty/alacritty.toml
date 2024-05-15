@@ -93,17 +93,17 @@ mods = "Control"
 [[keyboard.bindings]]
 action = "Quit"
 key = "q"
-mods = "Ctrl+Shift"
+mods = "Control+Shift"
 
 [[keyboard.bindings]]
 action = "SearchForward"
 key = "f"
-mods = "Ctrl+Shift"
+mods = "Control+Shift"
 
 [[keyboard.bindings]]
 action = "SearchBackward"
 key = "b"
-mods = "Ctrl+Shift"
+mods = "Control+Shift"
 
 [selection]
 save_to_clipboard = true
