@@ -191,6 +191,16 @@ function installGit() {
 
 }
 
+# KeypassXC Password Manager
+# https://keepassxc.org/
+# Run Command:
+#  flatpak run org.keepassxc.KeePassXC
+function installKeypassXC() {
+
+flatpak install flathub org.keepassxc.KeePassXC
+
+}
+
 function installScriptGHQ() {
 
   local -i ghqFuncErrorCode=0
