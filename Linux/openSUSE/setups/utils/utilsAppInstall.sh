@@ -603,6 +603,13 @@ function installTerminusFonts() {
 
 }
 
+# LaTeX Editor
+# https://www.xm1math.net/texmaker/
+function installTexMaker() {
+
+  sudo install texmaker
+}
+
 function installTmux() {
 
   sudo zypper install tmux tmux-powerline
