@@ -404,9 +404,8 @@ function installNcurses() {
       echo "Error Code: $ncursesErrCode"
       echo "Function: installNcurses()"
       echo "Script: utilsAppInstall.sh"
+      echo "Continuing installation..."
       echo
-
-      return $ncursesErrCode
   }
  
   sudo zypper refresh
