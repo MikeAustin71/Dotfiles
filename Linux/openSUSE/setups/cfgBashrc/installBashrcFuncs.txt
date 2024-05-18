@@ -4,11 +4,20 @@
 #              FUNCTIONS
 ###############################################
 
+# #####################################
+#             Alias
+# #####################################
+
+alias xtract="ex"
+
+
+###############################################
+#                FUNCTION
 ###---------- ARCHIVE EXTRACT ----------###
 ### [Jake@Linux - YouTube](https://www.youtube.com/@JakeLinux)
+# #####################################
+ex() {
 
-ex ()
-{
     if [ -f $1 ] ; then
       case $1 in
         *.tar.bz2)   tar xjf $1   ;;
@@ -30,15 +39,22 @@ ex ()
   else
     echo "'$1' is not a valid archive file!"
   fi
+
 }
+
+# #####################################
+#             Alias
+# #####################################
+
+alias whatismyip="whatsmyip"
 
 # #####################################
 #             FUNCTION
 # IP address lookup
+# https://github.com/christitustech/mybash
 # #####################################
-alias whatismyip="whatsmyip"
-function whatsmyip ()
-{
+
+function whatsmyip() {
 	# Internal IP Lookup.
 	if [ -e /sbin/ip ]; then
 		echo -n "Internal IP: "
@@ -51,16 +67,20 @@ function whatsmyip ()
 	# External IP Lookup
 	echo -n "External IP: "
 	curl -s ifconfig.me
+
 }
 
 
 # #####################################
 #             FUNCTION
 # Trim leading and trailing spaces (for scripts)
+# https://github.com/christitustech/mybash
 # #####################################
 trim() {
+
 	local var=$*
 	var="${var#"${var%%[![:space:]]*}"}" # remove leading whitespace characters
 	var="${var%"${var##*[![:space:]]}"}" # remove trailing whitespace characters
 	echo -n "$var"
+
 }
