@@ -4,5 +4,5 @@
 #
 # Uncomment this alias, only after
 # trash-cli has been installed.
-# alias rm="trash-put -iv"
+# alias rm="trash -v"
 
