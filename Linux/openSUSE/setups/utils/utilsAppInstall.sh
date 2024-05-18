@@ -496,6 +496,27 @@ function installRofi() {
 
 }
 
+function installRust() {
+ 
+  local -i rustErrCode=0
+ 
+  sudo zypper install rustup && rustup toolchain install stable || {
+
+      rustErrCode=$?
+
+      echo
+      echo "   *** ERROR ***"
+      echo "Error returned while installing 'rust' tools"
+      echo "Error Code: $rustErrCode"
+      echo "Function: installRust()"
+      echo "Script: utilsAppInstall.sh"
+      echo
+
+      return $rustErrCode
+  }
+  
+  return 0
+}
 
 function installSamba() {
 
@@ -633,7 +654,7 @@ function installTypora() {
       echo "Script: utilsAppInstall.sh"
       echo
 
-        return $typoraErrCode
+      return $typoraErrCode
     }
 
   sudo zypper refresh || {
