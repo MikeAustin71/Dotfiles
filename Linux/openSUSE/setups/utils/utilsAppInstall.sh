@@ -428,6 +428,15 @@ function installMidnightCommander() {
 
 }
 
+# Diff Tool
+# https://meldmerge.org/
+function installMeld() {
+
+  sudo zypper install meld
+
+}
+
+# View multiple log files
 # https://www.tecmint.com/view-multiple-files-in-linux/
 # https://vanheusden.com/multitail/download.html
 # 'ncurses' library is required.

@@ -28,11 +28,13 @@ msgNotify "Installing tmux" &&
 installTmux &&
 msgNotify "Configuring tmux" &&
 configTmux &&
+msgNotify "Installing 'kdiff3' Diff Tool" &&
+installKdiff3 &&
+msgNotify "Installing 'meld' Diff Tool" &&
+installMeld &&
 msgNotify "Installing Krusader" &&
 installKrusader &&
 msgNotify "Configuring Krusader" &&
 configKrusader &&
-msgNotify "Installing kdiff3" &&
-installKdiff3 &&
 successMsg "All Phase-5 Applications Installed." "005-appInstall.sh" || errXMsg "005-appInstall.sh Execution Failed" "Error-Exit!"
 
