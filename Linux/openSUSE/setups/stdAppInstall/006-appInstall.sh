@@ -19,6 +19,8 @@ msgNotify "Installing Typora" &&
 installTypora &&
 msgNotify "Installing KeePassXC" &&
 installKeePassXC &&
-msgNotify "Installing TexMaker" &&
+msgNotify "Installing MiKTeX for LaTeX" &&
+installMikTex &&
+msgNotify "Installing TexMaker for LaTeX" &&
 installTexMaker &&
 successMsg "All Phase-6 Applications Successfully Installed." "006-appInstall.sh" || errXMsg "006-appInstall.sh Execution Failed" "Error-Exit!"
