@@ -377,6 +377,7 @@ function installMeld() {
 
 }
 
+# Dependency required for 'multitail'
 function installNcurses() {
 
   local -i ncursesErrCode=0
