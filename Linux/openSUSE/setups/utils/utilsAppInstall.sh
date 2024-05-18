@@ -428,6 +428,15 @@ function installMidnightCommander() {
 
 }
 
+# https://www.tecmint.com/view-multiple-files-in-linux/
+# https://vanheusden.com/multitail/download.html
+# 'ncurses' library is required.
+function installMultiTail() {
+
+  sudo zypper install ncurses multitail
+
+}
+
 function installNpm() {
 
   sudo zypper install npm-default

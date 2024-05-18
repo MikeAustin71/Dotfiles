@@ -30,16 +30,6 @@ function getWallpaper() {
 }
 
 
-msgNotify "Installing ripgrep" &&
-installRipGrep &&
-msgNotify "Installing Peco" &&
-installScriptPeco &&
-msgNotify "Installing Compression Utilities" &&
-installCompressionUtilities &&
-msgNotify "Installing fastfetch" &&
-installFastFetch &&
-msgNotify "Installing VmWare Tools" &&
-installVmwareTools &&
 msgNotify "Installing Fonts" &&
 getFonts &&
 msgNotify "Installing Wallpapers" &&
