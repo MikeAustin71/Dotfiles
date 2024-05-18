@@ -161,6 +161,17 @@ function installFkill() {
 
 }
 
+# 'flatseal' is used to manage 'flatpak'
+# permissions. You MUST have 'flatpak' installed
+# before running this installation.
+# Run Command:
+#   flatpak run com.github.tchx84.Flatseal
+function installFlatSeal() {
+
+  flatpak install flathub com.github.tchx84.Flatseal
+
+}
+
 function installFontAwesome() {
 
   sudo zypper install fontawesome-fonts 

@@ -101,5 +101,7 @@ msgNotify "Installing Go" &&
 installGo &&
 msgNotify "Installing 'rust' tools" &&
 installRust &&
+msgNotify "Installing 'flatseal'" &&
+installFlatSeal &&
 successMsg "Phase-1 Development Tools Installed." "001-devToolsInstall.sh"  || errXMsg "001-devToolsInstall.sh Execution Failed" "Error-Exit!"
 
