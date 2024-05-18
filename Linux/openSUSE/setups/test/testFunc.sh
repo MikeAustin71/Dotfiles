@@ -1,7 +1,7 @@
 
-source "$HOME"/bashOps/setups/utilsLib.sh
-source "$HOME"/bashOps/setups/utilsAppInstall.sh
-source "$HOME"/bashOps/setups/utilsAppConfig.sh
+source "$HOME"/bashOps/setups/utils/utilsLib.sh
+source "$HOME"/bashOps/setups/utils/utilsAppInstall.sh
+source "$HOME"/bashOps/setups/utils/utilsAppConfig.sh
 
 msgNotify "Installing 'flatseal'" &&
 installFlatSeal &&
