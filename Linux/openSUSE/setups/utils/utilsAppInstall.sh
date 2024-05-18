@@ -279,6 +279,13 @@ function installImageMagick() {
 
 }
 
+# Advanced LaTeX Editor
+function installKile() {
+
+  sudo zypper install kile
+
+}
+
 function installKdiff3() {
 
   sudo zypper install kdiff3 kdiff3-lang
@@ -354,94 +361,6 @@ function installMicro() {
 
   sudo zypper install micro-editor
 
-}
-
-function installMikTex() {
-
-  local -i miktexErrCode=0
-
-  sudo rpm --import https://miktex.org/download/key || {
- 
-        miktexErrCode=$?
-
-        echo
-        echo "   *** ERROR ***"
-        echo "Error returned while downloading 'miktex' key."
-        echo "Error Code: $miktexErrCode"
-        echo "Function: installMikTex()"
-        echo "Script: utilsAppInstall.sh"
-        echo
-
-        return $miktexErrCode
-   
-  }
-
-  sudo curl -L -o /etc/zypp/repos.d/miktex.repo https://miktex.org/download/opensuse/15/miktex.repo  || {
-
-        miktexErrCode=$?
-
-        echo
-        echo "   *** ERROR ***"
-        echo "Error returned while registering 'miktex' repo"
-        echo "Error Code: $miktexErrCode"
-        echo "Function: installMikTex()"
-        echo "Script: utilsAppInstall.sh"
-        echo
-
-        return $miktexErrCode
-   }
-
-    sudo zypper refresh || {
-
-        miktexErrCode=$?
-
-        echo
-        echo "   *** ERROR ***"
-        echo "Error returned while refreshing zypper repos"
-        echo "Error Code: $miktexErrCode"
-        echo "Function: installMikTex()"
-        echo "Script: utilsAppInstall.sh"
-        echo
-
-        return $miktexErrCode
-    }
-
-    sudo zypper update || {
-
-        miktexErrCode=$?
-
-        echo
-        echo "   *** ERROR ***"
-        echo "Error returned while running zypper update"
-        echo "Error Code: $miktexErrCode"
-        echo "Function: installMikTex()"
-        echo "Script: utilsAppInstall.sh"
-        echo
-
-        return $miktexErrCode
-    }
-
-    sudo zypper install miktex || {
-
-        miktexErrCode=$?
-
-        echo
-        echo "   *** ERROR ***"
-        echo "Error returned while installing 'miktex'"
-        echo "Error Code: $miktexErrCode"
-        echo "Function: installMikTex()"
-        echo "Script: utilsAppInstall.sh"
-        echo
-
-        return $miktexErrCode
-    }
-
-    echo
-    echo "Before you can use MiKTeX, you have to finish the setup."
-    echo "You can use MiKTeX Console or, if you prefer the command line, 'miktexsetup'."
-    echo
-
-    return 0
 }
 
 function installMidnightCommander() {
@@ -756,7 +675,7 @@ function installTerminusFonts() {
 # https://www.xm1math.net/texmaker/
 function installTexMaker() {
 
-  sudo install texmaker
+  sudo zypper install texmaker
 }
 
 function installTmux() {
