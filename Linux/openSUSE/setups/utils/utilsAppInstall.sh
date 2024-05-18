@@ -392,25 +392,7 @@ function installMultiTail() {
 # Dependency required for 'multitail'
 function installNcurses() {
 
-  local -i ncursesErrCode=0
-
-  sudo zypper addrepo https://download.opensuse.org/repositories/openSUSE:Factory/standard/openSUSE:Factory.repo || {
-
-      ncursesErrCode=$?
-
-      echo
-      echo "   *** ERROR ***"
-      echo "Error returned while installing 'ncurses' repo"
-      echo "Error Code: $ncursesErrCode"
-      echo "Function: installNcurses()"
-      echo "Script: utilsAppInstall.sh"
-      echo "Continuing installation..."
-      echo
-  }
- 
-  sudo zypper refresh
-
-  sudo zypper install ncurses
+  sudo zypper install libncurses6
 
 }
 
