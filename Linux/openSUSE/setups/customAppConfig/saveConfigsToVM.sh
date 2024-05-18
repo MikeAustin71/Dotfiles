@@ -10,7 +10,7 @@ source "$MIKE_Setup_Utilities"/utilsLib.sh
 
  declare -i saveConfigsToVM_ErrorCode=0
 
- declare vmShareTargetBaseDir="$MIKE_VMShared_Drive"/fedora_server/final_production
+ declare vmShareTargetBaseDir="$MIKE_VMShared_Drive"/openSUSE/tumbleweed
 
  declare vmShareTargetCfgDir="$vmShareTargetBaseDir"/.config
 
