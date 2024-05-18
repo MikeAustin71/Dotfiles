@@ -377,13 +377,40 @@ function installMeld() {
 
 }
 
+function installNcurses() {
+
+  local -i ncursesErrCode=0
+
+  sudo zypper addrepo https://download.opensuse.org/repositories/openSUSE:Factory/standard/openSUSE:Factory.repo || {
+
+      ncursesErrCode=$?
+
+      echo
+      echo "   *** ERROR ***"
+      echo "Error returned while installing 'ncurses' repo"
+      echo "Error Code: $ncursesErrCode"
+      echo "Function: installNcurses()"
+      echo "Script: utilsAppInstall.sh"
+      echo
+
+      return $ncursesErrCode
+  }
+ 
+  sudo zypper refresh
+
+  sudo zypper install ncurses
+
+}
+
 # View multiple log files
 # https://www.tecmint.com/view-multiple-files-in-linux/
 # https://vanheusden.com/multitail/download.html
 # 'ncurses' library is required.
+#     !! DEPENDENCY !!
+#  You MUST install 'ncurses' first!
 function installMultiTail() {
 
-  sudo zypper install ncurses multitail
+  sudo zypper install multitail
 
 }
 
