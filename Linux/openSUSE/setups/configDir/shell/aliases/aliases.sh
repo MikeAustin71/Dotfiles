@@ -19,6 +19,9 @@ alias bd='cd "$OLDPWD"'
 
 alias multitail='multitail --no-repeat -c'
 
+# Snapshot of current processes
+alias ps='ps auxf'
+
 alias top="btop"
 
 alias update="sudo zypper update"
