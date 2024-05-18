@@ -15,7 +15,7 @@ alias CLS="clear"
 # alias mv='mv -i'
 
 # cd into the old directory
-#alias bd='cd "$OLDPWD"'
+alias bd='cd "$OLDPWD"'
 
 alias multitail='multitail --no-repeat -c'
 
