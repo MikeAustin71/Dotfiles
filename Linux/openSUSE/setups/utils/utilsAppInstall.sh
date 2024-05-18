@@ -377,6 +377,18 @@ function installMeld() {
 
 }
 
+# View multiple log files
+# https://www.tecmint.com/view-multiple-files-in-linux/
+# https://vanheusden.com/multitail/download.html
+# 'ncurses' library is required.
+#     !! DEPENDENCY !!
+#  You MUST install 'ncurses' first!
+function installMultiTail() {
+
+  sudo zypper install multitail
+
+}
+
 # Dependency required for 'multitail'
 function installNcurses() {
 
@@ -400,18 +412,6 @@ function installNcurses() {
   sudo zypper refresh
 
   sudo zypper install ncurses
-
-}
-
-# View multiple log files
-# https://www.tecmint.com/view-multiple-files-in-linux/
-# https://vanheusden.com/multitail/download.html
-# 'ncurses' library is required.
-#     !! DEPENDENCY !!
-#  You MUST install 'ncurses' first!
-function installMultiTail() {
-
-  sudo zypper install multitail
 
 }
 
