@@ -23,6 +23,6 @@ alias top="btop"
 
 alias update="sudo zypper update"
 
-alias update2="sudo zypper dup --allow-vendor-change"
+alias update2="sudo zypper dup --allow-vendor-change && sudo flatpak update"
 
-alias update3="sudo zypper refresh && sudo zypper dup --allow-vendor-change"
+alias update3="sudo zypper refresh && sudo zypper dup --allow-vendor-change && sudo flatpak update"
