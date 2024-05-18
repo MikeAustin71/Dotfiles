@@ -106,6 +106,16 @@ function installDolfin() {
 
 }
 
+# Drawing Application from FlatHub.
+# Installed via flatpacks. Check permissions
+# afterwards.
+# Run Command:
+#   flatpak run com.jgraph.drawio.desktop
+function installDrawIO() {
+
+  flatpak install flathub com.jgraph.drawio.desktop
+}
+
 function installDuf() {
 
   sudo zypper install duf 

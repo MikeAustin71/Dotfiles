@@ -23,4 +23,6 @@ msgNotify "Installing MiKTeX for LaTeX" &&
 installMikTex &&
 msgNotify "Installing TexMaker for LaTeX" &&
 installTexMaker &&
+msgNotify "Installing Draw IO" &&
+installDrawIO &&
 successMsg "All Phase-6 Applications Successfully Installed." "006-appInstall.sh" || errXMsg "006-appInstall.sh Execution Failed" "Error-Exit!"
