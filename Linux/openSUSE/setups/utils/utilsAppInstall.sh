@@ -280,9 +280,12 @@ function installImageMagick() {
 }
 
 # Advanced LaTeX Editor
+# Designed for use with KDE Plasma
+# Run Command:
+#   flatpak run org.kde.kile
 function installKile() {
 
-  sudo zypper install kile
+  flatpak install flathub org.kde.kile
 
 }
 
