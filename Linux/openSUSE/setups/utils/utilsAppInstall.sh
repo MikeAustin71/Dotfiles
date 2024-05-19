@@ -380,7 +380,7 @@ function installMeld() {
 # View multiple log files
 # https://www.tecmint.com/view-multiple-files-in-linux/
 # https://vanheusden.com/multitail/download.html
-# 'ncurses' library is required.
+# 'ncurses' library is required fpr 'multitail'.
 #     !! DEPENDENCY !!
 #  You MUST install 'ncurses' first!
 function installMultiTail() {
@@ -682,9 +682,12 @@ function installTerminusFonts() {
 
 # LaTeX Editor
 # https://www.xm1math.net/texmaker/
+# Run Command:
+#   flatpak run net.xm1math.Texmaker
 function installTexMaker() {
 
-  sudo zypper install texmaker
+  sudo flatpak install flathub net.xm1math.Texmaker
+
 }
 
 function installTmux() {
