@@ -531,10 +531,6 @@ function installPicom() {
 
 function installPlocate() {
 
- sudo zypper addrepo https://download.opensuse.org/repositories/openSUSE:Factory/standard/openSUSE:Factory.repo &&
-
- sudo zypper refresh &&
-
  sudo zypper install plocate
 
 }
