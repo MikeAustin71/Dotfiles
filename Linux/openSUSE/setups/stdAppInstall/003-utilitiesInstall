@@ -15,6 +15,8 @@ msgNotify "Installing 'btop'" &&
 installBtop &&
 msgNotify "Installing 'fd'(find)" &&
 installFd &&
+msgNotify "Installing 'plocate'" &&
+installPlocate &&
 msgNotify "Installing 'fzf'(Fuzzy Finder)" &&
 installFuzzyFinder &&
 msgNotify "Installing 'fkill'(Process Killer)" &&
