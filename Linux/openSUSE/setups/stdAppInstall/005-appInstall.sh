@@ -42,7 +42,7 @@ msgNotify "Installing podman Desktop" &&
 installPodmanDesktop &&
 msgNotify "Installing podman DistroBox" &&
 installDistroBox &&
-msgNotify "Installing podman Kubernetes" &&
+msgNotify "Installing Kubernetes Tools" &&
 installKubernetes &&
 successMsg "All Phase-5 Applications Installed." "005-appInstall.sh" || errXMsg "005-appInstall.sh Execution Failed" "Error-Exit!"
 
