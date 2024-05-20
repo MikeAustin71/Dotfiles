@@ -39,7 +39,7 @@ configKrusader &&
 msgNotify "Installing podman" &&
 installPodman &&
 msgNotify "Installing podman Desktop" &&
-installPodman &&
+installPodmanDesktop &&
 msgNotify "Installing podman DistroBox" &&
 installDistroBox &&
 successMsg "All Phase-5 Applications Installed." "005-appInstall.sh" || errXMsg "005-appInstall.sh Execution Failed" "Error-Exit!"

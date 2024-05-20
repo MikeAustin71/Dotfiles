@@ -547,6 +547,8 @@ function installPodman() {
 
 # GUI app for managing 'podman' containers
 # Installs from 'flatpak'
+# flatpak run io.podman_desktop.PodmanDesktop
+# Be sure to added to the desktop from AppCenter.
 function installPodmanDesktop {
 
   flatpak install flathub io.podman_desktop.PodmanDesktop
