@@ -100,6 +100,15 @@ function installCurl() {
 
 }
 
+# https://distrobox.it/
+# Dependency Requirement:
+#   'podman'
+function installDistroBox() {
+
+ sudo zypper install distrobox
+
+}
+
 function installDolfin() {
 
   sudo zypper install dolphin 
@@ -528,6 +537,31 @@ function installPlocate() {
   sudo updatedb
 
 }
+
+# https://distrobox.it/
+#
+# 'podman' is a dependency required by
+# 'distrobox'.
+function installPodman() {
+
+ sudo zypper install podman &&
+
+ sudo zypper addrepo https://download.opensuse.org/repositories/openSUSE:Factory/standard/openSUSE:Factory.repo &&
+
+ zypper refresh &&
+
+ zypper install cockpit-podman
+
+}
+
+# GUI app for managing 'podman' containers
+# Installs from 'flatpak'
+function installPodmanDesktop {
+
+  flatpak install flathub io.podman_desktop.PodmanDesktop
+
+}
+
 
 # Calculator: qalculate
 function installQalculate() {
