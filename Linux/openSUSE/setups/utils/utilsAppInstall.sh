@@ -72,7 +72,7 @@ function installCheat() {
 # https://cockpit-project.org/
 function installCockpit() {
 
-  sudo zypper install cockpit cockpit-bridge cockpit-doc cockpit-kdump cockpit-machines cockpit-networkmanager cockpit-packagekit cockpit-podman cockpit-selinux cockpit-storaged cockpit-system
+  sudo zypper install cockpit cockpit-bridge cockpit-doc cockpit-kdump cockpit-machines cockpit-networkmanager cockpit-packagekit cockpit-podman cockpit-selinux cockpit-storaged cockpit-system cockpit-tukit cockpit-ws
 
 }
 
@@ -105,7 +105,9 @@ function installCurl() {
 #   'podman'
 function installDistroBox() {
 
- sudo zypper install distrobox
+ sudo zypper install distrobox &&
+
+ sudo zypper install distrobox-bash-completion
 
 }
 
@@ -543,13 +545,7 @@ function installPlocate() {
 # 'distrobox'.
 function installPodman() {
 
- sudo zypper install podman &&
-
- sudo zypper addrepo https://download.opensuse.org/repositories/openSUSE:Factory/standard/openSUSE:Factory.repo &&
-
- zypper refresh &&
-
- zypper install cockpit-podman
+ sudo zypper install podman
 
 }
 
