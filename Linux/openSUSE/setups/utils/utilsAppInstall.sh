@@ -318,9 +318,21 @@ function installKrusader() {
 
 }
 
+function installKubernetes() {
+
+  sudo zypper install -t pattern kubeadm &&
+
+  sudo zypper install -t pattern kubernetes_utilities
+
+}
+
+
+
 function installKvmTools() {
 
-  sudo zypper install -t pattern kvm_tools from download.opensuse.org-oss
+  sudo zypper install -t pattern kvm_tools &&
+
+  sudo zypper install -t pattern kvm_server
 
 }
 
