@@ -75,6 +75,15 @@ function installCockpit() {
   sudo zypper install cockpit cockpit-bridge cockpit-doc cockpit-kdump cockpit-machines cockpit-networkmanager cockpit-packagekit cockpit-podman cockpit-selinux cockpit-storaged cockpit-system cockpit-tukit cockpit-ws cockpit-pcp sssd-dbus
 }
 
+#
+# Run Command:
+#   flatpak run org.cockpit_project.CockpitClient
+function installCockpitClient() {
+
+  flatpak install flathub org.cockpit_project.CockpitClient
+
+}
+
 function installCopyQ() {
 
   sudo zypper install copyq 
