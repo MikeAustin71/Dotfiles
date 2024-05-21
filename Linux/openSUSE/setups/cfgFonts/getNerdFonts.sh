@@ -2,7 +2,11 @@
 # Download and Install preferred fonts
 # https://github.com/ryanoasis/nerd-fonts
 # https://www.nerdfonts.com/font-downloads
-
+# System fonts must be installed in the /usr/share/fonts/ directory.
+# These System fonts can be used by all users on the machine.
+# Personal fonts are usually installed in ~/.local/share/fonts/ directory.
+# Only the user himself/herself can use it while other users cannot.
+# NOTE: ~/.fonts/ is deprecated
 
 declare NerdFontReleaseVer="v3.2.0"
 
@@ -67,7 +71,7 @@ do
           fontErrCode=$?
           echo "*** ERROR ***"
           echo "makeDirIfNotExist() FAILED!"
-          echo "Script Name: getAllFonts.sh"
+          echo "Script Name: getNerdFonts.sh"
           return $fontErrCode
         }
 
@@ -78,7 +82,7 @@ do
           fontErrCode=$?
           echo "*** ERROR ***"
           echo "changeToDir() FAILED!"
-          echo "Script Name: getAllFonts.sh"
+          echo "Script Name: getNerdFonts.sh"
           return $fontErrCode
 
     }
@@ -91,7 +95,7 @@ do
             echo "*** ERROR ***"
             echo "Font File Failed to Download!"
             echo "Font File= $XDG_DATA_FONTS/$currFontName/$currFontName.zip"
-            echo "Script Name: getAllFonts.sh"
+            echo "Script Name: getNerdFonts.sh"
             return 99
     fi
 
@@ -101,7 +105,7 @@ do
       echo "*** ERROR ***"
       echo "'unzip' fonts file FAILED!"
       echo "Font File= $XDG_DATA_FONTS/$currFontName/$currFontName.zip"
-      echo "Script Name: getAllFonts.sh"
+      echo "Script Name: getNerdFonts.sh"
       return $fontErrCode
     }
 
@@ -117,7 +121,7 @@ changeToDir "$XDG_DATA_FONTS" ||
   echo "*** ERROR ***"
   echo "Error occurred while changing to Fonts Directory!"
   echo "Fonts Directory: $XDG_DATA_FONTS"
-  echo "Script Name: getAllFonts.sh"
+  echo "Script Name: getNerdFonts.sh"
   return $fontErrCode
 }
 
@@ -130,7 +134,7 @@ sudo fc-cache -fv ||
   echo "*** ERROR ***"
   echo "Error occurred registering Fonts!"
   echo "Command: fc-cache -fv"
-  echo "Script Name: getAllFonts.sh"
+  echo "Script Name: getNerdFonts.sh"
   return $fontErrCode
 
 }

@@ -13,7 +13,7 @@ function getFonts() {
 
   local scriptFile
 
-     scriptFile="$MIKE_Setup_Scripts"/cfgFonts/getAllFonts.sh
+     scriptFile="$MIKE_Setup_Scripts"/cfgFonts/getNerdFonts.sh
 
   # shellcheck disable=SC1090
   source "$scriptFile"
