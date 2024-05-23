@@ -856,6 +856,14 @@ function install_x_Drivers_ati() {
 
 }
 
+# Yazi Terminal File Manager
+# https://yazi-rs.github.io/
+function installYazi() {
+
+  sudo zypper install yazi
+
+}
+
 # zoxide
 # zoxide is a smarter cd command, inspired by z and autojump.
 # https://github.com/ajeetdsouza/zoxide
