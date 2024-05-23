@@ -860,7 +860,7 @@ function install_x_Drivers_ati() {
 # https://yazi-rs.github.io/
 function installYazi() {
 
-  sudo zypper install yazi
+  sudo zypper install yazi yazi-bash-completion
 
 }
 
