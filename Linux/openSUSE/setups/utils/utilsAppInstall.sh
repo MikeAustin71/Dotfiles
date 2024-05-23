@@ -50,6 +50,16 @@ function installBless() {
 
 }
 
+# Bottom - btm
+# https://github.com/ClementTsang/bottom
+# A customizable cross-platform graphical
+# process/system monitor for the terminal.
+# Inspired by gtop, gotop, and htop.
+function installBottom() {
+
+  sudo zypper install bottom
+}
+
 function installBroot() {
 
   sudo zypper install broot 

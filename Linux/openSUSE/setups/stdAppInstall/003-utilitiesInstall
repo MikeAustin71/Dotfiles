@@ -13,6 +13,8 @@ msgNotify "Installing 'micro'" &&
 installMicro &&
 msgNotify "Installing 'btop'" &&
 installBtop &&
+msgNotify "Installing 'btm' (Bottom)" &&
+installBottom &&
 msgNotify "Installing 'fd'(find)" &&
 installFd &&
 msgNotify "Installing 'plocate'" &&
