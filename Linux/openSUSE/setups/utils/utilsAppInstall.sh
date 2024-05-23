@@ -530,6 +530,12 @@ function installPapirusIconTheme() {
 
 }
 
+function installProcs() {
+
+  sudo zypper install procs
+
+}
+
 function installScriptPeco() {
 
     local scriptFile

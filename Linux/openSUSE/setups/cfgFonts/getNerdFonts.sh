@@ -16,7 +16,7 @@ source "$MIKE_Setup_Scripts/utils/utilsAppInstall.sh"
 
 declare -a fontNames
 
-declare -i fontErrCode=0
+declare -i nerdFontErrCode=0
 
 fontNames[0]="CodeNewRoman"
 
@@ -68,22 +68,24 @@ do
 
         makeDirIfNotExist "$XDG_DATA_FONTS/$currFontName" 775 "$(whoami)" ||
         {
-          fontErrCode=$?
+          nerdFontErrCode=$?
           echo "*** ERROR ***"
           echo "makeDirIfNotExist() FAILED!"
+          echo "Error Code: $nerdFontErrCode"
           echo "Script Name: getNerdFonts.sh"
-          return $fontErrCode
+          return $nerdFontErrCode
         }
 
     fi
 
     changeToDir "$XDG_DATA_FONTS/$currFontName" ||
     {
-          fontErrCode=$?
+          nerdFontErrCode=$?
           echo "*** ERROR ***"
           echo "changeToDir() FAILED!"
+          echo "Error Code: $nerdFontErrCode"
           echo "Script Name: getNerdFonts.sh"
-          return $fontErrCode
+          return $nerdFontErrCode
 
     }
 
@@ -91,22 +93,24 @@ do
 
     if [ ! -f "$XDG_DATA_FONTS/$currFontName/$currFontName.zip" ]
     then
-
+            nerdFontErrCode=99
             echo "*** ERROR ***"
             echo "Font File Failed to Download!"
             echo "Font File= $XDG_DATA_FONTS/$currFontName/$currFontName.zip"
+            echo "Error Code: $nerdFontErrCode"
             echo "Script Name: getNerdFonts.sh"
-            return 99
+            return $nerdFontErrCode
     fi
 
     unzip "$XDG_DATA_FONTS/$currFontName/$currFontName.zip" ||
     {
-      fontErrCode=$?
+      nerdFontErrCode=$?
       echo "*** ERROR ***"
       echo "'unzip' fonts file FAILED!"
       echo "Font File= $XDG_DATA_FONTS/$currFontName/$currFontName.zip"
+      echo "Error Code: $nerdFontErrCode"
       echo "Script Name: getNerdFonts.sh"
-      return $fontErrCode
+      return $nerdFontErrCode
     }
 
     rm "$XDG_DATA_FONTS/$currFontName/$currFontName.zip"
@@ -117,12 +121,13 @@ done
 
 changeToDir "$XDG_DATA_FONTS" ||
 {
-  fontErrCode=$?
+  nerdFontErrCode=$?
   echo "*** ERROR ***"
   echo "Error occurred while changing to Fonts Directory!"
   echo "Fonts Directory: $XDG_DATA_FONTS"
+  echo "Error Code: $nerdFontErrCode"
   echo "Script Name: getNerdFonts.sh"
-  return $fontErrCode
+  return $nerdFontErrCode
 }
 
 echo "Registering Fonts..."
@@ -130,12 +135,13 @@ echo
 
 sudo fc-cache -fv ||
 {
-  fontErrCode=$?
+  nerdFontErrCode=$?
   echo "*** ERROR ***"
   echo "Error occurred registering Fonts!"
   echo "Command: fc-cache -fv"
+  echo "Error Code: $nerdFontErrCode"
   echo "Script Name: getNerdFonts.sh"
-  return $fontErrCode
+  return $nerdFontErrCode
 
 }
 

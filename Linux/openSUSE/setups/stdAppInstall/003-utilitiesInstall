@@ -21,6 +21,8 @@ msgNotify "Installing 'fzf'(Fuzzy Finder)" &&
 installFuzzyFinder &&
 msgNotify "Installing 'fkill'(Process Killer)" &&
 installFkill &&
+msgNotify "Installing 'procs'(Process Viewer)" &&
+installProcs &&
 msgNotify "Installing 'mc'(Midnight Commander)" &&
 installMidnightCommander &&
 msgNotify "Installing 'tldr'" &&
