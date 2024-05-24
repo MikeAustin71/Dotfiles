@@ -2,6 +2,8 @@
 # Standard Application Installations
 #
 
+declare -i appInstallErrCode=0
+
 # Alacritty Terminal Emulator
 function installAlacritty() {
 
@@ -226,8 +228,54 @@ function installFuzzyFinder() {
 # Install geany GUI Editor
 function installGeany() {
 
-  sudo zypper install geany geany-doc geany-lang geany-plugins geany-plugins-lang libgeany0
 
+  sudo zypper install geany geany-doc geany-lang libgeany0 || {
+
+    appInstallErrCode=$?
+
+    echo
+    echo "'geany' installation failed"
+    echo "Function: installGeany()"
+    echo "Script: utilsAppInstall.sh"
+    echo "Error Code: $appInstallErrCode"
+    echo
+
+    return $appInstallErrCode
+  }
+
+  [[ -f ~/.Xauthority ]] || {
+
+    touch ~/.Xauthority || {
+
+    appInstallErrCode=$?
+
+    echo
+    echo "touch ~/.Xauthority failed"
+    echo "Function: installGeany()"
+    echo "Script: utilsAppInstall.sh"
+    echo "Error Code: $appInstallErrCode"
+    echo
+
+    return $appInstallErrCode
+  }
+
+  chmod 664 ~/.Xauthority || {
+
+    appInstallErrCode=$?
+
+    echo
+    echo "touch ~/.Xauthority failed"
+    echo "Function: installGeany()"
+    echo "Script: utilsAppInstall.sh"
+    echo "Error Code: $appInstallErrCode"
+    echo
+
+    return $appInstallErrCode
+
+  }
+
+ }
+  return 0
 }
 
 # Calculator: speedcrunch
