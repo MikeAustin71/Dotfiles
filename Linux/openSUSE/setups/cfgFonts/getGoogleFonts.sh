@@ -3,7 +3,9 @@
 # On openSUSE Tumbleweed check the fonts file:
 #       .fonts.conf
 # On openSUSE Tumbleweed
-# Local user font directory: `~/.fonts`
+# Local user font directory:
+#  ~/.local/share/fonts/
+#       `~/.fonts` is deprecated
 # System font directory: `/usr/share/fonts/truetype/`
 
 source "$MIKE_Setup_Scripts/utils/utilsLib.sh"
