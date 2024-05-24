@@ -25,9 +25,12 @@ function downLoadGoogleFonts() {
 
   local -a zipFileNames
 
+  local -a urlIds
+
   local currDownloadName=""
   local currTargetDirName=""
   local currZipFileName=""
+  local currURLId=""
 
   originalStartDir=$(pwd)
 
@@ -55,13 +58,19 @@ function downLoadGoogleFonts() {
 
 
   }
+  # wget -P ~/scratch "https://github.com/adobe-fonts/source-code-pro/releases/download/2.042R-u%2F1.062R-i%2F1.026R-vf/TTF-source-code-pro-2.042R-u_1.062R-i.zip" --output-document ~/scratch/SourceCodePro.zip
 
   fontDwnNames[0]="Source%20Code%20Pro"
   fontDirNames[0]="SourceCodePro"
   zipFileNames[0]="SourceCodePro"
+  urlIds[0]="https://github.com/adobe-fonts/source-code-pro/releases/download/2.042R-u%2F1.062R-i%2F1.026R-vf/TTF-source-code-pro-2.042R-u_1.062R-i.zip"
+
+  fontDwnNames[1]="Source%20Code%20Pro"
+  fontDirNames[1]="SourceCodePro"
+  zipFileNames[1]="SourceCodePro"
+  urlIds[1]="https://github.com/adobe-fonts/source-code-pro/releases/download/2.042R-u%2F1.062R-i%2F1.026R-vf/OTF-source-code-pro-2.042R-u_1.062R-i.zip"
 
   local -i arrayIdx=0
-
 
   # extract files/directories from archives to a specific path:
   #    unzip path/to/archive1.zip path/to/archive2.zip ... -d path/to/output
@@ -72,6 +81,7 @@ function downLoadGoogleFonts() {
     currDownloadName="${fontDwnNames[$arrayIdx]}"
     currTargetDirName="$targetMasterDir"/"${fontDirNames[$arrayIdx]}"
     currZipFileName="${zipFileNames[$arrayIdx]}.zip"
+    currURLId="${urlIds[$arrayIdx]}"
 
     makeDirIfNotExist "$currTargetDirName" 775 "$opsAuthority" ||
     {
@@ -82,34 +92,40 @@ function downLoadGoogleFonts() {
       return $googleFontErrCode
     }
 
-    wget --output-document "$currZipFileName"  "$opsDir" "https://fonts.google.com/download?family=$currDownloadName" || {
+    wget -P "$opsDir" "$currURLId" --output-document "$currZipFileName" || {
 
       googleFontErrCode=$?
 
-      errXMsg "'wget' Download Command FAILED!" "Command:" "wget --output-document $currZipFileName  $opsDir https://fonts.google.com/download?family=$currDownloadName" "Error Code: $googleFontErrCode" "Function Name: downLoadGoogleFonts()" "Script Name: getGoogleFonts.sh"
+      errXMsg "'wget' Download Command FAILED!" "Command:" "wget -P $opsDir $currURLId --output-document $currZipFileName" "Error Code: $googleFontErrCode" "Function Name: downLoadGoogleFonts()" "Script Name: getGoogleFonts.sh"
 
       return $googleFontErrCode
     }
 
+
     if [[ $opsAuthority == "sudo" ]] || [[ $opsAuthority == "root" ]]
     then
 
-        opsAuthority="sudo"
+      sudo unzip "$opsDir"/"$currZipFileName" -d "$currTargetDirName" || {
+
+      googleFontErrCode=$?
+
+      errXMsg "'unzip' Command FAILED!" "Command:" "sudo unzip $opsDir/$currZipFileName -d $currTargetDirName" "Error Code: $googleFontErrCode" "Function Name: downLoadGoogleFonts()" "Script Name: getGoogleFonts.sh"
+
+      return $googleFontErrCode
+      }
 
     else
 
-        opsAuthority=""
-
-    fi
-
-    "$opsAuthority" unzip "$opsDir"/"$currZipFileName" -d "$currTargetDirName" || {
+      unzip "$opsDir"/"$currZipFileName" -d "$currTargetDirName" || {
 
       googleFontErrCode=$?
 
       errXMsg "'unzip' Command FAILED!" "Command:" "unzip $opsDir/$currZipFileName -d $currTargetDirName" "Error Code: $googleFontErrCode" "Function Name: downLoadGoogleFonts()" "Script Name: getGoogleFonts.sh"
 
       return $googleFontErrCode
-    }
+      }
+
+    fi
 
     rm -f "$opsDir"/"$currZipFileName" || {
 
