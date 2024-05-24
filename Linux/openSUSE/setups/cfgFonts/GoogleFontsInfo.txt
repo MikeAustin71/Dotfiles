@@ -2,7 +2,8 @@
 
 #To install the **Source Code Pro** font on an openSUSE Linux system, you have a few options. Let's go with a simple bash script that downloads and installs the font. However, keep in mind that it's generally recommended to install user fonts in your home directory (`~/.fonts`) rather than system-wide. Here's the script:
 
-
+# Local user font directory: `~/.fonts`
+# System font directory: `/usr/share/fonts/truetype/`
 
 # Create a temporary directory
 temp_dir=$(mktemp -d)
