@@ -7,6 +7,8 @@ export VISUAL="geany"
 
 export VIEWER="nano"
 
+export XDG_DATA_HOME="/home/mike/.local/share/flatpak/exports/share:/var/lib/flatpak/exports/share:/usr/local/share:/usr/share"
+
 export XDG_CONFIG_HOME="$HOME/.config"
 
 export XDG_CONFIG_ALIASES="$XDG_CONFIG_HOME"/shell/aliases
