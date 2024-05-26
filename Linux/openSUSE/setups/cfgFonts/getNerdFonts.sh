@@ -16,6 +16,10 @@ source "$MIKE_Setup_Scripts/utils/utilsLib.sh"
 
 source "$MIKE_Setup_Scripts/utils/utilsAppInstall.sh"
 
+# This variable controls whether the fonts will be
+# be installed as system fonts or local fonts.
+declare targetFontsMasterDir="$XDG_DATA_FONTS/NerdFonts"
+
 declare -a fontNames
 
 declare -i nerdFontErrCode=0
@@ -27,6 +31,10 @@ originalStartDir=$(pwd)
 declare opsAuthority
 
 opsAuthority="$(whoami)"
+
+declare currFontName=""
+
+declare targetDir=""
 
 fontNames[0]="CodeNewRoman"
 
@@ -65,12 +73,6 @@ fontNames[16]="SourceCodePro"
 fontNames[17]="SpaceMono"
 
 fontNames[18]="Terminus"
-
-declare currFontName=""
-
-declare targetFontsMasterDir="$XDG_DATA_FONTS/NerdFonts"
-
-declare targetDir=""
 
 [[ -d $targetFontsMasterDir ]] || {
 
