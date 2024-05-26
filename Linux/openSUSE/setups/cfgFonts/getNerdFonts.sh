@@ -2,10 +2,12 @@
 # Download and Install preferred fonts
 # https://github.com/ryanoasis/nerd-fonts
 # https://www.nerdfonts.com/font-downloads
-# System fonts must be installed in the /usr/share/fonts/ directory.
-# These System fonts can be used by all users on the machine.
-# Personal fonts are usually installed in ~/.local/share/fonts/ directory.
-# Only the user himself/herself can use it while other users cannot.
+# On openSUSE Tumbleweed
+# Local user font directory:
+#  ~/.local/share/fonts/
+# System font directory:
+#  /usr/share/fonts/truetype/
+#
 # NOTE: ~/.fonts/ is deprecated
 
 declare NerdFontReleaseVer="v3.2.0"
@@ -17,6 +19,14 @@ source "$MIKE_Setup_Scripts/utils/utilsAppInstall.sh"
 declare -a fontNames
 
 declare -i nerdFontErrCode=0
+
+declare originalStartDir=""
+
+originalStartDir=$(pwd)
+
+declare opsAuthority
+
+opsAuthority="$(whoami)"
 
 fontNames[0]="CodeNewRoman"
 
@@ -60,11 +70,13 @@ declare currFontName=""
 
 declare targetFontsMasterDir="$XDG_DATA_FONTS/NerdFonts"
 
+declare targetDir=""
+
 [[ -d $targetFontsMasterDir ]] || {
 
   nerdFontErrCode=$?
 
-  makeDirIfNotExist "$targetFontsMasterDir" 775 "$(whoami)" ||
+  makeDirIfNotExist "$targetFontsMasterDir" 775 "$opsAuthority" ||
   {
     nerdFontErrCode=$?
    errXMsg "makeDirIfNotExist() FAILED!" "Target Dir:" "  $targetFontsMasterDir" "Error Code: $nerdFontErrCode" "Script Name: getNerdFonts.sh"
@@ -78,59 +90,94 @@ declare targetFontsMasterDir="$XDG_DATA_FONTS/NerdFonts"
 for currFontName in "${fontNames[@]}"
 do
 
-    if [[ -d "$targetFontsMasterDir/$currFontName" ]]
+    targetDir="$targetFontsMasterDir/$currFontName"
+
+    if [[ -d $targetDir ]]
     then
-        zapFilesCmd "$targetFontsMasterDir/$currFontName/*" "-rf" "sudo"
+
+        zapFilesCmd "$targetDir/*" "-rf" "sudo" || {
+
+          nerdFontErrCode=$?
+
+          errXMsg "Call to zapFilesCmd() Failed!" "File Delete Command:" "  zapFilesCmd $targetDir/* -rf sudo" "Error Code: $nerdFontErrCode" "Script Name: getNerdFonts.sh"
+
+          return $nerdFontErrCode
+
+        }
+
     else
 
-        makeDirIfNotExist "$targetFontsMasterDir/$currFontName" 775 "$(whoami)" ||
+        makeDirIfNotExist "$targetDir" 775 "$opsAuthority" ||
         {
+
           nerdFontErrCode=$?
-          echo "*** ERROR ***"
-          echo "makeDirIfNotExist() FAILED!"
-          echo "Error Code: $nerdFontErrCode"
-          echo "Script Name: getNerdFonts.sh"
+
+          errXMsg "Call to makeDirIfNotExist() Failed!" "Target Dir:" "  $targetDir" "Error Code: $nerdFontErrCode" "Script Name: getNerdFonts.sh"
+
           return $nerdFontErrCode
         }
 
-    fi
+     fi
 
-    changeToDir "$targetFontsMasterDir/$currFontName" ||
+    changeToDir "$targetDir" ||
     {
           nerdFontErrCode=$?
-          echo "*** ERROR ***"
-          echo "changeToDir() FAILED!"
-          echo "Error Code: $nerdFontErrCode"
-          echo "Script Name: getNerdFonts.sh"
+
+          errXMsg "Call to changeToDir() FAILED!" "Target Dir:" "  $targetDir" "Error Code: $nerdFontErrCode" "Script Name: getNerdFonts.sh"
+
           return $nerdFontErrCode
 
     }
 
-    curl -fLo "$currFontName.zip" "https://github.com/ryanoasis/nerd-fonts/releases/download/$NerdFontReleaseVer/$currFontName.zip"
+    if [[ $opsAuthority == "sudo" ]] || [[ $opsAuthority == "root" ]]
+    then
 
-    if [ ! -f "$targetFontsMasterDir/$currFontName/$currFontName.zip" ]
+      sudo curl -fLo "$currFontName.zip" "https://github.com/ryanoasis/nerd-fonts/releases/download/$NerdFontReleaseVer/$currFontName.zip" || {
+
+        nerdFontErrCode=$?
+
+        errXMsg "Font download failed." "Download Command:" "  sudo curl -fLo $currFontName.zip https://github.com/ryanoasis/nerd-fonts/releases/download/$NerdFontReleaseVer/$currFontName.zip" "Error Code: $nerdFontErrCode" "Script Name: getNerdFonts.sh"
+
+        return $nerdFontErrCode
+
+      }
+
+    else
+
+      curl -fLo "$currFontName.zip" "https://github.com/ryanoasis/nerd-fonts/releases/download/$NerdFontReleaseVer/$currFontName.zip" || {
+
+        nerdFontErrCode=$?
+
+        errXMsg "Font download failed." "Download Command:" "  curl -fLo $currFontName.zip https://github.com/ryanoasis/nerd-fonts/releases/download/$NerdFontReleaseVer/$currFontName.zip" "Error Code: $nerdFontErrCode" "Script Name: getNerdFonts.sh"
+
+        return $nerdFontErrCode
+      }
+
+    fi
+
+    if [ ! -f "$targetDir/$currFontName.zip" ]
     then
             nerdFontErrCode=99
             echo "*** ERROR ***"
             echo "Font File Failed to Download!"
-            echo "Font File= $targetFontsMasterDir/$currFontName/$currFontName.zip"
+            echo "Font File= $targetDir/$currFontName.zip"
             echo "Error Code: $nerdFontErrCode"
             echo "Script Name: getNerdFonts.sh"
             return $nerdFontErrCode
     fi
 
-    unzip "$targetFontsMasterDir/$currFontName/$currFontName.zip" ||
+    unzip "$targetDir/$currFontName.zip" ||
     {
       nerdFontErrCode=$?
       echo "*** ERROR ***"
       echo "'unzip' fonts file FAILED!"
-      echo "Font File= $targetFontsMasterDir/$currFontName/$currFontName.zip"
+      echo "Font File= $targetDir/$currFontName.zip"
       echo "Error Code: $nerdFontErrCode"
       echo "Script Name: getNerdFonts.sh"
       return $nerdFontErrCode
     }
 
-    rm "$targetFontsMasterDir/$currFontName/$currFontName.zip"
+    rm "$targetDir/$currFontName.zip"
 
     echo "Successfully Downloaded Font $currFontName"
 
@@ -141,12 +188,13 @@ changeToDir "$targetFontsMasterDir" ||
   nerdFontErrCode=$?
   echo "*** ERROR ***"
   echo "Error occurred while changing to Fonts Directory!"
-  echo "Fonts Directory: $XDG_DATA_FONTS"
+  echo "Fonts Directory: $targetFontsMasterDir"
   echo "Error Code: $nerdFontErrCode"
   echo "Script Name: getNerdFonts.sh"
   return $nerdFontErrCode
 }
 
+echo
 echo "Registering Fonts..."
 echo
 
@@ -156,17 +204,20 @@ sudo fc-cache -fv ||
   echo "*** ERROR ***"
   echo "Error occurred registering Fonts!"
   echo "Command: fc-cache -fv"
+  echo "Current Director:"
+  echo "  $targetFontsMasterDir"
   echo "Error Code: $nerdFontErrCode"
   echo "Script Name: getNerdFonts.sh"
   return $nerdFontErrCode
 
 }
 
-cd "$HOME" || {
+cd "$originalStartDir" || {
 
   nerdFontErrCode=$?
   echo "*** ERROR ***"
-  echo "Error occurred while changing dir to: $HOME"
+  echo "Error occurred while changing current working directory to:"
+  echo " $originalStartDir"
   echo "Error Code: $nerdFontErrCode"
   echo "Script Name: getNerdFonts.sh"
   return $nerdFontErrCode

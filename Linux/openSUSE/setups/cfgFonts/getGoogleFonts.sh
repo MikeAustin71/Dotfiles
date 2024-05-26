@@ -5,8 +5,10 @@
 # On openSUSE Tumbleweed
 # Local user font directory:
 #  ~/.local/share/fonts/
-#       `~/.fonts` is deprecated
-# System font directory: `/usr/share/fonts/truetype/`
+# System font directory:
+#  /usr/share/fonts/truetype/
+#
+# NOTE: ~/.fonts/ is deprecated
 
 source "$MIKE_Setup_Scripts/utils/utilsLib.sh"
 
