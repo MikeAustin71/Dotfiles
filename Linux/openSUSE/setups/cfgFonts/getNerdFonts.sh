@@ -58,12 +58,29 @@ fontNames[18]="Terminus"
 
 declare currFontName=""
 
+declare targetFontsMasterDir="$XDG_DATA_FONTS/NerdFonts"
+
+[[ -d $targetFontsMasterDir ]] || {
+
+  nerdFontErrCode=$?
+
+  makeDirIfNotExist "$targetFontsMasterDir" 775 "$(whoami)" ||
+  {
+    nerdFontErrCode=$?
+   errXMsg "makeDirIfNotExist() FAILED!" "Target Dir:" "  $targetFontsMasterDir" "Error Code: $nerdFontErrCode" "Script Name: getNerdFonts.sh"
+
+    return $nerdFontErrCode
+  }
+
+
+}
+
 for currFontName in "${fontNames[@]}"
 do
 
     if [[ -d "$XDG_DATA_FONTS/$currFontName" ]]
     then
-        zapFilesCmd "$XDG_DATA_FONTS/$currFontName/*" "-rf" "sudo"
+        zapFilesCmd "$targetFontsMasterDir/$currFontName/*" "-rf" "sudo"
     else
 
         makeDirIfNotExist "$XDG_DATA_FONTS/$currFontName" 775 "$(whoami)" ||
