@@ -78,12 +78,12 @@ declare targetFontsMasterDir="$XDG_DATA_FONTS/NerdFonts"
 for currFontName in "${fontNames[@]}"
 do
 
-    if [[ -d "$XDG_DATA_FONTS/$currFontName" ]]
+    if [[ -d "$targetFontsMasterDir/$currFontName" ]]
     then
         zapFilesCmd "$targetFontsMasterDir/$currFontName/*" "-rf" "sudo"
     else
 
-        makeDirIfNotExist "$XDG_DATA_FONTS/$currFontName" 775 "$(whoami)" ||
+        makeDirIfNotExist "$targetFontsMasterDir/$currFontName" 775 "$(whoami)" ||
         {
           nerdFontErrCode=$?
           echo "*** ERROR ***"
@@ -95,7 +95,7 @@ do
 
     fi
 
-    changeToDir "$XDG_DATA_FONTS/$currFontName" ||
+    changeToDir "$targetFontsMasterDir/$currFontName" ||
     {
           nerdFontErrCode=$?
           echo "*** ERROR ***"
@@ -108,35 +108,35 @@ do
 
     curl -fLo "$currFontName.zip" "https://github.com/ryanoasis/nerd-fonts/releases/download/$NerdFontReleaseVer/$currFontName.zip"
 
-    if [ ! -f "$XDG_DATA_FONTS/$currFontName/$currFontName.zip" ]
+    if [ ! -f "$targetFontsMasterDir/$currFontName/$currFontName.zip" ]
     then
             nerdFontErrCode=99
             echo "*** ERROR ***"
             echo "Font File Failed to Download!"
-            echo "Font File= $XDG_DATA_FONTS/$currFontName/$currFontName.zip"
+            echo "Font File= $targetFontsMasterDir/$currFontName/$currFontName.zip"
             echo "Error Code: $nerdFontErrCode"
             echo "Script Name: getNerdFonts.sh"
             return $nerdFontErrCode
     fi
 
-    unzip "$XDG_DATA_FONTS/$currFontName/$currFontName.zip" ||
+    unzip "$targetFontsMasterDir/$currFontName/$currFontName.zip" ||
     {
       nerdFontErrCode=$?
       echo "*** ERROR ***"
       echo "'unzip' fonts file FAILED!"
-      echo "Font File= $XDG_DATA_FONTS/$currFontName/$currFontName.zip"
+      echo "Font File= $targetFontsMasterDir/$currFontName/$currFontName.zip"
       echo "Error Code: $nerdFontErrCode"
       echo "Script Name: getNerdFonts.sh"
       return $nerdFontErrCode
     }
 
-    rm "$XDG_DATA_FONTS/$currFontName/$currFontName.zip"
+    rm "$targetFontsMasterDir/$currFontName/$currFontName.zip"
 
     echo "Successfully Downloaded Font $currFontName"
 
 done
 
-changeToDir "$XDG_DATA_FONTS" ||
+changeToDir "$targetFontsMasterDir" ||
 {
   nerdFontErrCode=$?
   echo "*** ERROR ***"
@@ -156,6 +156,17 @@ sudo fc-cache -fv ||
   echo "*** ERROR ***"
   echo "Error occurred registering Fonts!"
   echo "Command: fc-cache -fv"
+  echo "Error Code: $nerdFontErrCode"
+  echo "Script Name: getNerdFonts.sh"
+  return $nerdFontErrCode
+
+}
+
+cd "$HOME" || {
+
+  nerdFontErrCode=$?
+  echo "*** ERROR ***"
+  echo "Error occurred while changing dir to: $HOME"
   echo "Error Code: $nerdFontErrCode"
   echo "Script Name: getNerdFonts.sh"
   return $nerdFontErrCode
