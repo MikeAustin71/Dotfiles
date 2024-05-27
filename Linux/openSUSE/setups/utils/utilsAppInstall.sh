@@ -338,7 +338,7 @@ function installScriptGHQ() {
 
     scriptFile="$HOME"/bashOps/setups/customAppInstalls/installGHQ.sh
 
-  # shellcheck source="$MIKE_Setup_Scripts"/customAppConfig/configKrusader.sh
+  # shellcheck source=$MIKE_Setup_Scripts/customAppConfig/configKrusader.sh
    source "$scriptFile"
 }
 
@@ -608,7 +608,7 @@ function installScriptPeco() {
     scriptFile="$MIKE_Setup_Scripts"/customAppInstalls/installpeco.sh
 
 
-  # shellcheck source="$HOME"/bashOps/setups/customAppInstalls/installpeco.sh
+  # shellcheck source=$HOME/bashOps/setups/customAppInstalls/installpeco.sh
    source "$scriptFile"
 
 }
