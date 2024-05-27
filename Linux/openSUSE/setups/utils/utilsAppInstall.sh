@@ -416,6 +416,13 @@ function installLLVM() {
 
 }
 
+# Lynis - Security hardening tool
+function installLynis() {
+
+  sudo zypper install lynis
+
+}
+
 # Installs hardware listing utility 'lswh'
 # https://www.howtogeek.com/devops/how-to-use-lshw-in-linux-with-a-practical-example/
 function installLshw() {
