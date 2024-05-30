@@ -123,6 +123,12 @@ function updateMikeEverything() {
      return $errorCode
   }
 
+
+  echo
+  echo "******************************************"
+  echo "   All Updates Successfully Completed!"
+  echo "******************************************"
+  echo
   return 0
 
 }

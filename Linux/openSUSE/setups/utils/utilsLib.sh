@@ -721,12 +721,13 @@ function makeDirIfNotExist() {
     {
         errorCode=$?
 
-        echo -e "*** Error ***\n
-        Failed to create Target Directory!\n
-        Target Directory: $targetDir\n
-        Permission Code: $permissionCode\n
-        Function: makeDirIfNotExist()\n
-        Error Code: $errorCode"
+        echo "       *** Error ***"
+        echo "Failed to create Target Directory!"
+        echo "Target Directory: $targetDir"
+        echo "Permission Code: $permissionCode"
+        echo "Function: makeDirIfNotExist()"
+        echo "Error Code: $errorCode"
+        echo
 
         return $errorCode
     }
