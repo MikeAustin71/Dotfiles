@@ -9,7 +9,17 @@
 source "$MIKE_Setup_Utilities"/utilsLib.sh
 source "$MIKE_Setup_Utilities"/utilsAppInstall.sh
 
-function getFonts() {
+function installGoogleFonts() {
+
+  local scriptFile
+
+     scriptFile="$MIKE_Setup_Scripts"/cfgFonts/getGoogleFonts.sh
+
+  # shellcheck disable=SC1090
+  source "$scriptFile"
+}
+
+function installNerdFonts() {
 
   local scriptFile
 
@@ -30,8 +40,10 @@ function getWallpaper() {
 }
 
 
-msgNotify "Installing Fonts" &&
-getFonts &&
+msgNotify "Installing Nerd Fonts" &&
+installNerdFonts &&
+msgNotify "Installing Google Fonts" &&
+installGoogleFonts &&
 msgNotify "Installing Wallpapers" &&
 getWallpaper &&
 successMsg "All Base Tools Installed." "All Fonts and Wallpapers Installed" "004-baseToolsInstall.sh" || errXMsg "004-baseToolsInstall.sh Execution Failed" "Error-Exit!"
