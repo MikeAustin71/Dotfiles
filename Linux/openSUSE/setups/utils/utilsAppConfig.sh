@@ -16,7 +16,7 @@ function configAlacritty() {
     scriptFile="$utilAppCfgSetups"/customAppConfig/configAlacritty.sh
 
 
-  # shellcheck source="$MIKE_Setup_Scripts"/customAppConfig/configAlacritty.sh
+   # shellcheck disable=SC1090
    source "$scriptFile"
 }
 
@@ -317,7 +317,7 @@ function configAwesome() {
     scriptFile="$utilAppCfgSetups"/customAppConfig/configAwesome.sh
 
 
-  # shellcheck source="$MIKE_Setup_Scripts"/customAppConfig/configAwesome.sh
+   # shellcheck disable=SC1090
    source "$scriptFile"
 }
 
@@ -699,7 +699,7 @@ function configDirStructure() {
    scriptFile="$utilAppCfgSetups"/mikeFolders/createBaseFolders.sh
 
 
-   # shellcheck source="$HOME"/bashOps/setups/mikeFolders/createBaseFolders.sh
+   # shellcheck disable=SC1090
    source "$scriptFile"
 
 }
@@ -715,6 +715,10 @@ function configEnvars() {
   local targetEnvarsFileName="envars.sh"
 
   local targetEnvarsFile="$targetEnvarsDir"/"$targetEnvarsFileName"
+
+  local opsAuthority=""
+
+  opsAuthority="$(whoami)"
 
   local -i envarsErrCode=0
 
@@ -743,7 +747,7 @@ function configEnvars() {
       msgNotify "Deleted old Envars File:" "$targetEnvarsFile" "Function: configEnvars()" "Script Name: utilsAppConfig.sh"
  }
 
-  appendTextToFile "$sourceFile" "$targetEnvarsDir" "$targetEnvarsFileName" "775" "$(whoami)" || {
+  appendTextToFile "$sourceFile" "$targetEnvarsDir" "$targetEnvarsFileName" "775" "$opsAuthority" || {
 
     envarsErrCode=$?
 
@@ -784,7 +788,7 @@ function configKitty() {
     scriptFile="$utilAppCfgSetups"/customAppConfig/configKitty.sh
 
 
-  # shellcheck source="$MIKE_Setup_Scripts"/customAppConfig/configKitty.sh
+  # shellcheck source=MIKE_Setup_Scripts/customAppConfig/configKitty.sh
    source "$scriptFile"
 }
 
@@ -798,7 +802,7 @@ function configKrusader() {
     scriptFile="$utilAppCfgSetups"/customAppConfig/configKrusader.sh
 
 
-  # shellcheck source="$MIKE_Setup_Scripts"/customAppConfig/configKrusader.sh
+  # shellcheck source=MIKE_Setup_Scripts/customAppConfig/configKrusader.sh
    source "$scriptFile"
 
 }
@@ -880,7 +884,7 @@ function configPicom() {
     scriptFile="$utilAppCfgSetups"/customAppConfig/configPicom.sh
 
 
-  # shellcheck source="$MIKE_Setup_Scripts"/customAppConfig/configPicom.sh
+  # shellcheck source=MIKE_Setup_Scripts/customAppConfig/configPicom.sh
    source "$scriptFile"
 }
 
@@ -956,7 +960,7 @@ function configTmux() {
     scriptFile="$utilAppCfgSetups"/customAppConfig/configTmux.sh
 
 
-  # shellcheck source="$MIKE_Setup_Scripts"/customAppConfig/configKitty.sh
+  # shellcheck source=MIKE_Setup_Scripts/customAppConfig/configKitty.sh
    source "$scriptFile"
 }
 
@@ -970,7 +974,7 @@ function configXorgXintrc() {
     scriptFile="$utilAppCfgSetups"/customAppConfig/configXintrc.sh
 
 
-  # shellcheck source="$MIKE_Setup_Scripts"/customAppConfig/configXintrc.sh
+   # shellcheck disable=SC1090
    source "$scriptFile"
 
 }

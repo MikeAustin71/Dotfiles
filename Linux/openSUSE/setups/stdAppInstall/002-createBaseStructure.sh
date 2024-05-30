@@ -45,7 +45,7 @@ msgNotify "Installing 'broot'" &&
 installBroot &&
 msgNotify "Configuring 'broot' Aliases" &&
 configAliasesBroot &&
-msgNotify "Configuring 'broot' in .bashrc" &&
+msgNotify "Configuring 'broot' in .bashrc" &&002
 configBashrcBroot &&
 msgNotify "Installing 'zoxide'" &&
 installZoxide &&
