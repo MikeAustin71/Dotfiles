@@ -85,7 +85,7 @@ msgNotify "Installing 'wget'" &&
 installWget &&
 msgNotify "Installing C and C++ Tools" &&
 installCToolsLibs &&
-msgNotify "Installing Dev Tools" &&
+msgNotify "Installing 02 Dev Tools" &&
 installDevTools &&
 msgNotify "Installing Python 3" &&
 installPython3 &&
