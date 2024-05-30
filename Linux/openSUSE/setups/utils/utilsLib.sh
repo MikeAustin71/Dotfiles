@@ -34,7 +34,7 @@ function appendTextToFile() {
 
 	local targetFileOwner=$5
 
-  local -1 addTextErrCode=0
+  local -i addTextErrCode=0
 
   local targetFile="$targetDir"/"$targetFileName"
 
