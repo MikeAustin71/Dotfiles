@@ -102,7 +102,7 @@ function appendTextToFile() {
     return $addTextErrCode
   }
 
-  makeFileIfNotExist "$targetDir" "$targetFileName" "$targetFilePermissions" "targetFileOwner" || {
+  makeFileIfNotExist "$targetDir" "$targetFileName" "$targetFilePermissions" "$targetFileOwner" || {
 
     addTextErrCode=$?
 
