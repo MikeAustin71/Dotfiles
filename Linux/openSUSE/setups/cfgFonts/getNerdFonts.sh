@@ -6,7 +6,7 @@
 # Local user font directory:
 #  ~/.local/share/fonts/
 # System font directory:
-#  /usr/share/fonts/truetype/
+#  /usr/share/fonts/
 #
 # NOTE: ~/.fonts/ is deprecated
 
@@ -76,9 +76,7 @@ fontNames[18]="Terminus"
 
 [[ -d $targetFontsMasterDir ]] || {
 
-  nerdFontErrCode=$?
-
-  makeDirIfNotExist "$targetFontsMasterDir" 775 "$opsAuthority" ||
+   makeDirIfNotExist "$targetFontsMasterDir" 775 "$opsAuthority" ||
   {
     nerdFontErrCode=$?
    errXMsg "makeDirIfNotExist() FAILED!" "Target Dir:" "  $targetFontsMasterDir" "Error Code: $nerdFontErrCode" "Script Name: getNerdFonts.sh"
