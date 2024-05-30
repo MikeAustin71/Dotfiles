@@ -18,7 +18,7 @@ source "$MIKE_Setup_Scripts/utils/utilsAppInstall.sh"
 
 # This variable controls whether the fonts will be
 # be installed as system fonts or local fonts.
-declare targetFontsMasterDir="$XDG_DATA_FONTS/NerdFonts"
+declare targetFontsMasterDir="/usr/share/fonts/NerdFonts"
 
 declare -a fontNames
 
@@ -28,9 +28,9 @@ declare originalStartDir=""
 
 originalStartDir=$(pwd)
 
-declare opsAuthority
+declare opsAuthority=""
 
-opsAuthority="$(whoami)"
+opsAuthority="sudo"
 
 declare currFontName=""
 

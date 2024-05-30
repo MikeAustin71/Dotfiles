@@ -14,10 +14,14 @@ source "$MIKE_Setup_Scripts/utils/utilsLib.sh"
 
 source "$MIKE_Setup_Scripts/utils/utilsAppInstall.sh"
 
-declare targetMasterDir="$XDG_DATA_FONTS"/google
+declare targetMasterDir="/usr/share/fonts/Google"
+
 declare opsDir="$HOME"/scratch
 declare originalStartDir=""
 declare opsAuthority=""
+
+opsAuthority="sudo"
+
 declare -i googleFontErrCode=0
 
 function downLoadGoogleFonts() {
