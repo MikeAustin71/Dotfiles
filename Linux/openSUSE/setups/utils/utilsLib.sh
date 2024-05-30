@@ -829,7 +829,7 @@ function makeFileIfNotExist() {
 
 	local targetFileOwner=$4
 
-  local -1 makeFileErrCode=0
+  local -i makeFileErrCode=0
 
   [[ -n $targetDir ]] || {
 
