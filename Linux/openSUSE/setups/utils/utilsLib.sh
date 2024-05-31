@@ -442,13 +442,29 @@ function changeToDir() {
 
 	local targetDir=$1
 
+  [[ -n $targetDir ]] || {
+
+    echo
+ 		echo "    ****** Error ******"
+		echo "Target Directory Parameter is Empty!"
+		echo "Function: changeToDir()"
+		echo "Script File: utilsLib.sh"
+		echo
+		return 98
+
+
+  }
+
 	[[ -d $targetDir ]] || {
 
-		echo "*** Error ***"
+    echo
+ 		echo "    ****** Error ******"
 		echo "The Target Directory DOES NOT EXIST!"
 		echo "Target Directory: $targetDir"
 		echo "Function: changeToDir()"
-		return 99
+		echo "Script File: utilsLib.sh"
+
+	  return 99
 
 	}
 
@@ -469,8 +485,10 @@ function changeToDir() {
     return $errorCode
   }
 
-	echo "Success: Changed current working directory to:"
-	echo "$targetDir"
+  echo
+  echo "Success!"
+	echo "Changed current working directory to:"
+	echo "    $targetDir"
 	echo
 
   return 0
