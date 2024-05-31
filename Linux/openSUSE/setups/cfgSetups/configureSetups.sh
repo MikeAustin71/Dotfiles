@@ -85,11 +85,15 @@ function changeToStartingDir() {
     return $errorCode
   }
 
-  echo -e "Successfully changed the current working
-  directory to the original Staring Directory in\n
-  effect when this script was initially executed.\n
-  Original Starting Director: $origStartingDir\n
-  Function: changeToStartingDir()\n\n"
+  echo
+  echo "Successfully changed the current working"
+  echo "directory to the original Staring Directory in"
+  echo "effect when this script was initially executed."
+  echo "Original Starting Directory:"
+  echo "    $origStartingDir"
+  echo "Function: changeToStartingDir()"
+  echo "Script File: configureSetups.sh"
+  echo
 
   return 0
 }
