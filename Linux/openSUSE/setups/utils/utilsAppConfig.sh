@@ -1000,7 +1000,7 @@ function configStarship() {
   
   local targetConfigDir="$HOME"/.config
   
-  local targetConfigStarshipDir="$targetConfigDir"/sharship
+  local targetConfigStarshipDir="$targetConfigDir"/starship
 
   local -i cfgStarshipErrCode=0
 
