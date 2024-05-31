@@ -372,6 +372,60 @@ function configBashrcBashCompletion() {
   return 0
 }
 
+# Configures 'broot' startup in .bash_profile file.
+# 'broot' is a replacement for the 'tree' command.
+# https://github.com/Canop/broot
+function configBashProfileBroot() {
+
+  local sourceTxtFile="$utilAppCfgSetups"/cfgBashProfile/installBashProfileBroot.txt
+
+  local bashProfileTargetDir="$HOME"
+
+  local bashProfileTargetFileName=".bash_profile"
+
+  local bashProfileTargetFile="$bashProfileTargetDir"/"$bashProfileTargetFileName"
+
+  local -i bashProfileBrootErrCode=0
+
+  [[ -f $sourceTxtFile ]] || {
+
+    bashProfileBrootErrCode=69
+
+    errXMsg ".bash_profile Broot Source File Does NOT Exist!" ".bash_profile Broot Source File:" "  $sourceTxtFile" "Error Code: $bashProfileBrootErrCode" "Function: configBashProfileBroot()" "Script File: utilsAppConfig.sh"
+
+    return $bashProfileBrootErrCode
+  }
+
+  appendTextToFile "$sourceTxtFile" "$bashProfileTargetDir" "$bashProfileTargetFileName" "775" "$(whoami)" || {
+
+    bashProfileBrootErrCode=$?
+
+    echo
+    echo "Error calling appendTextToFile()"
+    echo "Target File: $bashProfileTargetFile"
+    echo "Error Code: $bashProfileBrootErrCode"
+    echo "Function: configBashProfileBroot()"
+    echo "Script File: utilsAppConfig.sh"
+    echo
+
+    return $bashProfileBrootErrCode
+  }
+
+  # shellcheck disable=SC1090
+  source "$bashProfileTargetFile" || {
+
+    bashProfileBrootErrCode=$?
+
+    errXMsg "Error returned by 'source' command:" "source $bashProfileTargetFile" "Error Code: $bashProfileBrootErrCode" "Function: configBashProfileBroot()" "Script File: utilsAppConfig.sh"
+
+    return $bashProfileBrootErrCode
+  }
+
+  msgNotify "    --------------" "'.bash_profile' Broot Parameters Successfully Configured and Now Active" "Sourced Target File:" "$bashProfileTargetFile" "    --------------"
+
+  return 0
+}
+
 # Configures Envars Variables in .bash_profile
 function configBashProfileEnvars() {
  
