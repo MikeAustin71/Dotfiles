@@ -321,6 +321,57 @@ function configAwesome() {
    source "$scriptFile"
 }
 
+function configBashrcBashCompletion() {
+
+  local sourceTxtFile="$utilAppCfgSetups"/cfgBashrc/installBashrcBashCompletion.txt
+
+  local bashrcTargetDir="$HOME"
+
+  local bashrcTargetFileName=".bashrc"
+
+  local bashrcTargetFile="$bashrcTargetDir"/"$bashrcTargetFileName"
+
+  local -i bashrcCompletionsErrCode=0
+
+  [[ -f $sourceTxtFile ]] || {
+
+    bashrcCompletionsErrCode=79
+
+    errXMsg "Bash Completions Source File Does NOT Exist!" "Bash_Completion Source File:" "  $sourceTxtFile" "Error Code: $bashrcCompletionsErrCode" "Function: configBashrcBashCompletion()" "Script File: utilsAppConfig.sh"
+
+    return $bashrcCompletionsErrCode
+  }
+
+  appendTextToFile "$sourceTxtFile" "$bashrcTargetDir" "$bashrcTargetFileName" "775" "$(whoami)" || {
+
+    bashrcCompletionsErrCode=$?
+
+    echo
+    echo "Error calling appendTextToFile()"
+    echo "Target File: $bashrcTargetFile"
+    echo "Error Code: $bashrcCompletionsErrCode"
+    echo "Function: configBashrcBashCompletion()"
+    echo "Script File: utilsAppConfig.sh"
+    echo
+
+    return $bashrcCompletionsErrCode
+  }
+
+  # shellcheck disable=SC1090
+  source "$bashrcTargetFile" || {
+
+    bashrcCompletionsErrCode=$?
+
+    errXMsg "Error returned by 'source' command:" "source $bashrcTargetFile" "Error Code: $bashrcCompletionsErrCode" "Function: configBashrcBashCompletion()" "Script File: utilsAppConfig.sh"
+
+    return $bashrcCompletionsErrCode
+  }
+
+  msgNotify "    --------------" "'.bashrc' Bash Bash Completions Successfully Configured and Now Active" "Sourced Target File:" "$bashrcTargetFile" "    --------------"
+
+  return 0
+}
+
 # Configures Envars Variables in .bash_profile
 function configBashProfileEnvars() {
  
