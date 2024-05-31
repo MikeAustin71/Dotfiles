@@ -744,7 +744,7 @@ function installTrash() {
 
   local -i errorCode=0
 
-  zypper addrepo https://download.opensuse.org/repositories/home:our-obo-ros/openSUSE_Tumbleweed/home:our-obo-ros.repo || {
+  sudo zypper addrepo https://download.opensuse.org/repositories/home:our-obo-ros/openSUSE_Tumbleweed/home:our-obo-ros.repo || {
 
 
     errorCode=$?

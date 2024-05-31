@@ -57,4 +57,7 @@ msgNotify "Copying Starship Config Files" &&
 configStarship &&
 msgNotify "Configuring 'starship' in .bashrc" &&
 configBashrcStarship &&
-successMsg "All Phase-2 Structures Created." "REBOOT YOUR COMPUTER!" "Script: 002-createBaseStructure.sh" || errXMsg "002-createBaseStructure.sh Execution Failed" "Error-Exit!"
+successMsg "All Phase-2 Structures Created." "REBOOT YOUR COMPUTER!" "Script: 002-createBaseStructure.sh" || {
+
+  errXMsg "002-createBaseStructure.sh Execution Failed" "Error-Exit!"
+}
