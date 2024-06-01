@@ -136,6 +136,69 @@ function appendTextToFile() {
   return 0
 }
 
+# This function will backup the system
+# file, ~/.bashrc, to the backup directory
+# ~/.config/shell/backups/bashrcBak
+# If the system file ~/.bashrc does not
+# exist, an error will be returned.
+function backupBashrcFile() {
+
+
+  local sourceFile="$HOME/.bashrc"
+
+  local targetDir="$HOME/.config/shell/backups/bashrcBak"
+
+  local targetDirPermissions="775"
+
+  local targetFileBaseName="_bashrcBak"
+
+	local targetFilePermissions="644"
+
+	local targetFileOwner=""
+
+	targetFileOwner="$(whoami)"
+
+  local -i errExitCode=0
+
+
+  [[ -f $sourceFile ]] || {
+
+    errExitCode=11
+
+    errXMsg ".bashrc Source File DOES NOT EXIST!" "Source File:" "  $sourceFile" "Error Code: $errExitCode" "Function: backupBashrcFile()" "Script File: utilsLib.sh"
+
+    return $errExitCode
+  }
+
+  makeDirIfNotExist "$targetDir" "$targetDirPermissions" "$targetFileOwner" || {
+
+    errExitCode=$?
+
+    msgNotify "Error calling Function: makeDirIfNotExist()" "Error Code: $errExitCode" "Function: backupBashrcFile()" "Script File: utilsLib.sh"
+
+    return $errExitCode
+  }
+
+  local datetime=""
+
+  datetime=$(date +'%Y%m%d_%H%M%S')
+
+  local targetFileName="$datetime$targetFileBaseName"
+
+  cp -v "$sourceFile" "$targetFileName" || {
+
+    errExitCode=$?
+
+    errXMsg "Copy/Backup operation for .bashrc file FAILED!" "Source File:" "  $sourceFile" "Target Backup File:" "  $targetFileName" "Error Code: $errExitCode" "Function: backupBashrcFile()" "Script File: utilsLib.sh"
+
+    return $errExitCode
+  }
+
+  msgNotify "Successfully backed up .bashrc file" "Source File:" "  $sourceFile" "Target Backup File:" "  $targetFileName"  "Function: backupBashrcFile()" "Script File: utilsLib.sh"
+
+  return 0
+}
+
 # This function will change the ownership on
 # a target Directory specified by Parameter $1.
 # The new  owner is designated by Parameter $2
