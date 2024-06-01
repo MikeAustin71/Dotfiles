@@ -143,8 +143,11 @@ function appendTextToFile() {
 # exist, an error will be returned.
 function backupBashrcFile() {
 
+  local sourceDir="$HOME"
 
-  local sourceFile="$HOME/.bashrc"
+  local sourceFileName=".bashrc"
+
+  local fullSourceFileName="$sourceDir/$sourceFileName"
 
   local targetDir="$HOME/.config/shell/backups/bashrcBak"
 
@@ -154,27 +157,18 @@ function backupBashrcFile() {
 
 	local targetFilePermissions="644"
 
-	local targetFileOwner=""
+	local opsAuth=""
 
-	targetFileOwner="$(whoami)"
+	opsAuth="$(whoami)"
 
   local -i errExitCode=0
 
 
-  [[ -f $sourceFile ]] || {
+  [[ -f $fullSourceFileName ]] || {
 
     errExitCode=11
 
-    errXMsg ".bashrc Source File DOES NOT EXIST!" "Source File:" "  $sourceFile" "Error Code: $errExitCode" "Function: backupBashrcFile()" "Script File: utilsLib.sh"
-
-    return $errExitCode
-  }
-
-  makeDirIfNotExist "$targetDir" "$targetDirPermissions" "$targetFileOwner" || {
-
-    errExitCode=$?
-
-    msgNotify "Error calling Function: makeDirIfNotExist()" "Error Code: $errExitCode" "Function: backupBashrcFile()" "Script File: utilsLib.sh"
+    errXMsg ".bashrc Source File DOES NOT EXIST!" "Source File:" "  $fullSourceFileName" "Error Code: $errExitCode" "Function: backupBashrcFile()" "Script File: utilsLib.sh"
 
     return $errExitCode
   }
@@ -185,16 +179,19 @@ function backupBashrcFile() {
 
   local targetFileName="$datetime$targetFileBaseName"
 
-  cp -v "$sourceFile" "$targetFileName" || {
+  local fullTargetFileName="$targetDir/$targetFileName"
+
+  copyFiles "$sourceDir" "$sourceFileName" "$targetDir" "$targetDirPermissions" "$targetFileName" "$opsAuth" "-vf" || {
 
     errExitCode=$?
 
-    errXMsg "Copy/Backup operation for .bashrc file FAILED!" "Source File:" "  $sourceFile" "Target Backup File:" "  $targetFileName" "Error Code: $errExitCode" "Function: backupBashrcFile()" "Script File: utilsLib.sh"
+    msgNotify "Call to 'copyFiles' Failed!" "Source File:" "  $fullSourceFileName" "Target Backup File:" "  $fullTargetFileName" "Error Code: $errExitCode" "Function: backupBashrcFile()" "Script File: utilsLib.sh"
 
     return $errExitCode
+
   }
 
-  msgNotify "Successfully backed up .bashrc file" "Source File:" "  $sourceFile" "Target Backup File:" "  $targetFileName"  "Function: backupBashrcFile()" "Script File: utilsLib.sh"
+  msgNotify "Successfully backed up .bashrc file" "Source File:" "  $fullSourceFileName" "Target Backup File:" "  $fullTargetFileName"  "Function: backupBashrcFile()" "Script File: utilsLib.sh"
 
   return 0
 }
@@ -555,6 +552,146 @@ function changeToDir() {
 	echo
 
   return 0
+}
+
+# This function performs a copy operation
+# Parameters:
+#   Parameter #1 - Source Directory
+#   Parameter #2 - Source File Name
+#   Parameter #3 - Destination Directory
+#   Parameter #4 - Destination Directory Permissions
+#   Parameter #5 - Destination File Name
+#   Parameter #6 - Operations Authority
+#         Empty Parameter defaults to 'whoami'
+#         For elevated permissions, set to "sudo"
+#   Parameter #7 - Copy Parameters.
+#         If this parameter is empty, it defaults
+#         to '-v'.
+function copyFiles() {
+
+  # Will remove trailing slash if there is one.
+  local sourceDir=${1%/}
+
+  local sourceFileName=$2
+
+  local destDir=${3%/}
+
+  local destDirPermissions=$4
+
+  local destFileName=$5
+
+  local opsAuth=$6
+
+  local copyParams=%7
+
+  local -i errExitCode=0
+
+  [[ -n $sourceDir ]] || {
+
+    errExitCode=31
+
+    errXMsg "Copy Operation Source Parameter #1 is EMPTY!" "Error Code: $errExitCode" "Function: copyFiles()" "Script File: utilsLib.sh"
+
+    return $errExitCode
+
+  }
+
+  [[ -n $destDir ]] || {
+
+    errExitCode=33
+
+    errXMsg "Copy Operation Destination Directory Parameter #3 is EMPTY!" "Error Code: $errExitCode" "Function: copyFiles()" "Script File: utilsLib.sh"
+
+    return $errExitCode
+
+  }
+
+  [[ -n $destDirPermissions ]] || {
+
+    # Default Destination Directory Permission to 775
+
+    destDirPermissions="775"
+  }
+
+  [[ -n $opsAuth ]] ||  {
+
+    # Default opsAuth to whoami
+    opsAuth="$(whoami)"
+
+  }
+
+  local destDirOwner="root"
+
+  [[ $opsAuth != "sudo" && $opsAuth != "root" ]] || {
+
+    destDirOwner="$(whoami)"
+
+  }
+
+  makeDirIfNotExist "$destDir" "$destDirPermissions" "$destDirOwner" || {
+
+    errExitCode=$?
+
+    msgNotify "Error calling Function: makeDirIfNotExist()" "Directory Owner: $destDirOwner" "Error Code: $errExitCode" "Function: backupBashrcFile()" "Script File: utilsLib.sh"
+
+    return $errExitCode
+  }
+
+  local fullSourceFileName="$sourceDir"
+
+  [[ -z $sourceFileName ]] || {
+
+    fullSourceFileName="$sourceDir/$sourceFileName"
+
+  }
+
+
+  local fullDestFileName="$destDir"
+
+  [[ -z $destFileName ]] || {
+
+    fullDestFileName="$destDir/$destFileName"
+
+  }
+
+  [[ -n $copyParams ]] || {
+
+    copyParams="-v"
+
+  }
+
+  [[ $opsAuth != "sudo" && $opsAuth != "root" ]] || {
+
+     sudo cp "$copyParams" "$fullSourceFileName" "$fullDestFileName" || {
+
+          errExitCode=$?
+
+          errXMsg "Copy Operation Failed!" "Copy Command:" " sudo cp $copyParams $fullSourceFileName $fullDestFileName" "Error Code: $errExitCode" "Function: copyFiles()" "Script File: utilsLib.sh"
+
+          return $errExitCode
+
+       }
+
+       msgNotify "Successful Copy Operation" "Source:" "  $fullSourceFileName" "Destination:" "  $fullDestFileName" "Function: copyFiles()" "Script File: utilsLib.sh"
+
+       return 0
+  }
+
+
+  cp "$copyParams" "$fullSourceFileName" "$fullDestFileName" || {
+
+        errExitCode=$?
+
+        errXMsg "Copy Operation Failed!" "Copy Command:" " sudo cp $copyParams $fullSourceFileName $fullDestFileName" "Error Code: $errExitCode" "Function: copyFiles()" "Script File: utilsLib.sh"
+
+        return $errExitCode
+
+  }
+
+  msgNotify "Successful Copy Operation" "Source:" "  $fullSourceFileName" "Destination:" "  $fullDestFileName" "Function: copyFiles()" "Script File: utilsLib.sh"
+
+  return 0
+
 }
 
 # This function will test whether a
