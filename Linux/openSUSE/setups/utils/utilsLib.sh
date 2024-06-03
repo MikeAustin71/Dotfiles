@@ -191,6 +191,10 @@ function backupBashrcFile() {
 
   }
 
+
+  changeFilePermissions "$fullTargetFileName" "$targetFilePermissions"
+
+
   msgNotify "Successfully backed up .bashrc file" "Source File:" "  $fullSourceFileName" "Target Backup File:" "  $fullTargetFileName"  "Function: backupBashrcFile()" "Script File: utilsLib.sh"
 
   return 0
