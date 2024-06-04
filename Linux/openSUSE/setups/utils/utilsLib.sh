@@ -624,13 +624,20 @@ function copyFiles() {
 
   }
 
-  local destDirOwner="root"
+  local destDirOwner=""
 
-  [[ $opsAuth != "sudo" && $opsAuth != "root" ]] || {
+  destDirOwner="$(whoami)"
 
-    destDirOwner="$(whoami)"
+  if [[ $opsAuth == "sudo" || $opsAuth == "root" ]]
+  then
 
-  }
+    destDirOwner="root"
+
+  fi
+
+
+  msgNotify "Calling makeDirIfNotExist()" "Dir Owner: $destDirOwner"
+
 
   makeDirIfNotExist "$destDir" "$destDirPermissions" "$destDirOwner" || {
 
