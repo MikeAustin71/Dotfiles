@@ -7,6 +7,7 @@ source "$HOME"/bashOps/setups/utils/utilsLib.sh
 
 makeDirIfNotExist "$HOME/bin" "775" "" &&
 makeDirIfNotExist "$HOME/.config" "775" "" &&
+makeDirIfNotExist "$HOME/.config/shell" "775" "" &&
 makeDirIfNotExist "$HOME/.config/shell/aliases" "775" "" &&
 makeDirIfNotExist "$HOME/.config/shell/envars" "775" "" &&
 makeDirIfNotExist "$HOME/.config/shell/path" "775" "" &&
