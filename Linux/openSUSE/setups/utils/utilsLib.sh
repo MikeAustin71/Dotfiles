@@ -635,10 +635,6 @@ function copyFiles() {
 
   fi
 
-
-  msgNotify "Calling makeDirIfNotExist()" "Dir Owner: $destDirOwner" "Ops Authority: $opsAuth"
-
-
   makeDirIfNotExist "$destDir" "$destDirPermissions" "$destDirOwner" || {
 
     errExitCode=$?
