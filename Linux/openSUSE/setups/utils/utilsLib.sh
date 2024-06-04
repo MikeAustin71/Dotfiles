@@ -785,6 +785,8 @@ function doesFileExist() {
 
 
 # This function will display a standard message.
+# The message text may consist of one or more
+# strings passed as parameters to this function.
 function msgNotify() {
 
  echo
