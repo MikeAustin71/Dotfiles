@@ -963,6 +963,8 @@ function makeDirIfNotExist() {
     if [[ $dirOwner == "root"  ]]
     then
 
+     msgNotify "Creating new Directory" "Command: sudo mkdir -p $targetDir"
+
       sudo mkdir -p "$targetDir" ||
       {
           errorCode=$?
@@ -982,6 +984,8 @@ function makeDirIfNotExist() {
       }
 
     else
+
+     msgNotify "Creating new Directory" "Command: mkdir -p $targetDir"
 
       mkdir -p "$targetDir" ||
       {
