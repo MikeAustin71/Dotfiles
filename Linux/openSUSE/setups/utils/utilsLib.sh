@@ -586,7 +586,7 @@ function copyFiles() {
 
   local opsAuth=$6
 
-  local copyParams=%7
+  local copyParams=$7
 
   local -i errExitCode=0
 
