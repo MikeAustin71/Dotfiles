@@ -927,48 +927,21 @@ function makeDirIfNotExist() {
 
 	local dirOwner=$3
 
+  local -i errorCode=0
+
   [[ -n $targetDir ]] || {
+
+    errorCode=51
 
     echo "  ***  Error  ***"
     echo "Target Directory Parameter is EMPTY!"
     echo "Function: makeDirIfNotExist()"
-    return 51
+    echo "Script File: utilsLib.sh"
+    echo "Error Code: $errorCode"
+    echo
+
 
   }
-
-  local -i errorCode=0
-
-	if [ ! -d "$targetDir" ]
-	then
-
-    sudo mkdir -p "$targetDir" ||
-    {
-        errorCode=$?
-
-        echo "       *** Error ***"
-        echo "Failed to create Target Directory!"
-        echo "Target Directory: $targetDir"
-        echo "Permission Code: $permissionCode"
-        echo "Function: makeDirIfNotExist()"
-        echo "Error Code: $errorCode"
-        echo
-
-        return $errorCode
-    }
-
-    echo "Created New Directory:"
-    echo "  $targetDir"
-    echo ""
-
-  else
-
-    echo "Target Directory Already Existed."
-    echo "Target Directory: $targetDir"
-    echo "Function: makeDirIfNotExist()"
-    echo ""
-
-	fi
-
 
   if [[ -z $dirOwner ]]
   then
@@ -983,6 +956,68 @@ function makeDirIfNotExist() {
     dirOwner="root"
 
   fi
+
+	if [ ! -d "$targetDir" ]
+	then
+
+    if [[ $dirOwner == "root"  ]]
+    then
+
+      sudo mkdir -p "$targetDir" ||
+      {
+          errorCode=$?
+
+          echo "       *** Error ***"
+          echo "Failed to create Target Directory!"
+          echo "Command: "
+          echo "  sudo mkdir -p $targetDir"
+          echo "Permission Code: $permissionCode"
+          echo "Directory Owner: $dirOwner"
+          echo "Function: makeDirIfNotExist()"
+          echo "Script File: utilsLib.sh"
+          echo "Error Code: $errorCode"
+          echo
+
+          return $errorCode
+      }
+
+    else
+
+      mkdir -p "$targetDir" ||
+      {
+          errorCode=$?
+
+          echo "       *** Error ***"
+          echo "Failed to create Target Directory!"
+          echo "Command: "
+          echo "  mkdir -p $targetDir"
+          echo "Permission Code: $permissionCode"
+          echo "Directory Owner: $dirOwner"
+          echo "Function: makeDirIfNotExist()"
+          echo "Script File: utilsLib.sh"
+           echo "Error Code: $errorCode"
+           echo
+
+           return $errorCode
+       }
+
+
+     fi
+
+
+     echo "Created New Directory:"
+     echo "  $targetDir"
+     echo ""
+
+   else
+
+     echo "Target Directory Already Existed."
+     echo "Target Directory: $targetDir"
+     echo "Function: makeDirIfNotExist()"
+   echo ""
+
+	fi
+
 
   if [ "$(stat -c '%U' "$targetDir")" != "$dirOwner" ]
   then
@@ -1027,6 +1062,7 @@ function makeDirIfNotExist() {
 	echo "Success! Target Directory Exists:"
 	echo "  $targetDir"
   echo "Function: makeDirIfNotExist()"
+  echo "Script File: utilsLib.sh"
   echo ""
 
   return 0
