@@ -807,12 +807,12 @@ function msgNotify() {
 
 # This function will display error messages.
 # Individual text lines should be equal to or
-# less than 50-characters.
+# less than 60-characters.
 function errXMsg() {
 
  echo
- echo "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
- echo "                  &*! Error &*!"
+ echo "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+ echo "                       &*! Error &*!"
 
     for arg in "$@"; do
         if [[ -n $arg ]]; then
@@ -820,7 +820,7 @@ function errXMsg() {
         fi
     done
 
-  echo "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+  echo "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
   echo
 
   return 0
@@ -920,8 +920,8 @@ function isCorrectCurrentDir() {
 # Parameter #3 = New Directory Owner.
 #									If this parameter is set to 'sudo',
 #									the directory will be created with
-#									root as owner. Otherwise, the current
-#									user will be designated as owner.
+#									root as owner. The default will assign
+#									the current	user as directory owner.
 function makeDirIfNotExist() {
 
   local targetDir=$1
