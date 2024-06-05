@@ -787,24 +787,6 @@ function doesFileExist() {
 }
 
 
-# This function will display a standard message.
-# The message text may consist of one or more
-# strings passed as parameters to this function.
-function msgNotify() {
-
- echo
-
-    for arg in "$@"; do
-        if [[ -n $arg ]]; then
-            echo "$arg"
-        fi
-    done
-
-  echo
-
-  return 0
-}
-
 # This function will display error messages.
 # Individual text lines should be equal to or
 # less than 60-characters.
@@ -813,6 +795,7 @@ function errXMsg() {
  echo
  echo "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
  echo "                       &*! Error &*!"
+ echo "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
 
     for arg in "$@"; do
         if [[ -n $arg ]]; then
@@ -916,7 +899,11 @@ function isCorrectCurrentDir() {
 # Parameter $1 = Target Directory
 # Parameter $2 = Target Directory permission
 #									code expressed as a 3-digit
-#									number (Example: 775).
+#									number (Example: 775). If
+#									permission code is empty, no
+#									permission code will be
+#									configured.
+#
 # Parameter #3 = New Directory Owner.
 #									If this parameter is set to 'sudo',
 #									the directory will be created with
@@ -936,29 +923,23 @@ function makeDirIfNotExist() {
 
     errorCode=51
 
-    echo "  ***  Error  ***"
-    echo "Target Directory Parameter is EMPTY!"
-    echo "Function: makeDirIfNotExist()"
-    echo "Script File: utilsLib.sh"
-    echo "Error Code: $errorCode"
-    echo
+    errXMsg "Target Directory Parameter is EMPTY!" "Error Code: $errorCode" "Function: makeDirIfNotExist()" "Script File: utilsLib.sh"
 
-
+    return $errorCode
   }
 
-  if [[ -z $dirOwner ]]
-  then
-
+  [[ -n $dirOwner ]] || {
+    # dirOwner is empty.
+    # default to whoami
     dirOwner="$(whoami)"
+  }
 
-  fi
-
-	if [[ $dirOwner == "sudo" ]]
-	then
+	[[ $dirOwner != "sudo" ]] || {
+	  # dirOwner is equal to 'sudo'.
+	  # Set dirOwner equal to 'root'.
 
     dirOwner="root"
-
-  fi
+	}
 
 	if [ ! -d "$targetDir" ]
 	then
@@ -966,62 +947,38 @@ function makeDirIfNotExist() {
     if [[ $dirOwner == "root"  ]]
     then
 
-     msgNotify "Creating new Directory" "Command: sudo mkdir -p $targetDir"
+       msgNotify "Creating new Directory" "Command: sudo mkdir -p $targetDir"
 
-      sudo mkdir -p "$targetDir" ||
-      {
-          errorCode=$?
+        sudo mkdir -p "$targetDir" ||
+        {
+            errorCode=$?
 
-          echo "       *** Error ***"
-          echo "Failed to create Target Directory!"
-          echo "Command: "
-          echo "  sudo mkdir -p $targetDir"
-          echo "Permission Code: $permissionCode"
-          echo "Directory Owner: $dirOwner"
-          echo "Function: makeDirIfNotExist()"
-          echo "Script File: utilsLib.sh"
-          echo "Error Code: $errorCode"
-          echo
+            errXMsg "Failed to create Target Directory!" "Command: sudo mkdir -p $targetDir" "Permission Code: $permissionCode" "Directory Owner: $dirOwner" "Error Code: $errorCode" "Function: makeDirIfNotExist()" "Script File: utilsLib.sh"
 
-          return $errorCode
-      }
+            return $errorCode
+        }
 
     else
 
-     msgNotify "Creating new Directory" "Command: mkdir -p $targetDir"
+      msgNotify "Creating new Directory" "Command: mkdir -p $targetDir"
 
       mkdir -p "$targetDir" ||
       {
           errorCode=$?
 
-          echo "       *** Error ***"
-          echo "Failed to create Target Directory!"
-          echo "Command: "
-          echo "  mkdir -p $targetDir"
-          echo "Permission Code: $permissionCode"
-          echo "Directory Owner: $dirOwner"
-          echo "Function: makeDirIfNotExist()"
-          echo "Script File: utilsLib.sh"
-           echo "Error Code: $errorCode"
-           echo
+          errXMsg "Failed to create Target Directory!" "Command: mkdir -p $targetDir" "Permission Code: $permissionCode" "Directory Owner: $dirOwner" "Error Code: $errorCode" "Function: makeDirIfNotExist()" "Script File: utilsLib.sh"
 
            return $errorCode
        }
 
+    fi
 
-     fi
 
+     msgNotify "Created New Directory:" "  $targetDir" "Function: makeDirIfNotExist()" "Script File: utilsLib.sh"
 
-     echo "Created New Directory:"
-     echo "  $targetDir"
-     echo ""
+  else
 
-   else
-
-     echo "Target Directory Already Existed."
-     echo "Target Directory: $targetDir"
-     echo "Function: makeDirIfNotExist()"
-   echo ""
+     msgNotify "Target Directory Already Existed." "Target Directory: $targetDir" "Function: makeDirIfNotExist()" "Script File: utilsLib.sh"
 
 	fi
 
@@ -1033,44 +990,30 @@ function makeDirIfNotExist() {
     {
       errorCode=$?
 
-      echo -e "An Error occurred while setting ownership\n
-      on Target Directory!\n
-      Target Directory= $targetDir\n
-      Owner= $dirOwner\n
-      Function: makeDirIfNotExist()\n
-      Error Code: $errorCode\n\n"
+      errXMsg "Error occurred while setting ownership" "on Target Directory!" "Target Directory= $targetDir" "Owner= $dirOwner" "Error Code: $errorCode" "Function: makeDirIfNotExist()" "Script File: utilsLib.sh"
 
       return $errorCode
 
     }
 
+    msgNotify "Successfully Changed Directory Ownership on" "Directory: $targetDir" "New Owner: $dirOwner" "Function: makeDirIfNotExist()" "Script File: utilsLib.sh"
+
   fi
 
-  if [[ -n $permissionCode ]]
-  then
+  [[ -z $permissionCode ]] || {
+    # Permission Code is NOT empty
 
     sudo chmod "$permissionCode" "$targetDir" ||
     {
           errorCode=$?
 
-          echo -e "*** Error ***\n
-          Failed to set permission code on Target Directory!\n
-          Target Directory: $targetDir\n
-          Permission Code: $permissionCode\n
-          Owner= $dirOwner\n
-          Function: makeDirIfNotExist()\n
-          Error Code: $errorCode"
+          errXMsg "Failed to set permission code on Target Directory!" "Target Directory: $targetDir" "Permission Code: $permissionCode" "Owner= $dirOwner" "Error Code: $errorCode" "Function: makeDirIfNotExist()" "Script File: utilsLib.sh"
+
           return $errorCode
     }
 
-  fi
-
-
-	echo "Success! Target Directory Exists:"
-	echo "  $targetDir"
-  echo "Function: makeDirIfNotExist()"
-  echo "Script File: utilsLib.sh"
-  echo ""
+    msgNotify "Successfully set permission code for" "Target Directory: $targetDir" "Permission Code: $permissionCode" "Function: makeDirIfNotExist()" "Script File: utilsLib.sh"
+  }
 
   return 0
 }
@@ -1373,6 +1316,24 @@ function moveDirFiles() {
   echo ""
 
 	return 0
+}
+
+# This function will display a standard message.
+# The message text may consist of one or more
+# strings passed as parameters to this function.
+function msgNotify() {
+
+ echo
+
+    for arg in "$@"; do
+        if [[ -n $arg ]]; then
+            echo "$arg"
+        fi
+    done
+
+  echo
+
+  return 0
 }
 
 # This function will delete all files and directories
