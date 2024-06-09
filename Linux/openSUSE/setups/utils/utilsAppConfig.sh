@@ -792,6 +792,13 @@ function configBashrcZoxide() {
   return 0
 }
 
+function configColorsEza() {
+
+  # shellcheck disable=SC2164
+  cd "$HOME"
+
+
+}
 
 function configDirStructure() {
 

@@ -1046,14 +1046,7 @@ function makeFileIfNotExist() {
 
     makeFileErrCode=17
 
-    echo
-    echo "   ***     ERROR   ***"
-    echo "Target Directory Name Parameter #1 is EMPTY!"
-    echo "Target Directory: $targetDir"
-    echo "Error Code: $makeFileErrCode"
-    echo "Function: makeFileIfNotExist()"
-    echo "Script File: utilsLib.sh"
-    echo
+    errXMsg "Target Directory Name Parameter #1 is EMPTY!" "Target Directory: $targetDir" "Error Code: $makeFileErrCode" "Function: makeFileIfNotExist()" "Script File: utilsLib.sh"
 
     return $makeFileErrCode
   }
@@ -1062,14 +1055,7 @@ function makeFileIfNotExist() {
 
     makeFileErrCode=18
 
-    echo
-    echo "   ***     ERROR   ***"
-    echo "Target File Name Parameter #2 is EMPTY!"
-    echo "Target File Name: $targetFileName"
-    echo "Error Code: $makeFileErrCode"
-    echo "Function: makeFileIfNotExist()"
-    echo "Script File: utilsLib.sh"
-    echo
+    errXMsg "Target File Name Parameter #2 is EMPTY!" "Target File Name: $targetFileName" "Error Code: $makeFileErrCode" "Function: makeFileIfNotExist()" "Script File: utilsLib.sh"
 
     return $makeFileErrCode
   }
@@ -1078,43 +1064,25 @@ function makeFileIfNotExist() {
 
     makeFileErrCode=19
 
-    echo
-    echo "   ***     ERROR   ***"
-    echo "Target Permissions Parameter #3 is EMPTY!"
-    echo "Target Permissions: $targetFilePermissions"
-    echo "Error Code: $makeFileErrCode"
-    echo "Function: makeFileIfNotExist()"
-    echo "Script File: utilsLib.sh"
-    echo
+    errXMsg "Target Permissions Parameter #3 is EMPTY!" "Target Permissions: $targetFilePermissions" "Error Code: $makeFileErrCode" "Function: makeFileIfNotExist()" "Script File: utilsLib.sh"
 
     return $makeFileErrCode
   }
 
 
-  if [[ -f $targetFile ]]
-  then
+  [[ ! -f $targetFile ]] || {
+    # target file exists!
 
-    echo
-    echo "Target File Already Exists!"
-    echo "Nothing to do."
-    echo "Target File: $targetFile"
-    echo "Function: makeFileIfNotExist()"
-    echo "Script File: utilsLib.sh"
-    echo
+    msgNotify "Target File Already Exists!" "Nothing to do." "Script execution continues ..." "Target File: $targetFile" "Function: makeFileIfNotExist()" "Script File: utilsLib.sh"
 
     return 0
-  fi
+ }
 
   makeDirIfNotExist "$targetDir" "$targetFilePermissions" "$targetFileOwner" || {
 
     makeFileErrCode=$?
 
-    echo
-    echo "Error calling makeDirIfNotExist()"
-    echo "Error Code: $makeFileErrCode"
-    echo "Function: makeFileIfNotExist()"
-    echo "Script File: utilsLib.sh"
-    echo
+    msgNotify "Error calling makeDirIfNotExist()" "Error Code: $makeFileErrCode" "Function: makeFileIfNotExist()" "Script File: utilsLib.sh"
 
      return $makeFileErrCode
 
@@ -1124,14 +1092,7 @@ function makeFileIfNotExist() {
 
     makeFileErrCode=$?
 
-    echo
-    echo "   ***     ERROR   ***"
-    echo "Error returned by command:"
-    echo "touch $targetFile"
-    echo "Error Code: $makeFileErrCode"
-    echo "Function: makeFileIfNotExist()"
-    echo "Script File: utilsLib.sh"
-    echo
+    errXMsg "Error returned by command:" "  touch $targetFile" "Error Code: $makeFileErrCode" "Function: makeFileIfNotExist()" "Script File: utilsLib.sh"
 
      return $makeFileErrCode
 
@@ -1141,14 +1102,7 @@ function makeFileIfNotExist() {
 
     makeFileErrCode=$?
 
-    echo
-    echo "Error calling changeFileOwner()"
-    echo "Target File: $targetFile"
-    echo "Target File Owner: $targetFileOwner"
-    echo "Error Code: $makeFileErrCode"
-    echo "Function: makeFileIfNotExist()"
-    echo "Script File: utilsLib.sh"
-    echo
+    msgNotify "Error calling changeFileOwner()" "Target File: $targetFile" "Target File Owner: $targetFileOwner" "Error Code: $makeFileErrCode" "Function: makeFileIfNotExist()" "Script File: utilsLib.sh"
 
      return $makeFileErrCode
   }
@@ -1157,18 +1111,14 @@ function makeFileIfNotExist() {
 
     makeFileErrCode=$?
 
-    echo
-    echo "Error calling changeFilePermissions()"
-    echo "Target File: $targetFile"
-    echo "Target File Permissions: $targetFilePermissions"
-    echo "Error Code: $makeFileErrCode"
-    echo "Function: makeFileIfNotExist()"
-    echo "Script File: utilsLib.sh"
-    echo
+    msgNotify "Error calling changeFilePermissions()" "Target File: $targetFile" "Target File Permissions: $targetFilePermissions" "Error Code: $makeFileErrCode" "Function: makeFileIfNotExist()" "Script File: utilsLib.sh"
 
      return $makeFileErrCode
   }
 
+  msgNotify "Successfully configured Target File:" "  $targetFile"
+
+  return 0
 }
 
 # This function will move source files or directories

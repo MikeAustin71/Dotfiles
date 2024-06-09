@@ -5,7 +5,7 @@ export EDITOR="geany"
 
 export VISUAL="geany"
 
-export VIEWER="nano"
+export VIEWER="micro"
 
 export XDG_DATA_HOME="/home/mike/.local/share/flatpak/exports/share:/var/lib/flatpak/exports/share:/usr/local/share:/usr/share"
 
@@ -62,4 +62,4 @@ export MIKE_GitRepo_DotFiles="https://github.com/MikeAustin71/Dotfiles.git"
 #    https://github.com/x-motemen/ghq
 export GHQ_ROOT="$HOME/repos"
 
-export EZA_COLORS="da=32"
+
