@@ -9,12 +9,16 @@ source "$baseSetups5Dir"/utils/utilsLib.sh
 source "$baseSetups5Dir"/utils/utilsAppInstall.sh
 source "$baseSetups5Dir"/utils/utilsAppConfig.sh
 
+msgNotify "Installing 'atuin'" &&
+installAtuin &&
 msgNotify "Installing 'micro'" &&
 installMicro &&
 msgNotify "Installing 'btop'" &&
 installBtop &&
 msgNotify "Installing 'btm' (Bottom)" &&
 installBottom &&
+msgNotify "Installing 'dust'" &&
+installDust &&
 msgNotify "Installing 'fd'(find)" &&
 installFd &&
 msgNotify "Installing 'plocate'" &&

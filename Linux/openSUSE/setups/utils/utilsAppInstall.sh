@@ -18,6 +18,14 @@ function installAlsaUtils() {
 
 }
 
+# https://atuin.sh/
+function installAtuin() {
+
+  sudo zypper install atuin
+
+}
+
+
 function installAutoJump() {
 
   sudo zypper install autojump 
@@ -160,6 +168,14 @@ function installDunst() {
   sudo zypper install dunst libnotify 
 
 }
+
+# https://github.com/bootandy/dust
+function installDust() {
+
+  sudo zypper install dust
+
+}
+
 
 # Replacement for 'ls'
 # https://github.com/eza-community/eza
@@ -334,11 +350,10 @@ function installScriptGHQ() {
     return $ghqFuncErrorCode
   }
 
-    local scriptFile
 
-    scriptFile="$HOME"/bashOps/setups/customAppInstalls/installGHQ.sh
+   source "$HOME"/bashOps/setups/customAppInstalls/installGHQ.sh
 
-     source "$scriptFile"
+
 }
 
 function installGrubCustomizer() {
