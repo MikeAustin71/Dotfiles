@@ -28,7 +28,7 @@ alias ls='eza --color=always'
   alias lt='eza -al --sort=modified'
 
 # ltr - List tree with 3-levels
-  alias ltr="eza -TL 3 -a --color=always
+  alias ltr='eza -TL 3 -a --color=always'
 
 # ===================================================
 
