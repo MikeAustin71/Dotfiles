@@ -10,6 +10,7 @@
 # Don't forget to add /usr/local/go and
 # /usr/local/go/bin to the $PATH environment
 # variable.
+#
 # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 declare goScratchDir="$HOME"/scratch
