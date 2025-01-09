@@ -65,7 +65,7 @@ function configAliasesTrash() {
 }
 
 configAliasesTrash &&
-successMsg "All trash-cli Aliases Created." "REBOOT YOUR COMPUTER!" "Script: 002c_config_trash_aliases.sh" || {
+successMsg "All trash-cli Aliases Created." "REBOOT YOUR COMPUTER!" "Script: 002d_config_trash_aliases.sh" || {
 
-  errXMsg "002c_config_trash_aliases.sh Execution Failed" "Error-Exit!"
+  errXMsg "002d_config_trash_aliases.sh Execution Failed" "Error-Exit!"
 }

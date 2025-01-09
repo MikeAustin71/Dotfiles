@@ -87,6 +87,7 @@ function configAliases() {
   return 0
 }
 
+
 # Configures Aliases for 'bat' utility.
 # 'bat' is a substitute for 'cat'
 function configAliasesBat() {
