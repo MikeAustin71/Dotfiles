@@ -13,7 +13,7 @@
 
 declare goScratchDir="$HOME"/scratch
 
-source "$HOME"/bashOps/utils/utilsLib.sh
+source "$HOME"/bashOps/setups/utils/utilsLib.sh
 
 # Fetch the latest version number
 # echo "go1.22.1\ntime 2024-02-29T18:18:48Z" | grep -oP 'go\d+\.\d+\.\d+'
