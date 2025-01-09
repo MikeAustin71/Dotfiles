@@ -338,8 +338,7 @@ function installScriptGHQ() {
 
     scriptFile="$HOME"/bashOps/setups/customAppInstalls/installGHQ.sh
 
-  # shellcheck source=$MIKE_Setup_Scripts/customAppConfig/configKrusader.sh
-   source "$scriptFile"
+     source "$scriptFile"
 }
 
 function installGrubCustomizer() {
@@ -605,7 +604,7 @@ function installScriptPeco() {
 
     local scriptFile
 
-    scriptFile="$MIKE_Setup_Scripts"/customAppInstalls/installpeco.sh
+    scriptFile="$HOME"/bashOps/setups/customAppInstalls/installpeco.sh
 
 
   # shellcheck source=$HOME/bashOps/setups/customAppInstalls/installpeco.sh
@@ -740,60 +739,6 @@ function installTldr() {
   sudo npm install -g tldr
 }
 
-function installTrash() {
-
-  local -i errorCode=0
-
-  sudo zypper addrepo https://download.opensuse.org/repositories/home:our-obo-ros/openSUSE_Tumbleweed/home:our-obo-ros.repo || {
-
-
-    errorCode=$?
-
-    echo
-    echo "*** ERROR ***"
-    echo "Failed to add home:X0F.repo !"
-    echo "Error Code: $errorCode"
-    echo "Function: installTrash()"
-    echo "Script: utilsAppInstall.sh"
-    echo
-
-    return $errorCode
-  }
-
-  sudo zypper refresh || {
-
-    errorCode=$?
-
-    echo
-    echo "*** ERROR ***"
-    echo "'zypper refresh' Failed !"
-    echo "Error Code: $errorCode"
-    echo "Function: installTrash()"
-    echo "Script: utilsAppInstall.sh"
-    echo
-
-    return $errorCode
-
-  }
-
-  sudo zypper install trash-cli || {
-
-     errorCode=$?
-
-     echo
-     echo "*** ERROR ***"
-     echo "'zypper refresh' Failed !"
-     echo "Error Code: $errorCode"
-     echo "Function: installTrash()"
-     echo "Script: utilsAppInstall.sh"
-     echo
-
-     return $errorCode
-
-   }
-
-  return 0
-}
 
 function installTerminusFonts() {
 

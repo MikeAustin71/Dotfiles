@@ -33,33 +33,7 @@ msgNotify "Installing 'eza'" &&
 installEza &&
 msgNotify "Configuring 'eza' Aliases" &&
 configAliasesEza &&
-msgNotify "Installing 'trash-cli'" &&
-installTrash &&
-msgNotify "Configuring 'trash-cli' Aliases" &&
-configAliasesTrash &&
-msgNotify "Installing 'bat'" &&
-installBat &&
-msgNotify "Configuring 'bat' Aliases" &&
-configAliasesBat &&
-msgNotify "Installing 'broot'" &&
-installBroot &&
-msgNotify "Configuring 'broot' Aliases" &&
-configAliasesBroot &&
-msgNotify "Configuring 'broot' in .bashrc" &&
-configBashrcBroot &&
-msgNotify "Configuring 'broot' in .bash_profile" &&
-configBashProfileBroot &&
-msgNotify "Installing 'zoxide'" &&
-installZoxide &&
-msgNotify "Configuring 'zoxide' in .bashrc" &&
-configBashrcZoxide &&
-msgNotify "Installing Starship" &&
-installStarship &&
-msgNotify "Copying Starship Config Files" &&
-configStarship &&
-msgNotify "Configuring 'starship' in .bashrc" &&
-configBashrcStarship &&
-successMsg "All Phase-2 Structures Created." "REBOOT YOUR COMPUTER!" "Script: 002-createBaseStructure.sh" || {
+successMsg "All Phase-2a Structures Created." "REBOOT YOUR COMPUTER!" "Script: 002a-create_base_structure.sh" || {
 
-  errXMsg "002-createBaseStructure.sh Execution Failed" "Error-Exit!"
+  errXMsg "002a-create_base_structure.sh Execution Failed" "Error-Exit!"
 }
