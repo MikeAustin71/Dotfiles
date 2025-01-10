@@ -2,10 +2,10 @@
 # Installs Wayland
 # Run this as sudo
 
-
-source "$MIKE_Setup_Utilities"/utilsLib.sh
-source "$MIKE_Setup_Utilities"/utilsAppInstall.sh
-source "$MIKE_Setup_Utilities"/utilsWaylandInstalls.sh
+declare baseSetups97Dir="$HOME"/bashOps/setups
+source "$baseSetups97Dir"/utilsLib.sh
+source "$baseSetups97Dir"/utilsAppInstall.sh
+source "$baseSetups97Dir"/utilsWaylandInstalls.sh
 
 
 installLibdrm &&
