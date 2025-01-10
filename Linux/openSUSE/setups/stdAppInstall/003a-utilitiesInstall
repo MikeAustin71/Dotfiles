@@ -55,4 +55,4 @@ msgNotify "Installing 'lynis' Security Tool" &&
 installLynis &&
 msgNotify "Installing VmWare Tools" &&
 installVmwareTools &&
-successMsg "All Phase-3 Utilities Installed." "003-utilitiesInstall" || errXMsg "003-utilitiesInstall Execution Failed" "Error-Exit!"
+successMsg "All Phase-3a Utilities Installed." "003a-utilitiesInstall" || errXMsg "003a-utilitiesInstall Execution Failed" "Error-Exit!"
