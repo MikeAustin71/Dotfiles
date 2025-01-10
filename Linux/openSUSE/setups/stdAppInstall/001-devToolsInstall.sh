@@ -2,17 +2,17 @@
 # Installs All Development Tools
 # Run this as sudo
 
-declare baseSetupsDir="$HOME"/bashOps/setups
+declare baseSetups01Dir="$HOME"/bashOps/setups
 
-source "$baseSetupsDir"/utils/utilsLib.sh
-source "$baseSetupsDir"/utils/utilsAppConfig.sh
-source "$baseSetupsDir"/utils/utilsAppInstall.sh
+source "$baseSetups01Dir"/utils/utilsLib.sh
+source "$baseSetups01Dir"/utils/utilsAppConfig.sh
+source "$baseSetups01Dir"/utils/utilsAppInstall.sh
 
 installCToolsLibs() {
 
   local scriptFile
 
-  scriptFile="$baseSetupsDir"/devTools/01-installDevTools.sh
+  scriptFile="$baseSetups01Dir"/devTools/01-installDevTools.sh
 
   # shellcheck disable=SC1090
   source "$scriptFile"
@@ -23,7 +23,7 @@ installDevTools() {
 
   local scriptFile
 
-  scriptFile="$baseSetupsDir"/devTools/02-installDevTools.sh
+  scriptFile="$baseSetups01Dir"/devTools/02-installDevTools.sh
 
   # shellcheck disable=SC1090
   source "$scriptFile"
@@ -34,7 +34,7 @@ installPython3() {
 
   local scriptFile
 
-  scriptFile="$baseSetupsDir"/devTools/03-installPython.sh
+  scriptFile="$baseSetups01Dir"/devTools/03-installPython.sh
 
   # shellcheck disable=SC1090
   source "$scriptFile"
@@ -46,7 +46,7 @@ installPython3Libs() {
 
   local scriptFile
 
-  scriptFile="$baseSetupsDir"/devTools/03b-installPythonLibs.sh
+  scriptFile="$baseSetups01Dir"/devTools/03b-installPythonLibs.sh
 
   # shellcheck disable=SC1090
   source "$scriptFile"
@@ -58,7 +58,7 @@ installPython2() {
 
   local scriptFile
 
-  scriptFile="$baseSetupsDir"/devTools/04-installPython2.sh
+  scriptFile="$baseSetups01Dir"/devTools/04-installPython2.sh
 
   # shellcheck disable=SC1090
   source "$scriptFile"
@@ -70,7 +70,7 @@ installGo() {
 
   local scriptFile
 
-  scriptFile="$baseSetupsDir"/customAppInstalls/installGo.sh
+  scriptFile="$baseSetups01Dir"/customAppInstalls/installGo.sh
 
   # shellcheck disable=SC1090
   source "$scriptFile"
@@ -103,5 +103,8 @@ msgNotify "Installing 'rust' tools" &&
 installRust &&
 msgNotify "Installing 'flatseal'" &&
 installFlatSeal &&
-successMsg "Phase-1 Development Tools Installed." "001-devToolsInstall.sh"  || errXMsg "001-devToolsInstall.sh Execution Failed" "Error-Exit!"
+successMsg "Phase-1 Development Tools Installed." "001-devToolsInstall.sh"  || {
 
+  errXMsg "001-devToolsInstall.sh Execution Failed" "Error-Exit!"
+
+}

@@ -5,15 +5,15 @@
 #   did NOT reboot your computer after
 #   running script 00a-createBaseStructure.sh
 
-
-source "$MIKE_Setup_Utilities"/utilsLib.sh
-source "$MIKE_Setup_Utilities"/utilsAppInstall.sh
+declare baseSetups85Dir="$HOME"/bashOps/setups
+source "$baseSetups85Dir"/utilsLib.sh
+source "$baseSetups85Dir"/utilsAppInstall.sh
 
 function installGoogleFonts() {
 
   local scriptFile
 
-     scriptFile="$MIKE_Setup_Scripts"/cfgFonts/getGoogleFonts.sh
+     scriptFile="$baseSetups85Dir"/cfgFonts/getGoogleFonts.sh
 
   # shellcheck disable=SC1090
   source "$scriptFile"
@@ -23,7 +23,7 @@ function installNerdFonts() {
 
   local scriptFile
 
-     scriptFile="$MIKE_Setup_Scripts"/cfgFonts/getNerdFonts.sh
+     scriptFile="$baseSetups85Dir"/cfgFonts/getNerdFonts.sh
 
   # shellcheck disable=SC1090
   source "$scriptFile"
@@ -33,7 +33,7 @@ function getWallpaper() {
 
   local scriptFile
 
-     scriptFile="$MIKE_Setup_Scripts"/copyWallpaper/copyWallpaperFromDotFiles.sh
+     scriptFile="$baseSetups85Dir"/copyWallpaper/copyWallpaperFromDotFiles.sh
 
   # shellcheck disable=SC1090
   source "$scriptFile"

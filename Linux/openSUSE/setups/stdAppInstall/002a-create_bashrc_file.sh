@@ -3,11 +3,11 @@
 
 
 
-declare baseSetups9Dir="$HOME"/bashOps/setups
+declare baseSetups19Dir="$HOME"/bashOps/setups
 
-source "$baseSetups9Dir"/utils/utilsLib.sh
-source "$baseSetups9Dir"/utils/utilsAppConfig.sh
-source "$baseSetups9Dir"/utils/utilsAppInstall.sh
+source "$baseSetups19Dir"/utils/utilsLib.sh
+source "$baseSetups19Dir"/utils/utilsAppConfig.sh
+source "$baseSetups19Dir"/utils/utilsAppInstall.sh
 
 
 function setupBashrcFile() {
@@ -17,7 +17,7 @@ function setupBashrcFile() {
   local targetDirFileName="$targetDir/$targetFileName"
   local -i addTextErrCode=0
 
-  local sourceFile="$baseSetups9Dir"/"configDir/shell/backups/bashrcBak/bashrc.txt"
+  local sourceFile="$baseSetups19Dir"/"configDir/shell/backups/bashrcBak/bashrc.txt"
 
   [[ -f $targetDirFileName ]] || {
 
