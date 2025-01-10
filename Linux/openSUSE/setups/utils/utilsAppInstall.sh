@@ -299,6 +299,12 @@ function installGenius() {
   sudo zypper install genius
 }
 
+function installGhostwriter() {
+
+  sudo zypper install ghostwriter
+
+}
+
 function installGit() {
 
   sudo zypper install git 

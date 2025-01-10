@@ -9,5 +9,19 @@ source "$baseSetups9Dir"/utils/utilsLib.sh
 source "$baseSetups9Dir"/utils/utilsAppInstall.sh
 source "$baseSetups9Dir"/utils/utilsAppConfig.sh
 
-msgNotify "Installing 'KeePassXC'" &&
-installKeePassXC &&
+msgNotify "Installing 'ghostwriter' markdown editor" &&
+installGhostwriter &&
+msgNotify "Installing ripgrep" &&
+installRipGrep &&
+msgNotify "Installing Peco" &&
+installScriptPeco &&
+msgNotify "Installing Compression Utilities" &&
+installCompressionUtilities &&
+msgNotify "Installing 'lynis' Security Tool" &&
+installLynis &&
+msgNotify "Installing VmWare Tools" &&
+installVmwareTools &&
+successMsg "All Phase-3b Utilities Installed." "003b-utilitiesInstall.sh" || {
+
+errXMsg "003b-utilitiesInstall.sh Execution Failed" "Error-Exit!"
+}

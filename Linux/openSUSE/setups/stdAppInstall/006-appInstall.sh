@@ -1,7 +1,7 @@
 
-
-source "$MIKE_Setup_Utilities"/utilsLib.sh
-source "$MIKE_Setup_Utilities"/utilsAppInstall.sh
+declare baseSetups90Dir="$HOME"/bashOps/setups
+source "$baseSetups90Dir"/utilsLib.sh
+source "$baseSetups90Dir"/utilsAppInstall.sh
 
 msgNotify "Installing Pandoc" &&
 installPandoc &&
@@ -15,8 +15,6 @@ msgNotify "Installing Bless Hex Editor" &&
 installBless &&
 msgNotify "Installing Samba" &&
 installSamba &&
-msgNotify "Installing Typora" &&
-installTypora &&
 msgNotify "Installing KeePassXC" &&
 installKeePassXC &&
 msgNotify "Installing TexMaker for LaTeX" &&
@@ -25,4 +23,7 @@ msgNotify "Installing Kile for LaTeX" &&
 installKile &&
 msgNotify "Installing Draw IO" &&
 installDrawIO &&
-successMsg "All Phase-6 Applications Successfully Installed." "006-appInstall.sh" || errXMsg "006-appInstall.sh Execution Failed" "Error-Exit!"
+successMsg "All Phase-6 Applications Successfully Installed." "006-appInstall.sh" || {
+
+  errXMsg "006-appInstall.sh Execution Failed" "Error-Exit!"
+}

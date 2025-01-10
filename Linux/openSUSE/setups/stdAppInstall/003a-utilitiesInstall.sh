@@ -45,14 +45,6 @@ msgNotify "Installing 'multitail'" &&
 installMultiTail &&
 msgNotify "Installing fastfetch" &&
 installFastFetch &&
-msgNotify "Installing ripgrep" &&
-installRipGrep &&
-msgNotify "Installing Peco" &&
-installScriptPeco &&
-msgNotify "Installing Compression Utilities" &&
-installCompressionUtilities &&
-msgNotify "Installing 'lynis' Security Tool" &&
-installLynis &&
-msgNotify "Installing VmWare Tools" &&
-installVmwareTools &&
-successMsg "All Phase-3a Utilities Installed." "003a-utilitiesInstall" || errXMsg "003a-utilitiesInstall Execution Failed" "Error-Exit!"
+successMsg "All Phase-3a Utilities Installed." "003a-utilitiesInstall" || {
+  errXMsg "003a-utilitiesInstall Execution Failed" "Error-Exit!"
+}

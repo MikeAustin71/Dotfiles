@@ -1,10 +1,11 @@
 #!/bin/bash
-# Install 1-a application series
+# Install Phase-5 application series
 #
 
-source "$MIKE_Setup_Utilities"/utilsLib.sh
-source "$MIKE_Setup_Utilities"/utilsAppInstall.sh
-source "$MIKE_Setup_Utilities"/utilsAppConfig.sh
+declare baseSetups92Dir="$HOME"/bashOps/setups
+source "$baseSetups92Dir"/utilsLib.sh
+source "$baseSetups92Dir"/utilsAppInstall.sh
+source "$baseSetups92Dir"/utilsAppConfig.sh
 
 msgNotify "Installing Terminus Fonts" &&
 installTerminusFonts &&
