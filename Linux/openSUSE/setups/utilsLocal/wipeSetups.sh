@@ -1,6 +1,7 @@
 #!/bin/bash
-# Used to pull down latest version of dotfiles and
-# configure  ~/bashOps/setups
+# Used to delete all files and directories
+# in $HOME/bashOps/setups
+#   --- BE CAREFUL ---
 
 
 declare baseSetups990Dir="$HOME"/bashOps/setups

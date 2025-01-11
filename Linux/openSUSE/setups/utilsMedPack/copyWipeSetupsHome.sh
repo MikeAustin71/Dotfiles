@@ -1,6 +1,6 @@
 #!/bin/bash
-# Used to pull down latest version of dotfiles and
-# configure  ~/bashOps/setups
+# Used to copy wipeSetups.sh to the
+# Secret Sauce Directory
 
 declare baseSetups40Dir="$HOME"/bashOps/setups
 source "$baseSetups40Dir"/utils/utilsLib.sh
@@ -33,7 +33,7 @@ dirOwner="$(whoami)"
 
   cp -f "$mySrcFile" "$myTargetFile" || {
 
-    errXMsg "Copy Error Source: $mySrcFile"  "Destination: $myTargetFile"
+    errXMsg "Copy Error Source: $mySrcFile"  "Destination: $myTargetFile" "Script: copyWipeSetupsHome.sh"
 
   }
 
