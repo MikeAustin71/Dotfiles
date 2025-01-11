@@ -15,16 +15,6 @@ msgNotify "Configuring 'broot' in .bashrc" &&
 configBashrcBroot &&
 msgNotify "Configuring 'broot' in .bash_profile" &&
 configBashProfileBroot &&
-msgNotify "Installing 'zoxide'" &&
-installZoxide &&
-msgNotify "Configuring 'zoxide' in .bashrc" &&
-configBashrcZoxide &&
-msgNotify "Installing Starship" &&
-installStarship &&
-msgNotify "Copying Starship Config Files" &&
-configStarship &&
-msgNotify "Configuring 'starship' in .bashrc" &&
-configBashrcStarship &&
 successMsg "All Phase-2e Base-2 Structures Created." "REBOOT YOUR COMPUTER!" "Script: 002e_config_broot.sh" || {
 
   errXMsg "002e_config_broot.sh Execution Failed" "Error-Exit!"
