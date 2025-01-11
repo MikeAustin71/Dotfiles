@@ -10,9 +10,11 @@
 #
 # NOTE: ~/.fonts/ is deprecated
 
-source "$MIKE_Setup_Scripts/utils/utilsLib.sh"
+declare fontsBase01SetupsDir="$HOME"/bashOps/setups
 
-source "$MIKE_Setup_Scripts/utils/utilsAppInstall.sh"
+source "$fontsBase01SetupsDir/utils/utilsLib.sh"
+
+source "$fontsBase01SetupsDir/utils/utilsAppInstall.sh"
 
 declare targetMasterDir="/usr/share/fonts/Google"
 
@@ -95,7 +97,7 @@ function downLoadGoogleFonts() {
     {
       googleFontErrCode=$?
 
-      errXMsg "Call to makeDirIfNotExist() FAILED!" "Target Directory: $currDirName" "Error Code: $googleFontErrCode" "Function Name: downLoadGoogleFonts()" "Script Name: getGoogleFonts.sh"
+      errXMsg "Call to makeDirIfNotExist() FAILED!" "Target Directory: $currTargetDirName" "Error Code: $googleFontErrCode" "Function Name: downLoadGoogleFonts()" "Script Name: getGoogleFonts.sh"
 
       return $googleFontErrCode
     }

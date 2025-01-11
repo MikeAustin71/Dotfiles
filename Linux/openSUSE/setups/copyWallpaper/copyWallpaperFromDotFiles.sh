@@ -2,20 +2,26 @@
 # Downloads and Installs all wallpapers
 # from Dot Files.
 
-source "$MIKE_Setup_Scripts/utils/utilsLib.sh"
 
-declare srcWallPaperDir="$MIKE_DotFiles_Repo/Linux/Wallpaper"
+declare fontsBase03SetupsDir="$HOME"/bashOps/setups
+declare dotFilesFontsRepo="$HOME"/repos/Dotfiles
 
-declare destWallPaperDir="$MIKE_Wallpaper_Directory"
+
+source "$fontsBase03SetupsDir/utils/utilsLib.sh"
+
+declare srcWallPaperDir="$dotFilesFontsRepo/Linux/Wallpaper"
+
+declare destWallPaperDir="/usr/share/wallpapers/openSUSEdefault/contents/images"
+
 
 declare -i loadWallpaperExitCode=0
 
 
-[[ -d "$MIKE_DotFiles_Repo" ]] || {
+[[ -d "$dotFilesFontsRepo" ]] || {
 
   echo "          *** ERROR ***"
   echo "Source Dot Files Directory DOES NOT EXIST!"
-  echo "Dot Files Directory: $MIKE_DotFiles_Repo"
+  echo "Dot Files Directory: $dotFilesFontsRepo"
   echo "Download the Dot Files!"
   echo "Script Name: copyWallpaperFromDotFiles.sh"
   return 89
@@ -73,6 +79,6 @@ sudo cp -v "$srcWallPaperDir"/* "$destWallPaperDir" ||
     return $loadWallpaperExitCode
 }
 
-successMsg "Wallpapers Successfully copied to: $destWallPaperDir"
+successMsg "Wallpapers Successfully copied to: $destWallPaperDir" "copyWallpaperFromDotFiles.sh"
 
 return 0

@@ -12,9 +12,11 @@
 
 declare NerdFontReleaseVer="v3.2.0"
 
-source "$MIKE_Setup_Scripts/utils/utilsLib.sh"
+declare fontsBase02SetupsDir="$HOME"/bashOps/setups
 
-source "$MIKE_Setup_Scripts/utils/utilsAppInstall.sh"
+source "$fontsBase02SetupsDir/utils/utilsLib.sh"
+
+source "$fontsBase02SetupsDir/utils/utilsAppInstall.sh"
 
 # This variable controls whether the fonts will be
 # be installed as system fonts or local fonts.
