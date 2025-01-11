@@ -45,6 +45,12 @@ msgNotify "Installing 'multitail'" &&
 installMultiTail &&
 msgNotify "Installing fastfetch" &&
 installFastFetch &&
+msgNotify "Installing CopyQ" &&
+installCopyQ &&
+msgNotify "Installing ImageMagick" &&
+installImageMagick &&
+msgNotify "Returning to Home Base" &&
+changeToDir "$baseSetups5Dir/stdAppInstall" &&
 successMsg "All Phase-3a Utilities Installed." "003a-utilitiesInstall" || {
   errXMsg "003a-utilitiesInstall Execution Failed" "Error-Exit!"
 }

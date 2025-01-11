@@ -25,6 +25,8 @@ msgNotify "Installing Kile for LaTeX" &&
 installKile &&
 msgNotify "Installing Draw IO" &&
 installDrawIO &&
+msgNotify "Returning to Home Base" &&
+changeToDir "$baseSetups90Dir/stdAppInstall" &&
 successMsg "All Phase-6 Applications Successfully Installed." "006-appInstall.sh" || {
 
   errXMsg "006-appInstall.sh Execution Failed" "Error-Exit!"

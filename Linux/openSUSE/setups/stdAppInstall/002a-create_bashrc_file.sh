@@ -65,6 +65,8 @@ function setupBashrcFile() {
 
 msgNotify "Initial .bashrc file configuration" &&
 setupBashrcFile &&
+msgNotify "Returning to Home Base" &&
+changeToDir "$baseSetups19Dir/stdAppInstall" &&
 successMsg "bashrc File is GOOD TO GO." "Script: 002a-create_bashrc_file.sh" || {
 
   errXMsg "002a-create_bashrc_file.sh Execution Failed" "Error-Exit!"

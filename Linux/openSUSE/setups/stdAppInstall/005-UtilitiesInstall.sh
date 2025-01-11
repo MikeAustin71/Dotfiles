@@ -45,6 +45,8 @@ msgNotify "Installing podman DistroBox" &&
 installDistroBox &&
 msgNotify "Installing Kubernetes Tools" &&
 installKubernetes &&
+msgNotify "Returning to Home Base" &&
+changeToDir "$baseSetups92Dir/stdAppInstall" &&
 successMsg "All Phase-5 Utilties Installed." "005-UtilitiesInstall.sh" || {
   errXMsg "005-UtilitiesInstall.sh Execution Failed" "Error-Exit!"
 

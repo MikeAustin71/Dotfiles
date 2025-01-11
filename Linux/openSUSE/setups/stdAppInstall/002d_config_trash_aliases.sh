@@ -64,7 +64,10 @@ function configAliasesTrash() {
   return 0
 }
 
+msgNotify "Configuring trash-cli aliases." &&
 configAliasesTrash &&
+msgNotify "Returning to Home Base" &&
+changeToDir "$utilAppCfgSetups/stdAppInstall" &&
 successMsg "All trash-cli Aliases Created." "REBOOT YOUR COMPUTER!" "Script: 002d_config_trash_aliases.sh" || {
 
   errXMsg "002d_config_trash_aliases.sh Execution Failed" "Error-Exit!"

@@ -19,8 +19,8 @@ msgNotify "Installing Compression Utilities" &&
 installCompressionUtilities &&
 msgNotify "Installing 'lynis' Security Tool" &&
 installLynis &&
-msgNotify "Installing VmWare Tools" &&
-installVmwareTools &&
+msgNotify "Returning to Home Base" &&
+changeToDir "$baseSetups9Dir/stdAppInstall" &&
 successMsg "All Phase-3b Utilities Installed." "003b-utilitiesInstall.sh" || {
 
 errXMsg "003b-utilitiesInstall.sh Execution Failed" "Error-Exit!"

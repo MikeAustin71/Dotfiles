@@ -39,6 +39,8 @@ msgNotify "Configuring 'bat' Aliases" &&
 configAliasesBat &&
 msgNotify "Installing 'broot'" &&
 installBroot &&
+msgNotify "Returning to Home Base" &&
+changeToDir "$baseSetups2Dir/stdAppInstall" &&
 successMsg "All Phase-2b Structures Created." "REBOOT YOUR COMPUTER!" "Script: 002b-create_base_structure.sh" || {
 
   errXMsg "002b-create_base_structure.sh Execution Failed" "Error-Exit!"

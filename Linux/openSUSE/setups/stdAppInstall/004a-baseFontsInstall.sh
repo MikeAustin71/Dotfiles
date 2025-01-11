@@ -46,6 +46,8 @@ msgNotify "Installing Google Fonts" &&
 installGoogleFonts &&
 msgNotify "Installing Wallpapers" &&
 getWallpaper &&
+msgNotify "Returning to Home Base" &&
+changeToDir "$baseSetups85Dir/stdAppInstall" &&
 successMsg "All Base Fonts-a Installed." "All Fonts and Wallpapers Installed" "004a-baseFontsInstall.sh" || {
   errXMsg "004a-baseFontsInstall.sh Execution Failed" "Error-Exit!"
 

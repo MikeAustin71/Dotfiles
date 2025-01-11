@@ -104,6 +104,8 @@ function installCockpitClient() {
 
 }
 
+# https://hluk.github.io/CopyQ/
+# Displays clipboard in tabs
 function installCopyQ() {
 
   sudo zypper install copyq 

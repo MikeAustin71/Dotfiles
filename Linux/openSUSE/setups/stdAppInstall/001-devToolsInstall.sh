@@ -77,6 +77,8 @@ installGo() {
 
 }
 
+msgNotify "Installing VmWare Tools" &&
+installVmwareTools &&
 msgNotify "Installing 'nano'" &&
 installNano &&
 msgNotify "Installing 'curl'" &&
@@ -103,6 +105,8 @@ msgNotify "Installing 'rust' tools" &&
 installRust &&
 msgNotify "Installing 'flatseal'" &&
 installFlatSeal &&
+msgNotify "Returning to Home Base" &&
+changeToDir "$baseSetups01Dir/stdAppInstall" &&
 successMsg "Phase-1 Development Tools Installed." "001-devToolsInstall.sh"  || {
 
   errXMsg "001-devToolsInstall.sh Execution Failed" "Error-Exit!"
