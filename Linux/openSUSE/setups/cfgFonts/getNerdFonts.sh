@@ -168,7 +168,7 @@ do
             return $nerdFontErrCode
     fi
 
-    unzip "$targetDir/$currFontName.zip" ||
+    sudo unzip "$targetDir/$currFontName.zip" ||
     {
       nerdFontErrCode=$?
       echo "*** ERROR ***"

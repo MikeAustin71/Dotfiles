@@ -126,7 +126,7 @@ function downLoadGoogleFonts() {
 
     else
 
-      unzip "$opsDir"/"$currZipFileName" -d "$currTargetDirName" || {
+      sudo unzip "$opsDir"/"$currZipFileName" -d "$currTargetDirName" || {
 
       googleFontErrCode=$?
 
