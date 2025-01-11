@@ -62,7 +62,7 @@ declare -i loadWallpaperExitCode=0
 }
 
 
-# sudo cp -v "$HOME/repo/Linux/Wallpaper/*" "$MIKE_Wallpaper_Directory/"
+# sudo cp -v "$HOME/repo/Linux/Wallpaper/*" "$destWallPaperDir/"
 
 sudo cp -v "$srcWallPaperDir"/* "$destWallPaperDir" ||
 {

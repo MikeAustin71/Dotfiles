@@ -22,7 +22,7 @@ declare opsDir="$HOME"/scratch
 declare originalStartDir=""
 declare opsAuthority=""
 
-opsAuthority="sudo"
+opsAuthority="root"
 
 declare -i googleFontErrCode=0
 

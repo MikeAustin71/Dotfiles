@@ -32,7 +32,7 @@ originalStartDir=$(pwd)
 
 declare opsAuthority=""
 
-opsAuthority="sudo"
+opsAuthority="root"
 
 declare currFontName=""
 
