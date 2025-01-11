@@ -46,4 +46,7 @@ msgNotify "Installing Google Fonts" &&
 installGoogleFonts &&
 msgNotify "Installing Wallpapers" &&
 getWallpaper &&
-successMsg "All Base Tools Installed." "All Fonts and Wallpapers Installed" "004-baseToolsInstall.sh" || errXMsg "004-baseToolsInstall.sh Execution Failed" "Error-Exit!"
+successMsg "All Base Fonts-a Installed." "All Fonts and Wallpapers Installed" "004a-baseFontsInstall.sh" || {
+  errXMsg "004a-baseFontsInstall.sh Execution Failed" "Error-Exit!"
+
+}
