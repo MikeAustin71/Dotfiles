@@ -4,7 +4,7 @@
 
 
 declare baseRepo10Dir="$HOME"/repos/Dotfiles
-
+declare homeBase10Dir="$HOME"/secretSauce
 
 cd "$baseRepo10Dir" || {
   echo "updateDotFilesRepo.sh failed to set repo path!"
@@ -15,10 +15,10 @@ cd "$baseRepo10Dir" || {
 
 git pull origin main
 
-cd "$HOME" || {
+cd "$homeBase10Dir" || {
 
   echo "updateDotFilesRepo.sh failed to change directory to home!"
-  echo "home directory = $HOME"
+  echo "home directory = $homeBase10Dir"
 
    return 99
 
