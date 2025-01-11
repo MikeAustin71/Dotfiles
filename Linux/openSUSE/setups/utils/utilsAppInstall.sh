@@ -766,11 +766,18 @@ function installTldr() {
 }
 
 
-function installTerminusFonts() {
+function installTerminusBitMapFonts() {
 
-  sudo zypper install terminus-ttf-fonts
+  sudo zypper install terminus-bitmap-fonts
 
 }
+
+function installTerminusConsoleetFonts() {
+
+  sudo zypper install consoleet-terminus-fonts
+
+}
+
 
 # LaTeX Editor
 # https://www.xm1math.net/texmaker/

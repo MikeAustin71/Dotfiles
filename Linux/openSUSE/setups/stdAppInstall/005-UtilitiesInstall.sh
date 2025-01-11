@@ -7,8 +7,10 @@ source "$baseSetups92Dir"/utils/utilsLib.sh
 source "$baseSetups92Dir"/utils/utilsAppInstall.sh
 source "$baseSetups92Dir"/utils/utilsAppConfig.sh
 
-msgNotify "Installing Terminus Fonts" &&
-installTerminusFonts &&
+msgNotify "Installing Terminus Bit Map Fonts" &&
+installTerminusBitMapFonts &&
+msgNotify "Installing Terminus Consoleet Fonts" &&
+installTerminusConsoleetFonts &&
 msgNotify "Installing Font Awesome" &&
 installFontAwesome &&
 msgNotify "Installing Duf" &&
