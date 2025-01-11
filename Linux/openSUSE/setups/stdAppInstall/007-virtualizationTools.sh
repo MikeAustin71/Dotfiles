@@ -1,3 +1,6 @@
+#!/bin/bash
+# Install Phase-5 application series
+#
 declare baseSetups93Dir="$HOME"/bashOps/setups
 source "$baseSetups93Dir"/utilsLib.sh
 source "$baseSetups93Dir"/utilsAppInstall.sh
