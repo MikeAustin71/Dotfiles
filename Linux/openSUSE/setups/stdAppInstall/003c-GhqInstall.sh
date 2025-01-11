@@ -1,6 +1,8 @@
 #!/bin/bash
-# Configure .bashrc
-# Install aliases and starship
+# Make sure 'Go' is installed.
+# Make sure that the Path has been updated
+# for 'Go'.
+# See ~/.config/shell/path/userPath.sh
 
 
 declare baseSetups24Dir="$HOME"/bashOps/setups
