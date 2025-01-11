@@ -41,7 +41,7 @@ dirOwner="$(whoami)"
 }
 
 msgNotify "Copying $HOME/bashOps/setups/utilsLocal/updateDotFilesRepo.sh to Secret Sauce" &&
-functionCopyWipeOutHome &&
+functionCopyUpdateDotfilesHome &&
 successMsg "Copied updateDotFilesRepo.sh to Secret Sauce!" "copyUpdateDotfilesHome.sh" || {
 
   errXMsg "copyUpdateDotfilesHome.sh Execution Failed" "Error-Exit!"
