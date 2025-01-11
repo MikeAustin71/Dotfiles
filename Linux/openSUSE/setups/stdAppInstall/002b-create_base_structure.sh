@@ -33,7 +33,7 @@ msgNotify "Installing 'eza'" &&
 installEza &&
 msgNotify "Configuring 'eza' Aliases" &&
 configAliasesEza &&
-successMsg "All Phase-2a Structures Created." "REBOOT YOUR COMPUTER!" "Script: 002a-create_base_structure.sh" || {
+successMsg "All Phase-2b Structures Created." "REBOOT YOUR COMPUTER!" "Script: 002b-create_base_structure.sh" || {
 
-  errXMsg "002a-create_base_structure.sh Execution Failed" "Error-Exit!"
+  errXMsg "002b-create_base_structure.sh Execution Failed" "Error-Exit!"
 }
