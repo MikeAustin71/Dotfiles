@@ -37,8 +37,6 @@ msgNotify "Installing 'tldr'" &&
 installTldr &&
 msgNotify "Installing 'lshw'" &&
 installLshw &&
-msgNotify "Installing 'ghq'" &&
-installScriptGHQ &&
 msgNotify "Installing 'ncurses' dependency for 'multitail' " &&
 installNcurses &&
 msgNotify "Installing 'multitail'" &&

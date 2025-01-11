@@ -7,6 +7,8 @@
 #         IMPORTANT
 # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 # You MUST install 'go' First!
+# AND You MUST Configure the user Path.
+# See: setups/configDir/shell/path/userPath.sh
 # If you want a non-default path to repos,
 # set environment variable GHQ_ROOT.
 # Example:
