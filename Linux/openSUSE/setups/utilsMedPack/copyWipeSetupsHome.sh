@@ -3,8 +3,8 @@
 # configure  ~/bashOps/setups
 
 declare baseSetups40Dir="$HOME"/bashOps/setups
-source "$baseSetups40Dir"/utilsLib.sh
-source "$baseSetups40Dir"/utilsAppInstall.sh
+source "$baseSetups40Dir"/utils/utilsLib.sh
+source "$baseSetups40Dir"/utils/utilsAppInstall.sh
 
 
 functionCopyWipeOutHome() {

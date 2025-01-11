@@ -2,8 +2,8 @@
 # Install Phase-5 application series
 #
 declare baseSetups90Dir="$HOME"/bashOps/setups
-source "$baseSetups90Dir"/utilsLib.sh
-source "$baseSetups90Dir"/utilsAppInstall.sh
+source "$baseSetups90Dir"/utils/utilsLib.sh
+source "$baseSetups90Dir"/utils/utilsAppInstall.sh
 
 msgNotify "Installing Pandoc" &&
 installPandoc &&

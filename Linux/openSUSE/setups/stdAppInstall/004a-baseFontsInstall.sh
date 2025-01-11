@@ -6,8 +6,8 @@
 #   running script 00a-createBaseStructure.sh
 
 declare baseSetups85Dir="$HOME"/bashOps/setups
-source "$baseSetups85Dir"/utilsLib.sh
-source "$baseSetups85Dir"/utilsAppInstall.sh
+source "$baseSetups85Dir"/utils/utilsLib.sh
+source "$baseSetups85Dir"/utils/utilsAppInstall.sh
 
 function installGoogleFonts() {
 

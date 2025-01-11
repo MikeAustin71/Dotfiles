@@ -3,9 +3,9 @@
 #
 
 declare baseSetups92Dir="$HOME"/bashOps/setups
-source "$baseSetups92Dir"/utilsLib.sh
-source "$baseSetups92Dir"/utilsAppInstall.sh
-source "$baseSetups92Dir"/utilsAppConfig.sh
+source "$baseSetups92Dir"/utils/utilsLib.sh
+source "$baseSetups92Dir"/utils/utilsAppInstall.sh
+source "$baseSetups92Dir"/utils/utilsAppConfig.sh
 
 msgNotify "Installing Terminus Fonts" &&
 installTerminusFonts &&

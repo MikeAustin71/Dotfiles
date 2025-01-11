@@ -2,8 +2,8 @@
 # Install Phase-5 application series
 #
 declare baseSetups93Dir="$HOME"/bashOps/setups
-source "$baseSetups93Dir"/utilsLib.sh
-source "$baseSetups93Dir"/utilsAppInstall.sh
+source "$baseSetups93Dir"/utils/utilsLib.sh
+source "$baseSetups93Dir"/utils/utilsAppInstall.sh
 
 
 msgNotify "Installing Virtualization Tools" &&

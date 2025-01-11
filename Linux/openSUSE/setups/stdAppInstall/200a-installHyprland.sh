@@ -3,9 +3,9 @@
 # Run this as sudo
 
 declare baseSetups97Dir="$HOME"/bashOps/setups
-source "$baseSetups97Dir"/utilsLib.sh
-source "$baseSetups97Dir"/utilsAppInstall.sh
-source "$baseSetups97Dir"/utilsWaylandInstalls.sh
+source "$baseSetups97Dir"/utils/utilsLib.sh
+source "$baseSetups97Dir"/utils/utilsAppInstall.sh
+source "$baseSetups97Dir"/utils/utilsWaylandInstalls.sh
 
 
 installLibdrm &&
