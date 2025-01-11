@@ -106,9 +106,12 @@ function installCockpitClient() {
 
 # https://hluk.github.io/CopyQ/
 # Displays clipboard in tabs
+#Start the application from menu or
+# with following command:
+#  flatpak run com.github.hluk.copyq
 function installCopyQ() {
 
-  sudo zypper install copyq 
+  sudo flatpak install flathub com.github.hluk.copyq
 
 }
 

@@ -43,8 +43,6 @@ msgNotify "Installing 'multitail'" &&
 installMultiTail &&
 msgNotify "Installing fastfetch" &&
 installFastFetch &&
-msgNotify "Installing CopyQ" &&
-installCopyQ &&
 msgNotify "Installing ImageMagick" &&
 installImageMagick &&
 msgNotify "Returning to Home Base" &&
