@@ -9,12 +9,6 @@ source "$baseSetups2Dir"/utils/utilsLib.sh
 source "$baseSetups2Dir"/utils/utilsAppConfig.sh
 source "$baseSetups2Dir"/utils/utilsAppInstall.sh
 
-msgNotify "Installing 'bat'" &&
-installBat &&
-msgNotify "Configuring 'bat' Aliases" &&
-configAliasesBat &&
-msgNotify "Installing 'broot'" &&
-installBroot &&
 msgNotify "Configuring 'broot' Aliases" &&
 configAliasesBroot &&
 msgNotify "Configuring 'broot' in .bashrc" &&
@@ -31,7 +25,7 @@ msgNotify "Copying Starship Config Files" &&
 configStarship &&
 msgNotify "Configuring 'starship' in .bashrc" &&
 configBashrcStarship &&
-successMsg "All Phase-2e Base-2 Structures Created." "REBOOT YOUR COMPUTER!" "Script: 002e_create_base_2_structures.sh" || {
+successMsg "All Phase-2e Base-2 Structures Created." "REBOOT YOUR COMPUTER!" "Script: 002e_config_broot.sh" || {
 
-  errXMsg "002e_create_base_2_structures.sh Execution Failed" "Error-Exit!"
+  errXMsg "002e_config_broot.sh Execution Failed" "Error-Exit!"
 }

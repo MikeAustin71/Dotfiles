@@ -33,6 +33,12 @@ msgNotify "Installing 'eza'" &&
 installEza &&
 msgNotify "Configuring 'eza' Aliases" &&
 configAliasesEza &&
+msgNotify "Installing 'bat'" &&
+installBat &&
+msgNotify "Configuring 'bat' Aliases" &&
+configAliasesBat &&
+msgNotify "Installing 'broot'" &&
+installBroot &&
 successMsg "All Phase-2b Structures Created." "REBOOT YOUR COMPUTER!" "Script: 002b-create_base_structure.sh" || {
 
   errXMsg "002b-create_base_structure.sh Execution Failed" "Error-Exit!"
