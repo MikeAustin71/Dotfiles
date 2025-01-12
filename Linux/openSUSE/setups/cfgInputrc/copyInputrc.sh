@@ -2,11 +2,14 @@
 # Copies a pre-configured inputrc file to
 # $HOME/.inputrc
 
-source "$MIKE_Setup_Scripts/utils/utilsLib.sh"
+
+declare bashOps422Setups="$HOME"/bashOps/setups
+
+source "$bashOps422Setups/utils/utilsLib.sh"
 
 declare -i inputRcErrorCode=0
 
-declare inputRcSourceFile="$MIKE_Setup_Scripts/homeDir/inputrc.txt"
+declare inputRcSourceFile="$bashOps422Setups/homeDir/inputrc.txt"
 
 declare inputRcDestinationFile="$HOME/.inputrc"
 
@@ -24,6 +27,7 @@ fi
 if [[ -f $inputRcDestinationFile ]]
 then
 
+    # shellcheck disable=SC2319
     inputRcErrorCode=$?
 
     rm "$inputRcDestinationFile" ||

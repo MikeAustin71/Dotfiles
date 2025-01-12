@@ -1,7 +1,7 @@
 
 # Adding User Path Parameters
 
-if [ f "$HOME"/.config/shell/path/userPath.sh ]
+if [ -f "$HOME"/.config/shell/path/userPath.sh ]
 then
 
   source "$HOME"/.config/shell/path/userPath.sh

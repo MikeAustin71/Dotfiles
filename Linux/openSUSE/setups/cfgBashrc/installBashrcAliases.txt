@@ -1,7 +1,7 @@
 
 
 # Adding standard aliases
-if [ f /home/mike/.config/shell/aliases/aliases.sh ]
+if [ -f /home/mike/.config/shell/aliases/aliases.sh ]
 then
    source /home/mike/.config/shell/aliases/aliases.sh
 fi
