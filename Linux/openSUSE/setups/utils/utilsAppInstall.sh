@@ -409,13 +409,6 @@ function installKrusader() {
 
 }
 
-function installKubernetes() {
-
-  sudo zypper install -t pattern kubeadm &&
-
-  sudo zypper install -t pattern kubernetes_utilities
-
-}
 
 
 
@@ -675,7 +668,7 @@ function installPodmanDesktop {
 # Calculator: qalculate
 function installQalculate() {
 
- sudo zypper install qalculate qalculate-data libqalculate22 libqalculate-devel
+ sudo zypper install qalculate qalculate-data libqalculate23 libqalculate-devel
 }
 
 # https://github.com/ranger/ranger
