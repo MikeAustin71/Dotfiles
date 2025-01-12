@@ -2,14 +2,17 @@
 # Installs all Codecs
 #
 
-source "$MIKE_Setup_Scripts/utils/utilsLib.sh"
+declare baseSetups502Dir="$HOME"/bashOps/setups
+
+source "$baseSetups502Dir/utils/utilsLib.sh"
 
 installMediaCodec() {
 
   local scriptFile
 
-  scriptFile="$MIKE_Setup_Scripts/addMediaCodecs/01-addMediaCodecs.sh"
+  scriptFile="$baseSetups502Dir/addMediaCodecs/01-addMediaCodecs.sh"
 
+  # shellcheck disable=SC1090
   source "$scriptFile"
 
 }
@@ -18,8 +21,9 @@ installSoundVideoCodecs() {
 
   local scriptFile
 
-  scriptFile="$MIKE_Setup_Scripts/addMediaCodecs/02_addMediaSoundVideo.sh"
+  scriptFile="$baseSetups502Dir/addMediaCodecs/02_addMediaSoundVideo.sh"
 
+  # shellcheck disable=SC1090
   source "$scriptFile"
 }
 
