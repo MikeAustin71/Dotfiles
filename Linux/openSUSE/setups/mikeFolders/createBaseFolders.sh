@@ -38,6 +38,8 @@ makeDirIfNotExist "$HOME/projects" "775" "" &&
 makeDirIfNotExist "$HOME/Public" "775" "" &&
 makeDirIfNotExist "$HOME/repos" "775" "" &&
 makeDirIfNotExist "$HOME/scratch" "777" "" &&
+makeDirIfNotExist "$HOME/secretSauce" "775" "" &&
 makeDirIfNotExist "$HOME/shares" "776" "" &&
+makeDirIfNotExist "$HOME/vaults" "775" "" &&
 makeDirIfNotExist "$HOME/workNotes" "777" "" &&
 successMsg "Base Directory Structure Creation Completed!"
