@@ -870,7 +870,7 @@ function configUserPath() {
 
   local sourceFile="$utilAppCfgSetups"/configDir/shell/path/userPath.sh
 
-  local userPathTargetDir="$HOME/.config/shell/userPath"
+  local userPathTargetDir="$HOME/.config/shell/path"
 
   local userPathTargetFileName="userPath.sh"
 
