@@ -7,9 +7,12 @@
 #
 # Run this script as sudo
 
-source "$MIKE_Setup_Utilities"/utilsLib.sh
+declare baseSetups523Dir="$HOME"/bashOps/setups
 
-localShareDir="$HOME/shares"
+
+source "$baseSetups523Dir"/utilsLib.sh
+
+declare localShareDir="H:\VM_Shared"
 
 
 attachSharedVMDir() {
@@ -32,6 +35,6 @@ sudo /usr/bin/vmhgfs-fuse .host:/ "$localShareDir" -o subtype=vmhgfs-fuse,allow_
   return 0
 }
 
- makeDirIfNotExist "$localShareDir" "776" "" &&
+ makeDirIfNotExist "$localShareDir" "775" "" &&
  attachSharedVMDir &&
  successMsg "Successfully Attached VM Shared Directory!" "Local Directory Share: $localShareDir"
