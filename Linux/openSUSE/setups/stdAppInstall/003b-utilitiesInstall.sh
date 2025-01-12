@@ -17,6 +17,10 @@ msgNotify "Installing Peco" &&
 installScriptPeco &&
 msgNotify "Installing Compression Utilities" &&
 installCompressionUtilities &&
+msgNotify "Installing KRename" &&
+installKrename &&
+msgNotify "Installing KGet" &&
+installKget &&
 msgNotify "Installing 'lynis' Security Tool" &&
 installLynis &&
 msgNotify "Returning to Home Base" &&

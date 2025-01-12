@@ -342,6 +342,26 @@ function installKeePassXC() {
   return 0
 }
 
+# KGet is a versatile and user-friendly
+# download manager.
+# https://apps.kde.org/kget/
+function installKget() {
+
+  sudo zypper install kget
+}
+
+# krename = batch renamer
+# used by Krusader
+# KRename is a very powerful batch file
+# renamer which can rename a list of files
+# based on a set of expressions.
+# https://apps.kde.org/krename/
+function installKrename() {
+
+   sudo zypper install krename
+
+}
+
 function installScriptGHQ() {
 
   local -i ghqFuncErrorCode=0
