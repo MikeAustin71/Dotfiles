@@ -452,7 +452,7 @@ function installLibdrm() {
 # to run.
 function installLibgthread() {
 
-  sudo zypper install libdrm
+  sudo zypper install libgthread-2_0-0
 
 }
 
