@@ -12,7 +12,7 @@ declare baseSetups523Dir="$HOME"/bashOps/setups
 
 source "$baseSetups523Dir"/utilsLib.sh
 
-declare localShareDir="$HOME"/.local/share
+declare localShareDir="$HOME"/.local/share/VMShare
 
 
 attachSharedVMDir() {
@@ -35,7 +35,7 @@ sudo /usr/bin/vmhgfs-fuse .host:/ "$localShareDir" -o subtype=vmhgfs-fuse,allow_
   return 0
 }
 
- msgNotify "Creating local share directory if NOT Exists!" &&
+ msgNotify "Creating local share directory if NOT Exists!" "$localShareDir" &&
  makeDirIfNotExist "$localShareDir" "775" "" &&
  msgNotify "Attaching Shared Directory: " "    $localShareDir" &&
  attachSharedVMDir &&
