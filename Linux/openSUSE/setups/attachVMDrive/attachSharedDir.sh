@@ -3,7 +3,7 @@
 # guest virtual machine
 #
 # The following command will mount the 
-# shared directory in $HOME/shares
+# shared directory in /home/mike/.local/share
 #
 # Run this script as sudo
 
@@ -12,7 +12,7 @@ declare baseSetups523Dir="$HOME"/bashOps/setups
 
 source "$baseSetups523Dir"/utilsLib.sh
 
-declare localShareDir="D:\VMSharedData"
+declare localShareDir="$HOME"/.local/share
 
 
 attachSharedVMDir() {
@@ -35,6 +35,10 @@ sudo /usr/bin/vmhgfs-fuse .host:/ "$localShareDir" -o subtype=vmhgfs-fuse,allow_
   return 0
 }
 
+ msgNotify "Creating local share directory if NOT Exists!" &&
  makeDirIfNotExist "$localShareDir" "775" "" &&
+ msgNotify "Attaching Shared Directory: " "    $localShareDir" &&
  attachSharedVMDir &&
- successMsg "Successfully Attached VM Shared Directory!" "Local Directory Share: $localShareDir"
+ successMsg "Successfully Attached VM Shared Directory!" "Local Directory Share: $localShareDir" || {
+  errXMsg "attachSharedDir.sh Script Execution Failed" "Error-Exit!"
+ }

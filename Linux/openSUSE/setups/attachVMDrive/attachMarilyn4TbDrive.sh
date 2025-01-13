@@ -16,10 +16,17 @@
 
 declare baseSetups523Dir="$HOME"/bashOps/setups
 
-
 source "$baseSetups523Dir"/utilsLib.sh
 
 declare linuxDisk="/dev/sdb2"
 
 
-sudo udisksctl mount -b "$linuxDisk"
+attachHardDrive() {
+  sudo udisksctl mount -b "$linuxDisk"
+}
+
+msgNotify "Attaching Hard Drive: " "$linuxDisk" &&
+attachHardDrive &&
+successMsg "Successfully Hard Drive!" "Disk: $linuxDisk" || {
+  errXMsg "attachMarilyn4TbDrive.sh Script Execution Failed" "Error-Exit!"
+ }
