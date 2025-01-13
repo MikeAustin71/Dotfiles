@@ -16,7 +16,7 @@
 
 declare baseSetups523Dir="$HOME"/bashOps/setups
 
-source "$baseSetups523Dir"/utilsLib.sh
+source "$baseSetups523Dir"/utils/utilsLib.sh
 
 declare linuxDisk="/dev/sdb2"
 
