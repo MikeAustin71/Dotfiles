@@ -446,6 +446,18 @@ function installLibdrm() {
 
 }
 
+# When Jetbains Webstorm is installed
+# it fails due to a JAVA library issue.
+# You need this in order for Webstorm
+# to run.
+function installLibgthread() {
+
+  sudo zypper install libdrm
+
+}
+
+
+
 # Low Level Virtual Machine
 # https://en.wikipedia.org/wiki/LLVM
 function installLLVM() {
