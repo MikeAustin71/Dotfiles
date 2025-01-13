@@ -16,7 +16,6 @@ makeDirIfNotExist "$HOME/.config/shell/xorg" "775" "" &&
 makeDirIfNotExist "$HOME/.config/shell/xorg/awesome" "775" "" &&
 makeDirIfNotExist "$HOME/.local" "775" "" &&
 makeDirIfNotExist "$HOME/.local/share" "775" "" &&
-makeDirIfNotExist "$HOME/.local/share/VMShare" "775" "" &&
 makeDirIfNotExist "$HOME/.local/share/fonts" "775" "" &&
 makeDirIfNotExist "$HOME/.local/bin" "775" "" &&
 makeDirIfNotExist "$HOME/.local/cache" "775" "" &&
@@ -40,7 +39,8 @@ makeDirIfNotExist "$HOME/Public" "775" "" &&
 makeDirIfNotExist "$HOME/repos" "775" "" &&
 makeDirIfNotExist "$HOME/scratch" "777" "" &&
 makeDirIfNotExist "$HOME/secretSauce" "775" "" &&
-makeDirIfNotExist "$HOME/shares" "776" "" &&
+makeDirIfNotExist "$HOME/shares" "777" "" &&
+makeDirIfNotExist "$HOME/shares/VMShare" "775" "" &&
 makeDirIfNotExist "$HOME/vaults" "775" "" &&
 makeDirIfNotExist "$HOME/workNotes" "777" "" &&
 successMsg "Base Directory Structure Creation Completed!"

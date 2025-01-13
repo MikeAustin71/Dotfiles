@@ -3,7 +3,7 @@
 # guest virtual machine
 #
 # The following command will mount the 
-# shared directory in /home/mike/.local/share
+# shared directory in /home/mike/shares/VMShare
 #
 # Run this script as sudo
 
@@ -12,7 +12,7 @@ declare baseSetups523Dir="$HOME"/bashOps/setups
 
 source "$baseSetups523Dir"/utls/utilsLib.sh
 
-declare localShareDir="$HOME"/.local/share/VMShare
+declare localShareDir="$HOME"/shares/VMShare
 
 
 attachSharedVMDir() {
