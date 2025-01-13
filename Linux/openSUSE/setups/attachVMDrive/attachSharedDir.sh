@@ -36,7 +36,7 @@ sudo /usr/bin/vmhgfs-fuse .host:/ "$localShareDir" -o subtype=vmhgfs-fuse,allow_
 }
 
  msgNotify "Creating local share directory if NOT Exists!" "$localShareDir" &&
- makeDirIfNotExist "$localShareDir" "775" "" &&
+ makeDirIfNotExist "$localShareDir" "777" "" &&
  msgNotify "Attaching Shared Directory: " "    $localShareDir" &&
  attachSharedVMDir &&
  successMsg "Successfully Attached VM Shared Directory!" "Local Directory Share: $localShareDir" || {
