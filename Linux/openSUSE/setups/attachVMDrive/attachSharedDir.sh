@@ -10,7 +10,7 @@
 declare baseSetups523Dir="$HOME"/bashOps/setups
 
 
-source "$baseSetups523Dir"/utls/utilsLib.sh
+source "$baseSetups523Dir"/utils/utilsLib.sh
 
 declare localShareDir="$HOME"/shares/VMShare
 
