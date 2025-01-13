@@ -12,7 +12,7 @@ declare baseSetups523Dir="$HOME"/bashOps/setups
 
 source "$baseSetups523Dir"/utilsLib.sh
 
-declare localShareDir="H:\VM_Shared"
+declare localShareDir="D:\VMSharedData"
 
 
 attachSharedVMDir() {
