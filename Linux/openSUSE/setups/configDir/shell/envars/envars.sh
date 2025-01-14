@@ -1,37 +1,37 @@
 #!/bin/bash
 # Mike's Environment Variables
 
-export EDITOR="geany"
+export EDITOR="kate"
 
-export VISUAL="geany"
+export VISUAL="kate"
 
 export VIEWER="micro"
 
 export XDG_DATA_HOME="/home/mike/.local/share/flatpak/exports/share:/var/lib/flatpak/exports/share:/usr/local/share:/usr/share"
 
+export XDG_DATA_FONTS="$HOME/.local/share/fonts"
+
 export XDG_CONFIG_HOME="$HOME/.config"
 
-export XDG_CONFIG_ALIASES="$XDG_CONFIG_HOME"/shell/aliases
+export XDG_CONFIG_ALIASES="$HOME/.config/shell/aliases"
 
-export XDG_CONFIG_ENVARS="$XDG_CONFIG_HOME/shell/envars"
+export XDG_CONFIG_ENVARS="$HOME/.config/shell/envars"
 
-export XDG_CONFIG_XORG="$XDG_CONFIG_HOME/xorg"
+export XDG_CONFIG_XORG="$HOME/.config/xorg"
 
 export XDG_LOCAL_HOME="$HOME/.local"
 
 export XDG_SHARE_DATA="$XDG_LOCAL_HOME/share"
 
-export XDG_DATA_FONTS="$XDG_SHARE_DATA/fonts"
+export XDG_BIN_HOME="$HOME/.local/bin"
 
-export XDG_BIN_HOME="$XDG_LOCAL_HOME/bin"
+export XDG_CACHE_HOME="$HOME/.local/cache"
 
-export XDG_CACHE_HOME="$XDG_LOCAL_HOME/cache"
+export XDG_CONFIG_STARSHIP="$HOME/.local/starship"
 
-export XDG_CONFIG_STARSHIP="$XDG_CONFIG_HOME/starship"
+export STARSHIP_CONFIG="$HOME/.local/starship/starship.toml"
 
-export STARSHIP_CONFIG="$XDG_CONFIG_STARSHIP/starship.toml"
-
-export STARSHIP_CACHE="$XDG_CACHE_HOME/.starship/cache"
+export STARSHIP_CACHE="$HOME/.local/cache/.starship/cache"
 
 export MIKE_Scratch="$HOME/scratch"
 
@@ -41,7 +41,7 @@ export MIKE_VM_openSUSE="$HOME/shares/HostVlMShared/openSUSE"
 
 export MIKE_VM_Scripts="$HOME/shares/HostVlMShared/openSUSE/final_production/setups"
 
-export MIKE_Fonts_Directory="$XDG_DATA_HOME/fonts"
+export MIKE_Fonts_Directory="$HOME/.local/share/fonts"
 
 export MIKE_Wallpaper_Directory="/usr/share/wallpapers/openSUSEdefault/contents/images"
 
