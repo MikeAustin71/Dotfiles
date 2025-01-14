@@ -23,7 +23,7 @@ declare linuxDisk="/dev/sdb2"
 declare targetDrive="/mnt/Marilyn4Tb"
 
 attachHardDrive() {
-  sudo mount "$linuxDisk"
+  sudo mount "$linuxDisk" "$targetDrive"
 }
 
 msgNotify "Creating target 'mnt' drive directory if NOT Exists!" "$targetDrive" &&
