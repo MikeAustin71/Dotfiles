@@ -62,4 +62,11 @@ export MIKE_GitRepo_DotFiles="https://github.com/MikeAustin71/Dotfiles.git"
 #    https://github.com/x-motemen/ghq
 export GHQ_ROOT="$HOME/repos"
 
+# Marilyn 4Tb Hard Drive
+export Marilyn4Tb='/mnt/Marilyn4Tb'
+
+# VMware Shared Directory
+export VMShare="$HOME/shares/VMShare/VMSharedData"
+
+
 
