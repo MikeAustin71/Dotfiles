@@ -19,6 +19,10 @@ function installAlsaUtils() {
 }
 
 # https://atuin.sh/
+# Be sure to configure 'atuin' in the
+# .bashrc file after you install it.
+# See utilsAppConfig.sh configBashrcAtuin()
+#
 function installAtuin() {
 
   sudo zypper install atuin
@@ -916,6 +920,9 @@ function install_x_Drivers_ati() {
 
 # Yazi Terminal File Manager
 # https://yazi-rs.github.io/
+# Be sure to configure .bashrc
+# for yazi. See configBashrcYazi()
+# in utilsAppConfig.sh.
 function installYazi() {
 
   sudo zypper install yazi yazi-bash-completion

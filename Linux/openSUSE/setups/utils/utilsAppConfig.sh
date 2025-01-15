@@ -253,6 +253,7 @@ function configAliasesEza() {
   return 0
 }
 
+
 function configAwesome() {
 
     # shellcheck disable=SC2164
@@ -266,6 +267,63 @@ function configAwesome() {
    # shellcheck disable=SC1090
    source "$scriptFile"
 }
+
+
+# Configures Atuin function in .bashrc file.
+# Run this after you install atuin.
+# See installAtuin() in utilsAppInstall.sh
+#
+function configBashrcAtuin() {
+
+  local sourceTxtFile="$utilAppCfgSetups"/cfgBashrc/installBashrcAtuin.txt
+
+  local bashrcTargetDir="$HOME"
+
+  local bashrcTargetFileName=".bashrc"
+
+  local bashrcTargetFile="$bashrcTargetDir"/"$bashrcTargetFileName"
+
+  local -i THE_ERR_Code=0
+
+  [[ -f $sourceTxtFile ]] || {
+
+    THE_ERR_Code=89
+
+    errXMsg ".bashrc Source File Does NOT Exist!" ".bashrc Source File:" "  $sourceTxtFile" "Error Code: $THE_ERR_Code" "Function: configBashrcAtuin()" "Script File: utilsAppConfig.sh"
+
+    return $THE_ERR_Code
+  }
+
+  appendTextToFile "$sourceTxtFile" "$bashrcTargetDir" "$bashrcTargetFileName" "775" "$(whoami)" || {
+
+    THE_ERR_Code=$?
+
+    echo
+    echo "Error calling appendTextToFile()"
+    echo "Target File: $bashrcTargetFile"
+    echo "Error Code: $THE_ERR_Code"
+    echo "Function: configBashrcAtuin()"
+    echo "Script File: utilsAppConfig.sh"
+    echo
+
+    return $THE_ERR_Code
+  }
+
+  # shellcheck disable=SC1090
+  source "$bashrcTargetFile" || {
+
+    THE_ERR_Code=$?
+
+    errXMsg "Error returned by 'source' command:" "source $bashrcTargetFile" "Error Code: $THE_ERR_Code" "Function: configBashrcAtuin()" "Script File: utilsAppConfig.sh"
+
+    return $THE_ERR_Code
+  }
+
+  msgNotify "    --------------" "'.bashrc' Atuin Parameters Successfully Configured and Now Active" "Sourced Target File:" "$bashrcTargetFile" "    --------------"
+
+  return 0
+}
+
 
 function configBashrcBashCompletion() {
 
@@ -697,40 +755,40 @@ function configBashrcZoxide() {
 
   local bashrcTargetFile="$bashrcTargetDir"/"$bashrcTargetFileName"
 
-  local -i bashrcZoxideErrCode=0
+  local -i THE_ERR_Code=0
 
   [[ -f $sourceTxtFile ]] || {
 
-    bashrcZoxideErrCode=89
+    THE_ERR_Code=89
 
-    errXMsg ".bashrc Zoxide Source File Does NOT Exist!" ".bashrc Zoxide Source File:" "  $sourceTxtFile" "Error Code: $bashrcZoxideErrCode" "Function: configBashrcZoxide()" "Script File: utilsAppConfig.sh"
+    errXMsg ".bashrc Zoxide Source File Does NOT Exist!" ".bashrc Zoxide Source File:" "  $sourceTxtFile" "Error Code: $THE_ERR_Code" "Function: configBashrcZoxide()" "Script File: utilsAppConfig.sh"
 
-    return $bashrcZoxideErrCode
+    return $THE_ERR_Code
   }
 
   appendTextToFile "$sourceTxtFile" "$bashrcTargetDir" "$bashrcTargetFileName" "775" "$(whoami)" || {
 
-    bashrcZoxideErrCode=$?
+    THE_ERR_Code=$?
 
     echo
     echo "Error calling appendTextToFile()"
     echo "Target File: $bashrcTargetFile"
-    echo "Error Code: $bashrcZoxideErrCode"
+    echo "Error Code: $THE_ERR_Code"
     echo "Function: configBashrcZoxide()"
     echo "Script File: utilsAppConfig.sh"
     echo
 
-    return $bashrcZoxideErrCode
+    return $THE_ERR_Code
   }
 
   # shellcheck disable=SC1090
   source "$bashrcTargetFile" || {
 
-    bashrcZoxideErrCode=$?
+    THE_ERR_Code=$?
 
-    errXMsg "Error returned by 'source' command:" "source $bashrcTargetFile" "Error Code: $bashrcZoxideErrCode" "Function: configBashrcZoxide()" "Script File: utilsAppConfig.sh"
+    errXMsg "Error returned by 'source' command:" "source $bashrcTargetFile" "Error Code: $THE_ERR_Code" "Function: configBashrcZoxide()" "Script File: utilsAppConfig.sh"
 
-    return $bashrcZoxideErrCode
+    return $THE_ERR_Code
   }
 
   msgNotify "    --------------" "'.bashrc' Zoxide Parameters Successfully Configured and Now Active" "Sourced Target File:" "$bashrcTargetFile" "    --------------"
@@ -749,47 +807,46 @@ function configBashrcYazi() {
 
   local bashrcTargetFile="$bashrcTargetDir"/"$bashrcTargetFileName"
 
-  local -i bashrcYaziErrCode=0
+  local -i THE_ERR_Code=0
 
   [[ -f $sourceTxtFile ]] || {
 
-    bashrcYaziErrCode=89
+    THE_ERR_Code=89
 
-    errXMsg ".bashrc Zoxide Source File Does NOT Exist!" ".bashrc Zoxide Source File:" "  $sourceTxtFile" "Error Code: $bashrcZoxideErrCode" "Function: configBashrcZoxide()" "Script File: utilsAppConfig.sh"
+    errXMsg ".bashrc Source File Does NOT Exist!" ".bashrc Source File:" "  $sourceTxtFile" "Error Code: $THE_ERR_Code" "Function: configBashrcYazi()" "Script File: utilsAppConfig.sh"
 
-    return $bashrcYaziErrCode
+    return $THE_ERR_Code
   }
 
   appendTextToFile "$sourceTxtFile" "$bashrcTargetDir" "$bashrcTargetFileName" "775" "$(whoami)" || {
 
-    bashrcYaziErrCode=$?
+    THE_ERR_Code=$?
 
     echo
     echo "Error calling appendTextToFile()"
     echo "Target File: $bashrcTargetFile"
-    echo "Error Code: $bashrcYaziErrCode"
-    echo "Function: configBashrcZoxide()"
+    echo "Error Code: $THE_ERR_Code"
+    echo "Function: configBashrcYazi()"
     echo "Script File: utilsAppConfig.sh"
     echo
 
-    return $bashrcYaziErrCode
+    return $THE_ERR_Code
   }
 
   # shellcheck disable=SC1090
   source "$bashrcTargetFile" || {
 
-    bashrcZoxideErrCode=$?
+    THE_ERR_Code=$?
 
-    errXMsg "Error returned by 'source' command:" "source $bashrcTargetFile" "Error Code: $bashrcZoxideErrCode" "Function: configBashrcZoxide()" "Script File: utilsAppConfig.sh"
+    errXMsg "Error returned by 'source' command:" "source $bashrcTargetFile" "Error Code: $THE_ERR_Code" "Function: configBashrcYazi()" "Script File: utilsAppConfig.sh"
 
-    return $bashrcZoxideErrCode
+    return $THE_ERR_Code
   }
 
-  msgNotify "    --------------" "'.bashrc' Zoxide Parameters Successfully Configured and Now Active" "Sourced Target File:" "$bashrcTargetFile" "    --------------"
+  msgNotify "    --------------" "'.bashrc' Yazi Parameters Successfully Configured and Now Active" "Sourced Target File:" "$bashrcTargetFile" "    --------------"
 
   return 0
 }
-
 
 
 function configColorsEza() {

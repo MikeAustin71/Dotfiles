@@ -13,6 +13,8 @@ msgNotify "Installing 'libgthread' for Jetbrains" &&
 installLibgthread  &&
 msgNotify "Installing 'atuin'" &&
 installAtuin &&
+msgNotify "Configuring 'atuin' in .bashrc" &&
+configBashrcAtuin &&
 msgNotify "Installing 'micro'" &&
 installMicro &&
 msgNotify "Installing 'btop'" &&
