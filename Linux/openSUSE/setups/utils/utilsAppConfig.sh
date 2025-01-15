@@ -738,6 +738,60 @@ function configBashrcZoxide() {
   return 0
 }
 
+# Configures Yazi function in .bashrc file.
+function configBashrcYazi() {
+
+  local sourceTxtFile="$utilAppCfgSetups"/cfgBashrc/installBashrcYazi.txt
+
+  local bashrcTargetDir="$HOME"
+
+  local bashrcTargetFileName=".bashrc"
+
+  local bashrcTargetFile="$bashrcTargetDir"/"$bashrcTargetFileName"
+
+  local -i bashrcYaziErrCode=0
+
+  [[ -f $sourceTxtFile ]] || {
+
+    bashrcYaziErrCode=89
+
+    errXMsg ".bashrc Zoxide Source File Does NOT Exist!" ".bashrc Zoxide Source File:" "  $sourceTxtFile" "Error Code: $bashrcZoxideErrCode" "Function: configBashrcZoxide()" "Script File: utilsAppConfig.sh"
+
+    return $bashrcYaziErrCode
+  }
+
+  appendTextToFile "$sourceTxtFile" "$bashrcTargetDir" "$bashrcTargetFileName" "775" "$(whoami)" || {
+
+    bashrcYaziErrCode=$?
+
+    echo
+    echo "Error calling appendTextToFile()"
+    echo "Target File: $bashrcTargetFile"
+    echo "Error Code: $bashrcYaziErrCode"
+    echo "Function: configBashrcZoxide()"
+    echo "Script File: utilsAppConfig.sh"
+    echo
+
+    return $bashrcYaziErrCode
+  }
+
+  # shellcheck disable=SC1090
+  source "$bashrcTargetFile" || {
+
+    bashrcZoxideErrCode=$?
+
+    errXMsg "Error returned by 'source' command:" "source $bashrcTargetFile" "Error Code: $bashrcZoxideErrCode" "Function: configBashrcZoxide()" "Script File: utilsAppConfig.sh"
+
+    return $bashrcZoxideErrCode
+  }
+
+  msgNotify "    --------------" "'.bashrc' Zoxide Parameters Successfully Configured and Now Active" "Sourced Target File:" "$bashrcTargetFile" "    --------------"
+
+  return 0
+}
+
+
+
 function configColorsEza() {
 
   # shellcheck disable=SC2164

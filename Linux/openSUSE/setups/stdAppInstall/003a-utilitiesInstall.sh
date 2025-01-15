@@ -33,8 +33,10 @@ msgNotify "Installing 'procs'(Process Viewer)" &&
 installProcs &&
 msgNotify "Installing 'mc'(Midnight Commander)" &&
 installMidnightCommander &&
-msgNotify "Installing 'Yazi'File Manager" &&
+msgNotify "Installing 'Yazi' File Manager" &&
 installYazi &&
+msgNotify "Configuring .bashrc for 'Yazi' File Manager" &&
+configBashrcYazi
 msgNotify "Installing 'tldr'" &&
 installTldr &&
 msgNotify "Installing 'lshw'" &&
