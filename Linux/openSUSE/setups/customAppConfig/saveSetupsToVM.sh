@@ -5,89 +5,93 @@
 # Make sure the VM Shared drive is attached before calling this
 # script.
 
-source "$MIKE_Setup_Utilities"/utilsLib.sh
+declare baseSetups57Dir="$HOME"/bashOps/setups
+source "$baseSetups57Dir"/utils/utilsLib.sh
 
+ declare -i saveSetupsToVM_ErrorCode
 
- declare -i saveSetupsToVM_ErrorCode=0
-
- declare vmShareTargetBaseDir="$MIKE_VMShared_Drive"/fedora_server/final_production
+ declare vmShareTargetBaseDir="$HOME"/shares/VMShare/VMSharedData/OpenSUSE/Tumbleweed
 
  declare vmShareTargetSetupsDir="$vmShareTargetBaseDir"/setups
 
+ declare vmShareTargetDir="$vmShareTargetBaseDir"/"$vmShareTargetSetupsDir"
 
 function deleteVMShareSetups() {
 
-  [[ -d $vmShareTargetBaseDir ]] || {
+  local -i THE_ErrorCode=0
 
-    saveSetupsToVM_ErrorCode=199
+  [[ -d $vmShareTargetDir ]] || {
 
-    errXMsg "VM Target Base Directory Does NOT Exist!" "$vmShareTargetBaseDir" "Function: deleteVMShareSetups" "Script: saveSetupsToVM.sh" "Error Code: $saveSetupsToVM_ErrorCodee"
+    msgNotify "VM Target Base Directory Does NOT Exist!" "$vmShareTargetDir" "Nothing to do..." "Function: deleteVMShareSetups" "Script: saveSetupsToVM.sh"
 
-    return $saveSetupsToVM_ErrorCode
+    return
+   }
+
+  zapFilesCmd "$vmShareTargetDir" "-rfv" "sudo" || {
+
+    THE_ErrorCode=$?
+
+    errXMsg "Attempted deletion of target VM Directory Failed" "$vmShareTargetDir" "Function: deleteVMShareSetups" "Script: saveSetupsToVM.sh" "Error Code: $THE_ErrorCode"
+
+    return $THE_ErrorCode
+
   }
 
-  [[ ! -d $vmShareTargetSetupsDir ]] || {
-
-    zapFilesCmd "$vmShareTargetSetupsDir" "-rfv" "sudo" || {
-
-      saveSetupsToVM_ErrorCode=$?
-
-      errXMsg "Attempted deletion of target VM Directory Failed" "$vmShareTargetSetupsDir" "Function: deleteVMShareSetups" "Script: saveSetupsToVM.sh" "Error Code: $saveSetupsToVM_ErrorCode"
-
-      return $saveSetupsToVM_ErrorCode
-
-    }
-
-    echo
-    echo "Successfully Deleted VM Setups Directory:"
-    echo "$vmShareTargetSetupsDir"
-    echo "Function: deleteVMShareSetups"
-    echo "Script: saveSetupsToVM.sh"
-    echo
-
-    return 0
-  }
-
-  echo
-  echo "VM Setups Directory Does NOT Exist."
-  echo "Setups Dir: $vmShareTargetSetupsDir"
-  echo "Continuing with 'copy' operation."
-  echo "Function: deleteVMShareSetups"
-  echo "Script: saveSetupsToVM.sh"
-  echo
+  msgNotify "Successfully Deleted VM Setups Directory:" "$vmShareTargetDir" "Function: deleteVMShareSetups" "Script: saveSetupsToVM.sh"
 
   return 0
 }
 
 function copyHomeSetupsToVMShare() {
 
-  local sourceDir="$MIKE_Setup_Scripts"
+  local sourceDir="$baseSetups57Dir"
 
 
-   [[ -d $sourceDir ]] || {
+  local -i THE_ErrorCode=0
 
-    saveSetupsToVM_ErrorCode=198
+   if [[ ! -d $sourceDir ]]; then
 
-    errXMsg "Copy Source Directory Does NOT Exist!" "$sourceDir" "Function: copyHomeSetupsToVMShare" "Script: saveSetupsToVM.sh" "Error Code: $saveSetupsToVM_ErrorCode"
+     THE_ErrorCode=99
 
-    return $saveSetupsToVM_ErrorCode
+     errXMsg "The copy operation cannot proceed." "Source Directory does NOT exist!" "$sourceDir" "Error Code:$THE_ErrorCode" "Function: copyHomeSetupsToVMShare" "Script: saveSetupsToVM.sh"
+
+     return $THE_ErrorCode
+
+   fi
+
+
+   [[ -d $vmShareTargetDir ]] || {
+
+    msgNotify "VM Target Base Directory Does NOT Exist!" "$vmShareTargetDir" "Attempting to create target directory" "Function: copyHomeSetupsToVMShare" "Script: saveSetupsToVM.sh"
+
+     makeDirIfNotExist "$vmShareTargetDir" "775" "sudo" || {
+
+          THE_ErrorCode=$?
+
+         errXMsg "makeDirIfNotExist() failed to create target directory:" "$vmShareTargetDir" "Returned Error Code:$THE_ErrorCode" "Function: copyHomeSetupsToVMShare" "Script: saveSetupsToVM.sh"
+
+         return $THE_ErrorCode
+
+      }
   }
 
   #sudo rsync -L --archive --ignore-errors --force /home/mike/.config /home/mike/shares/HostVlMShared/fedora_server/final_production
   sudo rsync -L --archive --ignore-errors --force "$sourceDir" "$vmShareTargetBaseDir" || {
 
-      saveSetupsToVM_ErrorCode=$?
+      THE_ErrorCode=$?
 
-      errXMsg "Copy Operation Failed" "Source Dir: $sourceDir" "Target Base Dir: $vmShareTargetBaseDir" "Function: copyHomeSetupsToVMShare" "Script: saveSetupsToVM.sh" "Error Code: $saveSetupsToVM_ErrorCode"
+      errXMsg "Copy Operation Failed" "Source Dir: $sourceDir" "Target Base Dir: $vmShareTargetBaseDir" "Function: copyHomeSetupsToVMShare" "Script: saveSetupsToVM.sh" "Error Code: $THE_ErrorCode"
 
-      return $saveSetupsToVM_ErrorCode
+      return $THE_ErrorCode
 
   }
 
   return 0
 }
 
+msgNotify "Preparing to copy 'setups' to VM Shared Directory" "Step-1 Deleting existing setups in target directory." "Script: saveSetupsToVM.sh"
 deleteVMShareSetups &&
+msgNotify "Step-2 Starting main copy operation..."
 copyHomeSetupsToVMShare &&
 successMsg "saveSetupsToVM.sh - Successful Completion!" "Copied Home Setups to VM Drive" || {
 
