@@ -397,6 +397,48 @@ function installGrubCustomizer() {
 
 }
 
+# hishtory is a Shell History Application.
+# https://github.com/ddworken/hishtory
+function installHisHtory() {
+
+  local -i THE_ErrCode=0
+
+  cd "$HOME" || {
+
+    THE_ErrCode=$?
+
+    echo "     *** ERROR ***"
+    echo "Error returned while changing"
+    echo "active working directory to:"
+    echo "$HOME"
+    echo "Error Code: $THE_ErrCode"
+    echo "Function: installHisHtory()"
+    echo "Script: utilsAppInstall.sh"
+
+    return $THE_ErrCode
+  }
+
+  curl https://hishtory.dev/install.py | python3 - || {
+
+    THE_ErrCode=$?
+
+    echo "     *** ERROR ***"
+    echo "Error returned by 'curl' while"
+    echo "installing 'hishtory Shell History App"
+    echo "Error Code: $THE_ErrCode"
+    echo "Function: installHisHtory()"
+    echo "Script: utilsAppInstall.sh"
+
+    return $THE_ErrCode
+
+  }
+
+  return 0
+}
+
+
+
+
 # An X application for displaying and
 # manipulating images
 function installImageMagick() {

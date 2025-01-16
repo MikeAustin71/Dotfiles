@@ -11,10 +11,8 @@ source "$baseSetups5Dir"/utils/utilsAppConfig.sh
 
 msgNotify "Installing 'libgthread' for Jetbrains" &&
 installLibgthread  &&
-msgNotify "Installing 'atuin'" &&
-installAtuin &&
-msgNotify "Configuring 'atuin' in .bashrc" &&
-configBashrcAtuin &&
+msgNotify "Installing 'hishtory' Shell History Application" &&
+installHisHtory &&
 msgNotify "Installing 'micro'" &&
 installMicro &&
 msgNotify "Installing 'btop'" &&
