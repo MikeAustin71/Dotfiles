@@ -10,7 +10,9 @@ source "$baseSetups57Dir"/utils/utilsLib.sh
 
  declare -i saveSetupsToVM_ErrorCode
 
- declare vmShareTargetBaseDir="$HOME"/shares/VMShare/VMSharedData/OpenSUSE/Tumbleweed
+ declare vmShareBaseDir="$VMShare"
+
+ declare vmShareTargetBaseDir="$vmShareBaseDir"/OpenSUSE/Tumbleweed
 
  declare vmShareTargetSetupsDir="$vmShareTargetBaseDir"/setups
 
@@ -19,6 +21,15 @@ source "$baseSetups57Dir"/utils/utilsLib.sh
 function deleteVMShareSetups() {
 
   local -i THE_ErrorCode=0
+
+  [[ -d $vmShareBaseDir ]] || {
+
+    THE_ErrorCode=77
+
+    errXMsg "The Base VM Share Directory is NOT Attached!" "The copy copy operation cannot proceed!" "Make sure $vmShareBaseDir is attached and then retry." "Function: deleteVMShareSetups" "Script: saveSetupsToVM.sh"
+
+    return $THE_ErrorCode
+  }
 
   [[ -d $vmShareTargetDir ]] || {
 
