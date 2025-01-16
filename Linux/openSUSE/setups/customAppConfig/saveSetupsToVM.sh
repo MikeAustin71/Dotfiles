@@ -26,7 +26,7 @@ function deleteVMShareSetups() {
 
     THE_ErrorCode=77
 
-    errXMsg "The Base VM Share Directory is NOT Attached!" "The copy copy operation cannot proceed!" "Make sure $vmShareBaseDir is attached and then retry." "Function: deleteVMShareSetups" "Script: saveSetupsToVM.sh"
+    errXMsg "The Base VM Share Directory is NOT Attached!" "The copy copy operation cannot proceed!" "Make sure $vmShareBaseDir is attached and then retry." "Also check VMShare is configured environment variable." "Function: deleteVMShareSetups" "Script: saveSetupsToVM.sh"
 
     return $THE_ErrorCode
   }
