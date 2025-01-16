@@ -5,8 +5,8 @@
 # Make sure the VM Shared drive is attached before calling this
 # script.
 
-declare baseSetups57Dir="$HOME"/bashOps/setups
-source "$baseSetups57Dir"/utils/utilsLib.sh
+ declare baseSetups57Dir="$HOME"/bashOps/setups
+ source "$baseSetups57Dir"/utils/utilsLib.sh
 
  declare -i saveSetupsToVM_ErrorCode
 
@@ -33,9 +33,11 @@ function deleteVMShareSetups() {
 
   [[ -d $vmShareTargetDir ]] || {
 
+    THE_ErrorCode=0
+
     msgNotify "VM Target Base Directory Does NOT Exist!" "$vmShareTargetDir" "Nothing to do..." "Function: deleteVMShareSetups" "Script: saveSetupsToVM.sh"
 
-    return
+    return $THE_ErrorCode
    }
 
   zapFilesCmd "$vmShareTargetDir" "-rfv" "sudo" || {
@@ -104,7 +106,7 @@ msgNotify "Preparing to copy 'setups' to VM Shared Directory" "Step-1 Deleting e
 deleteVMShareSetups &&
 msgNotify "Step-2 Starting main copy operation..."
 copyHomeSetupsToVMShare &&
-successMsg "saveSetupsToVM.sh - Successful Completion!" "Copied Home Setups to VM Drive" || {
+successMsg "saveSetupsToVM.sh - Successful Completion!" "Copied Home Setups to VM Drive" "Script: saveSetupsToVM.sh" || {
 
   saveSetupsToVM_ErrorCode=$?
   errXMsg "saveSetupsToVM.sh" "Error-Exit!" "Error Code: $saveSetupsToVM_ErrorCode"
