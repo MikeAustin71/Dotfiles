@@ -875,6 +875,8 @@ function configDirStructure() {
 
 # Configures Envars Variables in 
 # HOME/.config/shell/envars directory.
+# configBashProfileEnvars() should be
+# call immediately after this function.
 function configEnvars() {
 
   local sourceFile="$utilAppCfgSetups"/configDir/shell/envars/envars.sh
@@ -891,18 +893,24 @@ function configEnvars() {
 
   local -i envarsErrCode=0
 
-  [[ -f $sourceFile ]] || {
+  # The source MUST Exist!
+  if [[ ! -f $sourceFile ]]; then
 
     envarsErrCode=79
 
-    errXMsg "Envars Source File Does NOT Exist!" "Envars Source File: $sourceFile" "Error Code: $envarsErrCode" "Function: configEnvars()" "Script File: utilsAppConfig.sh"
+    errXMsg "Envars Source File Does NOT Exist!" "Fatal Error! Environment variables configuration cannot proceed." "Envars Source File: $sourceFile" "Error Code: $envarsErrCode" "Function: configEnvars()" "Script File: utilsAppConfig.sh"
 
     return $envarsErrCode
-  }
 
-  [[ ! -f $targetEnvarsFile ]] || {
+  fi
 
-      sudo rm "$targetEnvarsFile" ||
+  if [[ -f $targetEnvarsFile ]]; then
+
+      # If $targetEnvarsFile exists, delete it.
+      # A new, empty $targetEnvarsFile will be
+      # created by appendTextToFile, below.
+
+      sudo rm -f "$targetEnvarsFile" ||
       {
 
         envarsErrCode=$?
@@ -914,7 +922,8 @@ function configEnvars() {
       }
 
       msgNotify "Deleted old Envars File:" "$targetEnvarsFile" "Function: configEnvars()" "Script Name: utilsAppConfig.sh"
- }
+
+  fi
 
   appendTextToFile "$sourceFile" "$targetEnvarsDir" "$targetEnvarsFileName" "775" "$opsAuthority" || {
 
