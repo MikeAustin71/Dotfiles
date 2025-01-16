@@ -3,7 +3,7 @@
 # 'broot' is a replacement for the 'tree' command.
 # https://github.com/Canop/broot
 
-source /home/mike/.config/broot/launcher/bash/br
+source "$HOME"/.config/broot/launcher/bash/br
 
 
 

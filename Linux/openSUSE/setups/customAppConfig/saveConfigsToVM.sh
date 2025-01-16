@@ -1,7 +1,7 @@
 #!/bin/bash
 # This script copies all the config files in
-# /home/mike/.config to the shared VM Drive
-# /home/mike/shares/HostVlMShared/fedora_server/final_production/.config
+# "$HOME"/.config to the shared VM Drive
+# $VMShare"/OpenSUSE/Tumbleweed/config
 # Make sure the VM Shared drive is attached before calling this
 # script.
 
@@ -88,7 +88,7 @@ function copyHomeConfigToVMShare() {
   }
 
 
-  # sudo rsync -L --archive --ignore-errors --force /home/mike/.config /home/mike/shares/HostVlMShared/fedora_server/final_production
+  # sudo rsync -L --archive --ignore-errors --force "$HOME"/.config $VMShare"/OpenSUSE/Tumbleweed/config
   sudo rsync -L --archive --ignore-errors --force  "$sourceDir" "$vmShareTargetCfgDir" || {
 
       THE_ErrorCode=$?

@@ -3,7 +3,7 @@
 # guest virtual machine
 #
 # The following command will mount the 
-# shared directory in /home/mike/shares/VMShare
+# shared directory in "$HOME"/shares/VMShare
 #
 # Run this script as sudo
 

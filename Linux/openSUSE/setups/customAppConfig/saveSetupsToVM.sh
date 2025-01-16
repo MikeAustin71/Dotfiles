@@ -1,7 +1,7 @@
 #!/bin/bash
 # This script copies all the setup files in
-# /home/mike/bashOps/setups to the shared VM Drive
-# /home/mike/shares/HostVlMShared/fedora_server/final_production/setups
+# "$HOME"/bashOps/setups to the shared VM Drive
+# "$VMShare"/OpenSUSE/Tumbleweed/setups
 # Make sure the VM Shared drive is attached before calling this
 # script.
 
@@ -88,8 +88,8 @@ function copyHomeSetupsToVMShare() {
       }
   }
 
-  #sudo rsync -L --archive --ignore-errors --force /home/mike/.config /home/mike/shares/HostVlMShared/fedora_server/final_production
-  sudo rsync -L --archive --ignore-errors --force "$sourceDir" "$vmShareTargetBaseDir" || {
+  #sudo rsync -L --archive --ignore-errors --force "$HOME"/.config $VMShare"/OpenSUSE/Tumbleweed/setups
+    sudo rsync -L --archive --ignore-errors --force "$sourceDir" "$vmShareTargetBaseDir" || {
 
       THE_ErrorCode=$?
 

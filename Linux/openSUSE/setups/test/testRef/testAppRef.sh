@@ -3,14 +3,14 @@
 # This will test file and directory References
 # used in functions
 
- targetDir="/home/mike/scratch"
+ declare targetDir="$HOME/scratch"
  # downloadSubDir="peco_linux_amd64"
  # releaseVer="v0.5.11"
  # targetDownloadFile="peco_linux_amd64.tar.gz"
 
  gotoTargetDir() {
 
-	cd $targetDir ||
+	cd "$targetDir" ||
 	{
 	  echo "'cd' Command Failed!"
 	  echo "cd $targetDir"
