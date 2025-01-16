@@ -929,15 +929,20 @@ function configEnvars() {
 
     envarsErrCode=$?
 
-    echo
-    echo "Error calling appendTextToFile()"
-    echo "Error Code: $envarsErrCode"
-    echo "Function: configEnvars()"
-    echo "Script File: utilsAppConfig.sh"
-    echo
+    errXMsg "Error calling appendTextToFile()" "Error Code: $envarsErrCode" "Function: configEnvars()" "Script File: utilsAppConfig.sh"
 
     return $envarsErrCode
   }
+
+  if [[ ! -f $targetEnvarsFile ]]; then
+
+    envarsErrCode=67
+
+    errXMsg "Target File Creation/Update Failed" "Target Files Does NOT Exist!" "File: $targetEnvarsFile" "Error Code: $envarsErrCode" "Function: configEnvars()" "Script File: utilsAppConfig.sh"
+
+    return $envarsErrCode
+
+  fi
 
   # shellcheck disable=SC1090
   source "$targetEnvarsFile" || {
@@ -949,8 +954,7 @@ function configEnvars() {
     return $envarsErrCode
   }
 
-
-  msgNotify "    --------------" "Envars File Successfully Configured and Now Active" "Sourced Envars Target File:" "$targetEnvarsFile"
+  msgNotify "Envars File Successfully Configured and Now Active" "Sourced Envars Target File:" "$targetEnvarsFile"
 
   return 0
 }
