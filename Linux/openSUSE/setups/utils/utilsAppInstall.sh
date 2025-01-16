@@ -399,6 +399,7 @@ function installGrubCustomizer() {
 
 # hishtory is a Shell History Application.
 # https://github.com/ddworken/hishtory
+# NOTE: backend syncing IS ENABLED
 function installHisHtory() {
 
   local -i THE_ErrCode=0
@@ -417,6 +418,9 @@ function installHisHtory() {
 
     return $THE_ErrCode
   }
+
+  # NO back end syncing
+  # curl https://hishtory.dev/install.py | python3 - --offline
 
   curl https://hishtory.dev/install.py | python3 - || {
 
