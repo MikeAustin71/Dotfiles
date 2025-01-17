@@ -17,14 +17,12 @@ msgNotify "Installing 'micro'" &&
 installMicro &&
 msgNotify "Installing 'btop'" &&
 installBtop &&
-msgNotify "Installing 'btm' (Bottom)" &&
-installBottom &&
-msgNotify "Installing 'dust'" &&
-installDust &&
-msgNotify "Installing 'fd'(find)" &&
+msgNotify "Installing 'fd' (find)" &&
 installFd &&
 msgNotify "Installing 'plocate'" &&
 installPlocate &&
+msgNotify "Initializing 'plocate' database" &&
+initializePlocateDb
 msgNotify "Installing 'fzf'(Fuzzy Finder)" &&
 installFuzzyFinder &&
 msgNotify "Configuring 'fzf'(Fuzzy Finder) in .bashrc" &&
