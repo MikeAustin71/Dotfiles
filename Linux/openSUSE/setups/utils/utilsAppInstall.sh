@@ -244,6 +244,9 @@ function installFontAwesome() {
 
 }
 
+# https://github.com/junegunn/fzf
+# Don't forget to configure fzf in bash
+# Call configBashrcFzf() in utilsAppConfig.sh
 function installFuzzyFinder() {
 
   sudo zypper install fzf fzf-bash-integration fzf-tmux

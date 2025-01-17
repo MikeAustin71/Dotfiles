@@ -298,13 +298,7 @@ function configBashrcAtuin() {
 
     THE_ERR_Code=$?
 
-    echo
-    echo "Error calling appendTextToFile()"
-    echo "Target File: $bashrcTargetFile"
-    echo "Error Code: $THE_ERR_Code"
-    echo "Function: configBashrcAtuin()"
-    echo "Script File: utilsAppConfig.sh"
-    echo
+    errXMsg "Error calling appendTextToFile()" "Target File: $bashrcTargetFile" "Error Code: $THE_ERR_Code" "Function: configBashrcAtuin()" "Script File: utilsAppConfig.sh"
 
     return $THE_ERR_Code
   }
@@ -375,6 +369,68 @@ function configBashrcBashCompletion() {
 
   return 0
 }
+
+
+# Configures 'fzf' function in .bashrc file.
+# Run this after you install fzf.
+# See installFuzzyFinder() in utilsAppInstall.sh
+#
+function configBashrcFzf() {
+
+  local sourceTxtFile="$utilAppCfgSetups"/cfgBashrc/installBashrcFzf.txt
+
+  local bashrcTargetDir="$HOME"
+
+  local bashrcTargetFileName=".bashrc"
+
+  local bashrcTargetFile="$bashrcTargetDir"/"$bashrcTargetFileName"
+
+  local -i THE_ERR_Code=0
+
+  [[ -f $sourceTxtFile ]] || {
+
+    THE_ERR_Code=89
+
+    errXMsg "Source File Does NOT Exist!" "Fatal Error! .bashrc Configuration cannot proceed!" "Source File:" "  $sourceTxtFile" "Error Code: $THE_ERR_Code" "Function: configBashrcFzf()" "Script File: utilsAppConfig.sh"
+
+    return $THE_ERR_Code
+  }
+
+  [[ -f $bashrcTargetFileName ]] || {
+
+    THE_ERR_Code=88
+
+    errXMsg ".bashrc Target File Does NOT Exist!" "Fatal Error! .bashrc Configuration cannot proceed!" ".bashrc Target File:" "  $bashrcTargetFile" "Error Code: $THE_ERR_Code" "Function: configBashrcFzf()" "Script File: utilsAppConfig.sh"
+
+    return $THE_ERR_Code
+
+  }
+
+  appendTextToFile "$sourceTxtFile" "$bashrcTargetDir" "$bashrcTargetFileName" "775" "$(whoami)" || {
+
+    THE_ERR_Code=$?
+
+    errXMsg "Error calling appendTextToFile()" "Target File: $bashrcTargetFile" "Error Code: $THE_ERR_Code" "Function: configBashrcFzf()" "Script File: utilsAppConfig.sh"
+
+    return $THE_ERR_Code
+  }
+
+  # shellcheck disable=SC1090
+  source "$bashrcTargetFile" || {
+
+    THE_ERR_Code=$?
+
+    errXMsg "Error returned by 'source' command:" "source $bashrcTargetFile" "Error Code: $THE_ERR_Code" "Function: configBashrcAtuin()" "Script File: utilsAppConfig.sh"
+
+    return $THE_ERR_Code
+  }
+
+  msgNotify "'.bashrc' fzf Parameters Successfully Configured and Now Active" "Sourced Target File:" "$bashrcTargetFile" "Function: configBashrcAtuin()" "Script File: utilsAppConfig.sh"
+
+  return 0
+}
+
+
 
 # Configures 'broot' startup in .bash_profile file.
 # 'broot' is a replacement for the 'tree' command.

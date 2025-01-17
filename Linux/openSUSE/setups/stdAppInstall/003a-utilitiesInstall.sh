@@ -27,6 +27,8 @@ msgNotify "Installing 'plocate'" &&
 installPlocate &&
 msgNotify "Installing 'fzf'(Fuzzy Finder)" &&
 installFuzzyFinder &&
+msgNotify "Configuring 'fzf'(Fuzzy Finder) in .bashrc" &&
+configBashrcFzf &&
 msgNotify "Installing 'fkill'(Process Killer)" &&
 installFkill &&
 msgNotify "Installing 'procs'(Process Viewer)" &&
