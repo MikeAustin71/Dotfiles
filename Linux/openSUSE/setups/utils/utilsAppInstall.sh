@@ -723,6 +723,14 @@ function installPicom() {
 
 }
 
+# Install plocate.
+# Docs
+# https://plocate.readthedocs.io/en/latest/
+# GitHub:
+# https://github.com/Aetf/plocate
+# NOTE: Be sure to call initializePlocateDb()
+# in this script: utilsAppInstall.sh
+# immediately after installing plocate
 function installPlocate() {
 
  sudo zypper install plocate

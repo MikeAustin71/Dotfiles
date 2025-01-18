@@ -4,12 +4,11 @@
 # to $HOME/.config/shell/path
 
 
-declare bashOpsSetups="$HOME"/bashOps/setups
+declare bashOps1477Setups="$HOME"/bashOps/setups
 
-source "$bashOpsSetups"/utils/utilsLib.sh
+source "$bashOps1477Setups"/utils/utilsLib.sh
 
-declare sourcePathParmsFile="$bashOpsSetups"/configDir/shell/path/userPath.sh
-
+declare sourcePathParmsFile="$bashOps1477Setups"/configDir/shell/path/userPath.sh
 
 declare targetPathDir="$HOME"/.config/shell/path
 

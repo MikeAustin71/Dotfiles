@@ -1126,6 +1126,42 @@ function configPicom() {
    source "$scriptFile"
 }
 
+function configPLocateTimer() {
+
+declare sourcePlocateTimerFile="$utilAppCfgSetups"/cfgTimers/plocate-updatedb.timer
+
+declare targetPlocateTimerFile="/lib/systemd/system/plocate-updatedb.timer"
+
+declare -i plocateErrCode=0
+
+sudo truncate -s 0 "$targetPlocateTimerFile" || {
+
+  plocateErrCode=$?
+
+  errXMsg="Error truncating 'plocate' timer file!" "Fatal Error! Cannot proceed with 'plocate' configuration!" "Target Plocate Timer File: $targetPlocateTimerFile" "Script File: configurePlocateTimer.sh"
+
+  return $plocateErrCode
+}
+
+sudo cat "$sourcePlocateTimerFile" | sudo tee "$targetPlocateTimerFile" > /dev/null || {
+
+  plocateErrCode=$?
+
+  errXMsg="Error copying 'plocate' timer file!" "Fatal Error! Cannot proceed with 'plocate' configuration!" "Source File: $sourcePlocateTimerFile" "Target File: $targetPlocateTimerFile" "Script File: configurePlocateTimer.sh"
+
+  return $plocateErrCode
+}
+
+sudo systemctl daemon-reload
+
+sudo systemctl enable /lib/systemd/system/plocate-updatedb.timer
+
+sudo systemctl start /lib/systemd/system/plocate-updatedb.timer
+
+sudo systemctl list-timers --all
+}
+
+
 # Copies starship configuration files to HOME/.config
 function configStarship() {
 
