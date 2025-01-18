@@ -21,8 +21,8 @@ msgNotify "Installing 'fd' (find)" &&
 installFd &&
 msgNotify "Installing 'plocate'" &&
 installPlocate &&
-msgNotify "Initializing 'plocate' database" &&
-initializePlocateDb &&
+msgNotify "Configuring 'plocate' in .bashrc" &&
+configBashrcPlocate &&
 msgNotify "Configuring 'plocate' timer" &&
 configPLocateTimer &&
 msgNotify "Installing 'fzf'(Fuzzy Finder)" &&

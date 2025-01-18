@@ -737,14 +737,6 @@ function installPlocate() {
 
 }
 
-# Initializes the Plocate Database
-# immediately after installation.
-# This is required for Plocate
-# operations.
-function initializePlocateDb() {
-  sudo updatedb
-}
-
 # https://distrobox.it/
 #
 # 'podman' is a dependency required by

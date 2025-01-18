@@ -431,6 +431,66 @@ function configBashrcFzf() {
 }
 
 
+# Configures Plocate in .bashrc file.
+# Run this after you install 'plocate'.
+# See installPlocate() in utilsAppInstall.sh
+#
+function configBashrcPlocate() {
+
+  local sourceTxtFile="$utilAppCfgSetups"/cfgBashrc/installBashrcPlocate.txt
+
+  local bashrcTargetDir="$HOME"
+
+  local bashrcTargetFileName=".bashrc"
+
+  local bashrcTargetFile="$bashrcTargetDir"/"$bashrcTargetFileName"
+
+  local -i THE_ERR_Code=0
+
+  [[ -f $sourceTxtFile ]] || {
+
+    THE_ERR_Code=89
+
+    errXMsg ".bashrc Source File Does NOT Exist!" ".bashrc Source File:" "  $sourceTxtFile" "Error Code: $THE_ERR_Code" "Function: configBashrcPlocate()" "Script File: utilsAppConfig.sh"
+
+    return $THE_ERR_Code
+  }
+
+  [[ -f $bashrcTargetFile ]] || {
+
+    THE_ERR_Code=89
+
+    errXMsg ".bashrc Target File Does NOT Exist!" ".bashrc Target File:" "  $bashrcTargetFile" "Error Code: $THE_ERR_Code" "Function: configBashrcPlocate()" "Script File: utilsAppConfig.sh"
+
+    return $THE_ERR_Code
+
+  }
+
+
+  appendTextToFile "$sourceTxtFile" "$bashrcTargetDir" "$bashrcTargetFileName" "775" "$(whoami)" || {
+
+    THE_ERR_Code=$?
+
+    errXMsg "Error calling appendTextToFile()" "Source File: $sourceTxtFile" "Target File: $bashrcTargetFile" "Error Code: $THE_ERR_Code" "Function: configBashrcPlocate()" "Script File: utilsAppConfig.sh"
+
+    return $THE_ERR_Code
+  }
+
+  # shellcheck disable=SC1090
+  source "$bashrcTargetFile" || {
+
+    THE_ERR_Code=$?
+
+    errXMsg "Error returned by 'source' command:" "source $bashrcTargetFile" "Error Code: $THE_ERR_Code" "Function: configBashrcPlocate()" "Script File: utilsAppConfig.sh"
+
+    return $THE_ERR_Code
+  }
+
+  msgNotify  "'.bashrc' Plocate Database Initialization Successfully Configured and Now Active" "Target File:" "$bashrcTargetFile" "Function: configBashrcPlocate()" "Script File: utilsAppConfig.sh"
+
+  return 0
+}
+
 
 # Configures 'broot' startup in .bash_profile file.
 # 'broot' is a replacement for the 'tree' command.
