@@ -5,7 +5,7 @@
 ###############################################
 
 
-# Adding standard aliases
+# Adding user functions
 if [ -f "$HOME"/.config/shell/userFuncs/userFunctions.sh ]
 then
    source "$HOME"/.config/shell/userFuncs/userFunctions.sh
