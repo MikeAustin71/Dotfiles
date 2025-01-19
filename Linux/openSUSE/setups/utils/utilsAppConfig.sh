@@ -706,9 +706,9 @@ function configBashrcBroot() {
 
 # Adds custom functions to the .bashrc file
 function configBashrcFuncs() {
-  
+
   local sourceTxtFile="$utilAppCfgSetups"/cfgBashrc/installBashrcFuncs.txt
- 
+
   local bashrcTargetDir="$HOME"
 
   local bashrcTargetFileName=".bashrc"
@@ -1065,12 +1065,12 @@ function configEnvars() {
 
     envarsErrCode=$?
 
-    errXMsg "Error returned by 'source' command:" "source $targetEnvarsFile" "Error Code: $envarsErrCode" "Function: configEnvars()""Script File: utilsAppConfig.sh"
+    errXMsg "Error returned by 'source' command:" "source $targetEnvarsFile" "Error Code: $envarsErrCode" "Function: configEnvars()" "Script File: utilsAppConfig.sh"
 
     return $envarsErrCode
   }
 
-  msgNotify "Envars File Successfully Configured and Now Active" "Sourced Envars Target File:" "$targetEnvarsFile"
+  msgNotify "Envars Script File Successfully Configured and Now Active" "Sourced Envars Target File:" "$targetEnvarsFile"
 
   return 0
 }
@@ -1104,6 +1104,96 @@ function configKrusader() {
    source "$scriptFile"
 
 }
+
+
+# Configures Envars Variables in 
+# HOME/.config/shell/envars directory.
+# configBashProfileEnvars() should be
+# call immediately after this function.
+function configUserFuncs() {
+
+  local sourceFile="$utilAppCfgSetups"/configDir/shell/userFuncs/userFunctions.sh
+
+  local targetUserFuncsDir="$HOME"/.config/shell/userFuncs
+
+  local targetUserFuncsFileName="userFunctions.sh"
+
+  local targetUserFuncsPathFileName="$targetUserFuncsDir"/"$targetUserFuncsFileName"
+
+  local opsAuthority=""
+
+  opsAuthority="$(whoami)"
+
+  local -i envarsErrCode=0
+
+  # The source MUST Exist!
+  if [[ ! -f $sourceFile ]]; then
+
+    envarsErrCode=79
+
+    errXMsg "Envars Source File Does NOT Exist!" "Fatal Error! Environment variables configuration cannot proceed." "Envars Source File: $sourceFile" "Error Code: $envarsErrCode" "Function: configUserFuncs()" "Script File: utilsAppConfig.sh"
+
+    return $envarsErrCode
+
+  fi
+
+  if [[ -f $targetUserFuncsPathFileName ]]; then
+
+      # If $targetUserFuncsPathFileName exists, delete it.
+      # A new, empty $targetUserFuncsPathFileName will be
+      # created by appendTextToFile, below.
+
+      sudo rm -f "$targetUserFuncsPathFileName" ||
+      {
+
+        envarsErrCode=$?
+
+        errXMsg "Removal of Old Envars Target File FAILED!" "Envars Target File= $targetUserFuncsPathFileName" "Error Code: $envarsErrCode" "Function: configUserFuncs()" "Script Name: utilsAppConfig.sh"
+
+        return $envarsErrCode
+
+      }
+
+      msgNotify "Deleted old Envars File:" "$targetUserFuncsPathFileName" "Function: configUserFuncs()" "Script Name: utilsAppConfig.sh"
+
+  fi
+
+  appendTextToFile "$sourceFile" "$targetUserFuncsDir" "$targetUserFuncsPathFileName" "775" "$opsAuthority" || {
+
+    envarsErrCode=$?
+
+    errXMsg "Error calling appendTextToFile()" "Error Code: $envarsErrCode" "Function: configUserFuncs()" "Script File: utilsAppConfig.sh"
+
+    return $envarsErrCode
+  }
+
+  if [[ ! -f $targetUserFuncsPathFileName ]]; then
+
+    envarsErrCode=67
+
+    errXMsg "Target File Creation/Update Failed" "Target Files Does NOT Exist!" "File: $targetUserFuncsPathFileName" "Error Code: $envarsErrCode" "Function: configUserFuncs()" "Script File: utilsAppConfig.sh"
+
+    return $envarsErrCode
+
+  fi
+
+  # shellcheck disable=SC1090
+  source "$targetUserFuncsPathFileName" || {
+
+    envarsErrCode=$?
+
+    errXMsg "Error returned by 'source' command:" "source $targetUserFuncsPathFileName" "Error Code: $envarsErrCode" "Function: configUserFuncs()" "Script File: utilsAppConfig.sh"
+
+    return $envarsErrCode
+  }
+
+  msgNotify "User Functions Script File Successfully Configured and Now Active" "Sourced Envars Target File:" "$targetUserFuncsPathFileName"
+
+  return 0
+}
+
+
+
 
 # Configures the User Path
 function configUserPath() {

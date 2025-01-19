@@ -11,6 +11,7 @@ makeDirIfNotExist "$HOME/.config/shell" "775" "" &&
 makeDirIfNotExist "$HOME/.config/shell/aliases" "775" "" &&
 makeDirIfNotExist "$HOME/.config/shell/envars" "775" "" &&
 makeDirIfNotExist "$HOME/.config/shell/path" "775" "" &&
+makeDirIfNotExist "$HOME/.config/shell/userFuncs" "775" "" &&
 makeDirIfNotExist "$HOME/.config/starship" "775" "" &&
 makeDirIfNotExist "$HOME/.config/shell/xorg" "775" "" &&
 makeDirIfNotExist "$HOME/.config/shell/xorg/awesome" "775" "" &&

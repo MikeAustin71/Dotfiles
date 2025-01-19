@@ -11,18 +11,22 @@ source "$baseSetups2Dir"/utils/utilsAppInstall.sh
 
 msgNotify "Configuring 'HOME' Directory Structure" &&
 configDirStructure &&
+msgNotify "Configuring User Functions Scritp File" &&
+configUserFuncs &&
 msgNotify "Configuring Environment Variables" &&
 configEnvars &&
 msgNotify "Configuring Environment Variables in .bash_profile" &&
 configBashProfileEnvars &&
 msgNotify "Configuring User Path in .bashrc" &&
 configBashrcUserPath &&
+msgNotify "Configuring User Functions" &&
+configUserFuncs &&
+msgNotify "Configuring User Functions in .bashrc" &&
+configBashrcFuncs &&
 msgNotify "Configuring Aliases" &&
 configAliases &&
 msgNotify "Configuring Aliases in .bashrc" &&
 configBashrcAliases &&
-msgNotify "Configuring Custom Functions in .bashrc" &&
-configBashrcFuncs &&
 msgNotify "Installing 'bash-completion'" &&
 installBashCompletion &&
 msgNotify "Configuring 'bash-completion' in .bashrc" &&

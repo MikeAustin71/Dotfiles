@@ -1,5 +1,6 @@
 #!/bin/bash
-# Creates bashrc file
+# Creates bashrc file if one does
+# not already exist.
 
 
 
