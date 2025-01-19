@@ -19,12 +19,6 @@ msgNotify "Installing 'btop'" &&
 installBtop &&
 msgNotify "Installing 'fd' (find)" &&
 installFd &&
-msgNotify "Installing 'plocate'" &&
-installPlocate &&
-msgNotify "Configuring 'plocate' in .bashrc" &&
-configBashrcPlocate &&
-msgNotify "Configuring 'plocate' timer" &&
-configPLocateTimer &&
 msgNotify "Installing 'fzf'(Fuzzy Finder)" &&
 installFuzzyFinder &&
 msgNotify "Configuring 'fzf'(Fuzzy Finder) in .bashrc" &&
