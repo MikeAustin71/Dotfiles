@@ -68,5 +68,5 @@ export Marilyn4Tb='/mnt/Marilyn4Tb'
 # VMware Shared Directory
 export VMShare="$HOME/shares/VMShare/VMSharedData"
 
-
-
+# Configure Distrobox Backend
+export DISTROBOX_BACKEND=podman
