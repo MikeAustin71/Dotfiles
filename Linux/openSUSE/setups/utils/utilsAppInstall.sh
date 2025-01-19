@@ -775,6 +775,12 @@ function installRanger() {
 
 }
 
+function installRetext() {
+
+  sudo zypper install retext
+
+}
+
 function installRipGrep() {
 
   sudo zypper install ripgrep 

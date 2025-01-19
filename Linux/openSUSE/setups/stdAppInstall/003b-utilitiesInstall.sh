@@ -11,6 +11,8 @@ source "$baseSetups9Dir"/utils/utilsAppConfig.sh
 
 msgNotify "Installing 'ghostwriter' markdown editor" &&
 installGhostwriter &&
+msgNotify "Installing 'retext' markdown editor" &&
+installRetext &&
 msgNotify "Installing ripgrep" &&
 installRipGrep &&
 msgNotify "Installing Compression Utilities" &&
