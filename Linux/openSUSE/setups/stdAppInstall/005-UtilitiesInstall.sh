@@ -19,18 +19,10 @@ msgNotify "Installing ncdu (Disk Usage)" &&
 installNcdu &&
 msgNotify "Installing Udiskie" &&
 installUdiskie &&
-msgNotify "Installing Alacritty" &&
-installAlacritty &&
-msgNotify "Configuring Alacritty" &&
-configAlacritty &&
 msgNotify "Installing Kitty" &&
 installKitty &&
 msgNotify "Configuring Kitty" &&
 configKitty &&
-msgNotify "Installing tmux" &&
-installTmux &&
-msgNotify "Configuring tmux" &&
-configTmux &&
 msgNotify "Installing 'kdiff3' Diff Tool" &&
 installKdiff3 &&
 msgNotify "Installing 'meld' Diff Tool" &&
