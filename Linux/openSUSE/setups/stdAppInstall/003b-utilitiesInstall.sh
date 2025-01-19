@@ -13,8 +13,6 @@ msgNotify "Installing 'ghostwriter' markdown editor" &&
 installGhostwriter &&
 msgNotify "Installing ripgrep" &&
 installRipGrep &&
-msgNotify "Installing Peco" &&
-installScriptPeco &&
 msgNotify "Installing Compression Utilities" &&
 installCompressionUtilities &&
 msgNotify "Installing KRename" &&

@@ -9,10 +9,6 @@ msgNotify "Installing Pandoc" &&
 installPandoc &&
 msgNotify "Installing Calculator: Qalculate" &&
 installQalculate &&
-msgNotify "Installing Calculator: Speedcrunch" &&
-installSpeedcrunch &&
-msgNotify "Installing Calculator: Genius" &&
-installGenius &&
 msgNotify "Installing Bless Hex Editor" &&
 installBless &&
 msgNotify "Installing Samba" &&

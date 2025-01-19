@@ -761,7 +761,11 @@ function installPodmanDesktop {
 # Calculator: qalculate
 function installQalculate() {
 
- sudo zypper install qalculate qalculate-data libqalculate23 libqalculate-devel
+ sudo zypper install qalculate
+
+ sudo zypper install qalculate-data libqalculate23 libqalculate-devel
+
+ sudo zypper install qalculate-qt
 }
 
 # https://github.com/ranger/ranger
