@@ -1116,9 +1116,9 @@ function configUserFuncs() {
 
   local targetUserFuncsDir="$HOME"/.config/shell/userFuncs
 
-  local targetUserFuncsFileName="userFunctions.sh"
+  local targetFileName="userFunctions.sh"
 
-  local targetUserFuncsPathFileName="$targetUserFuncsDir"/"$targetUserFuncsFileName"
+  local targetUserFuncsPathFileName="$targetUserFuncsDir"/"$targetFileName"
 
   local opsAuthority=""
 
@@ -1158,7 +1158,7 @@ function configUserFuncs() {
 
   fi
 
-  appendTextToFile "$sourceFile" "$targetUserFuncsDir" "$targetUserFuncsPathFileName" "775" "$opsAuthority" || {
+  appendTextToFile "$sourceFile" "$targetUserFuncsDir" "$targetFileName" "775" "$opsAuthority" || {
 
     envarsErrCode=$?
 
