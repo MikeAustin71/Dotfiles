@@ -7,7 +7,7 @@
 # =======================================
 
 # ls - mimics the original 'ls' command
-alias ls='eza --color=always'
+alias ls='eza --long --all --color=always'
 
 # ld - lists only directories (no files)
   alias ld='eza -lD'
