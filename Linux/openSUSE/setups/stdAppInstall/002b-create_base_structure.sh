@@ -2,6 +2,11 @@
 # 1. Creates directory structure
 # 2. Creates .bash_profile
 #
+###################################################################
+#                     IMPORTANT
+#
+#  User Path is configured in 001-devToolsInstall.sh
+###################################################################
 
 declare baseSetups2Dir="$HOME"/bashOps/setups
 
