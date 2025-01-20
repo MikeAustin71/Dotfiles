@@ -1124,16 +1124,16 @@ function configUserFuncs() {
 
   opsAuthority="$(whoami)"
 
-  local -i envarsErrCode=0
+  local -i funcsErrCode=0
 
   # The source MUST Exist!
   if [[ ! -f $sourceFile ]]; then
 
-    envarsErrCode=79
+    funcsErrCode=79
 
-    errXMsg "Envars Source File Does NOT Exist!" "Fatal Error! Environment variables configuration cannot proceed." "Envars Source File: $sourceFile" "Error Code: $envarsErrCode" "Function: configUserFuncs()" "Script File: utilsAppConfig.sh"
+    errXMsg "User Functions Source File Does NOT Exist!" "Fatal Error! User Functions configuration cannot proceed." "Source File: $sourceFile" "Error Code: $funcsErrCode" "Function: configUserFuncs()" "Script File: utilsAppConfig.sh"
 
-    return $envarsErrCode
+    return $funcsErrCode
 
   fi
 
@@ -1146,48 +1146,48 @@ function configUserFuncs() {
       sudo rm -f "$targetUserFuncsPathFileName" ||
       {
 
-        envarsErrCode=$?
+        funcsErrCode=$?
 
-        errXMsg "Removal of Old Envars Target File FAILED!" "Envars Target File= $targetUserFuncsPathFileName" "Error Code: $envarsErrCode" "Function: configUserFuncs()" "Script Name: utilsAppConfig.sh"
+        errXMsg "Removal of Old User Functions Target File FAILED!" "User Functions Target File= $targetUserFuncsPathFileName" "Error Code: $funcsErrCode" "Function: configUserFuncs()" "Script Name: utilsAppConfig.sh"
 
-        return $envarsErrCode
+        return $funcsErrCode
 
       }
 
-      msgNotify "Deleted old Envars File:" "$targetUserFuncsPathFileName" "Function: configUserFuncs()" "Script Name: utilsAppConfig.sh"
+      msgNotify "Deleted old User Functions File:" "$targetUserFuncsPathFileName" "Function: configUserFuncs()" "Script Name: utilsAppConfig.sh"
 
   fi
 
   appendTextToFile "$sourceFile" "$targetUserFuncsDir" "$targetFileName" "775" "$opsAuthority" || {
 
-    envarsErrCode=$?
+    funcsErrCode=$?
 
-    errXMsg "Error calling appendTextToFile()" "Error Code: $envarsErrCode" "Function: configUserFuncs()" "Script File: utilsAppConfig.sh"
+    errXMsg "Error calling appendTextToFile()" "User Functions Configuration FAILED!"  "Error Code: $funcsErrCode" "Function: configUserFuncs()" "Script File: utilsAppConfig.sh"
 
-    return $envarsErrCode
+    return $funcsErrCode
   }
 
   if [[ ! -f $targetUserFuncsPathFileName ]]; then
 
-    envarsErrCode=67
+    funcsErrCode=67
 
-    errXMsg "Target File Creation/Update Failed" "Target Files Does NOT Exist!" "File: $targetUserFuncsPathFileName" "Error Code: $envarsErrCode" "Function: configUserFuncs()" "Script File: utilsAppConfig.sh"
+    errXMsg "Target File Creation/Update Failed" "Target Files Does NOT Exist!" "File: $targetUserFuncsPathFileName" "Error Code: $funcsErrCode" "Function: configUserFuncs()" "Script File: utilsAppConfig.sh"
 
-    return $envarsErrCode
+    return $funcsErrCode
 
   fi
 
   # shellcheck disable=SC1090
   source "$targetUserFuncsPathFileName" || {
 
-    envarsErrCode=$?
+    funcsErrCode=$?
 
-    errXMsg "Error returned by 'source' command:" "source $targetUserFuncsPathFileName" "Error Code: $envarsErrCode" "Function: configUserFuncs()" "Script File: utilsAppConfig.sh"
+    errXMsg "Error returned by 'source' command:" "source $targetUserFuncsPathFileName" "User Functions Configuration FAILED!" "Error Code: $funcsErrCode" "Function: configUserFuncs()" "Script File: utilsAppConfig.sh"
 
-    return $envarsErrCode
+    return $funcsErrCode
   }
 
-  msgNotify "User Functions Script File Successfully Configured and Now Active" "Sourced Envars Target File:" "$targetUserFuncsPathFileName"
+  msgNotify "User Functions Script File Successfully Configured and Now Active" "Sourced User Functions Target File:" "$targetUserFuncsPathFileName" "Function: configUserFuncs()" "Script File: utilsAppConfig.sh"
 
   return 0
 }
