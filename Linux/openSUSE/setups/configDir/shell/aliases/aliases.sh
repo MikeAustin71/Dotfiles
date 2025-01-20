@@ -23,9 +23,3 @@ alias multitail='multitail --no-repeat -c'
 alias ps='ps auxf'
 
 alias top="btop"
-
-alias update="sudo zypper update"
-
-alias update2="updateMikeBase"
-
-alias update3="updateMikeEverything"
