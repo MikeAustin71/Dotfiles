@@ -1171,7 +1171,7 @@ function configUserFuncs() {
 
     funcsErrCode=67
 
-    errXMsg "Target File Creation/Update Failed" "Target Files Does NOT Exist!" "File: $targetUserFuncsPathFileName" "Error Code: $funcsErrCode" "Function: configUserFuncs()" "Script File: utilsAppConfig.sh"
+    errXMsg "Target File Creation/Update Failed" "FATAL ERROR: Target Files Does NOT Exist!" "File: $targetUserFuncsPathFileName" "Error Code: $funcsErrCode" "Function: configUserFuncs()" "Script File: utilsAppConfig.sh"
 
     return $funcsErrCode
 

@@ -81,15 +81,19 @@ function copyHomeSetupsToVMShare() {
 
           THE_ErrorCode=$?
 
-         errXMsg "makeDirIfNotExist() failed to create target directory:" "$vmShareTargetDir" "Returned Error Code:$THE_ErrorCode" "Function: copyHomeSetupsToVMShare" "Script: saveSetupsToVM.sh"
+         errXMsg "makeDirIfNotExist() failed to create target directory:" "$vmShareTargetDir" "The copy operation cannot proceed!" "Returned Error Code:$THE_ErrorCode" "Function: copyHomeSetupsToVMShare" "Script: saveSetupsToVM.sh"
 
          return $THE_ErrorCode
 
       }
   }
 
-  #sudo rsync -L --archive --ignore-errors --force "$HOME"/.config $VMShare"/OpenSUSE/Tumbleweed/setups
-    sudo rsync -L --archive --ignore-errors --force "$sourceDir" "$vmShareTargetBaseDir" || {
+    msgNotify "Beginning Copy Operation using rsync ..."
+
+    # Configued as 'mirror' operation
+    #sudo rsync -L --archive --ignore-errors --force "$HOME"/.config $VMShare"/OpenSUSE/Tumbleweed/setups
+
+    sudo rsync -L --archive --delete --ignore-errors --force "$sourceDir" "$vmShareTargetBaseDir" || {
 
       THE_ErrorCode=$?
 
