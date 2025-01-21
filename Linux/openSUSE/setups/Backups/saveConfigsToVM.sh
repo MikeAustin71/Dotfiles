@@ -15,7 +15,7 @@
 
  declare vmShareTargetBaseDir="$vmShareBaseDir"/OpenSUSE/Tumbleweed
 
-  declare vmShareTargetCfgDir="$vmShareTargetBaseDir"/config
+ declare vmShareTargetCfgDir="$vmShareTargetBaseDir"/config
 
 
 function deleteHomeConfigVMShare() {
@@ -32,25 +32,51 @@ function deleteHomeConfigVMShare() {
   }
 
 
-  [[ -d $vmShareTargetCfgDir ]] || {
+  [[ -d vmShareTargetBaseDir ]] || {
 
-    THE_ErrorCode=0
+    # vmShareTargetBaseDir Does NOT Exist!
+    # Create it!
+      makeDirIfNotExist "$vmShareTargetBaseDir" "775" "sudo" || {
 
-    msgNotify "VM Target Configuration Directory Does NOT Exist!" "$vmShareTargetCfgDir" "Nothing to do..." "Function: deleteVMShareSetups" "Script: saveSetupsToVM.sh"
+           THE_ErrorCode=$?
 
-    return $THE_ErrorCode
-   }
+          errXMsg "makeDirIfNotExist() failed to create target base directory:" "$vmShareTargetBaseDir" "Returned Error Code:$THE_ErrorCode" "Fatal Error! The copy operation cannot proceed!" "Function: deleteHomeConfigVMShare" "Script: saveConfigsToVM.sh"
 
+          return $THE_ErrorCode
+
+       }
+
+  }
+
+  if  [[ -d  $vmShareTargetCfgDir ]]; then
 
     zapFilesCmd "$vmShareTargetCfgDir" "-rfv" "sudo" || {
 
       THE_ErrorCode=$?
 
-      errXMsg "Attempted deletion of target VM Directory Failed" "$vmShareTargetCfgDir" "Function: deleteHomeConfigVMShare" "Script: saveConfigsToVM.sh" "Error Code: $THE_ErrorCode"
+      errXMsg "Attempted deletion of target files in Configureation Directory Failed!" "The COPY OPERATION CANNOT PROCEED!" "Configuration Directory:" "$vmShareTargetCfgDir" "Function: deleteHomeConfigVMShare" "Script: saveConfigsToVM.sh" "Error Code: $THE_ErrorCode"
 
       return $THE_ErrorCode
 
     }
+
+  else
+    # $vmShareTargetCfgDir DOES NOT EXIST! Create Empty Directory!
+
+     msgNotify "$vmShareTargetCfgDir Does Not Exist!" "Attempting to create it ..."
+
+     makeDirIfNotExist "$vmShareTargetCfgDir" "775" "sudo" || {
+
+          THE_ErrorCode=$?
+
+         errXMsg "makeDirIfNotExist() failed to create target directory:" "$vmShareTargetCfgDir" "Returned Error Code:$THE_ErrorCode" "Fatal Error! The copy operation cannot proceed!" "Function: deleteHomeConfigVMShare" "Script: saveConfigsToVM.sh"
+
+         return $THE_ErrorCode
+
+      }
+
+
+  fi
 
   return 0
 }
@@ -74,17 +100,9 @@ function copyHomeConfigToVMShare() {
 
   [[ -d $vmShareTargetCfgDir ]] || {
 
-    msgNotify "VM Target Configuration Directory Does NOT Exist!" "$vmShareTargetCfgDir" "Attempting to create target directory" "Function: copyHomeConfigToVMShare" "Script: saveConfigsToVM.sh"
+    THE_ErrorCode=79
 
-     makeDirIfNotExist "$vmShareTargetCfgDir" "775" "sudo" || {
-
-          THE_ErrorCode=$?
-
-         errXMsg "makeDirIfNotExist() failed to create target directory:" "$vmShareTargetCfgDir" "Returned Error Code:$THE_ErrorCode" "Function: copyHomeConfigToVMShare" "Fatal Error! The copy operation cannot proceed!" "Script: saveConfigsToVM.sh"
-
-         return $THE_ErrorCode
-
-      }
+     errXMsg "VM Target Configuration Directory Does NOT Exist!" "Dir: $vmShareTargetCfgDir" "Fatal Error! The copy operation cannot proceed!" "Function: copyHomeConfigToVMShare" "Script: saveConfigsToVM.sh"
   }
 
   msgNotify "Beginning Copy Operation using rsync ..."
