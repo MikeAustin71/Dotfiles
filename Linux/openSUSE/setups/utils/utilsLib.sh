@@ -639,7 +639,7 @@ function copyFiles() {
 
     errExitCode=$?
 
-    msgNotify "Error calling Function: makeDirIfNotExist()" "Directory Owner: $destDirOwner" "Error Code: $errExitCode" "Function: backupBashrcFile()" "Script File: utilsLib.sh"
+    msgNotify "Error calling Function: makeDirIfNotExist()" "Directory Owner: $destDirOwner" "Error Code: $errExitCode" "Function: copyFiles()" "Script File: utilsLib.sh"
 
     return $errExitCode
   }
@@ -1259,7 +1259,7 @@ function moveDirFiles() {
   echo "to destination files/directories."
   echo "Source: $sourceFile"
   echo "Destination: $destinationFile"
-  echo "Command Parameters: $overwriteCmd"
+  echo "Command Parameters: $cmdParams"
   echo "Execute Authority: $exeAuthority"
   echo "Function: moveDirFiles()"
   echo "***************************************************"
