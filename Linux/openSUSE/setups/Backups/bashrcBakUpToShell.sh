@@ -66,7 +66,7 @@ function bakupBashrcToShellBackup() {
 
 msgNotify "Backing up .bashrc to $HOME/.config/shell/backups/bashrcBak" "Creating Backup Directories, if necessary..." &&
 bakupBashrcToShellBackup &&
-successMsg "$HOME/.bashrc" "to" "$HOME/.config/shell/backups/bashrcBak"  "Script: copyBaseBakupsToShell.sh"  || {
+successMsg "$HOME/.bashrc" "to" "$HOME/.config/shell/backups/bashrcBak"  "Script: bashrcBakUpToShell.sh"  || {
 
  errXMsg "saveConfigsToVM.sh" "Error-Exit!"
 
