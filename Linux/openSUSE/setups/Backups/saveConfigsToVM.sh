@@ -93,7 +93,7 @@ function copyHomeConfigToVMShare() {
 
     THE_ErrorCode=89
 
-    errXMsg "Copy Source Directory Does NOT Exist!" "$sourceDir" "Fatal Error! The copy operation cannot proceed!" "Function: copyHomeConfigToVMShare" "Script: saveConfigsToVM.sh" "Error Code: $THE_ErrorCode"
+    errXMsg "Copy Source Directory Does NOT Exist!" "$sourceDir" "Fatal Error! The copy operation cannot proceed!" "Error Code: $THE_ErrorCode" "Function: copyHomeConfigToVMShare" "Script: saveConfigsToVM.sh"
 
     return $THE_ErrorCode
   }
@@ -102,7 +102,9 @@ function copyHomeConfigToVMShare() {
 
     THE_ErrorCode=79
 
-     errXMsg "VM Target Configuration Directory Does NOT Exist!" "Dir: $vmShareTargetCfgDir" "Fatal Error! The copy operation cannot proceed!" "Function: copyHomeConfigToVMShare" "Script: saveConfigsToVM.sh"
+    errXMsg "VM Target Configuration Directory Does NOT Exist!" "Dir: $vmShareTargetCfgDir" "Fatal Error! The copy operation cannot proceed!" "Error Code: $THE_ErrorCode" "Function: copyHomeConfigToVMShare" "Script: saveConfigsToVM.sh"
+
+    return $THE_ErrorCode
   }
 
   msgNotify "Beginning Copy Operation using rsync ..."
