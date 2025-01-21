@@ -21,7 +21,7 @@ function bakupBashrcToShellBackup() {
 
   fileDateTime=$(getDateTimeForFileName)
 
-  local targetBackBashrcFile="$fileDateTime"_bashrc.bak
+  local targetBackBashrcFile="$targetBakDir"/"$fileDateTime"_bashrc.bak
 
   if [[ ! -f $sourceBashrcFile ]]; then
 
@@ -47,6 +47,7 @@ function bakupBashrcToShellBackup() {
 
   fi
 
+  msgNotify "Preparing to copy" "$sourceBashrcFile -> $targetBackBashrcFile"
 
   cp -fv "$sourceBashrcFile" "$targetBackBashrcFile" || {
 
