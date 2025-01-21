@@ -106,8 +106,11 @@ function copyHomeConfigToVMShare() {
   }
 
   msgNotify "Beginning Copy Operation using rsync ..."
+
   # sudo rsync -L --archive --ignore-errors --force "$HOME"/.config $VMShare"/OpenSUSE/Tumbleweed/config
-  sudo rsync -L --archive --ignore-errors --force  "$sourceDir" "$vmShareTargetCfgDir" || {
+  # Configued as 'mirror' operatino
+
+  sudo rsync -L --archive --ignore-errors --force --delete "$sourceDir" "$vmShareTargetCfgDir" || {
 
       THE_ErrorCode=$?
 
