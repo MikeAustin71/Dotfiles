@@ -136,6 +136,7 @@ function appendTextToFile() {
   return 0
 }
 
+
 # This function will backup the system
 # file, ~/.bashrc, to the backup directory
 # ~/.config/shell/backups/bashrcBak
@@ -808,6 +809,24 @@ function errXMsg() {
 
   return 0
 }
+
+
+# Returns a string containing the current
+# Date/Time formatted for use in file names.
+# Useage:
+#
+#   result=$(getDateTimeForFileName)
+#
+#   echo "$result"
+function getDateTimeForFileName() {
+
+   local dateTime=""
+
+    dateTime=$(date +'%Y%m%d_%H%M%S')
+
+    echo "$dateTime"
+}
+
 
 # This function will test the current
 # working directory to verify that it
