@@ -13,7 +13,7 @@
 function copyBaseBakupDirToActual() {
 
   local sourceBakDir="$baseSetups597Dir"/configDir/shell/backups
-  local targetBakDir="$HOME"/.config/shell/backups
+  local targetBakDir="$HOME"/.config/shell
   local -i THE_ErrorCode=0
 
   [[ -d $sourceBakDir ]] || {
