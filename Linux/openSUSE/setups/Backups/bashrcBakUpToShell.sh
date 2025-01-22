@@ -1,8 +1,6 @@
 #!/bin/bash
-# This script will copy  setups/configDir/shell/backups
-# to "$HOME"/.config/shell/backups. This will initialize
-# the 'backups' directory and prepare it to receive
-# backup data.
+# This script will copy and backup the "$HOME"/.bashrc file
+# to "$HOME"/.config/shell/backups/bashrcBak directory.
 #
 
 declare baseSetups571Dir="$HOME"/bashOps/setups

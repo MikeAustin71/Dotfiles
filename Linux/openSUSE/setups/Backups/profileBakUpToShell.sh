@@ -1,8 +1,6 @@
 #!/bin/bash
-# This script will copy  setups/configDir/shell/backups
-# to "$HOME"/.config/shell/backups. This will initialize
-# the 'backups' directory and prepare it to receive
-# backup data.
+# This script will copy and backup the "$HOME"/.profile file
+# to "$HOME"/.config/shell/backups/profileBak directory.
 #
 
 declare baseSetups573Dir="$HOME"/bashOps/setups
@@ -68,6 +66,6 @@ msgNotify "Backing up .profile to $HOME/.config/shell/backups/profileBak" "Creat
 bakupProfileToShellBackup &&
 successMsg "$HOME/.profile" "to" "$HOME/.config/shell/backups/profileBak"  "Script: profileBakUpToShell.sh"  || {
 
- errXMsg "saveConfigsToVM.sh" "Error-Exit!"
+ errXMsg "profileBakUpToShell.sh" "Error-Exit!"
 
 }
