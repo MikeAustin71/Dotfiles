@@ -68,6 +68,6 @@ msgNotify "Backing up .bashrc to $HOME/.config/shell/backups/bashrcBak" "Creatin
 bakupBashrcToShellBackup &&
 successMsg "$HOME/.bashrc" "to" "$HOME/.config/shell/backups/bashrcBak"  "Script: bashrcBakUpToShell.sh"  || {
 
- errXMsg "saveConfigsToVM.sh" "Error-Exit!"
+ errXMsg "bashrcBakUpToShell.sh" "Error-Exit!"
 
 }

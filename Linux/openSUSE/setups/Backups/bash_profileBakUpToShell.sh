@@ -37,11 +37,11 @@ function bakupBashProfileToShellBackup() {
   if [[ ! -d $targetBakDir ]]; then
 
 
-        msgNotify "VM Target bashrc backup directory does not exist." "Will attempt to create Diriectory: "  "$targetBakDir" "Function: bakupBashProfileToShellBackup" "Script: bash_profileBakUpToShell.sh"
+        msgNotify "Target bash_profile backup directory does not exist." "Will attempt to create Diriectory: "  "$targetBakDir" "Function: bakupBashProfileToShellBackup" "Script: bash_profileBakUpToShell.sh"
 
         makeDirIfNotExist "$targetBakDir" "775" "" || {
 
-        errXMsg "Attempted creation of Target bashrc backup directory FAILED!" "FATAL ERROR - The backup/copy operation cannot proceed!" "Error Code: $THE_ErrorCode" "Function: bakupBashProfileToShellBackup" "Script: bash_profileBakUpToShell.sh"
+        errXMsg "Attempted creation of Target bash_profile backup directory FAILED!" "FATAL ERROR - The backup/copy operation cannot proceed!" "Error Code: $THE_ErrorCode" "Function: bakupBashProfileToShellBackup" "Script: bash_profileBakUpToShell.sh"
 
       }
 
@@ -64,10 +64,10 @@ function bakupBashProfileToShellBackup() {
 }
 
 
-msgNotify "Backing up .bash_profile to $HOME/.config/shell/backups/bashrcBak" "Creating Backup Directories, if necessary..." &&
+msgNotify "Backing up .bash_profile to $HOME/.config/shell/backups/profileBak" "Creating Backup Directories, if necessary..." &&
 bakupBashProfileToShellBackup &&
-successMsg "$HOME/.bash_profile" "to" "$HOME/.config/shell/backups/bashrcBak"  "Script: bash_profileBakUpToShell.sh"  || {
+successMsg "$HOME/.bash_profile" "to" "$HOME/.config/shell/backups/profileBak"  "Script: bash_profileBakUpToShell.sh"  || {
 
- errXMsg "saveConfigsToVM.sh" "Error-Exit!"
+ errXMsg "bash_profileBakUpToShell.sh" "Error-Exit!"
 
 }
