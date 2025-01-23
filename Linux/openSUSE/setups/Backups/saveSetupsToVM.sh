@@ -44,13 +44,13 @@ function deleteVMShareSetups() {
 
     THE_ErrorCode=$?
 
-    errXMsg "Attempted deletion of target VM Directory Failed" "$vmShareTargetDir" "Function: deleteVMShareSetups" "Script: saveSetupsToVM.sh" "Error Code: $THE_ErrorCode"
+    errXMsg "Attempted deletion of target VM Directory Failed" "Dir: $vmShareTargetDir" "Function: deleteVMShareSetups" "Script: saveSetupsToVM.sh" "Error Code: $THE_ErrorCode"
 
     return $THE_ErrorCode
 
   }
 
-  msgNotify "Successfully Deleted VM Setups Directory:" "$vmShareTargetDir" "Function: deleteVMShareSetups" "Script: saveSetupsToVM.sh"
+  msgNotify "Successfully Deleted VM Setups Directory:" "Dir: $vmShareTargetDir" "Function: deleteVMShareSetups" "Script: saveSetupsToVM.sh"
 
   return 0
 }
