@@ -7,6 +7,8 @@ declare baseSetups573Dir="$HOME"/bashOps/setups
 
 source "$baseSetups573Dir"/utils/utilsLib.sh
 
+declare -i profileBakToShell_ErrorCode
+
 function bakupProfileToShellBackup() {
 
   local -i THE_ErrorCode=0
@@ -53,12 +55,10 @@ function bakupProfileToShellBackup() {
 
     errXMsg "Copy Operation (cp -fv) FAILED!" "FATAL ERROR - The backup/copy operation cannot proceed!" "Source File: $sourceProfileFile" "Destination File: $targetBackProfileFile" "Error Code: $THE_ErrorCode" "Function: bakupProfileToShellBackup" "Script: profileBakUpToShell.sh"
 
-
-    return $THE_ErrorCode
   }
 
 
-  return 0
+  return $THE_ErrorCode
 }
 
 
@@ -66,6 +66,10 @@ msgNotify "Backing up .profile to $HOME/.config/shell/backups/profileBak" "Creat
 bakupProfileToShellBackup &&
 successMsg "$HOME/.profile" "to" "$HOME/.config/shell/backups/profileBak"  "Script: profileBakUpToShell.sh"  || {
 
- errXMsg "profileBakUpToShell.sh" "Error-Exit!"
+  profileBakToShell_ErrorCode=$?
+
+  errXMsg "profileBakUpToShell.sh" "Error-Exit!"
+
+  return $profileBakToShell_ErrorCode
 
 }

@@ -6,8 +6,8 @@
 # script.
 
  declare baseSetups58Dir="$HOME"/bashOps/setups
- source "$baseSetups58Dir"/utils/utilsLib.sh
 
+ source "$baseSetups58Dir"/utils/utilsLib.sh
 
  declare -i saveConfigsToVM_ErrorCode=0
 

@@ -99,22 +99,23 @@ function copyHomeSetupsToVMShare() {
 
       errXMsg "Copy Operation Failed" "Source Dir: $sourceDir" "Target Base Dir: $vmShareTargetBaseDir" "Function: copyHomeSetupsToVMShare" "Script: saveSetupsToVM.sh" "Error Code: $THE_ErrorCode"
 
-      return $THE_ErrorCode
-
   }
 
-  return 0
+
+  return $THE_ErrorCode
 }
 
-msgNotify "Preparing to copy 'setups' to VM Shared Directory" "Step-1 Deleting existing setups in target directory." "Script: saveSetupsToVM.sh"
+msgNotify "Preparing to copy 'setups' to VM Shared Directory" "Step-1 Deleting existing setups in target directory." "Script: saveSetupsToVM.sh" &&
 deleteVMShareSetups &&
 msgNotify "Step-2 Starting main copy operation..."
 copyHomeSetupsToVMShare &&
 successMsg "saveSetupsToVM.sh - Successful Completion!" "Copied Home Setups to VM Drive" "Script: saveSetupsToVM.sh" || {
 
   saveSetupsToVM_ErrorCode=$?
+
   errXMsg "saveSetupsToVM.sh" "Error-Exit!" "Error Code: $saveSetupsToVM_ErrorCode"
 
+  return $saveSetupsToVM_ErrorCode
 }
 
 

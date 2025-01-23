@@ -10,6 +10,8 @@ declare baseSetups272Dir="$HOME"/bashOps/setups
 
 source "$baseSetups272Dir"/utils/utilsLib.sh
 
+declare -i keysBakToShell_ErrorCode
+
 
 function deleteKeysBakupDir() {
 
@@ -142,7 +144,7 @@ function backupKeyFiles() {
 
     cp -fv "$sourcePubKeyFile" "$destPubKeyFile" || {
 
-      THE_ErrorCode=42
+      THE_ErrorCode=$?
 
       errXMsg "FATAL SYSTEM ERROR!" "Public Key copy operation FAILED!"  "cp -fv $sourcePubKeyFile -> $destPubKeyFile" "Error Code: $THE_ErrorCode" "Function: backupKeyFiles" "Script: keysBakUpToShell.sh"
 
@@ -185,6 +187,9 @@ msgNotify "Preparing to backup public and private key files"
 backupKeyFiles &&
 successMsg "Completed Backup of public and private keys"  "Script:  keysBakUpToShell.sh"  || {
 
- errXMsg " keysBakUpToShell.sh" "Error-Exit!"
+  keysBakToShell_ErrorCode=$?
 
+  errXMsg " keysBakUpToShell.sh" "Error-Exit!"
+
+  return $keysBakToShell_ErrorCode
 }

@@ -7,6 +7,8 @@ declare baseSetups574Dir="$HOME"/bashOps/setups
 
 source "$baseSetups574Dir"/utils/utilsLib.sh
 
+ declare -i inputrcBakToShell_ErrorCode=0
+
 function bakupInputrcToShellBackup() {
 
   local -i THE_ErrorCode=0
@@ -53,12 +55,9 @@ function bakupInputrcToShellBackup() {
 
     errXMsg "Copy Operation (cp -fv) FAILED!" "FATAL ERROR - The backup/copy operation cannot proceed!" "Source File: $sourceInputrcFile" "Destination File: $targetBackInputrcFile" "Error Code: $THE_ErrorCode" "Function: bakupInputrcToShellBackup" "Script: inputrcBakUpToShell.sh"
 
-
-    return $THE_ErrorCode
   }
 
-
-  return 0
+  return $THE_ErrorCode
 }
 
 
@@ -66,6 +65,9 @@ msgNotify "Backing up .inputrc to $HOME/.config/shell/backups/inputrcBak" "Creat
 bakupInputrcToShellBackup &&
 successMsg "$HOME/.inputrc" "to" "$HOME/.config/shell/backups/inputrcBak"  "Script: inputrcBakUpToShell.sh"  || {
 
- errXMsg "inputrcBakUpToShell.sh" "Error-Exit!"
+  inputrcBakToShell_ErrorCode=$?
 
+  errXMsg "inputrcBakUpToShell.sh" "Error-Exit!"
+
+  return $inputrcBakToShell_ErrorCode
 }

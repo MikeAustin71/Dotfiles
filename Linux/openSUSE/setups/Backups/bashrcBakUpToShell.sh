@@ -7,6 +7,8 @@ declare baseSetups571Dir="$HOME"/bashOps/setups
 
 source "$baseSetups571Dir"/utils/utilsLib.sh
 
+declare -i bashrcBakToShell_ErrorCode
+
 function bakupBashrcToShellBackup() {
 
   local -i THE_ErrorCode=0
@@ -66,6 +68,10 @@ msgNotify "Backing up .bashrc to $HOME/.config/shell/backups/bashrcBak" "Creatin
 bakupBashrcToShellBackup &&
 successMsg "$HOME/.bashrc" "to" "$HOME/.config/shell/backups/bashrcBak"  "Script: bashrcBakUpToShell.sh"  || {
 
- errXMsg "bashrcBakUpToShell.sh" "Error-Exit!"
+  bashrcBakToShell_ErrorCode=$?
+
+  errXMsg "bashrcBakUpToShell.sh" "Error-Exit!"
+
+  return $bashrcBakToShell_ErrorCode
 
 }
