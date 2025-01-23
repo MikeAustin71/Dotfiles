@@ -32,7 +32,7 @@ function deleteHomeConfigVMShare() {
   }
 
 
-  [[ -d vmShareTargetBaseDir ]] || {
+  [[ -d $vmShareTargetBaseDir ]] || {
 
     # vmShareTargetBaseDir Does NOT Exist!
     # Create it!
@@ -122,23 +122,22 @@ function copyHomeConfigToVMShare() {
 
   }
 
-
-  THE_ErrorCode=0
-
   msgNotify "Successfully Copied configs to VM Config Directory" "Source Dir: $sourceDir" "Target Dir: $vmShareTargetCfgDir" "Function: copyHomeConfigToVMShare" "Script: saveConfigsToVM.sh"
 
   return $THE_ErrorCode
 }
 
-msgNotify "Starting Configuration copy operation." "Step-1 Deleting old VM Share configuration data."
+msgNotify "Starting Configuration copy operation." "Step-1 Deleting old VM Share configuration data." &&
 deleteHomeConfigVMShare &&
-msgNotify "Beginning Step-2 main copy operation..."
+msgNotify "Beginning Step-2 main copy operation..." &&
 copyHomeConfigToVMShare &&
 successMsg "saveConfigsToVM.sh - Successful Completion!" "Copied Home Configs to VM Drive" "Script: saveConfigsToVM.sh"  || {
 
   saveConfigsToVM_ErrorCode=$?
+
   errXMsg "saveConfigsToVM.sh" "Error-Exit!" "Error Code: $saveConfigsToVM_ErrorCode"
 
+  return $saveConfigsToVM_ErrorCode
 }
 
 
