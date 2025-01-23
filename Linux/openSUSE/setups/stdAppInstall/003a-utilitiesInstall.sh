@@ -17,6 +17,8 @@ msgNotify "Installing 'micro'" &&
 installMicro &&
 msgNotify "Installing 'btop'" &&
 installBtop &&
+msgNotify "Installing 'bottom'" &&
+installBottom &&
 msgNotify "Installing 'fd' (find)" &&
 installFd &&
 msgNotify "Installing 'fzf'(Fuzzy Finder)" &&
