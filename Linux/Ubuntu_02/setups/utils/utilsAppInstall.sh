@@ -992,8 +992,108 @@ function install_x_Drivers_ati() {
 # in utilsAppConfig.sh.
 function installYazi() {
 
-  sudo apt install yazi yazi-bash-completion
+  local -i theErrCode=0
 
+  cd ~/scratch || {
+
+    theErrCode=$?
+
+    echo "Error '~/scratch' FAILED"
+    echo "Function: installYazi()"
+    echo "Script: utilsAppInstall.sh"
+    echo "Error Code: $theErrCode"
+    return $theErrCode
+
+
+  }
+
+  curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh || {
+
+    theErrCode=$?
+
+    echo "Error returned by curl: https://sh.rustup.rs"
+    echo "Function: installYazi()"
+    echo "Script: utilsAppInstall.sh"
+    echo "Error Code: $theErrCode"
+    return $theErrCode
+
+  }
+
+  rustup update || {
+
+    theErrCode=$?
+
+    echo "Error: rustup update FAILED!"
+    echo "Function: installYazi()"
+    echo "Script: utilsAppInstall.sh"
+    echo "Error Code: $theErrCode"
+    return $theErrCode
+
+  }
+
+  cd ~/repos || {
+
+    theErrCode=$?
+
+    echo "Error 'cd ~/repos' FAILED"
+    echo "Function: installYazi()"
+    echo "Script: utilsAppInstall.sh"
+    echo "Error Code: $theErrCode"
+    return $theErrCode
+
+
+  }
+
+  git clone https://github.com/sxyazi/yazi.git || {
+
+    theErrCode=$?
+
+    echo "Error:  git clone https://github.com/sxyazi/yazi.git FAILED!"
+    echo "Function: installYazi()"
+    echo "Script: utilsAppInstall.sh"
+    echo "Error Code: $theErrCode"
+    return $theErrCode
+
+  }
+
+  cd ./yazi || {
+
+    theErrCode=$?
+
+    echo "Error:  'cd ./yazi' FAILED!"
+    echo "Function: installYazi()"
+    echo "Script: utilsAppInstall.sh"
+    echo "Error Code: $theErrCode"
+    return $theErrCode
+
+  }
+
+  cargo build --release --locked || {
+
+    theErrCode=$?
+
+    echo "Error:  'cd yazi' FAILED!"
+    echo "Function: installYazi()"
+    echo "Script: utilsAppInstall.sh"
+    echo "Error Code: $theErrCode"
+    return $theErrCode
+
+
+  }
+
+  sudo mv ~/repos/yazi/target/release/yazi ~/repos/yazi/target/release/ya /usr/local/bin/ || {
+
+    theErrCode=$?
+
+    echo "Error: Move Command Failed:"
+    echo "Command: sudo mv ~/repos/yazi/target/release/yazi ~/repos/yazi/target/release/ya /usr/local/bin/"
+    echo "Function: installYazi()"
+    echo "Script: utilsAppInstall.sh"
+    echo "Error Code: $theErrCode"
+    return $theErrCode
+
+
+  }
 }
 
 # zoxide
