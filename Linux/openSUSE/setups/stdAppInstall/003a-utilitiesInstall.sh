@@ -27,11 +27,9 @@ msgNotify "Installing 'fkill'(Process Killer)" &&
 installFkill &&
 msgNotify "Installing 'procs'(Process Viewer)" &&
 installProcs &&
-msgNotify "Installing 'mc'(Midnight Commander)" &&
-installMidnightCommander &&
 msgNotify "Installing 'Yazi' File Manager" &&
 installYazi &&
-msgNotify "Configuring .bashrc for 'Yazi' File Manager" &&
+msgNotify "Configuring User Functions for 'Yazi' File Manager" &&
 configFuncsYazi
 msgNotify "Installing 'tldr'" &&
 installTldr &&
