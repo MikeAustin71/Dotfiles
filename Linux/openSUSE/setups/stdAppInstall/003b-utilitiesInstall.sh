@@ -23,6 +23,8 @@ msgNotify "Installing KGet" &&
 installKget &&
 msgNotify "Installing 'lynis' Security Tool" &&
 installLynis &&
+msgNotify "Installing 'Kate' Text Editor" &&
+installKate &&
 msgNotify "Returning to Home Base" &&
 changeToDir "$baseSetups9Dir/stdAppInstall" &&
 successMsg "All Phase-3b Utilities Installed." "003b-utilitiesInstall.sh" || {

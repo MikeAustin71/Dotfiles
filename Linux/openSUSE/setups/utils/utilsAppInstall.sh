@@ -323,6 +323,25 @@ function installGit() {
 
 }
 
+function installKate() {
+
+  local -i kateErrorCode=0
+
+  sudo zypper install kate || {
+
+      kateErrorCode=$?
+
+     echo "     *** ERROR ***"
+     echo "Error returned while installing"
+     echo "'Kate' Text Editor."
+     echo "Error Code: $keypassXCErrorCode"
+     echo "Function: installKate()"
+     echo "Script: utilsAppInstall.sh"
+  }
+
+
+  return $kateErrorCode
+}
 
 # KeypassXC Password Manager
 # https://keepassxc.org/
