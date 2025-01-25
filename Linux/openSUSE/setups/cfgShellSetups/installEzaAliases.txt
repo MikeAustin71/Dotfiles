@@ -6,6 +6,9 @@
 # https://github.com/eza-community/eza
 # =======================================
 
+# Equivalent of ls alias
+alias la='eza --long --all --color=always'
+
 # ls - mimics the original 'ls' command
 alias ls='eza --long --all --color=always'
 
