@@ -95,6 +95,8 @@ msgNotify "Installing 'curl'" &&
 installCurl &&
 msgNotify "Installing 'wget'" &&
 installWget &&
+msgNotify "Installing 'micro'" &&
+installMicro &&
 msgNotify "Installing C and C++ Tools" &&
 installCToolsLibs &&
 msgNotify "Installing 02 Dev Tools" &&

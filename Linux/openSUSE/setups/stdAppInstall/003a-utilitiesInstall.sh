@@ -13,8 +13,6 @@ msgNotify "Installing 'libgthread' for Jetbrains" &&
 installLibgthread  &&
 msgNotify "Installing 'hishtory' Shell History Application" &&
 installHisHtory &&
-msgNotify "Installing 'micro'" &&
-installMicro &&
 msgNotify "Installing 'btop'" &&
 installBtop &&
 msgNotify "Installing 'bottom'" &&
