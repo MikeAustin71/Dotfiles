@@ -32,7 +32,7 @@ installMidnightCommander &&
 msgNotify "Installing 'Yazi' File Manager" &&
 installYazi &&
 msgNotify "Configuring .bashrc for 'Yazi' File Manager" &&
-configBashrcYazi
+configFuncsYazi
 msgNotify "Installing 'tldr'" &&
 installTldr &&
 msgNotify "Installing 'lshw'" &&

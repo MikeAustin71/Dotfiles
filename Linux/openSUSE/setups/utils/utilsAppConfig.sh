@@ -913,15 +913,15 @@ function configBashrcZoxide() {
 }
 
 # Configures Yazi function in .bashrc file.
-function configBashrcYazi() {
+function configFuncsYazi() {
 
-  local sourceTxtFile="$utilAppCfgSetups"/cfgBashrc/installBashrcYazi.txt
+  local sourceTxtFile="$utilAppCfgSetups"/cfgFuncs/installFuncsYazi.txt
 
-  local bashrcTargetDir="$HOME"
+  local funcsTargetDir="$HOME"/.config/shell/userFuncs
 
-  local bashrcTargetFileName=".bashrc"
+  local funcsTargetFileName="userFunctions.sh"
 
-  local bashrcTargetFile="$bashrcTargetDir"/"$bashrcTargetFileName"
+  local funcsTargetFile="$funcsTargetDir"/"$funcsTargetFileName"
 
   local -i THE_ERR_Code=0
 
@@ -929,18 +929,18 @@ function configBashrcYazi() {
 
     THE_ERR_Code=89
 
-    errXMsg ".bashrc Source File Does NOT Exist!" ".bashrc Source File:" "  $sourceTxtFile" "Error Code: $THE_ERR_Code" "Function: configBashrcYazi()" "Script File: utilsAppConfig.sh"
+    errXMsg "FATAL ERROR: Yazi Funcs Source File Does NOT Exist!" "Yazi Funcs Source File:" "  $sourceTxtFile" "Error Code: $THE_ERR_Code" "Function: configBashrcYazi()" "Script File: utilsAppConfig.sh"
 
     return $THE_ERR_Code
   }
 
-  appendTextToFile "$sourceTxtFile" "$bashrcTargetDir" "$bashrcTargetFileName" "775" "$(whoami)" || {
+  appendTextToFile "$sourceTxtFile" "$funcsTargetDir" "$funcsTargetFileName" "775" "$(whoami)" || {
 
     THE_ERR_Code=$?
 
     echo
     echo "Error calling appendTextToFile()"
-    echo "Target File: $bashrcTargetFile"
+    echo "Target File: $funcsTargetFile"
     echo "Error Code: $THE_ERR_Code"
     echo "Function: configBashrcYazi()"
     echo "Script File: utilsAppConfig.sh"
@@ -950,16 +950,16 @@ function configBashrcYazi() {
   }
 
   # shellcheck disable=SC1090
-  source "$bashrcTargetFile" || {
+  source "$funcsTargetFile" || {
 
     THE_ERR_Code=$?
 
-    errXMsg "Error returned by 'source' command:" "source $bashrcTargetFile" "Error Code: $THE_ERR_Code" "Function: configBashrcYazi()" "Script File: utilsAppConfig.sh"
+    errXMsg "Error returned by 'source' command:" "source $funcsTargetFile" "Error Code: $THE_ERR_Code" "Function: configBashrcYazi()" "Script File: utilsAppConfig.sh"
 
     return $THE_ERR_Code
   }
 
-  msgNotify "    --------------" "'.bashrc' Yazi Parameters Successfully Configured and Now Active" "Sourced Target File:" "$bashrcTargetFile" "    --------------"
+  msgNotify "    --------------" "'.bashrc' Yazi Parameters Successfully Configured and Now Active" "Sourced Target File:" "$funcsTargetFile" "    --------------"
 
   return 0
 }
