@@ -1403,3 +1403,42 @@ function configXorgXintrc() {
 
 }
 
+
+# Configures Yazi function in .bashrc file.
+function configFuncsYazi() {
+
+  local sourceTxtFile="$utilAppCfgSetups"/cfgFuncs/installFuncsYazi.txt
+
+  local funcsTargetDir="$HOME"/.config/shell/userFuncs
+
+  local funcsTargetFileName="userFunctions.sh"
+
+  local funcsTargetFile="$funcsTargetDir"/"$funcsTargetFileName"
+
+  local -i THE_ERR_Code=0
+
+  [[ -f $sourceTxtFile ]] || {
+
+    THE_ERR_Code=89
+
+    errXMsg "FATAL ERROR: Yazi Funcs Source File Does NOT Exist!" "Yazi Funcs Source File:" "  $sourceTxtFile" "Error Code: $THE_ERR_Code" "Function: configBashrcYazi()" "Script File: utilsAppConfig.sh"
+
+    return $THE_ERR_Code
+  }
+
+  appendTextToFile "$sourceTxtFile" "$funcsTargetDir" "$funcsTargetFileName" "775" "$(whoami)" || {
+
+    THE_ERR_Code=$?
+
+    echo
+    echo "Error calling appendTextToFile()"
+    echo "Target File: $funcsTargetFile"
+    echo "Error Code: $THE_ERR_Code"
+    echo "Function: configBashrcYazi()"
+    echo "Script File: utilsAppConfig.sh"
+    echo
+
+    return $THE_ERR_Code
+  }
+
+}
