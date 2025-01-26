@@ -568,6 +568,23 @@ function configBashProfileEnvars() {
     return $bashProfileEnvarsErrCode
   }
 
+  [[ -f $bashProfileTargetFile ]] || {
+
+    bashProfileTargetFileName=".bashrc"
+
+    bashProfileTargetFile="$bashProfileTargetDir"/"$bashProfileTargetFileName"
+
+    if [[ ! -f bashProfileTargetFile ]]; then
+
+      bashProfileEnvarsErrCode=90
+
+      errXMsg ".bashrc alternate target file Does NOT Exist!" "Envars Target File:" "  $bashProfileTargetFile" "Error Code: $bashProfileEnvarsErrCode" "Function: configBashProfileEnvars()" "Script File: utilsAppConfig.sh"
+
+      return $bashProfileEnvarsErrCode
+
+    fi
+  }
+
   appendTextToFile "$sourceTxtFile" "$bashProfileTargetDir" "$bashProfileTargetFileName" "775" "$(whoami)" || {
 
     bashProfileEnvarsErrCode=$?

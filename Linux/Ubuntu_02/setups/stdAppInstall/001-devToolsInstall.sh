@@ -115,10 +115,22 @@ msgNotify "Installing Go" &&
 installGo &&
 msgNotify "Installing 'rust' tools" &&
 installRust &&
+msgNotify "Installing 'Flatpak' tools" &&
+installFlatPak &&
 msgNotify "Installing 'flatseal'" &&
 installFlatSeal &&
+msgNotify "Configuring User Environment Variables" &&
+configBashProfileEnvars &&
+msgNotify "Configuring User Path" &&
+configBashProfileEnvars
 msgNotify "Configuring User Path" &&
 configUserPath &&
+msgNotify "Configuring .bashrc userPath" &&
+configBashrcUserPath &&
+msgNotify "Configuring .bashrc aliases" &&
+configBashrcAliases &&
+msgNotify "Configuring .bashrc User Functions" &&
+configBashrcFuncs &&
 msgNotify "Returning to Home Base" &&
 changeToDir "$baseSetups01Dir/stdAppInstall" &&
 successMsg "Phase-1 Development Tools Installed." "001-devToolsInstall.sh" "Reboot This PC!!!" || {

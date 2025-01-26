@@ -232,9 +232,69 @@ function installFkill() {
 # before running this installation.
 # Run Command:
 #   flatpak run com.github.tchx84.Flatseal
+function installFlatPak() {
+
+  local -i theErrCode=0
+
+  sudo apt install flatpak || {
+
+    theErrCode=$?
+
+    echo
+    echo "Error installing 'flatpak'."
+    echo "Command: sudo apt install flatpak "
+    echo "Error Code: $theErrCode"
+    echo "Function: installFlatPak()"
+    echo "Script File: utilsAppInstall.sh"
+    echo
+
+    return $theErrCode
+
+  }
+
+  sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo || {
+
+    theErrCode=$?
+
+    echo "Error adding 'flathub' repo ."
+    echo "Command: sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo "
+    echo "Error Code: $theErrCode"
+    echo "Function: installFlatPak()"
+    echo "Script File: utilsAppInstall.sh"
+    echo
+
+    return $theErrCode
+
+  }
+
+  return $theErrCode
+}
+
+
+
+# 'flatseal' is used to manage 'flatpak'
+# permissions. You MUST have 'flatpak' installed
+# before running this installation.
+# Run Command:
+#   flatpak run com.github.tchx84.Flatseal
 function installFlatSeal() {
 
-  flatpak install flathub com.github.tchx84.Flatseal
+  local -i theErrCode=0
+
+  flatpak install flathub com.github.tchx84.Flatseal || {
+
+    theErrCode=$?
+
+    echo "Error installing Flatseal ."
+    echo "Command: flatpak install flathub com.github.tchx84.Flatseal "
+    echo "Error Code: $theErrCode"
+    echo "Function: installFlatSeal()"
+    echo "Script File: utilsAppInstall.sh"
+    echo
+
+    return $theErrCode
+
+  }
 
 }
 
