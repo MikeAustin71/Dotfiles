@@ -9,20 +9,12 @@ source "$baseSetups2aDir"/utils/utilsLib.sh
 source "$baseSetups2aDir"/utils/utilsAppConfig.sh
 source "$baseSetups2aDir"/utils/utilsAppInstall.sh
 
-msgNotify "Configuring User Environment Variables" &&
-configEnvars &&
 msgNotify "Configuring User Environment Variables in .bash_profile/.bashrc" &&
 configBashProfileEnvars &&
-msgNotify "Configuring User Path" &&
-configUserPath &&
 msgNotify "Configuring .bashrc userPath" &&
 configBashrcUserPath &&
-msgNotify "Configuring Aliases" &&
-configAliases &&
 msgNotify "Configuring .bashrc aliases" &&
 configBashrcAliases &&
-msgNotify "Configuring User Functions" &&
-configUserFuncs &&
 msgNotify "Configuring .bashrc User Functions" &&
 configBashrcFuncs &&
 msgNotify "Returning to Home Base" &&

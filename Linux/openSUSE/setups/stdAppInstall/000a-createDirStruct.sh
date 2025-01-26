@@ -20,7 +20,7 @@ msgNotify "Configuring User Functions" &&
 configUserFuncs &&
 msgNotify "Configuring Aliases" &&
 configAliases &&
-successMsg "Created 'HOME' Directory Structure" "Script: 000a-createDirStruct.sh" || {
+successMsg "Created 'HOME' Directory and User Variable Structure" "Script: 000a-createDirStruct.sh" || {
 
   errXMsg "000a-createDirStruct.sh Execution Failed" "Error-Exit!"
 }
