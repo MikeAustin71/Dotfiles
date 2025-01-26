@@ -2,11 +2,12 @@
 # Utilities Library for Application Configuration
 #
 
-declare utilAppCfgSetups="$HOME"/bashOps/setups
+declare baseSetups2dDir="$HOME"/bashOps/setups
 
-source "$utilAppCfgSetups"/utils/utilsLib.sh
-source "$utilAppCfgSetups"/utils/utilsAppConfig.sh
-source "$utilAppCfgSetups"/utils/utilsAppInstall.sh
+source "$baseSetups2dDir"/utils/utilsLib.sh
+source "$baseSetups2dDir"/utils/utilsAppConfig.sh
+source "$baseSetups2dDir"/utils/utilsAppInstall.sh
+
 
 
 # This function configures aliases for the
@@ -63,7 +64,7 @@ msgNotify "Configuring trash-cli aliases." &&
 configAliasesTrash &&
 msgNotify "Returning to Home Base" &&
 changeToDir "$utilAppCfgSetups/stdAppInstall" &&
-successMsg "All trash-cli Aliases Created." "Script: 002c_config_trash_aliases.sh" || {
+successMsg "All trash-cli Aliases Created." "Script: 002d_config_trash_aliases.sh" || {
 
-  errXMsg "002c_config_trash_aliases.sh Execution Failed" "Error-Exit!"
+  errXMsg "002d_config_trash_aliases.sh Execution Failed" "Error-Exit!"
 }

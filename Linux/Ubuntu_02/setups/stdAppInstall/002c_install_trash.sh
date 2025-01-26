@@ -32,7 +32,7 @@ function installTrashCli() {
 }
 
 installTrashCli &&
-successMsg "Installed 'trash' a.k.a. 'trash-cli'." "Script: 002b_install_trash.sh" || {
+successMsg "Installed 'trash' a.k.a. 'trash-cli'." "Script: 002c_install_trash.sh" || {
 
-  errXMsg "002b_install_trash.sh Execution Failed" "Error-Exit!"
+  errXMsg "002c_install_trash.sh Execution Failed" "Error-Exit!"
 }

@@ -119,21 +119,9 @@ msgNotify "Installing 'Flatpak' tools" &&
 installFlatPak &&
 msgNotify "Installing 'flatseal'" &&
 installFlatSeal &&
-msgNotify "Configuring User Environment Variables" &&
-configEnvars &&
-msgNotify "Configuring User Environment Variables in .bash_profile/.bashrc" &&
-configBashProfileEnvars &&
-msgNotify "Configuring User Path" &&
-configUserPath &&
-msgNotify "Configuring .bashrc userPath" &&
-configBashrcUserPath &&
-msgNotify "Configuring .bashrc aliases" &&
-configBashrcAliases &&
-msgNotify "Configuring .bashrc User Functions" &&
-configBashrcFuncs &&
 msgNotify "Returning to Home Base" &&
 changeToDir "$baseSetups01Dir/stdAppInstall" &&
-successMsg "Phase-1 Development Tools Installed." "001-devToolsInstall.sh" "Reboot This PC!!!" || {
+successMsg "Phase-1 Development Tools Installed." "001-devToolsInstall.sh"  || {
 
   errXMsg "001-devToolsInstall.sh Execution Failed" "Error-Exit!"
 

@@ -14,8 +14,6 @@ source "$baseSetups2Dir"/utils/utilsLib.sh
 source "$baseSetups2Dir"/utils/utilsAppConfig.sh
 source "$baseSetups2Dir"/utils/utilsAppInstall.sh
 
-msgNotify "Configuring User Functions Scritp File" &&
-configUserFuncs &&
 msgNotify "Configuring Environment Variables" &&
 configEnvars &&
 msgNotify "Configuring Environment Variables in .bash_profile" &&
