@@ -3,11 +3,11 @@
 # Install aliases and starship
 
 
-declare baseSetups5Dir="$HOME"/bashOps/setups
+declare baseSetups3aDir="$HOME"/bashOps/setups
 
-source "$baseSetups5Dir"/utils/utilsLib.sh
-source "$baseSetups5Dir"/utils/utilsAppInstall.sh
-source "$baseSetups5Dir"/utils/utilsAppConfig.sh
+source "$baseSetups3aDir"/utils/utilsLib.sh
+source "$baseSetups3aDir"/utils/utilsAppInstall.sh
+source "$baseSetups3aDir"/utils/utilsAppConfig.sh
 
 msgNotify "Installing 'hishtory' Shell History Application" &&
 installHisHtory &&
@@ -25,10 +25,6 @@ msgNotify "Installing 'fkill'(Process Killer)" &&
 installFkill &&
 msgNotify "Installing 'procs'(Process Viewer)" &&
 installProcs &&
-msgNotify "Installing 'Yazi' File Manager" &&
-installYazi &&
-msgNotify "Configuring User Functions for 'Yazi' File Manager" &&
-configFuncsYazi
 msgNotify "Installing 'tldr'" &&
 installTldr &&
 msgNotify "Installing 'lshw'" &&
@@ -40,7 +36,7 @@ installMultiTail &&
 msgNotify "Installing fastfetch" &&
 installFastFetch &&
 msgNotify "Returning to Home Base" &&
-changeToDir "$baseSetups5Dir/stdAppInstall" &&
-successMsg "All Phase-3a Utilities Installed." "003a-utilitiesInstall" || {
+changeToDir "$baseSetups3aDir/stdAppInstall" &&
+successMsg "All Phase-3a Utilities Installed." "Script: 003a-utilitiesInstall" || {
   errXMsg "003a-utilitiesInstall Execution Failed" "Error-Exit!"
 }
