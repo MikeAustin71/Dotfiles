@@ -179,7 +179,7 @@ do
       return $nerdFontErrCode
     }
 
-    rm -f "$targetDir/$currFontName.zip"
+    sudo rm -f "$targetDir/$currFontName.zip"
 
     echo "Successfully Downloaded Font $currFontName"
 

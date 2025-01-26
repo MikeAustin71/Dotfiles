@@ -137,7 +137,7 @@ function downLoadGoogleFonts() {
 
     fi
 
-    rm -f "$opsDir"/"$currZipFileName" || {
+    sudo rm -f "$opsDir"/"$currZipFileName" || {
 
 
       errXMsg "File Delete Command FAILED!" "Command:" "rm -f $opsDir/$currZipFileName" "Error Code: $googleFontErrCode" "Function Name: downLoadGoogleFonts()" "Script Name: getGoogleFonts.sh"
