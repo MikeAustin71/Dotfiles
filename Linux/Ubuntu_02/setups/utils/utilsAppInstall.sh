@@ -219,7 +219,7 @@ function installCoreUtils() {
 
 function installCompressionUtilities() {
 
-  sudo apt install tar gzip bzip2 lzop zip p7zip gzip lz4 unrar rar lhasa
+  sudo apt install tar gzip bzip2 lzop zip p7zip gzip lz4 unrar rar lhasa arj
 
 }
 
@@ -346,7 +346,7 @@ function installFastFetch() {
 # use cases.
 function installFd() {
 
-  sudo apt install fd
+  sudo apt install fd-find
 
 }
 
