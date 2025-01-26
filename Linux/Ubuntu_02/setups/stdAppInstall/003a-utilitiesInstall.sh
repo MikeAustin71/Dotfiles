@@ -9,8 +9,6 @@ source "$baseSetups5Dir"/utils/utilsLib.sh
 source "$baseSetups5Dir"/utils/utilsAppInstall.sh
 source "$baseSetups5Dir"/utils/utilsAppConfig.sh
 
-msgNotify "Installing 'libgthread' for Jetbrains" &&
-installLibgthread  &&
 msgNotify "Installing 'hishtory' Shell History Application" &&
 installHisHtory &&
 msgNotify "Installing 'btop'" &&
@@ -41,8 +39,6 @@ msgNotify "Installing 'multitail'" &&
 installMultiTail &&
 msgNotify "Installing fastfetch" &&
 installFastFetch &&
-msgNotify "Installing ImageMagick" &&
-installImageMagick &&
 msgNotify "Returning to Home Base" &&
 changeToDir "$baseSetups5Dir/stdAppInstall" &&
 successMsg "All Phase-3a Utilities Installed." "003a-utilitiesInstall" || {

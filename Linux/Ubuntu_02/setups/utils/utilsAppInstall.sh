@@ -245,8 +245,54 @@ function installEza() {
 # https://github.com/fastfetch-cli/fastfetch
 function installFastFetch() {
 
-  sudo apt install fastfetch fastfetch-bash-completion
+  local -i theErrCode=0
 
+  sudo add-apt-repository ppa:zhangsongcui3371/fastfetch  || {
+
+   theErrCode=$?
+
+   echo
+   echo "Error adding 'fastfetch' repository."
+   echo "Command: sudo add-apt-repository ppa:zhangsongcui3371/fastfetch"
+   echo "Error Code: $theErrCode"
+   echo "Function: installFastFetch()"
+   echo "Script File: utilsAppInstall.sh"
+   echo
+
+   return $theErrCode
+  }
+
+  sudo apt update || {
+
+   theErrCode=$?
+
+   echo
+   echo "Error performing 'apt update'."
+   echo "Command: sudo apt update"
+   echo "Error Code: $theErrCode"
+   echo "Function: installFastFetch()"
+   echo "Script File: utilsAppInstall.sh"
+   echo
+
+   return $theErrCode
+
+  }
+
+  sudo apt install fastfetch || {
+
+   theErrCode=$?
+
+   echo
+   echo "Error installing 'fastfetch'."
+   echo "Command: sudo apt install fastfetch"
+   echo "Error Code: $theErrCode"
+   echo "Function: installFastFetch()"
+   echo "Script File: utilsAppInstall.sh"
+   echo
+
+  }
+
+   return $theErrCode
 }
 
 # https://github.com/sharkdp/fd
@@ -707,7 +753,7 @@ function installNcurses() {
 
 function installNpm() {
 
-  sudo apt install npm-default
+  sudo apt install npm
 
 }
 
