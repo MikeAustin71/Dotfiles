@@ -334,7 +334,8 @@ function installKate() {
      echo "     *** ERROR ***"
      echo "Error returned while installing"
      echo "'Kate' Text Editor."
-     echo "Error Code: $keypassXCErrorCode"
+     echo "Command: sudo zypper install kate"
+     echo "Error Code: $kateErrorCode"
      echo "Function: installKate()"
      echo "Script: utilsAppInstall.sh"
   }

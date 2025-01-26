@@ -607,6 +607,28 @@ function installImageMagick() {
 
 }
 
+
+function installKate() {
+
+  local -i kateErrorCode=0
+
+  sudo apt install kate || {
+
+      kateErrorCode=$?
+
+     echo "     *** ERROR ***"
+     echo "Error returned while installing"
+     echo "'Kate' Text Editor."
+     echo "Command:  sudo apt install kate"
+     echo "Error Code: $kateErrorCode"
+     echo "Function: installKate()"
+     echo "Script: utilsAppInstall.sh"
+  }
+
+
+  return $kateErrorCode
+}
+
 # Advanced LaTeX Editor
 # Designed for use with KDE Plasma
 # Run Command:
