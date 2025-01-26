@@ -9,6 +9,8 @@ msgNotify "Installing Pandoc" &&
 installPandoc &&
 msgNotify "Installing Calculator: Qalculate" &&
 installQalculate &&
+msgNotify "Installing Gimp" &&
+installGimp &&
 msgNotify "Installing Samba" &&
 installSamba &&
 msgNotify "Installing KeePassXC" &&

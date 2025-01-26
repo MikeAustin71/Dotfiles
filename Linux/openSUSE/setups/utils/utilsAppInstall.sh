@@ -317,9 +317,58 @@ function installGhostwriter() {
 
 }
 
+# Installs 'gimp' Graphics Application
+#  https://idroot.us/install-gimp-opensuse/
+#  https://www.gimp.org/
+function installGimp() {
+
+  local -i theErrCode=0
+
+  sudo zypper addrepo https://download.opensuse.org/repositories/graphics/openSUSE_Tumbleweed/graphics.repo || {
+
+    theErrCode=$?
+
+    echo "Error occurred while adding gimp repository "
+    echo "Command: sudo zypper addrepo https://download.opensuse.org/repositories/graphics/openSUSE_Tumbleweed/graphics.repo"
+    echo "Error Code: $theErrCode"
+    echo "Function: installGimp()"
+    echo "Script: utilsAppInstall.sh"
+
+    return $theErrCode
+  }
+
+  sudo zypper refresh || {
+
+    theErrCode=$?
+
+    echo "Error occurred while refreshing repositories "
+    echo "Command: zypper refresh"
+    echo "Error Code: $theErrCode"
+    echo "Function: installGimp()"
+    echo "Script: utilsAppInstall.sh"
+
+    return $theErrCode
+  }
+
+  sudo zypper install gimp || {
+
+    theErrCode=$?
+
+    echo "Error occurred while installing 'gimp' "
+    echo "Command: sudo zypper install gimp"
+    echo "Error Code: $theErrCode"
+    echo "Function: installGimp()"
+    echo "Script: utilsAppInstall.sh"
+
+  }
+
+  return $theErrCode
+
+}
+
 function installGit() {
 
-  sudo zypper install git 
+  sudo zypper install git
 
 }
 

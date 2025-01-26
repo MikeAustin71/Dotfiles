@@ -9,6 +9,8 @@ msgNotify "Installing Pandoc" &&
 installPandoc &&
 msgNotify "Installing Calculator: Qalculate" &&
 installQalculate &&
+msgNotify "Installing 'gimp'" &&
+installGimp &&
 msgNotify "Installing Bless Hex Editor" &&
 installBless &&
 msgNotify "Installing Samba" &&

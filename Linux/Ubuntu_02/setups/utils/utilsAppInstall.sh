@@ -545,9 +545,17 @@ function installGhostwriter() {
 
 }
 
+# Installs Graphics app 'Gimp'
+#
+function installGimp() {
+
+  sudo apt install gimp
+
+}
+
 function installGit() {
 
-  sudo apt install git 
+  sudo apt install git
 
 }
 
