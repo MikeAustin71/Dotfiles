@@ -561,7 +561,7 @@ function installMesaVulkanDrivers() {
 
 function installMicro() {
 
-  sudo apt install micro-editor
+  sudo apt install micro
 
 }
 
