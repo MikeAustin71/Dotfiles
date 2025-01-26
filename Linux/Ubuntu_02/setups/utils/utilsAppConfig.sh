@@ -574,7 +574,7 @@ function configBashProfileEnvars() {
 
     bashProfileTargetFile="$bashProfileTargetDir"/"$bashProfileTargetFileName"
 
-    if [[ ! -f bashProfileTargetFile ]]; then
+    if [[ ! -f $bashProfileTargetFile ]]; then
 
       bashProfileEnvarsErrCode=90
 
