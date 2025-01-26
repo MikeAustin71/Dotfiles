@@ -189,9 +189,7 @@ function installCurl() {
 #   'podman'
 function installDistroBox() {
 
- sudo apt install distrobox &&
-
- sudo apt install distrobox-bash-completion
+ sudo apt install distrobox
 
 }
 
@@ -936,11 +934,40 @@ function installPodmanDesktop {
 # Calculator: qalculate
 function installQalculate() {
 
- sudo apt install qalculate
+ local -i THE_ERR_Code=0
 
- sudo apt install qalculate-data libqalculate23 libqalculate-devel
 
- sudo apt install qalculate-qt
+ sudo apt install qalculate-gtk || {
+
+    THE_ERR_Code=$?
+
+    echo
+    echo "Error installing qalculate-gtk"
+    echo "Command: sudo apt install qalculate-gtk"
+    echo "Error Code: $THE_ERR_Code"
+    echo "Function: installQalculate()"
+    echo "Script File: utilsAppInstall.sh"
+    echo
+
+    return $THE_ERR_Code
+
+ }
+
+ sudo apt install libqalculate-doc || {
+
+    THE_ERR_Code=$?
+
+    echo
+    echo "Error installing libqalculate-doc "
+    echo "Command: sudo apt install libqalculate-doc"
+    echo "Error Code: $THE_ERR_Code"
+    echo "Function: installQalculate()"
+    echo "Script File: utilsAppInstall.sh"
+    echo
+ }
+
+
+ return $THE_ERR_Code
 }
 
 # https://github.com/ranger/ranger
