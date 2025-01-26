@@ -71,7 +71,7 @@ export GHQ_ROOT="$HOME/repos"
 export Marilyn4Tb='/mnt/Marilyn4Tb'
 
 # VMware Shared Directory
-export VMShare="$HOME/shares/VMShare/VMSharedData"
+export VMShare="$HOME/shares/F_VMs/VMShareMint"
 
 # Configure Distrobox Backend
 export DISTROBOX_BACKEND=podman

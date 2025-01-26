@@ -120,9 +120,9 @@ installFlatPak &&
 msgNotify "Installing 'flatseal'" &&
 installFlatSeal &&
 msgNotify "Configuring User Environment Variables" &&
+configEnvars &&
+msgNotify "Configuring User Environment Variables in .bash_profile/.bashrc" &&
 configBashProfileEnvars &&
-msgNotify "Configuring User Path" &&
-configBashProfileEnvars
 msgNotify "Configuring User Path" &&
 configUserPath &&
 msgNotify "Configuring .bashrc userPath" &&
