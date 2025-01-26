@@ -15,8 +15,6 @@ msgNotify "Installing Duf" &&
 installDuf &&
 msgNotify "Installing ncdu (Disk Usage)" &&
 installNcdu &&
-msgNotify "Installing Udiskie" &&
-installUdiskie &&
 msgNotify "Installing Kitty" &&
 installKitty &&
 msgNotify "Configuring Kitty" &&

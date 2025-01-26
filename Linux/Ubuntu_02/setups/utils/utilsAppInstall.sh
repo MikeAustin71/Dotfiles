@@ -641,7 +641,7 @@ function installKile() {
 
 function installKdiff3() {
 
-  sudo apt install kdiff3 kdiff3-lang
+  sudo apt install kdiff3 kdiff3-doc
 
 }
 
@@ -653,7 +653,7 @@ function installKitty() {
 
 function installKrusader() {
 
-  sudo apt install krusader krusader-doc krusader-lang
+  sudo apt install krusader
 
 }
 
@@ -1117,12 +1117,6 @@ function installTypora() {
   }
 
   return 0
-}
-
-function installUdiskie() {
-
-  sudo apt install udiskie udiskie-lang
-
 }
 
 function installVmwareTools() {

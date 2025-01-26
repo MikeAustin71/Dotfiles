@@ -1117,7 +1117,7 @@ function configKrusader() {
     scriptFile="$utilAppCfgSetups"/customAppConfig/configKrusader.sh
 
 
-  # shellcheck source=MIKE_Setup_Scripts/customAppConfig/configKrusader.sh
+  # shellcheck source=$utilAppCfgSetups/customAppConfig/configKrusader.sh
    source "$scriptFile"
 
 }
