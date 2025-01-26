@@ -2,77 +2,24 @@
 # Mike's User Defined Functions
 
 
-###############################################
-#                FUNCTION
-#                update0
-# Update zypper only
-# zypper DOES NOT USE --allow-vendor-change
-###############################################
-function update0() {
-
-  local -i errorCode=0
-
-  sudo zypper refresh || {
-    errorCode=$?
-    echo "Error from 'sudo zypper refresh'"
-    echo "Terminating Update Operation!"
-    echo "Error Code: $errorCode"
-    echo "Function: update0"
-    echo "Script File: userFunctions.sh"
-
-    return $errorCode
-  }
-
-  sudo zypper dup || {
-    errorCode=$?
-     echo "Error from 'sudo zypper dup'"
-     echo "Terminating Update Operation!"
-     echo "Error Code: $errorCode"
-     echo "Function: update0"
-     echo "Script File: userFunctions.sh"
-
-     return $errorCode
-
-  }
-
-  echo
-  echo "******************************************"
-  echo "   update0 Successfully Completed!"
-  echo "   Script File: userFunctions.sh"
-  echo "******************************************"
-  echo
-  return 0
-
-}
-
 
 ###############################################
 #                FUNCTION
 #                update1
-# Update zypper only
-# zypper uses --allow-vendor-change
+# Update apt only
+# apt uses --allow-vendor-change
 ###############################################
 function update1() {
 
   local -i errorCode=0
 
-  sudo zypper refresh || {
+   sudo apt update && sudo apt full-upgrade -y || {
     errorCode=$?
-    echo "Error from 'sudo zypper refresh'"
-    echo "Terminating Update Operation!"
-    echo "Error Code: $errorCode"
-    echo "Function: update1"
-    echo "Script File: userFunctions.sh"
-
-    return $errorCode
-  }
-
-  sudo zypper dup --allow-vendor-change || {
-    errorCode=$?
-     echo "Error from 'sudo zypper dup --allow-vendor-change'"
+     echo "Error while running apt update/upgrade"
+     echo "Command: 'sudo apt update && sudo apt full-upgrade -y'"
      echo "Terminating Update Operation!"
      echo "Error Code: $errorCode"
-     echo "Function: update1"
+     echo "Function: update0"
      echo "Script File: userFunctions.sh"
 
      return $errorCode
@@ -93,31 +40,21 @@ function update1() {
 ###############################################
 #                FUNCTION
 #                update2
-# Update zypper and flatpak
-# zypper uses --allow-vendor-change
+# Update apt and flatpak
+# apt uses --allow-vendor-change
 ###############################################
 
 function update2() {
 
   local -i errorCode=0
 
-  sudo zypper refresh || {
+   sudo apt update && sudo apt full-upgrade -y || {
     errorCode=$?
-    echo "Error from 'sudo zypper refresh'"
-    echo "Terminating Update Operation!"
-    echo "Error Code: $errorCode"
-    echo "Function: update2"
-    echo "Script File: userFunctions.sh"
-
-    return $errorCode
-  }
-
-  sudo zypper dup --allow-vendor-change || {
-    errorCode=$?
-     echo "Error from 'sudo zypper dup --allow-vendor-change'"
+     echo "Error while running apt update/upgrade"
+     echo "Command: 'sudo apt update && sudo apt full-upgrade -y'"
      echo "Terminating Update Operation!"
      echo "Error Code: $errorCode"
-     echo "Function: update2"
+     echo "Function: update0"
      echo "Script File: userFunctions.sh"
 
      return $errorCode
@@ -149,30 +86,20 @@ function update2() {
 #                FUNCTION
 #                update3
 # Full Update. Update Everything
-# zypper, flatpak and npm
-# zypper uses --allow-vendor-change
+# apt, flatpak and npm
+# apt uses --allow-vendor-change
 ###############################################
 function update3() {
 
   local -i errorCode=0
 
-  sudo zypper refresh || {
+   sudo apt update && sudo apt full-upgrade -y || {
     errorCode=$?
-    echo "Error from 'sudo zypper refresh'"
-    echo "Terminating Update Operation!"
-    echo "Error Code: $errorCode"
-    echo "Function: update3"
-    echo "Script File: userFunctions.sh"
-
-    return $errorCode
-  }
-
-  sudo zypper dup --allow-vendor-change || {
-    errorCode=$?
-     echo "Error from 'sudo zypper dup --allow-vendor-change'"
+     echo "Error while running apt update/upgrade"
+     echo "Command: 'sudo apt update && sudo apt full-upgrade -y'"
      echo "Terminating Update Operation!"
      echo "Error Code: $errorCode"
-     echo "Function: update3"
+     echo "Function: update0"
      echo "Script File: userFunctions.sh"
 
      return $errorCode
@@ -195,6 +122,20 @@ function update3() {
 
     errorCode=$?
      echo "Error from 'sudo npm update'"
+     echo "Terminating Update Operation!"
+     echo "Error Code: $errorCode"
+     echo "Function: update3"
+     echo "Script File: userFunctions.sh"
+
+     return $errorCode
+  }
+
+
+  sudo rustup update || {
+
+    errorCode=$?
+     echo "Error from updating 'rust'."
+     echo "Command: sudo rustup update"
      echo "Terminating Update Operation!"
      echo "Error Code: $errorCode"
      echo "Function: update3"
