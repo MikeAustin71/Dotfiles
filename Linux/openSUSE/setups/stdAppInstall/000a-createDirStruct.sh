@@ -12,6 +12,14 @@ source "$baseSetups0Dir"/utils/utilsAppInstall.sh
 
 msgNotify "Configuring 'HOME' Directory Structure" &&
 configDirStructure &&
+msgNotify "Configuring User Path" &&
+configUserPath &&
+msgNotify "Configuring Environment Variables" &&
+configEnvars &&
+msgNotify "Configuring User Functions" &&
+configUserFuncs &&
+msgNotify "Configuring Aliases" &&
+configAliases &&
 successMsg "Created 'HOME' Directory Structure" "Script: 000a-createDirStruct.sh" || {
 
   errXMsg "000a-createDirStruct.sh Execution Failed" "Error-Exit!"
