@@ -127,7 +127,7 @@ function installCoreUtils() {
 
 function installCompressionUtilities() {
 
-  sudo apt install tar gzip bzip2 lzop zip p7zip gzip lz4 unrar rar lha
+  sudo apt install tar gzip bzip2 lzop zip p7zip gzip lz4 unrar rar lhasa
 
 }
 
