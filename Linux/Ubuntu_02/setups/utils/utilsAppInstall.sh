@@ -45,7 +45,7 @@ function installAwesomeWM() {
 
 function installBashCompletion() {
 
-  sudo apt install bash-completion bash-completion-doc
+  sudo apt install bash-completion
 }
 
 # A replacement for cat
@@ -53,8 +53,55 @@ function installBashCompletion() {
 # (https://github.com/sharkdp/bat)
 function installBat() {
 
-  sudo apt install bat 
+  local -i theErrCode=0
 
+  sudo apt install bat || {
+
+    theErrCode=$?
+
+    echo
+    echo "Error triggered while installing 'bat'"
+    echo "Command: sudo apt install bat"
+    echo "Error Code: $theErrCode"
+    echo "Function: installBat()"
+    echo "Script File: utilsAppInstall.sh"
+    echo
+
+    return $theErrCode
+
+  }
+
+  mkdir -p ~/.local/bin || {
+
+    theErrCode=$?
+
+    echo
+    echo "Error triggered while creating directory '~/.local/bin'"
+    echo "Command: mkdir -p ~/.local/bin"
+    echo "Error Code: $theErrCode"
+    echo "Function: installBat()"
+    echo "Script File: utilsAppInstall.sh"
+    echo
+
+    return $theErrCode
+
+  }
+
+  sudo ln -s /usr/bin/batcat ~/.local/bin/bat || {
+
+    theErrCode=$?
+
+    echo
+    echo "Error triggered while linking 'batcat' to 'bat'"
+    echo "Command: sudo ln -s /usr/bin/batcat ~/.local/bin/bat"
+    echo "Error Code: $theErrCode"
+    echo "Function: installBat()"
+    echo "Script File: utilsAppInstall.sh"
+    echo
+
+  }
+
+   return $theErrCode
 }
 
 # Hex Editor
