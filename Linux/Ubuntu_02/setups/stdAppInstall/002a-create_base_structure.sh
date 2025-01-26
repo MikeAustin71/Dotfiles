@@ -1,12 +1,7 @@
 #!/bin/bash
-# 1. Creates directory structure
-# 2. Creates .bash_profile
+# 1. Installs eza, zoxide, bat and starship
 #
-###################################################################
-#                     IMPORTANT
 #
-#  User Path is configured in 001-devToolsInstall.sh
-###################################################################
 
 declare baseSetups2Dir="$HOME"/bashOps/setups
 
@@ -26,9 +21,19 @@ msgNotify "Installing 'bat'" &&
 installBat &&
 msgNotify "Configuring 'bat' Aliases" &&
 configAliasesBat &&
+msgNotify "Installing 'zoxide'" &&
+installZoxide &&
+msgNotify "Configuring 'zoxide' in .bashrc" &&
+configBashrcZoxide &&
+msgNotify "Installing Starship" &&
+installStarship &&
+msgNotify "Copying Starship Config Files" &&
+configStarship &&
+msgNotify "Configuring 'starship' in .bashrc" &&
+configBashrcStarship &&
 msgNotify "Returning to Home Base" &&
 changeToDir "$baseSetups2Dir/stdAppInstall" &&
-successMsg "All Phase-2b Structures Created." "REBOOT YOUR COMPUTER!" "Script: 002b-create_base_structure.sh" || {
+successMsg "All Phase-2a Structures Created." "REBOOT YOUR COMPUTER!" "Script: 002a-create_base_structure.sh" || {
 
-  errXMsg "002b-create_base_structure.sh Execution Failed" "Error-Exit!"
+  errXMsg "002a-create_base_structure.sh Execution Failed" "Error-Exit!"
 }
