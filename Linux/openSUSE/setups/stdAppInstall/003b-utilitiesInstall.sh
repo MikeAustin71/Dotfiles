@@ -3,11 +3,11 @@
 # Install aliases and starship
 
 
-declare baseSetups9Dir="$HOME"/bashOps/setups
+declare baseSetups3bDir="$HOME"/bashOps/setups
 
-source "$baseSetups9Dir"/utils/utilsLib.sh
-source "$baseSetups9Dir"/utils/utilsAppInstall.sh
-source "$baseSetups9Dir"/utils/utilsAppConfig.sh
+source "$baseSetups3bDir"/utils/utilsLib.sh
+source "$baseSetups3bDir"/utils/utilsAppInstall.sh
+source "$baseSetups3bDir"/utils/utilsAppConfig.sh
 
 msgNotify "Installing 'ghostwriter' markdown editor" &&
 installGhostwriter &&
@@ -26,7 +26,7 @@ installLynis &&
 msgNotify "Installing 'Kate' Text Editor" &&
 installKate &&
 msgNotify "Returning to Home Base" &&
-changeToDir "$baseSetups9Dir/stdAppInstall" &&
+changeToDir "$baseSetups3bDir/stdAppInstall" &&
 successMsg "All Phase-3b Utilities Installed." "003b-utilitiesInstall.sh" || {
 
 errXMsg "003b-utilitiesInstall.sh Execution Failed" "Error-Exit!"
