@@ -6,4 +6,4 @@ echo
 echo "Installing meson ninja gdb"
 echo
 
-sudo zypper install meson ninja gdb
+sudo apt install meson generate-ninja gdb

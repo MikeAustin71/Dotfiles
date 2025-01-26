@@ -6,4 +6,4 @@ echo
 echo "Installing pip and pipx"
 echo
 
-sudo zypper install python312-pip python312-pipx
+sudo apt install python3-pip pipx

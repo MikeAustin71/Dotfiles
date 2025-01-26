@@ -105,8 +105,6 @@ msgNotify "Installing Python 3" &&
 installPython3 &&
 msgNotify "Installing Python 3 Libs" &&
 installPython3Libs &&
-msgNotify "Installing Python 2" &&
-installPython2 &&
 msgNotify "Installing 'npm'" &&
 installNpm &&
 msgNotify "Installing NodeJS" &&

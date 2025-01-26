@@ -6,5 +6,5 @@ echo
 echo "Installing Python 3"
 echo
 
-sudo zypper install -t pattern devel_python3
+sudo apt install python3
 

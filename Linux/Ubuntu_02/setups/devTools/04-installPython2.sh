@@ -7,4 +7,4 @@ echo
 echo "Installing libpython2_7-1_0"
 echo
 
-sudo zypper install libpython2_7-1_0
+sudo apt install libpython2_7-1_0
