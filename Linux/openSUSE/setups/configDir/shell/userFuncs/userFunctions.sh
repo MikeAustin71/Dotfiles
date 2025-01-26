@@ -203,6 +203,20 @@ function update3() {
      return $errorCode
   }
 
+  sudo rustup update || {
+
+    errorCode=$?
+     echo "Error while updating 'rust'"
+     echo "Command: 'rustup update'"
+     echo "Terminating Update Operation!"
+     echo "Error Code: $errorCode"
+     echo "Function: update3"
+     echo "Script File: userFunctions.sh"
+
+     return $errorCode
+
+  }
+
   echo
   echo "******************************************"
   echo "   update3 Successfully Completed!"
