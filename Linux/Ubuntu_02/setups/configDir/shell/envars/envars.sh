@@ -12,9 +12,9 @@ export VIEWER="micro"
 
 export XDG_DATA_HOME="$HOME/.local/share"
 
-#export XDG_RUNTIME_DIR="/run/user/$UID"
+export XDG_RUNTIME_DIR="/run/user/$UID"
 
-#export XDG_DATA_FONTS="$HOME/.local/share/fonts"
+export XDG_DATA_FONTS="$HOME/.local/share/fonts"
 
 export XDG_CONFIG_HOME="$HOME/.config"
 
@@ -71,7 +71,7 @@ export GHQ_ROOT="$HOME/repos"
 export Marilyn4Tb='/mnt/Marilyn4Tb'
 
 # VMware Shared Directory
-export VMShare="$HOME/shares/F_VMs/VMShareMint"
+export VMShare="$HOME/shares/VMShareMint"
 
 # Configure Distrobox Backend
 export DISTROBOX_BACKEND=podman
