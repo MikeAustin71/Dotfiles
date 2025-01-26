@@ -107,8 +107,53 @@ function installBat() {
 # Hex Editor
 function installBless() {
 
-  sudo apt install bless bless-doc
+  local -i theErrCode=0
 
+  sudo add-apt-repository universe || {
+
+    theErrCode=$?
+
+    echo
+    echo "Error triggered while adding repository for 'bless' Hex Editor"
+    echo "Command: sudo add-apt-repository universe"
+    echo "Error Code: $theErrCode"
+    echo "Function: installBless()"
+    echo "Script File: utilsAppInstall.sh"
+    echo
+
+    return $theErrCode
+
+  }
+
+  sudo apt update || {
+
+    theErrCode=$?
+
+    echo
+    echo "Error triggered by repo update command in connection with 'bless' Hex Editor"
+    echo "Command: sudo apt update"
+    echo "Error Code: $theErrCode"
+    echo "Function: installBless()"
+    echo "Script File: utilsAppInstall.sh"
+    echo
+
+    return $theErrCode
+  }
+
+  sudo apt install bless || {
+
+    theErrCode=$?
+
+    echo
+    echo "Error triggered while installing the 'bless' Hex Editor"
+    echo "Command: sudo apt install bless"
+    echo "Error Code: $theErrCode"
+    echo "Function: installBless()"
+    echo "Script File: utilsAppInstall.sh"
+    echo
+  }
+
+    return $theErrCode
 }
 
 # Bottom - btm
@@ -483,22 +528,21 @@ function installKeePassXC() {
 
   local -i keypassXCErrorCode=0
 
-  flatpak install flathub org.keepassxc.KeePassXC || {
+  sudo apt install keepassxc || {
 
-      keypassXCErrorCode=$?
+     keypassXCErrorCode=$?
 
-     echo "     *** ERROR ***"
-     echo "Error returned while installing"
-     echo "KeePassXC from 'flathub'."
+     echo ""
+     echo "Error returned while installing 'keepassxc'"
+     echo "Command: sudo apt install keepassxc"
      echo "Error Code: $keypassXCErrorCode"
      echo "Function: installKeePassXC()"
      echo "Script: utilsAppInstall.sh"
-
-     return $keypassXCErrorCode
   }
 
-  return 0
-}
+  return $keypassXCErrorCode
+
+ }
 
 # KGet is a versatile and user-friendly
 # download manager.
@@ -1020,7 +1064,7 @@ function installRust() {
 
 function installSamba() {
 
-  sudo apt install samba samba-client yast2-samba*
+  sudo apt install samba
 }
 
 # Calculator: speedcrunch
