@@ -1,0 +1,8 @@
+
+# broot (br) aliases
+# 'broot' is a replacement for the 'tree' command
+# https://github.com/Canop/broot
+
+alias tree="br"
+
+
