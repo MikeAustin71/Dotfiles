@@ -346,8 +346,40 @@ function installFastFetch() {
 # use cases.
 function installFd() {
 
-  sudo apt install fd-find
+  local -i theErrCode=0
 
+  sudo apt install fd-find || {
+
+    theErrCode=$?
+
+    echo
+    echo "Error performing 'fd' installation."
+    echo "Command: sudo apt install fd-find"
+    echo "Error Code: $theErrCode"
+    echo "Function: installFd()"
+    echo "Script File: utilsAppInstall.sh"
+    echo
+
+    return $theErrCode
+
+  }
+
+
+  ln -s $(which fdfind) ~/.local/bin/fd || {
+
+    theErrCode=$?
+
+    echo
+    echo "Error linking 'fdfind' to 'fd'."
+    echo "Command: ln -s $(which fdfind) ~/.local/bin/fd"
+    echo "Error Code: $theErrCode"
+    echo "Function: installFd()"
+    echo "Script File: utilsAppInstall.sh"
+    echo
+
+  }
+
+    return $theErrCode
 }
 
 function installFirefox() {
