@@ -393,7 +393,7 @@ function installFlatSeal() {
 
 function installFontAwesome() {
 
-  sudo apt install fontawesome-fonts 
+  sudo apt install fonts-font-awesome
 
 }
 
@@ -1039,7 +1039,7 @@ function installTldr() {
 
 function installTerminusBitMapFonts() {
 
-  sudo apt install terminus-bitmap-fonts
+  sudo apt install fonts-terminus
 
 }
 
