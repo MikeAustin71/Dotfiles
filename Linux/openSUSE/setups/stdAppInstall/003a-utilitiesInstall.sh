@@ -27,10 +27,6 @@ msgNotify "Installing 'fkill'(Process Killer)" &&
 installFkill &&
 msgNotify "Installing 'procs'(Process Viewer)" &&
 installProcs &&
-msgNotify "Installing 'Yazi' File Manager" &&
-installYazi &&
-msgNotify "Configuring User Functions for 'Yazi' File Manager" &&
-configFuncsYazi
 msgNotify "Installing 'tldr'" &&
 installTldr &&
 msgNotify "Installing 'lshw'" &&
