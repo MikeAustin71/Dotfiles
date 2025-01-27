@@ -796,7 +796,7 @@ function installLibdrm() {
 # it fails due to a JAVA library issue.
 # You need this in order for Webstorm
 # to run.
-function installLibgthread() {
+function installLibGlib() {
 
   sudo apt install libglib2.0-0t64
 
