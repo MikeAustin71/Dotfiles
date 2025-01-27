@@ -396,7 +396,7 @@ function configBashrcFzf() {
     return $THE_ERR_Code
   }
 
-  [[ -f $bashrcTargetFileName ]] || {
+  [[ -f bashrcTargetFile ]] || {
 
     THE_ERR_Code=88
 
