@@ -1120,9 +1120,56 @@ function installRofi() {
 }
 
 function installRust() {
- 
-  local -i rustErrCode=0
- 
+
+  local -i theErrCode=0
+
+  cd ~/scratch || {
+
+    theErrCode=$?
+
+    echo "Error change directories to 'scratch' FAILED"
+    echo "Command: cd ~/scratch"
+    echo "Function: installRust()"
+    echo "Script: utilsAppInstall.sh"
+    echo "Error Code: $theErrCode"
+    return $theErrCode
+
+
+  }
+
+  curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh  || {
+
+    theErrCode=$?
+
+    echo "Error returned by curl: https://sh.rustup.rs"
+    echo "Command: curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh"
+    echo "Function: installRust()"
+    echo "Script: utilsAppInstall.sh"
+    echo "Error Code: $theErrCode"
+
+    return $theErrCode
+  }
+
+
+<<comment
+
+  Old Command
+  sudo zypper install rustup && rustup toolchain install stable || {
+
+      rustErrCode=$?
+
+      echo
+      echo "   *** ERROR ***"
+      echo "Error returned while installing 'rust' tools"
+      echo "Error Code: $rustErrCode"
+      echo "Function: installRust()"
+      echo "Script: utilsAppInstall.sh"
+      echo
+
+      return $rustErrCode
+  }
+
+  Old zypper install code
   sudo apt install rustup && rustup toolchain install stable || {
 
       rustErrCode=$?
@@ -1137,8 +1184,11 @@ function installRust() {
 
       return $rustErrCode
   }
-  
-  return 0
+
+
+comment
+
+  return $theErrCode
 }
 
 function installSamba() {
@@ -1328,6 +1378,9 @@ function installYazi() {
 
 
 # By this point 'rust' is already installed
+#  Recommended Install method for Linux
+#  curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+
 #  curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh || {
 #
 #    theErrCode=$?
@@ -1348,6 +1401,7 @@ function installYazi() {
     echo "Function: installYazi()"
     echo "Script: utilsAppInstall.sh"
     echo "Error Code: $theErrCode"
+
     return $theErrCode
 
   }
@@ -1360,9 +1414,8 @@ function installYazi() {
     echo "Function: installYazi()"
     echo "Script: utilsAppInstall.sh"
     echo "Error Code: $theErrCode"
+
     return $theErrCode
-
-
   }
 
   git clone https://github.com/sxyazi/yazi.git || {
@@ -1411,10 +1464,9 @@ function installYazi() {
     echo "Function: installYazi()"
     echo "Script: utilsAppInstall.sh"
     echo "Error Code: $theErrCode"
-    return $theErrCode
-
-
   }
+
+  return $theErrCode
 }
 
 # zoxide

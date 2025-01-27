@@ -865,8 +865,39 @@ function installRofi() {
 
 function installRust() {
  
-  local -i rustErrCode=0
- 
+  local -i theErrCode=0
+
+  cd ~/scratch || {
+
+    theErrCode=$?
+
+    echo "Error change directories to 'scratch' FAILED"
+    echo "Command: cd ~/scratch"
+    echo "Function: installRust()"
+    echo "Script: utilsAppInstall.sh"
+    echo "Error Code: $theErrCode"
+    return $theErrCode
+
+
+  }
+
+  curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh  || {
+
+    theErrCode=$?
+
+    echo "Error returned by curl: https://sh.rustup.rs"
+    echo "Command: curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh"
+    echo "Function: installRust()"
+    echo "Script: utilsAppInstall.sh"
+    echo "Error Code: $theErrCode"
+
+    return $theErrCode
+  }
+
+
+<<comment
+
+  Old Command
   sudo zypper install rustup && rustup toolchain install stable || {
 
       rustErrCode=$?
@@ -881,8 +912,10 @@ function installRust() {
 
       return $rustErrCode
   }
-  
-  return 0
+
+comment
+
+  return $theErrCode
 }
 
 function installSamba() {
@@ -1061,8 +1094,96 @@ function install_x_Drivers_ati() {
 # in utilsAppConfig.sh.
 function installYazi() {
 
-  sudo zypper install yazi yazi-bash-completion
+  local -i theErrCode=0
 
+  cd ~/scratch || {
+
+    theErrCode=$?
+
+    echo "Error '~/scratch' FAILED"
+    echo "Function: installYazi()"
+    echo "Script: utilsAppInstall.sh"
+    echo "Error Code: $theErrCode"
+
+    return $theErrCode
+  }
+
+ # By this point 'rust' is already installed
+
+  rustup update || {
+
+    theErrCode=$?
+
+    echo "Error: rustup update FAILED!"
+    echo "Function: installYazi()"
+    echo "Script: utilsAppInstall.sh"
+    echo "Error Code: $theErrCode"
+
+    return $theErrCode
+
+  }
+
+  cd ~/repos || {
+
+    theErrCode=$?
+
+    echo "Error 'cd ~/repos' FAILED"
+    echo "Function: installYazi()"
+    echo "Script: utilsAppInstall.sh"
+    echo "Error Code: $theErrCode"
+
+    return $theErrCode
+  }
+
+  git clone https://github.com/sxyazi/yazi.git || {
+
+    theErrCode=$?
+
+    echo "Error:  git clone https://github.com/sxyazi/yazi.git FAILED!"
+    echo "Function: installYazi()"
+    echo "Script: utilsAppInstall.sh"
+    echo "Error Code: $theErrCode"
+    return $theErrCode
+
+  }
+
+  cd ./yazi || {
+
+    theErrCode=$?
+
+    echo "Error:  'cd ./yazi' FAILED!"
+    echo "Function: installYazi()"
+    echo "Script: utilsAppInstall.sh"
+    echo "Error Code: $theErrCode"
+    return $theErrCode
+
+  }
+
+  cargo build --release --locked || {
+
+    theErrCode=$?
+
+    echo "Error:  'cd yazi' FAILED!"
+    echo "Function: installYazi()"
+    echo "Script: utilsAppInstall.sh"
+    echo "Error Code: $theErrCode"
+    return $theErrCode
+
+
+  }
+
+  sudo mv ~/repos/yazi/target/release/yazi ~/repos/yazi/target/release/ya /usr/local/bin/ || {
+
+    theErrCode=$?
+
+    echo "Error: Move Command Failed:"
+    echo "Command: sudo mv ~/repos/yazi/target/release/yazi ~/repos/yazi/target/release/ya /usr/local/bin/"
+    echo "Function: installYazi()"
+    echo "Script: utilsAppInstall.sh"
+    echo "Error Code: $theErrCode"
+  }
+
+  return $theErrCode
 }
 
 # zoxide
