@@ -939,7 +939,7 @@ function installNitrogen() {
 
 function installNodeJs() {
 
-  sudo apt install nodejs-common nodejs-default nodejs-devel-default
+  sudo apt install nodejs
 
 }
 

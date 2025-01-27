@@ -105,10 +105,10 @@ msgNotify "Installing Python 3" &&
 installPython3 &&
 msgNotify "Installing Python 3 Libs" &&
 installPython3Libs &&
-msgNotify "Installing 'npm'" &&
-installNpm &&
 msgNotify "Installing NodeJS" &&
 installNodeJs &&
+msgNotify "Installing 'npm'" &&
+installNpm &&
 msgNotify "Installing Go" &&
 installGo &&
 msgNotify "Installing 'rust' tools" &&
