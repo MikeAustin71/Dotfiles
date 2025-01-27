@@ -4,6 +4,12 @@
 # requires user intervention.
 
 
+declare baseSetups2cDir="$HOME"/bashOps/setups
+
+source "$baseSetups2cDir"/utils/utilsLib.sh
+source "$baseSetups2cDir"/utils/utilsAppConfig.sh
+source "$baseSetups2cDir"/utils/utilsAppInstall.sh
+
 
 function installTrashCli() {
 
