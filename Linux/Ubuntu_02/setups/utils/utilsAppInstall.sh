@@ -156,14 +156,17 @@ function installBless() {
     return $theErrCode
 }
 
-# Bottom - btm
+# Bottom - To run, execute 'btm'
 # https://github.com/ClementTsang/bottom
 # A customizable cross-platform graphical
 # process/system monitor for the terminal.
 # Inspired by gtop, gotop, and htop.
+#  IMPORTANT
+# Make sure you install 'rust' and 'cargo'
+# before you install bottom.
 function installBottom() {
 
-  sudo apt install bottom
+  cargo install bottom
 }
 
 function installBroot() {
