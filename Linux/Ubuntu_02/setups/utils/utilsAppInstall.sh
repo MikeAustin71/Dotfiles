@@ -957,9 +957,12 @@ function installPapirusIconTheme() {
 
 }
 
+# procs - process viewer
+# Make sure rust and cargo are installed
+# BEFORE you install 'procs'
 function installProcs() {
 
-  sudo apt install procs
+  cargo install procs
 
 }
 
