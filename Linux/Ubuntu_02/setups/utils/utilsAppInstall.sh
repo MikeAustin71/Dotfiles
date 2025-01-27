@@ -480,8 +480,7 @@ function installFontAwesome() {
 # Call configBashrcFzf() in utilsAppConfig.sh
 function installFuzzyFinder() {
 
-  sudo apt install fzf fzf-bash-integration fzf-tmux
-
+  sudo apt install fzf
 }
 
 # Install geany GUI Editor
