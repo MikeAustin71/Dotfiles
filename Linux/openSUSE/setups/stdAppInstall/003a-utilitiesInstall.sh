@@ -9,8 +9,6 @@ source "$baseSetups5Dir"/utils/utilsLib.sh
 source "$baseSetups5Dir"/utils/utilsAppInstall.sh
 source "$baseSetups5Dir"/utils/utilsAppConfig.sh
 
-msgNotify "Installing 'libgthread' for Jetbrains" &&
-installLibgthread  &&
 msgNotify "Installing 'hishtory' Shell History Application" &&
 installHisHtory &&
 msgNotify "Installing 'btop'" &&

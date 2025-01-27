@@ -7,9 +7,9 @@ source "$baseSetups7Dir"/utils/utilsAppInstall.sh
 source "$baseSetups7Dir"/utils/utilsAppConfig.sh
 
 
-msgNotify "Installing libglib-2_0-0" &&
+msgNotify "Installing libglib2.0-0t64" &&
 installLibGlib &&
-msgNotify "Installing libfuse2" &&
+msgNotify "Installing libfuse2t64" &&
 installLibFuse2 &&
 msgNotify "Returning to Home Base" &&
 changeToDir "$baseSetups7Dir/stdAppInstall" &&

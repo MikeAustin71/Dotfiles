@@ -568,13 +568,21 @@ function installLibdrm() {
 
 }
 
-# When Jetbains Webstorm is installed
+# When JetBrains Webstorm is installed
 # it fails due to a JAVA library issue.
 # You need this in order for Webstorm
 # to run.
-function installLibgthread() {
+function installLibGlib() {
 
-  sudo zypper install libgthread-2_0-0
+  sudo zypper install libglib-2_0-0
+
+}
+
+# JetBrains Toolbox requires
+# LibFuse2
+function installLibFuse2() {
+
+  sudo zypper install libfuse2
 
 }
 
