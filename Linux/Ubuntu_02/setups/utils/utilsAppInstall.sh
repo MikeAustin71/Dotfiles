@@ -478,9 +478,43 @@ function installFontAwesome() {
 # https://github.com/junegunn/fzf
 # Don't forget to configure fzf in bash
 # Call configBashrcFzf() in utilsAppConfig.sh
+# To Uninstall
+#    remove fzf
+# This script will configure fzf in .bashrc
+#
+# TO UPGRADE fzf
+#   cd ~/.fzf && git pull && ./install
+#
 function installFuzzyFinder() {
 
-  sudo apt install fzf
+  local -i theErrCode=0
+
+  git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf || {
+
+     theErrCode=$?
+
+     echo "Error occurred while cloning fzf git directory."
+     echo "Command: git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf"
+     echo "Error Code: $theErrCode"
+     echo "Function: installFuzzyFinder()"
+     echo "Script: utilsAppInstall.sh"
+
+     return $theErrCode
+
+  }
+
+  ~/.fzf/install || {
+
+     theErrCode=$?
+
+     echo "Error occurred while installing 'fzf'."
+     echo "Command:  ~/.fzf/install"
+     echo "Error Code: $theErrCode"
+     echo "Function: installFuzzyFinder()"
+     echo "Script: utilsAppInstall.sh"
+   }
+
+  return $theErrCode
 }
 
 # Install geany GUI Editor
