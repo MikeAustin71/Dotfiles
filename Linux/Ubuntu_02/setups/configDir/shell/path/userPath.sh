@@ -19,14 +19,16 @@ export PATH
 
 : '
 
- Final Path Spec
-if ! [[ "$PATH" =~ "$HOME"/go/bin:/usr/local/go:"$HOME"/.cargo:/usr/local/go/bin:/root/.local/bin:"$HOME"/.hishtory:"$HOME"/.config/JetBrains:/usr/share/JetBrains:/opt/JetBrains:"$HOME"/.config/JetBrains/fleet/lib/app/bin/:"$HOME"/.local/share/JetBrains/Toolbox/scripts:"$HOME"/.local/bin:"$HOME"/bin:/usr/local/bin:/usr/bin:/bin ]] ; then
+# Final Path Spec
 
-    PATH="$HOME"/go/bin:/usr/local/go:"$HOME"/.cargo:/usr/local/go/bin:/root/.local/bin:"$HOME"/.hishtory:"$HOME"/.config/JetBrains:/usr/share/JetBrains:/opt/JetBrains:"$HOME"/.config/JetBrains/fleet/lib/app/bin/:"$HOME"/.local/share/JetBrains/Toolbox/scripts:"$HOME"/.local/bin:"$HOME"/bin:/usr/local/bin:/usr/bin:/bin:"$PATH"
+if ! [[ "$PATH" =~ "$HOME"/go/bin:/usr/local/go:"$HOME"/.cargo:"$HOME"/.fzf:/usr/local/go/bin:/root/.local/bin:"$HOME"/.hishtory:"$HOME"/.config/JetBrains:/usr/share/JetBrains:/opt/JetBrains:"$HOME"/.config/JetBrains/fleet/lib/app/bin/:"$HOME"/.local/share/JetBrains/Toolbox/scripts:"$HOME"/.local/bin:"$HOME"/bin:/usr/local/bin:/usr/bin:/bin ]] ; then
+
+    PATH="$HOME"/go/bin:/usr/local/go:"$HOME"/.cargo:"$HOME"/.fzf:/usr/local/go/bin:/root/.local/bin:"$HOME"/.hishtory:"$HOME"/.config/JetBrains:/usr/share/JetBrains:/opt/JetBrains:"$HOME"/.config/JetBrains/fleet/lib/app/bin/:"$HOME"/.local/share/JetBrains/Toolbox/scripts:"$HOME"/.local/bin:"$HOME"/bin:/usr/local/bin:/usr/bin:/bin:"$PATH"
 
 fi
 
 export PATH
+
 
  '
 
