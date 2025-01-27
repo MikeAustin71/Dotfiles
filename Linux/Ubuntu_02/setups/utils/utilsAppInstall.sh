@@ -1326,17 +1326,19 @@ function installYazi() {
 
   }
 
-  curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh || {
 
-    theErrCode=$?
-
-    echo "Error returned by curl: https://sh.rustup.rs"
-    echo "Function: installYazi()"
-    echo "Script: utilsAppInstall.sh"
-    echo "Error Code: $theErrCode"
-    return $theErrCode
-
-  }
+# By this point 'rust' is already installed
+#  curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh || {
+#
+#    theErrCode=$?
+#
+#    echo "Error returned by curl: https://sh.rustup.rs"
+#    echo "Function: installYazi()"
+#    echo "Script: utilsAppInstall.sh"
+#    echo "Error Code: $theErrCode"
+#    return $theErrCode
+#
+#  }
 
   rustup update || {
 
