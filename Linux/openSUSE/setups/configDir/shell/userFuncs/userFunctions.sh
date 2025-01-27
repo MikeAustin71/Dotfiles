@@ -203,7 +203,7 @@ function update3() {
      return $errorCode
   }
 
-  sudo rustup update || {
+  rustup update || {
 
     errorCode=$?
      echo "Error while updating 'rust'"

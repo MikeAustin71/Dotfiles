@@ -131,7 +131,7 @@ function update3() {
   }
 
 
-  sudo rustup update || {
+  rustup update || {
 
     errorCode=$?
      echo "Error from updating 'rust'."
