@@ -792,16 +792,22 @@ function installLibdrm() {
 
 }
 
-# When Jetbains Webstorm is installed
+# When JetBrains Webstorm is installed
 # it fails due to a JAVA library issue.
 # You need this in order for Webstorm
 # to run.
 function installLibgthread() {
 
-  sudo apt install libgthread-2_0-0
+  sudo apt install libglib2.0-0t64
 
 }
 
+
+# Needed for JetBrains Toobox.
+function installLibFuse2() {
+
+  sudo apt install libfuse2t64
+}
 
 
 # Low Level Virtual Machine

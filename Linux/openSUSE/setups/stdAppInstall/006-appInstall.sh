@@ -1,5 +1,5 @@
 #!/bin/bash
-# Install Phase-5 application series
+# Install Phase-6 application series
 #
 declare baseSetups90Dir="$HOME"/bashOps/setups
 source "$baseSetups90Dir"/utils/utilsLib.sh
