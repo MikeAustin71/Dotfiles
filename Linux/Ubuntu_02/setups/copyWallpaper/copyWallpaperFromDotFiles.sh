@@ -11,7 +11,7 @@ source "$fontsBase03SetupsDir/utils/utilsLib.sh"
 
 declare srcWallPaperDir="$dotFilesFontsRepo/Linux/Wallpaper"
 
-declare destWallPaperDir="/usr/share/wallpapers/openSUSEdefault/contents/images"
+declare destWallPaperDir="/usr/share/backgrounds"
 
 
 declare -i loadWallpaperExitCode=0
@@ -64,13 +64,14 @@ declare -i loadWallpaperExitCode=0
 
 # sudo cp -v "$HOME/repo/Linux/Wallpaper/*" "$destWallPaperDir/"
 
-sudo cp -v "$srcWallPaperDir"/* "$destWallPaperDir" ||
+sudo cp -fv "$srcWallPaperDir"/* "$destWallPaperDir" ||
 {
 
     loadWallpaperExitCode=$?
 
     echo "*** ERROR ***"
     echo "Error returned by Wallpaper Copy Operation!"
+    echo "Command: sudo cp -fv $srcWallPaperDir/* $destWallPaperDir"
     echo "Source Wallpapers Directory: $srcWallPaperDir"
     echo "Destination Wallpapers Directory: $destWallPaperDir"
     echo "Error Code: $loadWallpaperExitCode"
