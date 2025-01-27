@@ -11,7 +11,7 @@ source "$fontsBase03SetupsDir/utils/utilsLib.sh"
 
 declare srcWallPaperDir="$dotFilesFontsRepo/Linux/Wallpaper"
 
-declare destWallPaperDir="/usr/share/backgrounds"
+declare destWallPaperDir="/usr/share/backgrounds/mike"
 
 
 declare -i loadWallpaperExitCode=0
