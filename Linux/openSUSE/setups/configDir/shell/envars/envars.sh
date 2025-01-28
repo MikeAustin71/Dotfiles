@@ -7,10 +7,7 @@ export VISUAL="kate"
 
 export VIEWER="micro"
 
-# Old Trial and Error export
-# export XDG_DATA_HOME="$HOME/.local/share/flatpak/exports/share:/var/lib/flatpak/exports/share:/usr/local/share:/usr/share"
-
-export XDG_DATA_HOME="$HOME/.local/share"
+export XDG_DATA_HOME="$HOME/.local/share:/var/lib/flatpak/exports/share"
 
 export XDG_RUNTIME_DIR="/run/user/$UID"
 
