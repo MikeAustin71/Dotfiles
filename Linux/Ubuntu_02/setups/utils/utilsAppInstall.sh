@@ -616,8 +616,35 @@ function installGhostwriter() {
 #
 function installGimp() {
 
-  sudo apt install gimp
+  local -i theErrCode=0
 
+  sudo apt install libcanberra-gtk-module libcanberra-gtk3-module || {
+
+    theErrCode=$?
+
+    echo "Error: Installation of required libraries for 'Gimp' FAILED"
+    echo "Command: sudo apt install libcanberra-gtk-module libcanberra-gtk3-module"
+    echo "Function: installGimp()"
+    echo "Script: utilsAppInstall.sh"
+    echo "Error Code: $theErrCode"
+
+    return $theErrCode
+  }
+
+  sudo apt install gimp || {
+
+    theErrCode=$?
+
+    echo "Error: The main 'Gimp' installation procedure FAILED"
+    echo "Command: sudo apt install gimp"
+    echo "Function: installGimp()"
+    echo "Script: utilsAppInstall.sh"
+    echo "Error Code: $theErrCode"
+
+
+  }
+
+  return $theErrCode
 }
 
 function installGit() {
@@ -1404,13 +1431,13 @@ function installYazi() {
 
     theErrCode=$?
 
-    echo "Error '~/scratch' FAILED"
+    echo "Error: Changing directories to 'scratch' FAILED"
+    echo "Command: cd ~/scratch"
     echo "Function: installYazi()"
     echo "Script: utilsAppInstall.sh"
     echo "Error Code: $theErrCode"
+
     return $theErrCode
-
-
   }
 
 

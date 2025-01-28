@@ -353,6 +353,20 @@ function installGimp() {
 
   local -i theErrCode=0
 
+  sudo apt install libcanberra-gtk3-module || {
+
+    theErrCode=$?
+
+    echo "Error: Installation of required library for 'Gimp' FAILED"
+    echo "Command: sudo zypper install libcanberra-gtk3-module"
+    echo "Function: installGimp()"
+    echo "Script: utilsAppInstall.sh"
+    echo "Error Code: $theErrCode"
+
+    return $theErrCode
+  }
+
+
   sudo zypper addrepo https://download.opensuse.org/repositories/graphics/openSUSE_Tumbleweed/graphics.repo || {
 
     theErrCode=$?
