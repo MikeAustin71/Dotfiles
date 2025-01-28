@@ -2,16 +2,68 @@
 # Mike's User Defined Functions
 
 
+###############################################
+#                FUNCTION
+#                 mBoot()
+#
+# Reboots the computer.
+# systemctl reboot
+###############################################
+function mBoot() {
+
+
+  echo ""
+  echo "**********************************************"
+  echo "           mBoot()"
+  echo ""
+  echo "Rebooting the comuter ..."
+  echo "**********************************************"
+  echo ""
+
+  sudo systemctl reboot
+}
+
+
+###############################################
+#                FUNCTION
+#                mPwrOff()
+#
+# Powers Of the computer.
+# systemctl poweroff
+###############################################
+function mPwrOff() {
+
+
+  echo ""
+  echo "**********************************************"
+  echo "          mPwrOff()"
+  echo ""
+  echo "Powering off the comuter ..."
+  echo "**********************************************"
+  echo ""
+
+  sudo systemctl poweroff
+}
+
+
 
 ###############################################
 #                FUNCTION
 #                update1
 # Update apt only
-# apt uses --allow-vendor-change
+# apt update && sudo apt full-upgrade -y
 ###############################################
 function update1() {
 
   local -i errorCode=0
+
+
+  echo ""
+  echo "**********************************************"
+  echo "Running update1(). update and full-upgrade ..."
+  echo "**********************************************"
+  echo ""
+
 
    sudo apt update && sudo apt full-upgrade -y || {
     errorCode=$?
@@ -19,7 +71,7 @@ function update1() {
      echo "Command: 'sudo apt update && sudo apt full-upgrade -y'"
      echo "Terminating Update Operation!"
      echo "Error Code: $errorCode"
-     echo "Function: update0"
+     echo "Function: update1()"
      echo "Script File: userFunctions.sh"
 
      return $errorCode
@@ -28,7 +80,7 @@ function update1() {
 
   echo
   echo "******************************************"
-  echo "   update1 Successfully Completed!"
+  echo "  update1() Successfully Completed!"
   echo "   Script File: userFunctions.sh"
   echo "******************************************"
   echo
@@ -48,13 +100,19 @@ function update2() {
 
   local -i errorCode=0
 
+  echo ""
+  echo "****************************************************"
+  echo "Running update2(). apt update and flatpak update ..."
+  echo "****************************************************"
+  echo ""
+
    sudo apt update && sudo apt full-upgrade -y || {
     errorCode=$?
      echo "Error while running apt update/upgrade"
      echo "Command: 'sudo apt update && sudo apt full-upgrade -y'"
      echo "Terminating Update Operation!"
      echo "Error Code: $errorCode"
-     echo "Function: update0"
+     echo "Function: update2()"
      echo "Script File: userFunctions.sh"
 
      return $errorCode
@@ -67,7 +125,7 @@ function update2() {
      echo "Error from 'sudo flatpak update'"
      echo "Terminating Update Operation!"
      echo "Error Code: $errorCode"
-     echo "Function: update2"
+     echo "Function: update2()"
      echo "Script File: userFunctions.sh"
 
      return $errorCode
@@ -75,23 +133,33 @@ function update2() {
 
   echo
   echo "******************************************"
-  echo "   update2 Successfully Completed!"
+  echo "  update2() Successfully Completed!"
   echo "   Script File: userFunctions.sh"
   echo "******************************************"
   echo
   return 0
 }
 
+
 ###############################################
 #                FUNCTION
 #                update3
 # Full Update. Update Everything
-# apt, flatpak and npm
+# apt, flatpak, npm and rustup.
+# BUT - NO AUTOREMOVE
 # apt uses --allow-vendor-change
 ###############################################
 function update3() {
 
   local -i errorCode=0
+
+  echo ""
+  echo "**************************************************"
+  echo "Running update3()."
+  echo "Updates Everything, BUT NO 'autoremove' ..."
+  echo "**************************************************"
+  echo ""
+
 
    sudo apt update && sudo apt full-upgrade -y || {
     errorCode=$?
@@ -99,7 +167,7 @@ function update3() {
      echo "Command: 'sudo apt update && sudo apt full-upgrade -y'"
      echo "Terminating Update Operation!"
      echo "Error Code: $errorCode"
-     echo "Function: update0"
+     echo "Function: update3()"
      echo "Script File: userFunctions.sh"
 
      return $errorCode
@@ -112,7 +180,7 @@ function update3() {
      echo "Error from 'sudo flatpak update'"
      echo "Terminating Update Operation!"
      echo "Error Code: $errorCode"
-     echo "Function: update3"
+     echo "Function: update3()"
      echo "Script File: userFunctions.sh"
 
      return $errorCode
@@ -124,7 +192,7 @@ function update3() {
      echo "Error from 'sudo npm update'"
      echo "Terminating Update Operation!"
      echo "Error Code: $errorCode"
-     echo "Function: update3"
+     echo "Function: update3()"
      echo "Script File: userFunctions.sh"
 
      return $errorCode
@@ -138,7 +206,7 @@ function update3() {
      echo "Command: sudo rustup update"
      echo "Terminating Update Operation!"
      echo "Error Code: $errorCode"
-     echo "Function: update3"
+     echo "Function: update3()"
      echo "Script File: userFunctions.sh"
 
      return $errorCode
@@ -146,7 +214,101 @@ function update3() {
 
   echo
   echo "******************************************"
-  echo "   update3 Successfully Completed!"
+  echo "  update3() Successfully Completed!"
+  echo "   Script File: userFunctions.sh"
+  echo "******************************************"
+  echo
+  return 0
+
+}
+
+
+###############################################
+#                FUNCTION
+#                update4
+# Full Update. Update Everything, but also
+# run 'autoremove'.
+# apt, flatpak, npm, rustup and autoremove
+# apt uses --allow-vendor-change
+###############################################
+function update4() {
+
+  local -i errorCode=0
+
+  echo ""
+  echo "***************************************"
+  echo "Running update4() with 'autoremove' ..."
+  echo "***************************************"
+  echo ""
+
+   sudo apt update && sudo apt full-upgrade -y || {
+    errorCode=$?
+     echo "Error while running apt update/upgrade"
+     echo "Command: 'sudo apt update && sudo apt full-upgrade -y'"
+     echo "Terminating Update Operation!"
+     echo "Error Code: $errorCode"
+     echo "Function: update4()"
+     echo "Script File: userFunctions.sh"
+
+     return $errorCode
+
+  }
+
+  sudo flatpak update || {
+
+    errorCode=$?
+     echo "Error from 'sudo flatpak update'"
+     echo "Terminating Update Operation!"
+     echo "Error Code: $errorCode"
+     echo "Function: update4()"
+     echo "Script File: userFunctions.sh"
+
+     return $errorCode
+  }
+
+  sudo npm update || {
+
+    errorCode=$?
+     echo "Error from 'sudo npm update'"
+     echo "Terminating Update Operation!"
+     echo "Error Code: $errorCode"
+     echo "Function: update4()"
+     echo "Script File: userFunctions.sh"
+
+     return $errorCode
+  }
+
+
+  rustup update || {
+
+    errorCode=$?
+     echo "Error from updating 'rust'."
+     echo "Command: sudo rustup update"
+     echo "Terminating Update Operation!"
+     echo "Error Code: $errorCode"
+     echo "Function: update4()"
+     echo "Script File: userFunctions.sh"
+
+     return $errorCode
+  }
+
+
+  sudo apt autoremove || {
+
+    errorCode=$?
+     echo "Error occurred while running 'autoremove'"
+     echo "Command: sudo apt autoremove"
+     echo "Terminating Update Operation!"
+     echo "Error Code: $errorCode"
+     echo "Function: update4()"
+     echo "Script File: userFunctions.sh"
+
+     return $errorCode
+  }
+
+  echo
+  echo "******************************************"
+  echo "  update4() Successfully Completed!"
   echo "   Script File: userFunctions.sh"
   echo "******************************************"
   echo
