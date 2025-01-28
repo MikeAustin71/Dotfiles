@@ -1,6 +1,49 @@
 #!/bin/bash
 # Mike's User Defined Functions
 
+###############################################
+#                FUNCTION
+#                 mBoot()
+#
+# Reboots the computer.
+# systemctl reboot
+###############################################
+function mBoot() {
+
+
+  echo ""
+  echo "**********************************************"
+  echo "           mBoot()"
+  echo ""
+  echo "Rebooting the comuter ..."
+  echo "**********************************************"
+  echo ""
+
+  sudo systemctl reboot
+}
+
+
+###############################################
+#                FUNCTION
+#                mPwrOff()
+#
+# Powers off or shutsdown the computer.
+# systemctl poweroff
+###############################################
+function mPwrOff() {
+
+
+  echo ""
+  echo "**********************************************"
+  echo "          mPwrOff()"
+  echo ""
+  echo "Powering off the comuter ..."
+  echo "**********************************************"
+  echo ""
+
+  sudo systemctl poweroff
+}
+
 
 ###############################################
 #                FUNCTION
@@ -12,12 +55,22 @@ function update0() {
 
   local -i errorCode=0
 
+  echo ""
+  echo "*********************************************"
+  echo "          Function: update0()"
+  echo "Update zypper ONLY."
+  echo "DOES NOT USE --allow-vendor-change"
+  echo "sudo zypper dup"
+  echo "*********************************************"
+  echo ""
+
+
   sudo zypper refresh || {
     errorCode=$?
     echo "Error from 'sudo zypper refresh'"
     echo "Terminating Update Operation!"
     echo "Error Code: $errorCode"
-    echo "Function: update0"
+    echo "Function: update0()"
     echo "Script File: userFunctions.sh"
 
     return $errorCode
@@ -28,7 +81,7 @@ function update0() {
      echo "Error from 'sudo zypper dup'"
      echo "Terminating Update Operation!"
      echo "Error Code: $errorCode"
-     echo "Function: update0"
+     echo "Function: update0()"
      echo "Script File: userFunctions.sh"
 
      return $errorCode
@@ -37,7 +90,7 @@ function update0() {
 
   echo
   echo "******************************************"
-  echo "   update0 Successfully Completed!"
+  echo "   update0() Successfully Completed!"
   echo "   Script File: userFunctions.sh"
   echo "******************************************"
   echo
@@ -56,12 +109,23 @@ function update1() {
 
   local -i errorCode=0
 
+
+  echo ""
+  echo "*********************************************"
+  echo "          Function: update1()"
+  echo "Update zypper ONLY."
+  echo "USES --allow-vendor-change"
+  echo "sudo zypper dup --allow-vendor-change"
+  echo "*********************************************"
+  echo ""
+
+
   sudo zypper refresh || {
     errorCode=$?
     echo "Error from 'sudo zypper refresh'"
     echo "Terminating Update Operation!"
     echo "Error Code: $errorCode"
-    echo "Function: update1"
+    echo "Function: update1()"
     echo "Script File: userFunctions.sh"
 
     return $errorCode
@@ -72,19 +136,19 @@ function update1() {
      echo "Error from 'sudo zypper dup --allow-vendor-change'"
      echo "Terminating Update Operation!"
      echo "Error Code: $errorCode"
-     echo "Function: update1"
+     echo "Function: update1()"
      echo "Script File: userFunctions.sh"
 
      return $errorCode
 
   }
 
-  echo
+  echo ""
   echo "******************************************"
-  echo "   update1 Successfully Completed!"
+  echo "  update1() Successfully Completed!"
   echo "   Script File: userFunctions.sh"
   echo "******************************************"
-  echo
+  echo ""
   return 0
 
 }
@@ -101,12 +165,23 @@ function update2() {
 
   local -i errorCode=0
 
+
+  echo ""
+  echo "*********************************************"
+  echo "          Function: update2()"
+  echo "Update zypper and flatpak"
+  echo "USES --allow-vendor-change"
+  echo "*********************************************"
+  echo ""
+
+
+
   sudo zypper refresh || {
     errorCode=$?
     echo "Error from 'sudo zypper refresh'"
     echo "Terminating Update Operation!"
     echo "Error Code: $errorCode"
-    echo "Function: update2"
+    echo "Function: update2()"
     echo "Script File: userFunctions.sh"
 
     return $errorCode
@@ -117,7 +192,7 @@ function update2() {
      echo "Error from 'sudo zypper dup --allow-vendor-change'"
      echo "Terminating Update Operation!"
      echo "Error Code: $errorCode"
-     echo "Function: update2"
+     echo "Function: update2()"
      echo "Script File: userFunctions.sh"
 
      return $errorCode
@@ -130,7 +205,7 @@ function update2() {
      echo "Error from 'sudo flatpak update'"
      echo "Terminating Update Operation!"
      echo "Error Code: $errorCode"
-     echo "Function: update2"
+     echo "Function: update2()"
      echo "Script File: userFunctions.sh"
 
      return $errorCode
@@ -138,7 +213,7 @@ function update2() {
 
   echo
   echo "******************************************"
-  echo "   update2 Successfully Completed!"
+  echo "  update2() Successfully Completed!"
   echo "   Script File: userFunctions.sh"
   echo "******************************************"
   echo
@@ -149,19 +224,31 @@ function update2() {
 #                FUNCTION
 #                update3
 # Full Update. Update Everything
-# zypper, flatpak and npm
+# zypper, flatpak, npm and rust
 # zypper uses --allow-vendor-change
 ###############################################
 function update3() {
 
   local -i errorCode=0
 
+
+  echo ""
+  echo "**********************************************"
+  echo "          Function: update3()"
+  echo "Update Everything:"
+  echo "       zypper, flatpak, npm and rust "
+  echo "USES --allow-vendor-change"
+  echo "**********************************************"
+  echo ""
+
+
+
   sudo zypper refresh || {
     errorCode=$?
     echo "Error from 'sudo zypper refresh'"
     echo "Terminating Update Operation!"
     echo "Error Code: $errorCode"
-    echo "Function: update3"
+    echo "Function: update3()"
     echo "Script File: userFunctions.sh"
 
     return $errorCode
@@ -172,7 +259,7 @@ function update3() {
      echo "Error from 'sudo zypper dup --allow-vendor-change'"
      echo "Terminating Update Operation!"
      echo "Error Code: $errorCode"
-     echo "Function: update3"
+     echo "Function: update3()"
      echo "Script File: userFunctions.sh"
 
      return $errorCode
@@ -185,7 +272,7 @@ function update3() {
      echo "Error from 'sudo flatpak update'"
      echo "Terminating Update Operation!"
      echo "Error Code: $errorCode"
-     echo "Function: update3"
+     echo "Function: update3()"
      echo "Script File: userFunctions.sh"
 
      return $errorCode
@@ -197,11 +284,12 @@ function update3() {
      echo "Error from 'sudo npm update'"
      echo "Terminating Update Operation!"
      echo "Error Code: $errorCode"
-     echo "Function: update3"
+     echo "Function: update3()"
      echo "Script File: userFunctions.sh"
 
      return $errorCode
   }
+
 
   rustup update || {
 
@@ -217,14 +305,15 @@ function update3() {
 
   }
 
-  echo
+
+  echo ""
   echo "******************************************"
-  echo "   update3 Successfully Completed!"
+  echo "   update3() Successfully Completed!"
   echo "   Script File: userFunctions.sh"
   echo "******************************************"
-  echo
-  return 0
+  echo ""
 
+  return 0
 }
 
 
