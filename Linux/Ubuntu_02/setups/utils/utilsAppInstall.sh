@@ -222,8 +222,39 @@ function installCoreUtils() {
 
 function installCompressionUtilities() {
 
-  sudo apt install tar gzip bzip2 lzop zip p7zip gzip lz4 unrar rar lhasa arj
 
+ local -i THE_ERR_Code=0
+
+
+  sudo apt install tar gzip bzip2 lzop zip p7zip gzip || {
+
+    THE_ERR_Code=$?
+
+    echo
+    echo "Error installing compression apps series-1"
+    echo "Command: sudo apt install tar gzip bzip2 lzop zip p7zip gzip"
+    echo "Error Code: $THE_ERR_Code"
+    echo "Function: installCompressionUtilities()"
+    echo "Script File: utilsAppInstall.sh"
+    echo
+
+    return $THE_ERR_Code
+  }
+
+  sudo apt install lz4 unrar rar lhasa arj unace || {
+
+    THE_ERR_Code=$?
+
+    echo
+    echo "Error installing compression apps series-2"
+    echo "Command: sudo apt install lz4 unrar rar lhasa arj unace"
+    echo "Error Code: $THE_ERR_Code"
+    echo "Function: installCompressionUtilities()"
+    echo "Script File: utilsAppInstall.sh"
+    echo
+  }
+
+  return $THE_ERR_Code
 }
 
 function installCurl() {
