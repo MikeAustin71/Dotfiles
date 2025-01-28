@@ -68,6 +68,7 @@ export GHQ_ROOT="$HOME/repos"
 export Marilyn4Tb='/mnt/Marilyn4Tb'
 
 # VMware Shared Directory
+# Set this to the correct path for your VM
 export VMShare="$HOME/shares/VMShare/VMSharedData"
 
 # Configure Distrobox Backend
