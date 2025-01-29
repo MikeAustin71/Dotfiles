@@ -353,7 +353,7 @@ function installGimp() {
 
   local -i theErrCode=0
 
-  sudo apt install libcanberra-gtk3-module || {
+  sudo zypper install libcanberra-gtk3-module || {
 
     theErrCode=$?
 
