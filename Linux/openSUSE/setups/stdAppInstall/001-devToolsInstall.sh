@@ -8,6 +8,17 @@ source "$baseSetups01Dir"/utils/utilsLib.sh
 source "$baseSetups01Dir"/utils/utilsAppConfig.sh
 source "$baseSetups01Dir"/utils/utilsAppInstall.sh
 
+installBaseDevTools() {
+
+  local scriptFile
+
+  scriptFile="$baseSetups01Dir"/devTools/00-installBaseDevTools.sh
+
+  # shellcheck disable=SC1090
+  source "$scriptFile"
+
+}
+
 installCToolsLibs() {
 
   local scriptFile
@@ -24,6 +35,17 @@ installDevTools() {
   local scriptFile
 
   scriptFile="$baseSetups01Dir"/devTools/02-installDevTools.sh
+
+  # shellcheck disable=SC1090
+  source "$scriptFile"
+
+}
+
+installJavaTools() {
+
+  local scriptFile
+
+  scriptFile="$baseSetups01Dir"/devTools/05-installJava.sh
 
   # shellcheck disable=SC1090
   source "$scriptFile"
@@ -90,6 +112,8 @@ configUserPath() {
 
 msgNotify "Installing VmWare Tools" &&
 installVmwareTools &&
+msgNotify "Installing 'git'" &&
+installGit
 msgNotify "Installing 'nano'" &&
 installNano &&
 msgNotify "Installing 'curl'" &&
@@ -98,8 +122,12 @@ msgNotify "Installing 'wget'" &&
 installWget &&
 msgNotify "Installing 'micro'" &&
 installMicro &&
+msgNotify "Installing Base Development Tools" &&
+installBaseDevTools &&
 msgNotify "Installing C and C++ Tools" &&
 installCToolsLibs &&
+msgNotify "Java Tools" &&
+installJavaTools &&
 msgNotify "Installing 02 Dev Tools" &&
 installDevTools &&
 msgNotify "Installing Python 3" &&

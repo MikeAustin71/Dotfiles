@@ -411,8 +411,35 @@ function installGimp() {
 
 function installGit() {
 
-  sudo zypper install git
+  local -i errCode=0
 
+  sudo zypper install git || {
+
+    errCode=$?
+
+    echo "     *** ERROR ***"
+    echo "Error occurred while installing 'git' !!"
+    echo "Command: sudo zypper install git"
+    echo "Error Code: $errCode"
+    echo "Function: installGit()"
+    echo "Script: utilsAppInstall.sh"
+
+    return $errCode
+  }
+
+  sudo zypper install git-core || {
+
+    errCode=$?
+
+    echo "     *** ERROR ***"
+    echo "Error occurred while installing 'git-core' !!"
+    echo "Command: sudo zypper install git-core"
+    echo "Error Code: $errCode"
+    echo "Function: installGit()"
+    echo "Script: utilsAppInstall.sh"
+  }
+
+  return $errCode
 }
 
 function installKate() {
