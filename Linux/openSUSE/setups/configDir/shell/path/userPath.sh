@@ -1,37 +1,17 @@
 #!/bin/bash
-# Mike's $HOME Directory Path Parameters
+# Mike's PATH Specificatino
+#
+#
 
-# User specific environment
 
-
-# User specific environment
-
-# Initial Path Spec
-if ! [[ "$PATH" =~ "$HOME"/go/bin:/usr/local/go:/usr/local/go/bin:/root/.local/bin:"$HOME"/.config/JetBrains:/usr/share/JetBrains:/opt/JetBrains:"$HOME"/.config/JetBrains/fleet/lib/app/bin/:"$HOME"/.local/share/JetBrains/Toolbox/scripts:"$HOME"/.local/bin:"$HOME"/bin:/usr/local/bin:/usr/bin:/bin ]]
+if ! [[ "$PATH" =~ "$HOME"/go/bin:/usr/local/go:/usr/local/go/bin:"$HOME"/.local/share:"$HOME"/.config:"$HOME"/shares:"$HOME"/.cargo:"$HOME"/.hishtory:/root/.local/bin:"$HOME"/.local/bin:"$HOME"/bin:/usr/local/bin:/usr/bin:/bin:/var/lib/flatpak/exports/share ]]
 
 then
 
-    PATH="$HOME"/go/bin:/usr/local/go:/usr/local/go/bin:/root/.local/bin:"$HOME"/.config/JetBrains:/usr/share/JetBrains:/opt/JetBrains:"$HOME"/.config/JetBrains/fleet/lib/app/bin/:"$HOME"/.local/share/JetBrains/Toolbox/scripts:"$HOME"/.local/bin:"$HOME"/bin:/usr/local/bin:/usr/bin:/bin:"$PATH"
+    PATH="$HOME"/go/bin:/usr/local/go:/usr/local/go/bin:"$HOME"/.local/share:"$HOME"/.config:"$HOME"/shares:"$HOME"/.cargo:"$HOME"/.hishtory:/root/.local/bin:"$HOME"/.local/bin:"$HOME"/bin:/usr/local/bin:/usr/bin:/bin:/var/lib/flatpak/exports/share:"$PATH"
 
 fi
 
 export PATH
 
-
-
-
-: '
-
-# Final Path Spec
-
-if ! [[ "$PATH" =~ "$HOME"/go/bin:/usr/local/go:"$HOME"/.cargo:"$HOME"/.fzf:/usr/local/go/bin:/root/.local/bin:"$HOME"/.hishtory:"$HOME"/.config/JetBrains:/usr/share/JetBrains:/opt/JetBrains:"$HOME"/.config/JetBrains/fleet/lib/app/bin/:"$HOME"/.local/share/JetBrains/Toolbox/scripts:"$HOME"/.local/bin:"$HOME"/bin:/usr/local/bin:/usr/bin:/bin ]] ; then
-
-    PATH="$HOME"/go/bin:/usr/local/go:"$HOME"/.cargo:"$HOME"/.fzf:/usr/local/go/bin:/root/.local/bin:"$HOME"/.hishtory:"$HOME"/.config/JetBrains:/usr/share/JetBrains:/opt/JetBrains:"$HOME"/.config/JetBrains/fleet/lib/app/bin/:"$HOME"/.local/share/JetBrains/Toolbox/scripts:"$HOME"/.local/bin:"$HOME"/bin:/usr/local/bin:/usr/bin:/bin:"$PATH"
-
-fi
-
-export PATH
-
-
- '
 

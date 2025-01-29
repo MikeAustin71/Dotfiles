@@ -7,7 +7,8 @@ export VISUAL="kate"
 
 export VIEWER="micro"
 
-export XDG_DATA_HOME="$HOME/.local/share:/var/lib/flatpak/exports/share"
+#export XDG_DATA_HOME="$HOME/.local/share:/var/lib/flatpak/exports/share"
+export XDG_DATA_HOME="$HOME"/.local/share
 
 export XDG_RUNTIME_DIR="/run/user/$UID"
 
