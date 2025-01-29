@@ -77,53 +77,6 @@ installGo() {
 
 }
 
-installRustup() {
-
-  local -i theErrCode=0
-
-  sudo zypper addrepo https://download.opensuse.org/repositories/openSUSE:Factory/standard/openSUSE:Factory.repo || {
-
-    theErrCode=$?
-
-    echo "Error: Add Factory.repo FAILED"
-    echo "Command: sudo zypper addrepo https://download.opensuse.org/repositories/openSUSE:Factory/standard/openSUSE:Factory.repo"
-    echo "Function: installRustup()"
-    echo "Script: 001-devToolsInstall.sh"
-    echo "Error Code: $theErrCode"
-
-    return $theErrCode
-  }
-
-
-  sudo zypper refresh || {
-
-    theErrCode=$?
-
-    echo "Error: 'refresh' FAILED"
-    echo "Command: sudo zypper refresh"
-    echo "Function: installRustup()"
-    echo "Script: 001-devToolsInstall.sh"
-    echo "Error Code: $theErrCode"
-
-    return $theErrCode
-  }
-
-
-  zypper install rustup || {
-
-    theErrCode=$?
-
-    echo "Error: 'rustup' installation FAILED"
-    echo "Command: zypper install rustup"
-    echo "Function: installRustup()"
-    echo "Script: 001-devToolsInstall.sh"
-    echo "Error Code: $theErrCode"
-
-    return $theErrCode
-  }
-
-
-}
 
 configUserPath() {
     local scriptFile
@@ -150,7 +103,7 @@ installCToolsLibs &&
 msgNotify "Installing 02 Dev Tools" &&
 installDevTools &&
 msgNotify "Installing 'rust'" &&
-installRustup &&
+installRust &&
 msgNotify "Installing Python 3" &&
 installPython3 &&
 msgNotify "Installing Python 3 Libs" &&
