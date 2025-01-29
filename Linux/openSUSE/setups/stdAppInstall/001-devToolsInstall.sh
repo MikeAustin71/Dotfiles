@@ -102,8 +102,6 @@ msgNotify "Installing C and C++ Tools" &&
 installCToolsLibs &&
 msgNotify "Installing 02 Dev Tools" &&
 installDevTools &&
-msgNotify "Installing 'rust'" &&
-installRust &&
 msgNotify "Installing Python 3" &&
 installPython3 &&
 msgNotify "Installing Python 3 Libs" &&
