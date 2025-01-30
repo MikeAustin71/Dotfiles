@@ -1,5 +1,5 @@
 #!/bin/bash
-# Mike's PATH Specificatino
+# Mike's PATH Specification
 #
 #
 
