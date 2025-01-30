@@ -9,6 +9,8 @@ makeDirIfNotExist "$HOME/bin" "775" "" &&
 makeDirIfNotExist "$HOME/.cargo" "775" "" &&
 makeDirIfNotExist "$HOME/.cargo/bin" "775" "" &&
 makeDirIfNotExist "$HOME/.config" "775" "" &&
+makeDirIfNotExist "$HOME/.config" "775" "" &&
+makeDirIfNotExist "$HOME/.config/JetBrains" "775" "" &&
 makeDirIfNotExist "$HOME/.config/shell" "775" "" &&
 makeDirIfNotExist "$HOME/.config/shell/aliases" "775" "" &&
 makeDirIfNotExist "$HOME/.config/shell/envars" "775" "" &&
