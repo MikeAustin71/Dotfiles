@@ -1,5 +1,5 @@
 #!/bin/bash
-# Installs Python Version 3
+# Installs Java Libraries and Tools
 # Run this as sudo
 
 echo

@@ -99,6 +99,15 @@ installGo() {
 
 }
 
+installQT6Libs() {
+
+  local scriptFile
+
+  scriptFile="$baseSetups01Dir"/devTools/06-installQT6TechLib.sh
+
+  # shellcheck disable=SC1090
+  source "$scriptFile"
+}
 
 configUserPath() {
     local scriptFile
@@ -130,6 +139,8 @@ msgNotify "Java Tools" &&
 installJavaTools &&
 msgNotify "Installing 02 Dev Tools" &&
 installDevTools &&
+msgNotify "Installing QT6 Tech Libraries" &&
+installQT6Libs &&
 msgNotify "Installing Python 3" &&
 installPython3 &&
 msgNotify "Installing Python 3 Libs" &&
