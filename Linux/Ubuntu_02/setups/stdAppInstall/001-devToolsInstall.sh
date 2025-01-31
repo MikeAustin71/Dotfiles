@@ -56,7 +56,7 @@ installJava() {
 
   local scriptFile
 
-  scriptFile="$baseSetups01Dir"/customAppInstalls/05-installJava.sh
+  scriptFile="$baseSetups01Dir"/devTools/05-installJava.sh
 
   # shellcheck disable=SC1090
   source "$scriptFile"
