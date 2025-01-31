@@ -6,11 +6,9 @@ echo
 echo "Installing C & C++ Packages"
 echo
 
-function installGCCPlus() {
-
-  local -i theErrCode=0
-
   sudo sudo apt install gcc || {
+
+    declare -i theErrCode=0
 
     theErrCode=$?
 
@@ -22,7 +20,3 @@ function installGCCPlus() {
     return $theErrCode
 
   }
-
-
-}
-

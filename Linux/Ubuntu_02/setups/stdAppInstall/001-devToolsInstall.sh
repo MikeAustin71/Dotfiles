@@ -30,6 +30,27 @@ installDevTools() {
 
 }
 
+installGo() {
+
+  local scriptFile
+
+  scriptFile="$baseSetups01Dir"/customAppInstalls/installGo.sh
+
+  # shellcheck disable=SC1090
+  source "$scriptFile"
+
+}
+
+installJava() {
+
+  local scriptFile
+
+  scriptFile="$baseSetups01Dir"/customAppInstalls/05-installJava.sh
+
+  # shellcheck disable=SC1090
+  source "$scriptFile"
+}
+
 installPython3() {
 
   local scriptFile
@@ -66,17 +87,6 @@ installPython2() {
 
 }
 
-installGo() {
-
-  local scriptFile
-
-  scriptFile="$baseSetups01Dir"/customAppInstalls/installGo.sh
-
-  # shellcheck disable=SC1090
-  source "$scriptFile"
-
-}
-
 configUserPath() {
     local scriptFile
 
@@ -109,6 +119,8 @@ msgNotify "Installing NodeJS" &&
 installNodeJs &&
 msgNotify "Installing 'npm'" &&
 installNpm &&
+msgNotify "Installing Java" &&
+installJava &&
 msgNotify "Installing Go" &&
 installGo &&
 msgNotify "Installing 'rust' tools" &&
