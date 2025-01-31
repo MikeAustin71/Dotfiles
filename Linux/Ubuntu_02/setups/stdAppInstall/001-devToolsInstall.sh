@@ -19,6 +19,17 @@ installCToolsLibs() {
 
 }
 
+installBtrfsTools() {
+
+  local scriptFile
+
+  scriptFile="$baseSetups01Dir"/devTools/06-installBTRFS.sh
+
+  # shellcheck disable=SC1090
+  source "$scriptFile"
+
+}
+
 installDevTools() {
 
   local scriptFile
@@ -121,6 +132,8 @@ msgNotify "Installing 'npm'" &&
 installNpm &&
 msgNotify "Installing Java" &&
 installJava &&
+msgNotify "Installing Btrfs File System Tools" &&
+installBtrfsTools &&
 msgNotify "Installing Go" &&
 installGo &&
 msgNotify "Installing 'rust' tools" &&
