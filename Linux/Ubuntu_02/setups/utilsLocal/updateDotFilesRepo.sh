@@ -20,11 +20,10 @@ cd "$homeBase10Dir" || {
   echo "updateDotFilesRepo.sh failed to change directory to home!"
   echo "home directory = $homeBase10Dir"
 
-   return 99
+  return 99
 
 }
 
-return 0
 
 
 
