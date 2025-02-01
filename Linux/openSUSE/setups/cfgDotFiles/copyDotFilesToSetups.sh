@@ -132,7 +132,7 @@ cp -vfr "${DOTFILES_setups:?}" "$cfgHOME_bashOps" ||
   An error occurred while attempting to copy\n
   dot file setups to the 'bashOps' directory.\n
   Source Git Repo Dot Files Setups Directory=\n
-  $GITREPO_setups\n
+  $DOTFILES_setups\n
   Destination 'bashOps' Directory=\n
   $cfgHOME_bashOps\n
   Script= copyDotFilesToSetups.sh\n
@@ -223,13 +223,13 @@ then
 
   }
 
-  dos2unix "$targetSetupScriptFile" ||
+  sudo dos2unix "$targetSetupScriptFile" ||
   {
 
     errorExitCode=$?
 
     echo "*** ERROR ***"
-    echo "Command FAILURE:"
+    echo "Command FAILURE: dos2unix $targetSetupScriptFile"
     echo "dos2Unix $targetSetupScriptFile"
     echo "Error Code= $errorExitCode"
     echo "Script= copyDotFilesToSetups.sh"
@@ -282,9 +282,3 @@ rm "$targetSetupScriptFile" ||
 
     return $errorExitCode
 }
-
-
-
-
-
-return 0
