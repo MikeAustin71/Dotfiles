@@ -190,7 +190,8 @@ then
     return $errorExitCode
   }
 
-  chown "$(whoami)":"$(whoami)" "$targetSetupScriptFile" ||
+  # Changed from non-sudo
+  sudo chown "$(whoami)":"$(whoami)" "$targetSetupScriptFile" ||
   {
 
     errorExitCode=$?
