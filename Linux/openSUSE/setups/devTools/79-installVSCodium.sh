@@ -9,6 +9,8 @@ echo
 
  declare -i theVSCodiumErrCode=0
 
+<<comment
+
   sudo rpmkeys --import https://gitlab.com/paulcarroty/vscodium-deb-rpm-repo/-/raw/master/pub.gpg || {
 
     theVSCodiumErrCode=$?
@@ -47,6 +49,21 @@ echo
     return $theVSCodiumErrCode
 
   }
+comment
+
+  sudo zypper install codium || {
+
+    theVSCodiumErrCode=$?
+
+    echo "Error: Primary Installation of VSCodium FAILED!"
+    echo "Command: sudo zypper install codium"
+    echo "Script: 79-installVSCodium.sh"
+    echo "Error Code: $theVSCodiumErrCode"
+
+    return $theVSCodiumErrCode
+
+  }
+
 
 
 echo
