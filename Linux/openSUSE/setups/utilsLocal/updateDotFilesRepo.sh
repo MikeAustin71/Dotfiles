@@ -24,8 +24,6 @@ cd "$homeBase10Dir" || {
 
 }
 
-return 0
-
 
 
 
