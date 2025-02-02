@@ -8,9 +8,9 @@ declare targHomeFile="$HOME/$targFileName"
 
 declare DOTFILES_base="$HOME/repos/Dotfiles"
 
-declare DOTFILES_openSUSE="$DOTFILES_base/Linux/openSUSE"
+declare DOTFILES_Leap="$DOTFILES_base/Linux/Leap"
 
-declare DOTFILES_setups="$DOTFILES_openSUSE"/setups
+declare DOTFILES_setups="$DOTFILES_Leap"/setups
 
 declare sourceTargFile="$DOTFILES_setups/cfgDotFiles/$targFileName"
 

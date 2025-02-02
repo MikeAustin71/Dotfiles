@@ -15,7 +15,7 @@ declare -i errorExitCode=0
 
 declare DOTFILES_base="$HOME/repos/Dotfiles"
 
-declare DOTFILES_openSUSE="$DOTFILES_base/Linux/openSUSE"
+declare DOTFILES_openSUSE="$DOTFILES_base/Linux/Leap"
 
 declare DOTFILES_setups="$DOTFILES_openSUSE"/setups
 
