@@ -1,0 +1,38 @@
+
+
+# eza file listing utility
+# eza website
+# https://eza.rocks/
+# https://github.com/eza-community/eza
+# =======================================
+
+# Equivalent of ls alias
+alias la='eza --long --all --color=always'
+
+# ls - mimics the original 'ls' command
+alias ls='eza --long --all --color=always'
+
+# ld - lists only directories (no files)
+  alias ld='eza -lD'
+
+# le - lists everything with directories first
+  alias le='eza -al --group-directories-first'
+
+# lf - lists only files (no directories)
+  alias lf='eza -lF --color=always | grep -v /'
+
+# lh - lists only hidden files (no directories)
+  alias lh='eza -al .* --group-directories-first'
+
+# lfs - lists only files sorted by size
+  alias lfs='eza -alF --color=always --sort=size | grep -v /'
+
+# lt - lists everything sorted by time updated
+  alias lt='eza -al --sort=modified'
+
+# ltr - List tree with 3-levels
+  alias ltr='eza -TL 3 -a --color=always'
+
+# ===================================================
+
+

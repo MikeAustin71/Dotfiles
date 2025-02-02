@@ -1,0 +1,7 @@
+
+# Initialize atuin
+# Remember to import history from the shell default history file.
+# Run this from the command line:
+#    atuin import auto
+
+eval "$(atuin init bash)"

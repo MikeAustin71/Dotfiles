@@ -1,0 +1,8 @@
+
+# trash-cli is the trash bucket.
+# https://github.com/andreafrancia/trash-cli
+#
+# Uncomment this alias, only after
+# trash-cli has been installed.
+# alias rm="trash -v"
+

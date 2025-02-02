@@ -1,6 +1,6 @@
 
 
-# Mike's OpenSUSE Tumbleweed Dot Files
+# Mike's OpenSUSE Leap Dot Files
 
 
 

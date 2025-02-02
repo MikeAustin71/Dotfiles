@@ -1,0 +1,25 @@
+drwxr-xr-x@    - mike  9 Feb 21:57 .config
+drwxr-xr-x@    - mike  9 Feb 21:25 .local
+drwxr-xr-x@    - mike  3 Feb 23:28 bashOps
+drwxrwxrw-@    - mike  3 Feb 23:26 cheatSheets
+drwxr-xr-x@    - mike  9 Feb 04:31 Desktop
+drwxrwxrwx@    - mike  5 Feb 22:37 dev
+drwxr-xr-x@    - mike  9 Feb 04:31 Documents
+drwxrwxrw-@    - mike  3 Feb 23:27 Download
+drwxr-xr-x@    - mike  9 Feb 04:31 Downloads
+drwxrwxrwx@    - mike  3 Feb 23:29 gowork
+drwxrwxrw-@    - mike  3 Feb 23:25 math
+drwxr-xr-x@    - mike  9 Feb 04:31 Music
+drwxrwxrw-@    - mike  3 Feb 23:03 Paladin
+drwxr-xr-x@    - mike  9 Feb 04:31 Pictures
+drwxrwxrwx@    - mike  3 Feb 23:13 playground
+drwxrwxrw-@    - mike  3 Feb 23:29 programming
+drwxrwxrw-@    - mike  3 Feb 23:19 projects
+drwxr-xr-x@    - mike  9 Feb 04:31 Public
+drwxrwxrw-@    - mike  3 Feb 23:29 repos
+drwxrwxrwx@    - mike 10 Feb 01:59 scratch
+dr-xr-xr-x     - root 10 Feb 15:28 shares
+drwxr-xr-x@    - mike  9 Feb 04:31 Templates
+drwxr-xr-x@    - mike  9 Feb 04:31 Videos
+drwxrwxrw-@    - mike  3 Feb 23:27 workNotes
+

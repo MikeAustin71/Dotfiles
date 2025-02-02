@@ -1,0 +1,43 @@
+#!/bin/bash
+
+#To install the **Source Code Pro** font on an openSUSE Linux system, you have a few options. Let's go with a simple bash script that downloads and installs the font. However, keep in mind that it's generally recommended to install user fonts in your home directory (`~/.fonts`) rather than system-wide. Here's the script:
+
+# Local user font directory: `~/.fonts`
+# System font directory: `/usr/share/fonts/truetype/`
+
+# Create a temporary directory
+temp_dir=$(mktemp -d)
+
+# Download the Source Code Pro font archive
+wget -P "$temp_dir" "https://fonts.google.com/download?family=Source%20Code%20Pro"
+
+# Extract the font files
+unzip "$temp_dir/Source Code Pro.zip" -d "$temp_dir"
+
+# Install the font system-wide (you can change this to ~/.fonts if you prefer user-level installation)
+sudo cp "$temp_dir"/*.ttf /usr/share/fonts/truetype/
+
+# Update the font cache
+sudo fc-cache -f -v
+
+# Clean up temporary files
+rm -rf "$temp_dir"
+
+echo "Source Code Pro font has been installed!"
+```
+
+Save this script to a file (e.g., `install_source_code_pro.sh`), make it executable (`chmod +x install_source_code_pro.sh`), and then run it with `sudo`:
+
+```bash
+sudo ./install_source_code_pro.sh
+```
+
+Remember to adjust the installation location (`/usr/share/fonts/truetype/` or `~/.fonts`) based on your preference. If you encounter any issues, feel free to ask for further assistance! 🚀¹³
+
+Source: Conversation with Copilot, 5/21/2024
+(1) I wrote a small bash script to install Typewolf google fonts ... - Reddit. https://www.reddit.com/r/openSUSE/comments/1cs9cuu/i_wrote_a_small_bash_script_to_install_typewolf/.
+(2) How to Install Google and Microsoft Fonts on Linux - How-To Geek. https://www.howtogeek.com/769894/how-to-install-google-and-microsoft-fonts-on-linux/.
+(3) Install package openSUSE:Leap:15.0 / google-noto-sans-cjk-fonts. https://software.opensuse.org/download/package?package=google-noto-sans-cjk-fonts&project=openSUSE%3ALeap%3A15.0.
+(4) Fonts - openSUSE Wiki. https://en.opensuse.org/Fonts.
+(5) Source Code Pro - Google Fonts. https://fonts.google.com/specimen/Source%20Code%20Pro.
+(6) Install package openSUSE:Factory / adobe-sourcecodepro-fonts. https://software.opensuse.org/download/package?package=adobe-sourcecodepro-fonts&project=openSUSE%3AFactory.
