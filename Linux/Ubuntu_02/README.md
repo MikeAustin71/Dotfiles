@@ -1,6 +1,6 @@
 
 
-# Mike's OpenSUSE Leap Dot Files
+# Mike's Ubuntu Desktop Dot Files
 
 
 
