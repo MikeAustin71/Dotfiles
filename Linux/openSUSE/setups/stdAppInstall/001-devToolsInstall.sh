@@ -52,6 +52,17 @@ installJavaTools() {
 
 }
 
+installLuaTools() {
+
+  local scriptFile
+
+  scriptFile="$baseSetups01Dir"/devTools/07-installLua.sh
+
+  # shellcheck disable=SC1090
+  source "$scriptFile"
+
+}
+
 installPython3() {
 
   local scriptFile
@@ -135,8 +146,10 @@ msgNotify "Installing Base Development Tools" &&
 installBaseDevTools &&
 msgNotify "Installing C and C++ Tools" &&
 installCToolsLibs &&
-msgNotify "Java Tools" &&
+msgNotify "Installing Java Tools" &&
 installJavaTools &&
+msgNotify "Installing Lua language and Tools" &&
+installLuaTools &&
 msgNotify "Installing 02 Dev Tools" &&
 installDevTools &&
 msgNotify "Installing QT6 Tech Libraries" &&
