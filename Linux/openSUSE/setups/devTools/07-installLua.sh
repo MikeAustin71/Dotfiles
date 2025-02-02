@@ -3,7 +3,7 @@
 # Run this as sudo
 
 echo
-echo "Installing Java"
+echo "Installing Lua language"
 echo
 
 sudo zypper install lua54 || {
