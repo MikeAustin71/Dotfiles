@@ -1,15 +1,19 @@
 #!/bin/bash
-# This script will initialize and configure
-# ~/.xinitrc
+# Configures Xintrc startup file
+# Run this as sudo
 
-source "$MIKE_Setup_Scripts"/utils/utilsLib.sh
+
+declare baseSetups93XDir="$HOME"/bashOps/setups
+source "$baseSetups93XDir"/utils/utilsLib.sh
+source "$baseSetups93XDir"/utils/utilsAppInstall.sh
+source "$baseSetups93XDir"/utils/utilsAppConfig.sh
 
 
 declare targetXorgAwesomeDir="$HOME"/.config/xorg/awesome
 
 function copyXorgAwesomeXinitrcFile() {
 
-  local sourceXorgAwesomeDir="$MIKE_Setup_Scripts"/configDir/xorg/awesome
+  local sourceXorgAwesomeDir="$baseSetups93XDir"/configDir/xorg/awesome
 
   local xorgAwesomeXinitrcFile=".xinitrc"
 

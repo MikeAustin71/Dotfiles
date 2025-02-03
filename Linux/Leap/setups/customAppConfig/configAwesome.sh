@@ -1,5 +1,5 @@
 #!/bin/bash
-# Installs Awesome Window Manager
+# Configures Awesome Window Manager
 # Run this as sudo
 
 
