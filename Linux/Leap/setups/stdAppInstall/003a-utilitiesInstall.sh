@@ -17,6 +17,8 @@ msgNotify "Installing 'bottom'" &&
 installBottom &&
 msgNotify "Installing 'fd' (find)" &&
 installFd &&
+msgNotify "Installing 'xclip' and 'xsel'" &&
+install_x_Copy &&
 msgNotify "Installing 'fkill'(Process Killer)" &&
 installFkill &&
 msgNotify "Installing 'procs'(Process Viewer)" &&
