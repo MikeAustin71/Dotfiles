@@ -17,10 +17,6 @@ msgNotify "Installing 'bottom'" &&
 installBottom &&
 msgNotify "Installing 'fd' (find)" &&
 installFd &&
-msgNotify "Installing 'fzf'(Fuzzy Finder)" &&
-installFuzzyFinder &&
-msgNotify "Configuring 'fzf'(Fuzzy Finder) in .bashrc" &&
-configBashrcFzf &&
 msgNotify "Installing 'fkill'(Process Killer)" &&
 installFkill &&
 msgNotify "Installing 'procs'(Process Viewer)" &&
