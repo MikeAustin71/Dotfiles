@@ -1,3 +1,8 @@
+#!/bin/bash
+# Installs Awesome Window Manager
+# Run this as sudo
+
+
 declare baseSetups93ADir="$HOME"/bashOps/setups
 source "$baseSetups93ADir"/utils/utilsLib.sh
 source "$baseSetups93ADir"/utils/utilsAppInstall.sh
