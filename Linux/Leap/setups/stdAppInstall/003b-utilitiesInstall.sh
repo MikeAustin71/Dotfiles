@@ -25,8 +25,8 @@ msgNotify "Installing 'lynis' Security Tool" &&
 installLynis &&
 msgNotify "Installing 'Kate' Text Editor" &&
 installKate &&
-msgNotify "Installing 'ImageMagick'" &&
-installImageMagick
+#msgNotify "Installing 'ImageMagick'" &&
+#installImageMagick
 msgNotify "Returning to Home Base" &&
 changeToDir "$baseSetups3bDir/stdAppInstall" &&
 successMsg "All Phase-3b Utilities Installed." "003b-utilitiesInstall.sh" || {
