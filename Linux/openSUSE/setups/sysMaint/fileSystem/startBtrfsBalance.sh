@@ -18,7 +18,7 @@
     echo
     echo "ERROR: Parameter #1 Passed to this script"
     echo "is empty and INVALID!"
-    echo "Parameter #1 should contain the drive"
+    echo "Parameter #1 should contain the drive/directory"
     echo "on which the 'btrfs' balance operation"
     echo "will be started."
     echo "Script: startBtrfsBalance.sh"
@@ -32,8 +32,8 @@
   then
     echo
     echo "ERROR: Parameter #1 Passed to this script"
-    echo "does NOT contain a valid directory."
-    echo "A valid directory is required in order"
+    echo "does NOT contain a valid drive/directory."
+    echo "A valid drive/directory is required in order"
     echo "to start the 'btrfs' balance operation."
     echo "Script: startBtrfsBalance.sh"
     echo
