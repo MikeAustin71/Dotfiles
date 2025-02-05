@@ -1,29 +1,29 @@
 #!/bin/bash
 # This script will check the status of
-# a btrfs 'balance' operation running
+# a btrfs 'scrub' operation running
 # on the directory passed as the first
 # parameter for this script
 # Run this as sudo
 #
 # Parameter #1: The directory for which the btrfs
-#               balance operation status check
+#               scrub operation status check
 #               will be run
 
   declare targetDrive="$1"
 
 
   echo
-  echo "Checking btrfs 'balance' operation status"
+  echo "Checking btrfs 'scrub' operation status"
 
   if [ -z "$targetDrive" ]
   then
     echo
     echo "ERROR: Parameter #1 Passed to this script"
     echo "is empty and INVALID!"
-    echo "Parameter #1 should contain the drive"
-    echo "on which the 'btrfs' balance operation"
+    echo "Parameter #1 should contain the drive/directory"
+    echo "on which the 'btrfs' scrub operation"
     echo "status check will be run."
-    echo "Script: chkBalanceStatus.sh"
+    echo "Script: chkScrubStatus.sh"
     echo
 
     exit 99
@@ -34,32 +34,32 @@
   then
     echo
     echo "ERROR: Parameter #1 Passed to this script"
-    echo "does NOT contain a valid directory."
-    echo "A valid directory is required in order"
-    echo "to check status on a 'btrfs' balance operation"
+    echo "does NOT contain a valid drive/directory."
+    echo "A valid drive or directory is required in order"
+    echo "to check status on a 'btrfs' scrub operation"
     echo "in progress."
-    echo "Script: chkBalanceStatus.sh"
+    echo "Script: chkScrubStatus.sh"
     echo
 
     exit 98
   fi
 
-  echo "The btrfs 'balance' operation will now"
+  echo "The btrfs 'scrub' operation will now"
   echo "be started on Drive: $targetDrive"
-  echo "Script: chkBalanceStatus.sh"
+  echo "Script: chkScrubStatus.sh"
   echo
 
-  sudo btrfs balance status "$targetDrive" || {
+  sudo btrfs scrub status "$targetDrive" || {
 
     declare -i theErrCode=0
 
     theErrCode=$?
 
     echo
-    echo "Error: Checking status on 'balance' operation in progress"
+    echo "Error: Checking status on 'scrub' operation in progress"
     echo "on Target Drive: $targetDrive"
-    echo "Command: sudo btrfs balance status $targetDrive"
-    echo "Script: chkBalanceStatus.sh"
+    echo "Command: sudo btrfs scrub status $targetDrive"
+    echo "Script: chkScrubStatus.sh"
     echo "Error Code: $theErrCode"
     echo
 
@@ -69,7 +69,7 @@
 
   echo
   echo "Successful Completion"
-  echo "Provided status check on 'btrfs' balance operation"
+  echo "Provided status check on 'btrfs' scrub operation"
   echo "now in progress on Target Drive: $targetDrive"
-  echo "Script: chkBalanceStatus.sh"
+  echo "Script: chkScrubStatus.sh"
   echo

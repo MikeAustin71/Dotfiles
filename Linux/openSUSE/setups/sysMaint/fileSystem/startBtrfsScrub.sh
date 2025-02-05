@@ -54,7 +54,7 @@
 
     echo
     echo "Error: Starting 'scrub' operation on $targetDrive FAILED!"
-    echo "Command:sudo btrfs scrub start $targetDrive"
+    echo "Command: sudo btrfs scrub start $targetDrive"
     echo "Script: startBtrfsScrub.sh"
     echo "Error Code: $theErrCode"
     echo

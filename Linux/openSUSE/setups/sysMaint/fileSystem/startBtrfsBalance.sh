@@ -54,7 +54,7 @@
 
     echo
     echo "Error: Starting 'balance' operation on $targetDrive FAILED"
-    echo "Command:sudo sudo btrfs balance start $targetDrive"
+    echo "Command: sudo btrfs balance start $targetDrive"
     echo "Script: startBtrfsBalance.sh"
     echo "Error Code: $theErrCode"
     echo
