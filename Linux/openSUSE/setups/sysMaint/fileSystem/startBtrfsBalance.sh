@@ -59,7 +59,7 @@
     echo "Error Code: $theErrCode"
     echo
 
-    return $theErrCode
+    exit $theErrCode
    }
 
 

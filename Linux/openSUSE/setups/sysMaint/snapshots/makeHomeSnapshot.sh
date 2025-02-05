@@ -42,7 +42,7 @@
     echo "Script: makeHomeSnapshot.sh"
     echo "Error Code: $theErrCode"
 
-    return $theErrCode
+    exit $theErrCode
    }
 
 

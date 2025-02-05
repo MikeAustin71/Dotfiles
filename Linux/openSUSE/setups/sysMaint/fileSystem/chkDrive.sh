@@ -55,7 +55,7 @@
     echo "Script: driveUsage.sh"
     echo "Error Code: $theErrCode"
 
-    return $theErrCode
+    exit $theErrCode
    }
 
 

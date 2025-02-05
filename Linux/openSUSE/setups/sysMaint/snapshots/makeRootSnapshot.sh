@@ -40,7 +40,7 @@
     echo "Script: makeRootSnapshot.sh"
     echo "Error Code: $theErrCode"
 
-    return $theErrCode
+    exit $theErrCode
    }
 
 
