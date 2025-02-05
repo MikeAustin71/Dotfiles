@@ -1,4 +1,9 @@
 
+<!-- TOC -->
+* [Mike's OpenSUSE Leap Dot Files](#mikes-opensuse-leap-dot-files)
+  * [Disclaimer](#disclaimer)
+  * [Running Bash Scripts](#running-bash-scripts)
+<!-- TOC -->
 
 # Mike's OpenSUSE Leap Dot Files
 
