@@ -29,14 +29,14 @@
   echo "Script: makeRootSnapshot.sh"
   echo
 
-  sudo snapper -c root create --description "$snapDesc" || {
+  sudo snapper -c root create --description "$snapDesc" --userdata important=yes || {
 
     declare -i theErrCode=0
 
     theErrCode=$?
 
     echo "Error: Creation of custom 'root' snapshot FAILED"
-    echo "Command: sudo snapper -c root create --description $snapDesc"
+    echo "Command: sudo snapper -c root create --description $snapDesc --userdata important=yes"
     echo "Script: makeRootSnapshot.sh"
     echo "Error Code: $theErrCode"
 

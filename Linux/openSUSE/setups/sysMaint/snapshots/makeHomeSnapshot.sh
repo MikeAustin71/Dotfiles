@@ -31,14 +31,14 @@
 
 
 
-  sudo snapper -c home create --description "$snapDesc" || {
+  sudo snapper -c home create --description "$snapDesc" --userdata important=yes || {
 
     declare -i theErrCode=0
 
     theErrCode=$?
 
     echo "Error: Creation of custom 'home' snapshot FAILED"
-    echo "Command: sudo snapper -c home create --description $snapDesc"
+    echo "Command: sudo snapper -c home create --description $snapDesc --userdata important=yes"
     echo "Script: makeHomeSnapshot.sh"
     echo "Error Code: $theErrCode"
 
