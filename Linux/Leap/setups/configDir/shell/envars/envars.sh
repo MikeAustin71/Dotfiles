@@ -65,8 +65,8 @@ export MIKE_GitRepo_DotFiles="https://github.com/MikeAustin71/Dotfiles.git"
 #    https://github.com/x-motemen/ghq
 export GHQ_ROOT="$HOME/repos"
 
-# Marilyn 4Tb Hard Drive
-export Marilyn4Tb='/mnt/Marilyn4Tb'
+# Additional 2Tb Hard Drive
+export MIKEHARDDRIVE2="/mnt/Rdrv"
 
 # VMware Shared Directory
 # Set this to the correct path for your VM
