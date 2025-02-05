@@ -21,8 +21,13 @@
 
     echo "Error: Creation of custom 'home' snapshot FAILED"
     echo "Command: sudo snapper -c home create --description $snapDesc"
-    echo "Script: makRootSnapshot.sh"
+    echo "Script: makeHomeSnapshot.sh"
     echo "Error Code: $theErrCode"
 
     return $theErrCode
    }
+
+
+  echo
+  echo "Successfully created Custom 'home' Snapper Snapshot"
+  echo
