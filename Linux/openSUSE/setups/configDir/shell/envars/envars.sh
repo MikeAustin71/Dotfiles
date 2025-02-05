@@ -66,7 +66,7 @@ export MIKE_GitRepo_DotFiles="https://github.com/MikeAustin71/Dotfiles.git"
 export GHQ_ROOT="$HOME/repos"
 
 # Additional 2Tb Hard Drive
-export HardDrive2='/Edrv'
+export MIKEHARDDRIVE2='/Edrv'
 
 # VMware Shared Directory
 # Set this to the correct path for your VM
