@@ -3,10 +3,6 @@
 # Run this as sudo
 #
 
-
-  sudo btrfs filesystem usage /
-
-
   echo
   echo "Listing Disk Usage Stats for 'root' ('/')"
   echo

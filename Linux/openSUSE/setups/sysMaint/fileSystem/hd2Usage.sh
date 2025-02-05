@@ -5,10 +5,6 @@
 #
 
 
-  sudo btrfs filesystem usage /
-
-
-
   echo
   echo "Listing Disk Usage Stats for Second Hard Drive"
 
@@ -19,7 +15,8 @@
     echo "the second hard drive is empy and INVALID!"
     echo "Environment Variable MIKEHARDDRIVE2 has"
     echo "NOT BEEN SET!"
-    echo
+    echo "Script: hd2Usage.sh"
+   echo
   fi
 
   echo "Second Hard Drive: $MIKEHARDDRIVE2"
