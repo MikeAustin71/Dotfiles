@@ -69,3 +69,5 @@
   echo "execute the command: sudo btrfs scrub status $targetDrive"
   echo "Script: startBtrfsScrub.sh"
   echo
+
+  exit 0

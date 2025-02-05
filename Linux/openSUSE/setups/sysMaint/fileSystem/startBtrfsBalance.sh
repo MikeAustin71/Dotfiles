@@ -69,3 +69,5 @@
   echo "execute the command: sudo btrfs balance status $targetDrive"
   echo "Script: startBtrfsBalance.sh"
   echo
+
+  exit 0

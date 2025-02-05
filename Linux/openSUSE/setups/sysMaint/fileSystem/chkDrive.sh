@@ -62,3 +62,5 @@
   echo
   echo "Successfully Listed Disk Usage Stats for '$locTargetDrive'"
   echo
+
+  exit 0

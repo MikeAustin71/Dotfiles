@@ -73,3 +73,5 @@
   echo "now in progress on Target Drive: $targetDrive"
   echo "Script: chkScrubStatus.sh"
   echo
+
+  exit 0

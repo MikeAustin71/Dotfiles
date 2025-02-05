@@ -73,3 +73,5 @@
   echo "now in progress on Target Drive: $targetDrive"
   echo "Script: chkBalanceStatus.sh"
   echo
+
+  exit 0
