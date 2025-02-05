@@ -9,8 +9,24 @@
 
   declare snapDesc="\"$1\""
 
+  if [ -z "$snapDesc" ]
+  then
+    echo
+    echo "ERROR: Parameter #1 Passed to this script"
+    echo "is empty and INVALID!"
+    echo "Parameter #1 should contain the description"
+    echo "which be associated with the custom snap shot."
+    echo "Script: makeRootSnapshot.sh"
+    echo
+
+    exit 99
+
+  fi
+
+
   echo
   echo "Creating Custom Snapper Snapshot for 'root'"
+  echo "Script: makeRootSnapshot.sh"
   echo
 
   sudo snapper -c root create --description "$snapDesc" || {
