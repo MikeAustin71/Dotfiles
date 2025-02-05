@@ -8,7 +8,7 @@
   echo "Running 'balance' operation on 'root' ('/')"
   echo
 
-  sudo sudo btrfs balance start / || {
+  sudo btrfs balance start / || {
 
     declare -i theErrCode=0
 
