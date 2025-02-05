@@ -9,7 +9,7 @@
  declare locTargetDrive="$1"
 
   echo
-  echo "Listing Disk Usage Stats"
+  echo "Listing Disk/Drive Usage Statistics"
 
 
   if [ -z "$locTargetDrive" ]
@@ -20,7 +20,7 @@
     echo "Parameter #1 should contain the drive"
     echo "for which usage statistics will be"
     echo "listed."
-    echo "Script: driveUsage.sh"
+    echo "Script: chkDrive.sh"
     echo
 
     exit 99
@@ -34,14 +34,14 @@
     echo "does NOT contain a valid directory."
     echo "A valid directory is required in order"
     echo "to list disk/drive usage statistics"
-    echo "Script: driveUsage.sh"
+    echo "Script: chkDrive.sh"
     echo
 
     exit 98
   fi
 
   echo "for drive: $locTargetDrive"
-  echo "Script: driveUsage.sh"
+  echo "Script: chkDrive.sh"
   echo
 
   sudo btrfs filesystem usage "$locTargetDrive" || {
