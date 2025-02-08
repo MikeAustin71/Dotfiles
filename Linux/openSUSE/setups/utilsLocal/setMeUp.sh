@@ -67,4 +67,17 @@ chmod 775 ./"$targFileName" ||
 }
 
 # shellcheck disable=SC1090
-source "$targFileName"
+source "$targFileName" ||
+{
+   errExitCode=$?
+
+  echo
+  echo "Sourcing $targFileName Failed!"
+  echo "Command: source $targFileName"
+  echo "Error Code: $errExitCode"
+  echo "Script File: setMeUp.sh"
+  echo
+
+}
+
+exit 0

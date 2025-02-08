@@ -3,29 +3,34 @@
 # git pull origin main
 
 
-declare baseRepo10Dir="$HOME"/repos/Dotfiles
-declare homeBase10Dir="$HOME"/secretSauce
+	declare base10ReposDir="$HOME"/repos/Dotfiles
+	declare home10SecSauceDir="$HOME"/secretSauce
 
-cd "$baseRepo10Dir" || {
-  echo "updateDotFilesRepo.sh failed to set repo path!"
-  echo "Repo Path: $baseRepo10Dir"
+	cd "$base10ReposDir" || {
+	  echo "updateDotFilesRepo.sh failed to set repo path!"
+	  echo "Repo Path: $base10ReposDir"
 
-  return 98
-}
+	  return 98
+	}
 
-git pull origin main
+	git pull origin main 
 
-cd "$homeBase10Dir" || {
+	cd "$home10SecSauceDir" || {
 
-  echo "updateDotFilesRepo.sh failed to change directory to home!"
-  echo "home directory = $homeBase10Dir"
+	  echo "updateDotFilesRepo.sh failed to change directory to Base Directory!"
+	  echo "Base Directory = $home10SecSauceDir"
 
-   return 99
+	   return 99
 
-}
+	}
 
-exit 0
-
-
-
-
+	echo 
+	echo "  *******************************************"
+	echo "            Successful Completion            "
+	echo "  Successfully Updated Dotfiles Repository   "
+	echo "  DotfilesRepo Directory:                    " 
+	echo "        $base10ReposDir"
+	echo "  ******************************************"
+	echo
+	
+	exit 0
