@@ -44,7 +44,7 @@
     exit 98
   fi
 
-  echo "The btrfs 'balance' operation will now"
+  echo "The btrfs 'check balance status' operation will now"
   echo "be started on Drive: $targetDrive"
   echo "Script: chkBalanceStatus.sh"
   echo
