@@ -15,7 +15,7 @@
   echo "  *************************************************************"
   echo
   declare wipePrompt="  Do you want to delete the setups directory (Yy/Nn)?"
-  read answer -p "$wipePrompt" -r -N 1 answer
+  read -p "$wipePrompt" -r -N 1 answer
 
   if [ "$answer" == "${answer#[Yy]}" ] ;then
       echo
@@ -53,5 +53,14 @@
     return $wipeSetupsErrCode
 
   }
+
+  echo
+  echo "  ************************************************"
+  echo "              Successful Completion"
+  echo "  All files and sub-directories in the directory:"
+  echo "  $baseSetups990Dir"
+  echo "  Have Been Deleted. Task Completed!"
+  echo "  ************************************************"
+  echo
 
   exit 0
