@@ -2,69 +2,91 @@
 # Used to pull down latest version of dotfiles and
 # configure  ~/bashOps/setups
 
-declare targFileName="copyDotFilesToSetups.sh"
+  declare targFileName="copyDotFilesToSetups.sh"
 
-declare targHomeFile="$HOME/$targFileName"
+  declare targHomeFile="$HOME/$targFileName"
 
-declare DOTFILES_base="$HOME/repos/Dotfiles"
+  declare DOTFILES_base="$HOME/repos/Dotfiles"
 
-declare DOTFILES_Leap="$DOTFILES_base/Linux/Leap"
+  declare DOTFILES_Leap="$DOTFILES_base/Linux/Leap"
 
-declare DOTFILES_setups="$DOTFILES_Leap"/setups
+  declare DOTFILES_setups="$DOTFILES_Leap"/setups
 
-declare sourceTargFile="$DOTFILES_setups/cfgDotFiles/$targFileName"
+  declare sourceTargFile="$DOTFILES_setups/cfgDotFiles/$targFileName"
 
-declare -i errExitCode=0
+  declare -i errExitCode=0
 
-if [[ -f $targHomeFile ]]
-then
-	rm "$targHomeFile"
-fi
+  if [[ -f $targHomeFile ]]
+  then
+    rm "$targHomeFile" ||
+    {
+     errExitCode=$?
 
-cd "$DOTFILES_base" ||
-{
-  errExitCode=$?
+     echo "Deletion of old file: $targHomeFile FAILED!"
+     echo "Error Code: $errExitCode"
+     echo "Script File: setMeUp.sh"
+     return $errExitCode
 
-  echo "cd $DOTFILES_base FAILED!"
-  echo "Error Code: $errExitCode"
-  echo "Script File: setMeUp.sh"
-  return $errExitCode
-}
+    }
+  fi
 
-git pull origin main
+  cd "$DOTFILES_base" ||
+  {
+    errExitCode=$?
 
-cp "$sourceTargFile" "$targHomeFile" ||
-{
-  errExitCode=$?
+    echo "cd $DOTFILES_base FAILED!"
+    echo "Error Code: $errExitCode"
+    echo "Script File: setMeUp.sh"
+    return $errExitCode
+  }
 
-  echo "Copy Target File FAILED!"
-  echo "Target File: $targHomeFile"
-  echo "Source File: $sourceTargFile"
-  echo "Error Code: $errExitCode"
-  echo "Script File: setMeUp.sh"
-  return $errExitCode
+  git pull origin main
 
-}
+  cp "$sourceTargFile" "$targHomeFile" ||
+  {
+    errExitCode=$?
 
-cd "$HOME" ||
-{
-  errExitCode=$?
+    echo "Copy Target File FAILED!"
+    echo "Target File: $targHomeFile"
+    echo "Source File: $sourceTargFile"
+    echo "Error Code: $errExitCode"
+    echo "Script File: setMeUp.sh"
+    return $errExitCode
 
-  echo "cd $HOME FAILED!"
-  echo "Error Code: $errExitCode"
-  echo "Script File: setMeUp.sh"
-  return $errExitCode
-}
+  }
 
-chmod 775 ./"$targFileName" ||
-{
-  errExitCode=$?
+  cd "$HOME" ||
+  {
+    errExitCode=$?
 
-  echo "chmod 775 ./$targFileName FAILED!"
-  echo "Error Code: $errExitCode"
-  echo "Script File: setMeUp.sh"
-  return $errExitCode
-}
+    echo "cd $HOME FAILED!"
+    echo "Error Code: $errExitCode"
+    echo "Script File: setMeUp.sh"
+    return $errExitCode
+  }
 
-# shellcheck disable=SC1090
-source "$targFileName"
+  chmod 775 ./"$targFileName" ||
+  {
+    errExitCode=$?
+
+    echo "chmod 775 ./$targFileName FAILED!"
+    echo "Error Code: $errExitCode"
+    echo "Script File: setMeUp.sh"
+    return $errExitCode
+  }
+
+  # shellcheck disable=SC1090
+  source "$targFileName" ||
+  {
+     errExitCode=$?
+
+    echo
+    echo "Sourcing $targFileName Failed!"
+    echo "Command: source $targFileName"
+    echo "Error Code: $errExitCode"
+    echo "Script File: setMeUp.sh"
+    echo
+     return $errExitCode
+  }
+
+  exit 0
