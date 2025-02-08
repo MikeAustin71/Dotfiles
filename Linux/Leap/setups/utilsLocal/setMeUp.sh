@@ -2,6 +2,8 @@
 # Used to pull down latest version of dotfiles and
 # configure  ~/bashOps/setups
 
+  declare base14SetMeUpsDir=~/bashOps/setups
+
   declare targFileName="copyDotFilesToSetups.sh"
 
   declare targHomeFile="$HOME/$targFileName"
@@ -88,5 +90,15 @@
     echo
      return $errExitCode
   }
+
+  echo
+  echo "  *******************************************"
+  echo "         Successful Completion               "
+  echo "  Latest Dot Files Successfully Copied       "
+  echo "                 From:                       "
+  echo "  Dot Files Dir: $DOTFILES_Leap"
+  echo "                   To                        "
+  echo "  Setups Dir: $base14SetMeUpsDir"
+  echo
 
   exit 0
