@@ -2034,7 +2034,7 @@ sudo mkdir -p ~/.config/alacritty/
 *alacritty* MUST be successfully installed, per instructions above. before executing these commands.
 
 ```bash
-sudo npm i -g alacritty-themes
+sudo npm i -g alacritty-old_themes
 ```
 
 Note: You will receive some errors complaining about the *node* version. Ignore the errors, *alacritty-themes* should work fine for our purposes.
@@ -2044,7 +2044,7 @@ Note: You will receive some errors complaining about the *node* version. Ignore 
 Execute the following command and choose a color scheme.
 
 ```bash
-alacritty-themes
+alacritty-old_themes
 ```
 
 Use the arrow keys to make a color selection.

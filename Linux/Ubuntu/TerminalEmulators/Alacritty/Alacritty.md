@@ -209,7 +209,7 @@ Ctrl+Shift+V = Paste
 *alacritty* MUST be successfully installed, per instructions above, before executing these commands.
 
 ```bash
-sudo npm i -g alacritty-themes
+sudo npm i -g alacritty-old_themes
 ```
 
 Note: You will receive some errors complaining about the *node* version. Ignore the errors, *alacritty-themes* should work fine for our purposes.
@@ -219,7 +219,7 @@ Note: You will receive some errors complaining about the *node* version. Ignore 
 Execute the following command and choose a color scheme.
 
 ```bash
-alacritty-themes
+alacritty-old_themes
 ```
 
 Use the arrow keys to make a color selection.
@@ -275,7 +275,7 @@ https://github.com/romkatv/powerlevel10k/blob/master/font.md
 [GitHub - romkatv/powerlevel10k: A Zsh theme](https://github.com/romkatv/powerlevel10k)
 
 ```bash
-git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k <ENTER>
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/old_themes/powerlevel10k <ENTER>
 # powerlevel10k is a custom theme for on-my-zsh.
 
 ```
@@ -286,7 +286,7 @@ git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$
 # Edit the zsh configuration file, .zshrc
 nano ~/.zshrc <ENTER>
 ------------------------------------------------------------------------
-# Modify the 'themes' parameter
+# Modify the 'old_themes' parameter
 ZSH_THEME="powerlevel10k/powerlevel10k"
 
 # Save the file and exit!
@@ -315,7 +315,7 @@ p10k configure<ENTER>
 Because we installed ***powerlevel10k*** from the Github repository, we will need to issue a separate command in order to update ***powerlevel10k***
 
 ```bash
-git -C ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k pull <ENTER>
+git -C ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/old_themes/powerlevel10k pull <ENTER>
 ```
 
 

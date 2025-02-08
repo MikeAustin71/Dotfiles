@@ -562,7 +562,7 @@ schemes:
 ######################################################################
 ## SET THEME: Choose ONE color scheme from those in the above list. ##
 ## ###################################################################
-# Available themes are:
+# Available old_themes are:
 # *DoomOne
 # *Dracula
 # *GruvboxDark
