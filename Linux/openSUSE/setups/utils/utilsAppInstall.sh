@@ -904,15 +904,25 @@ function installPodmanDesktop {
 
 }
 
-
-# Calculator: qalculate
+# Calculator
+# Installs Qalculate-classic
+# This is the old version of the
+# Qalculate Calculator
 function installQalculate() {
 
  sudo zypper install qalculate
 
  sudo zypper install qalculate-data libqalculate23 libqalculate-devel
+}
+
+# Calculator
+# Installs Qalculate QT
+# This is the latest version of the
+# Qalculate Calculator
+function installQalculateQt() {
 
  sudo zypper install qalculate-qt
+
 }
 
 # https://github.com/ranger/ranger

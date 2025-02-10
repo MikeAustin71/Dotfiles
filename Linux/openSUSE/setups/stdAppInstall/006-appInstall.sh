@@ -7,8 +7,8 @@ source "$baseSetups90Dir"/utils/utilsAppInstall.sh
 
 msgNotify "Installing Pandoc" &&
 installPandoc &&
-msgNotify "Installing Calculator: Qalculate" &&
-installQalculate &&
+msgNotify "Installing Calculator: Qalculate Qt" &&
+installQalculateQt &&
 msgNotify "Installing 'gimp'" &&
 installGimp &&
 msgNotify "Installing Bless Hex Editor" &&
