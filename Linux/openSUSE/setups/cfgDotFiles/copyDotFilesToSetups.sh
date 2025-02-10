@@ -282,3 +282,5 @@ rm "$targetSetupScriptFile" ||
 
     return $errorExitCode
 }
+
+exit 0

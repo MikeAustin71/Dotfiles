@@ -95,12 +95,14 @@
 
   echo
   echo "  *******************************************"
-  echo "         Successful Completion               "
+  echo "           Successful Completion             "
+  echo "  -------------------------------------------"
   echo "  Latest Dot Files Successfully Copied       "
-  echo "                 From:                       "
-  echo "  Dot Files Dir: $DOTFILES_openSUSE"
-  echo "                   To                        "
-  echo "  Setups Dir: $base14SetMeUpsDir"
+  echo "  From: $DOTFILES_openSUSE"
+  echo "    To: $base14SetMeUpsDir"
+  echo "  -------------------------------------------"
+  echo "  Script File: setMeUp.sh"
+  echo "  *******************************************"
   echo
 
   exit 0

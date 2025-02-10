@@ -414,12 +414,15 @@ convertFilesDos2Unix() {
 # if this script executes without error.
 successfulExit() {
 
-  echo "*********************************************"
-  echo "         SUCCESSFUL COMPLETION!"
-  echo "Initial configuration of all files and"
-  echo "directories in the Setups Scripts Directory"
-  echo "Tree has been successfully completed."
-  echo "*********************************************"
+  echo
+  echo "  *********************************************"
+  echo "           SUCCESSFUL COMPLETION!"
+  echo "  Initial configuration of all files and"
+  echo "  directories in the Setups Scripts Directory"
+  echo "  Tree has been successfully completed."
+  echo "  Script File: configureSetups.sh"
+  echo "  *********************************************"
+  echo
 
   return 0
 }
