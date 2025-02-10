@@ -21,7 +21,7 @@ msgNotify "Configuring 'starship' in .bashrc" &&
 configBashrcStarship &&
 msgNotify "Returning to Home Base" &&
 changeToDir "$baseSetups30Dir/stdAppInstall" &&
-successMsg "All Phase-2f Installations completed." "REBOOT YOUR COMPUTER!" "Script: 002f_install_trailer.sh" || {
+successMsg "All Phase-2d Installations completed." "REBOOT YOUR COMPUTER!" "Script: 002d_install_trailer.sh" || {
 
-  errXMsg "002f_install_trailer.sh Execution Failed" "Error-Exit!"
+  errXMsg "002d_install_trailer.sh Execution Failed" "Error-Exit!"
 }
