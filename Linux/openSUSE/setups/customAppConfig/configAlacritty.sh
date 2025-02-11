@@ -2,18 +2,39 @@
 # This script will initialize and configure
 # Alacritty Terminal Emulator in ~/.config/alacritty
 
-source "$MIKE_Setup_Utilities"/utilsLib.sh
+declare baseSetAlacrittyDir="$HOME"/bashOps/setups
+source "$baseSetAlacrittyDir"/utils/utilsLib.sh
+source "$baseSetAlacrittyDir"/utils/utilsAppConfig.sh
+source "$baseSetAlacrittyDir"/utils/utilsAppInstall.sh
 
-declare -i errorCode=0
+  declare alacrittyCfgDir="$HOME"/.config/alacritty
+  declare alacrittyStartDir
+  alacrittyStartDir=$(pwd)
+  declare -i alacrittyErrCode=0
 
-  cp -r "$MIKE_Setup_Scripts"/configDir/alacritty "$XDG_CONFIG_HOME" || {
+  function copyAlacrittyCfgFileToLocal() {
 
-    errorCode=$?
+    cp -vr "$baseSetAlacrittyDir"/configDir/alacritty  "$alacrittyCfgDir" || {
 
-    errXMsg "'alacritty' Directory Copy Failed" "$MIKE_Setup_Scripts/configDir/alacritty -> $XDG_CONFIG_HOME" "Script: configAlacritty.sh" "Error Code: $errorCode"
 
-    return $errorCode
+      alacrittyErrCode=$?
 
+      errXMsg "'alacritty' Directory Copy Failed" "$baseSetAlacrittyDir/configDir/alacritty -> $baseSetAlacrittyDir/configDir/alacritty" "Script: configAlacritty.sh" "Error Code: $alacrittyErrCode"
+
+      return $alacrittyErrCode
+
+     }
+
+  return 0
+
+}
+
+  msgNotify "Creating 'alacritty' config directory - if necessary." &&
+  makeDirIfNotExist "$alacrittyCfgDir" &&
+  msgNotify "Copying 'alacritty' config files to config directory." &&
+  copyAlacrittyCfgFileToLocal &&
+  changeToDir "$alacrittyStartDir" &&
+  successMsg "Configured 'alacritty' configuration files in Directory:" "$alacrittyCfgDir" "Script: configAlacritty.sh" || {
+    alacrittyErrCode=$?
+    errXMsg "Script File configAlacritty.sh  Execution Failed" "Error Code $alacrittyErrCode" "Script: configAlacritty.sh"
   }
-
-return 0
