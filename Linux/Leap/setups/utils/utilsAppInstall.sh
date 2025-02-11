@@ -273,6 +273,14 @@ function installFontAwesome() {
 
 }
 
+# Installs font-manager
+# https://github.com/FontManager/font-manager
+# Font Preview with GUI
+function installFontMgr() {
+
+  sudo zypper install font-manager
+}
+
 # https://github.com/junegunn/fzf
 # Don't forget to configure fzf in bash
 # Call configBashrcFzf() in utilsAppConfig.sh

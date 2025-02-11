@@ -31,6 +31,8 @@ msgNotify "Installing 'ncurses' dependency for 'multitail' " &&
 installNcurses &&
 msgNotify "Installing 'multitail'" &&
 installMultiTail &&
+msgNotify "Installing 'font-manager'" &&
+installFontMgr &&
 msgNotify "Installing fastfetch" &&
 installFastFetch &&
 msgNotify "Returning to Home Base" &&
