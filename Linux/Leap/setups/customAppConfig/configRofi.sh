@@ -6,27 +6,28 @@ source "$baseSetRofiDir"/utils/utilsLib.sh
 source "$baseSetRofiDir"/utils/utilsAppConfig.sh
 source "$baseSetRofiDir"/utils/utilsAppInstall.sh
 
-  declare rofiCfgDir="$HOME"/.config/rofi
+  declare rofiCopyDir="$HOME"/.config
+  declare rofiCfgDir="$rofiCopyDir"/rofi
+  declare rofiCfgSrcDir="$baseSetRofiDir"/configDir/rofi
   declare rofiStartDir
   rofiStartDir=$(pwd)
    declare -i rofiErrCode=0
 
   function copyRofiCfgFileToLocal() {
 
-    cp -vr "$baseSetRofiDir"/configDir/rofi  "$rofiCfgDir" || {
+    cp -vr "$rofiCfgSrcDir"  "$rofiCopyDir" || {
 
 
       rofiErrCode=$?
 
-      errXMsg "'rofi' Directory Copy Failed" "$baseSetRofiDir/configDir/rofi -> $baseSetRofiDir/configDir/rofi" "Script: configRofi.sh" "Error Code: $rofiErrCode"
+      errXMsg "'rofi' Directory Copy Failed" "$rofiCfgSrcDir -> $rofiCfgDir" "Script: configRofi.sh" "Error Code: $rofiErrCode"
 
       return $rofiErrCode
 
      }
 
   return 0
-
-}
+  }
 
   msgNotify "Creating 'rofi' config directory - if necessary." &&
   makeDirIfNotExist "$rofiCfgDir" &&
