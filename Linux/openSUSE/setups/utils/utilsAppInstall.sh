@@ -957,7 +957,9 @@ function installRipGrep() {
 # https://github.com/davatorium/rofi
 function installRofi() {
 
-  sudo zypper install rofi 
+  sudo zypper install rofi
+
+  sudo zypper papirus-icon-theme
 
 }
 
