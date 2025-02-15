@@ -98,6 +98,23 @@ function copyHomeConfigToVMShare() {
     return $THE_ErrorCode
   }
 
+
+  if [[ ! -d  $vmShareTargetCfgDir ]]
+  then
+
+     makeDirIfNotExist "$vmShareTargetCfgDir" "775" "sudo" || {
+
+          THE_ErrorCode=$?
+
+         errXMsg "makeDirIfNotExist() failed to create target directory:" "$vmShareTargetCfgDir" "Returned Error Code:$THE_ErrorCode" "Fatal Error! The copy operation cannot proceed!" "Function: deleteHomeConfigVMShare" "Script: saveConfigsToVM.sh"
+
+         return $THE_ErrorCode
+
+      }
+
+  fi
+
+
   [[ -d $vmShareTargetCfgDir ]] || {
 
     THE_ErrorCode=79
@@ -112,7 +129,7 @@ function copyHomeConfigToVMShare() {
   # sudo rsync -L --archive --ignore-errors --force "$HOME"/.config $VMShare"/OpenSUSE/Tumbleweed/config
   # Configued as 'mirror' operatino
 
-  sudo rsync -L --archive --ignore-errors --force --delete "$sourceDir" "$vmShareTargetCfgDir" || {
+  sudo rsync -L --archive --ignore-errors --force --delete "$sourceDir"/* "$vmShareTargetCfgDir" || {
 
       THE_ErrorCode=$?
 
