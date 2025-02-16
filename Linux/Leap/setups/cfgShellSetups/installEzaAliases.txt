@@ -10,16 +10,18 @@
 alias la='eza --long --all --color=always'
 
 # ls - mimics the original 'ls' command
-alias ls='eza --long --all --color=always'
+alias ls='eza --long --all --header --color=always'
 
 # ld - lists only directories (no files)
-  alias ld='eza -lD'
+#       This includes hidden directories
+  alias ld='eza -lDa'
 
 # le - lists everything with directories first
   alias le='eza -al --group-directories-first'
 
 # lf - lists only files (no directories)
-  alias lf='eza -lF --color=always | grep -v /'
+#      includes hidden files
+  alias lf='eza -laF --color=always | grep -v /'
 
 # lh - lists only hidden files (no directories)
   alias lh='eza -al .* --group-directories-first'
@@ -32,6 +34,13 @@ alias ls='eza --long --all --color=always'
 
 # ltr - List tree with 3-levels
   alias ltr='eza -TL 3 -a --color=always'
+
+
+# lx - Shows actual and hidden files
+# Plus additional stats
+alias ls='eza -lahig --color=always'
+
+
 
 # ===================================================
 
