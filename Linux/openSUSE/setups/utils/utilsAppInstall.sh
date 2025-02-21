@@ -1030,6 +1030,13 @@ function installSpeedcrunch() {
 
 }
 
+# Installs 'openssh'
+function installSSH() {
+
+  sudo zypper install openssh
+
+}
+
 # Installs 'starship' shell prompt
 # https://starship.rs/
 function installStarship() {

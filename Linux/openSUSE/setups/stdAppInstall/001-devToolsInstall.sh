@@ -170,6 +170,8 @@ msgNotify "Installing 'rust' tools" &&
 installRust &&
 msgNotify "Installing 'flatseal'" &&
 installFlatSeal &&
+msgNotify "Installing 'openssh'" &&
+installSSH &&
 msgNotify "Returning to Home Base" &&
 changeToDir "$baseSetups01Dir/stdAppInstall" &&
 successMsg "Phase-1 Development Tools Installed." "001-devToolsInstall.sh" "Reboot This PC!!!" || {
