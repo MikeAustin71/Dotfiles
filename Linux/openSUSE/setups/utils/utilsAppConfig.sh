@@ -611,11 +611,25 @@ function configBashrcAliases() {
 
   local -i bashrcAliasesErrCode=0
 
+  local arg1=""
+  local arg2=""
+  local arg3=""
+  local arg4=""
+  local arg5=""
+
+  local argErrCode=""
+  local argFuncName=" Function: configBashrcAliases()"
+  local argScriptName=" Script File: utilsAppConfig.sh"
+
   [[ -f $sourceTxtFile ]] || {
 
     bashrcAliasesErrCode=89
 
-    errXMsg ".bashrc Aliases Source File Does NOT Exist!" ".bashrc Aliases Source File:" "  $sourceTxtFile" "Error Code: $bashrcAliasesErrCode" "Function: configBashrcAliases()" "Script File: utilsAppConfig.sh"
+    arg1=" .bashrc Aliases Source File Does NOT Exist!"
+    arg2="  $sourceTxtFile"
+    argErrCode=" Error Code: $bashrcAliasesErrCode"
+
+    errXMsg  "$arg1" "$arg2" "$argErrCode" "$argFuncName" "$argScriptName"
 
     return $bashrcAliasesErrCode
   }
@@ -624,13 +638,11 @@ function configBashrcAliases() {
 
     bashrcAliasesErrCode=$?
 
-    echo
-    echo "Error calling appendTextToFile()"
-    echo "Target File: $bashrcTargetFile"
-    echo "Error Code: $bashrcAliasesErrCode"
-    echo "Function: configBashrcAliases()"
-    echo "Script File: utilsAppConfig.sh"
-    echo
+    arg1=" Error calling appendTextToFile()"
+    arg2=" Target File: $bashrcTargetFile"
+    argErrCode=" Error Code: $bashrcAliasesErrCode"
+
+    errXMsg  "$arg1" "$arg2" "$argErrCode" "$argFuncName" "$argScriptName"
 
     return $bashrcAliasesErrCode
   }
@@ -640,12 +652,97 @@ function configBashrcAliases() {
 
     bashrcAliasesErrCode=$?
 
-    errXMsg "Error returned by 'source' command:" "source $bashrcTargetFile" "Error Code: $bashrcAliasesErrCode" "Function: configBashrcAliases()" "Script File: utilsAppConfig.sh"
+    arg1=" Error returned by 'source' command:"
+    arg2=" Source File: $bashrcTargetFile"
+    argErrCode=" Error Code: $bashrcAliasesErrCode"
+
+    errXMsg  "$arg1" "$arg2" "$argErrCode" "$argFuncName" "$argScriptName"
 
     return $bashrcAliasesErrCode
   }
 
-  msgNotify "    --------------" "'.bashrc' Aliases Successfully Configured and Now Active" "Sourced Alias Target File:" "$bashrcTargetFile" "    --------------"
+  arg1=" --------------------------------------------------------"
+  arg2=" '.bashrc' Aliases Successfully Configured and Now Active"
+  arg3=" Sourced Alias Target File:"
+  arg4=" $bashrcTargetFile"
+  arg5=" --------------------------------------------------------"
+
+  msgNotify "$arg1" "$arg2" "$arg3" "$arg4" "$argFuncName" "$argScriptName" "$arg5"
+
+  return 0
+}
+
+# Configures ssh-agent in .bashrc file
+function configBashrcSSH() {
+
+  local sourceTxtFile="$utilAppCfgSetups"/cfgBashrc/installBashrcSSH.txt
+
+  local bashrcTargetDir="$HOME"
+
+  local bashrcTargetFileName=".bashrc"
+
+  local bashrcTargetFile="$bashrcTargetDir"/"$bashrcTargetFileName"
+
+  local -i bashrcAliasesErrCode=0
+
+  local arg1=""
+  local arg2=""
+  local arg3=""
+  local arg4=""
+  local arg5=""
+
+  local argErrCode=""
+  local argFuncName=" Function: configBashrcSSH()"
+  local argScriptName=" Script File: utilsAppConfig.sh"
+
+  [[ -f $sourceTxtFile ]] || {
+
+    bashrcAliasesErrCode=89
+
+    arg1=" .bashrc Aliases Source File Does NOT Exist!"
+    arg2=" .bashrc Aliases Source File:"
+    arg3="  $sourceTxtFile"
+    argErrCode=" Error Code: $bashrcAliasesErrCode"
+
+    errXMsg "$arg1" "$arg2" "$arg3" "$argErrCode" "$argFuncName" "$argScriptName"
+
+    return $bashrcAliasesErrCode
+  }
+
+  appendTextToFile "$sourceTxtFile" "$bashrcTargetDir" "$bashrcTargetFileName" "775" "$(whoami)" || {
+
+    bashrcAliasesErrCode=$?
+
+    arg1=" Error calling appendTextToFile()"
+    arg2=" Target File: $bashrcTargetFile"
+    argErrCode=" Error Code: $bashrcAliasesErrCode"
+
+    errXMsg "$arg1" "$arg2" "$argErrCode" "$argFuncName" "$argScriptName"
+
+    return $bashrcAliasesErrCode
+  }
+
+  # shellcheck disable=SC1090
+  source "$bashrcTargetFile" || {
+
+    bashrcAliasesErrCode=$?
+
+    arg1=" Error returned by 'source' command:"
+    arg2=" Source: $bashrcTargetFile"
+    argErrCode=" Error Code: $bashrcAliasesErrCode"
+
+    errXMsg "$arg1" "$arg2" "$argErrCode" "$argFuncName" "$argScriptName"
+
+    return $bashrcAliasesErrCode
+  }
+
+    arg1=" --------------------------------------------------------"
+    arg2=" '.bashrc' Aliases Successfully Configured and Now Active"
+    arg3=" Sourced Alias Target File:"
+    arg4=" $bashrcTargetFile"
+    arg5=" --------------------------------------------------------"
+
+  msgNotify "$arg1" "$arg2" "$arg3" "$arg4" "$argFuncName" "$argScriptName" "$arg5"
 
   return 0
 }
