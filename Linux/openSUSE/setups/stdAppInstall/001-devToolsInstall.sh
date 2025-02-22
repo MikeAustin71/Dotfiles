@@ -152,8 +152,8 @@ msgNotify "Installing Lua language and Tools" &&
 installLuaTools &&
 msgNotify "Installing 02 Dev Tools" &&
 installDevTools &&
-msgNotify "Installing QT6 Tech Libraries" &&
-installQT6Libs &&
+# msgNotify "Installing QT6 Tech Libraries" &&
+# installQT6Libs &&
 msgNotify "Installing Python 3" &&
 installPython3 &&
 msgNotify "Installing Python 3 Libs" &&
