@@ -632,15 +632,17 @@ function installKrusader() {
 }
 
 
-
-
 function installKvmTools() {
 
-  sudo zypper install -t pattern kvm_tools &&
-
-  sudo zypper install -t pattern kvm_server
+  sudo zypper install -t pattern kvm_tools
 
 }
+
+function installKvmServer () {
+
+  sudo zypper install -t pattern kvm_server
+}
+
 
 function installLibdrm() {
 
