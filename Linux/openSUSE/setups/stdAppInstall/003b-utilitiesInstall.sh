@@ -27,6 +27,8 @@ msgNotify "Installing 'Kate' Text Editor" &&
 installKate &&
 msgNotify "Installing 'ImageMagick'" &&
 installImageMagick
+msgNotify "Installing 'cheat'" &&
+installCheat &&
 msgNotify "Returning to Home Base" &&
 changeToDir "$baseSetups3bDir/stdAppInstall" &&
 successMsg "All Phase-3b Utilities Installed." "003b-utilitiesInstall.sh" || {
