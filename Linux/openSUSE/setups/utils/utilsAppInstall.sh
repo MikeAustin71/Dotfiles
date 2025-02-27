@@ -452,72 +452,6 @@ function installGit() {
   return $errCode
 }
 
-function installKate() {
-
-  local -i kateErrorCode=0
-
-  sudo zypper install kate || {
-
-      kateErrorCode=$?
-
-     echo "     *** ERROR ***"
-     echo "Error returned while installing"
-     echo "'Kate' Text Editor."
-     echo "Command: sudo zypper install kate"
-     echo "Error Code: $kateErrorCode"
-     echo "Function: installKate()"
-     echo "Script: utilsAppInstall.sh"
-  }
-
-
-  return $kateErrorCode
-}
-
-# KeypassXC Password Manager
-# https://keepassxc.org/
-# Run Command:
-#  flatpak run org.keepassxc.KeePassXC
-function installKeePassXC() {
-
-  local -i keypassXCErrorCode=0
-
-  flatpak install flathub org.keepassxc.KeePassXC || {
-
-      keypassXCErrorCode=$?
-
-     echo "     *** ERROR ***"
-     echo "Error returned while installing"
-     echo "KeePassXC from 'flathub'."
-     echo "Error Code: $keypassXCErrorCode"
-     echo "Function: installKeePassXC()"
-     echo "Script: utilsAppInstall.sh"
-
-     return $keypassXCErrorCode
-  }
-
-  return 0
-}
-
-# KGet is a versatile and user-friendly
-# download manager.
-# https://apps.kde.org/kget/
-function installKget() {
-
-  sudo zypper install kget
-}
-
-# krename = batch renamer
-# used by Krusader
-# KRename is a very powerful batch file
-# renamer which can rename a list of files
-# based on a set of expressions.
-# https://apps.kde.org/krename/
-function installKrename() {
-
-   sudo zypper install krename
-
-}
-
 function installScriptGHQ() {
 
   local -i ghqFuncErrorCode=0
@@ -545,7 +479,7 @@ function installScriptGHQ() {
 
 function installGrubCustomizer() {
 
-  sudo zypper install grub-customizer 
+  sudo zypper install grub-customizer
 
 }
 
@@ -603,6 +537,28 @@ function installImageMagick() {
 
 }
 
+# GUI Editor
+function installKate() {
+
+  local -i kateErrorCode=0
+
+  sudo zypper install kate || {
+
+      kateErrorCode=$?
+
+     echo "     *** ERROR ***"
+     echo "Error returned while installing"
+     echo "'Kate' Text Editor."
+     echo "Command: sudo zypper install kate"
+     echo "Error Code: $kateErrorCode"
+     echo "Function: installKate()"
+     echo "Script: utilsAppInstall.sh"
+  }
+
+
+  return $kateErrorCode
+}
+
 # Advanced LaTeX Editor
 # Designed for use with KDE Plasma
 # Run Command:
@@ -619,9 +575,54 @@ function installKdiff3() {
 
 }
 
+# KGet is a versatile and user-friendly
+# download manager.
+# https://apps.kde.org/kget/
+function installKget() {
+
+  sudo zypper install kget
+}
+
 function installKitty() {
 
   sudo zypper install kitty kitty-shell-integration
+
+}
+
+# KeypassXC Password Manager
+# https://keepassxc.org/
+# Run Command:
+#  flatpak run org.keepassxc.KeePassXC
+function installKeePassXC() {
+
+  local -i keypassXCErrorCode=0
+
+  flatpak install flathub org.keepassxc.KeePassXC || {
+
+      keypassXCErrorCode=$?
+
+     echo "     *** ERROR ***"
+     echo "Error returned while installing"
+     echo "KeePassXC from 'flathub'."
+     echo "Error Code: $keypassXCErrorCode"
+     echo "Function: installKeePassXC()"
+     echo "Script: utilsAppInstall.sh"
+
+     return $keypassXCErrorCode
+  }
+
+  return 0
+}
+
+# krename = batch renamer
+# used by Krusader
+# KRename is a very powerful batch file
+# renamer which can rename a list of files
+# based on a set of expressions.
+# https://apps.kde.org/krename/
+function installKrename() {
+
+   sudo zypper install krename
 
 }
 
