@@ -13,7 +13,7 @@
 
  declare vmShareBaseDir="$VMShare"
 
- declare vmShareTargetBaseDir="$vmShareBaseDir"/OpenSUSE/Tumbleweed
+ declare vmShareTargetBaseDir="$vmShareBaseDir"
 
  declare vmShareTargetCfgDir="$vmShareTargetBaseDir"/config
 
