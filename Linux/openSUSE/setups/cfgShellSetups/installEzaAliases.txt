@@ -6,15 +6,26 @@
 # https://github.com/eza-community/eza
 # =======================================
 
+
 # Equivalent of ls alias
-alias la='eza --long --all --color=always'
+# alias la='eza --long --all --color=always'
 
 # ls - mimics the original 'ls' command
-alias ls='eza --long --all --header --color=always'
+#alias ls='eza --long --all --header --color=always'
+
+# ls - Shows actual and hidden files
+# Plus additional stats
+ alias ls='eza -lahig --color=always'
+
+ # lsl - Same as ls but piped to 'less'
+ alias lsl="eza -lahig --color=always | less"
 
 # ld - lists only directories (no files)
 #       This includes hidden directories
-  alias ld='eza -lDa'
+ alias ld='eza -lDahg --color=always'
+
+# ldl - Same as 'ld' but piped to 'less'
+ alias ldl="eza -lDahg --color=always | less"
 
 # le - lists everything with directories first
   alias le='eza -al --group-directories-first'
@@ -35,13 +46,14 @@ alias ls='eza --long --all --header --color=always'
 # ltr - List tree with 3-levels
   alias ltr='eza -TL 3 -a --color=always'
 
-
-# lx - Shows actual and hidden files
+# ls - Shows actual and hidden files
 # Plus additional stats
 alias ls='eza -lahig --color=always'
 
-
-
 # ===================================================
+#      END OF 'eza' Aliases
+# ===================================================
+
+
 
 
