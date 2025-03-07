@@ -10,9 +10,6 @@
 # Equivalent of ls alias
 # alias la='eza --long --all --color=always'
 
-# ls - mimics the original 'ls' command
-#alias ls='eza --long --all --header --color=always'
-
 # ls - Shows actual and hidden files
 # Plus additional stats
  alias ls='eza -lahig --color=always'
@@ -45,10 +42,6 @@
 
 # ltr - List tree with 3-levels
   alias ltr='eza -TL 3 -a --color=always'
-
-# ls - Shows actual and hidden files
-# Plus additional stats
-alias ls='eza -lahig --color=always'
 
 # ===================================================
 #      END OF 'eza' Aliases
