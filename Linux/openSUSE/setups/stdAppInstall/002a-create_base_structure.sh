@@ -14,8 +14,8 @@ source "$baseSetups2Dir"/utils/utilsLib.sh
 source "$baseSetups2Dir"/utils/utilsAppConfig.sh
 source "$baseSetups2Dir"/utils/utilsAppInstall.sh
 
-msgNotify "Configuring Environment Variables in .bash_profile" &&
-configBashProfileEnvars &&
+msgNotify "Configuring Environment Variables in .bashrc" &&
+configBashrcEnvars &&
 msgNotify "Configuring User Path in .bashrc" &&
 configBashrcUserPath &&
 msgNotify "Configuring User Functions in .bashrc" &&

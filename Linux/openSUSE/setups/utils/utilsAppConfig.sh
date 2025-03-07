@@ -547,9 +547,9 @@ function configBashProfileBroot() {
 }
 
 # Configures Envars Variables in .bash_profile
-function configBashProfileEnvars() {
- 
-  local sourceTxtFile="$utilAppCfgSetups"/cfgBashProfile/installBashProfileEnvars.txt
+function configBashrcEnvars() {
+
+  local sourceTxtFile="$utilAppCfgSetups"/cfgBashrc/installBashrcEnvars.txt
  
   local bashProfileTargetDir="$HOME"
 
@@ -563,7 +563,7 @@ function configBashProfileEnvars() {
 
     bashProfileEnvarsErrCode=89
 
-    errXMsg ".bash_profile Envars Source File Does NOT Exist!" ".bash_profile Envars Source File:" "  $sourceTxtFile" "Error Code: $bashProfileEnvarsErrCode" "Function: configBashProfileEnvars()" "Script File: utilsAppConfig.sh"
+    errXMsg ".bash_profile Envars Source File Does NOT Exist!" ".bash_profile Envars Source File:" "  $sourceTxtFile" "Error Code: $bashProfileEnvarsErrCode" "Function: configBashrcEnvars()" "Script File: utilsAppConfig.sh"
 
     return $bashProfileEnvarsErrCode
   }
@@ -576,7 +576,7 @@ function configBashProfileEnvars() {
     echo "Error calling appendTextToFile()"
     echo "Target File: $bashProfileTargetFile"
     echo "Error Code: $bashProfileEnvarsErrCode"
-    echo "Function: configBashProfileEnvars()"
+    echo "Function: configBashrcEnvars()"
     echo "Script File: utilsAppConfig.sh"
     echo
 
@@ -588,7 +588,7 @@ function configBashProfileEnvars() {
 
     bashProfileEnvarsErrCode=$?
 
-    errXMsg "Error returned by 'source' command:" "source $bashProfileTargetFile" "Error Code: $bashProfileEnvarsErrCode" "Function: configBashProfileEnvars()" "Script File: utilsAppConfig.sh"
+    errXMsg "Error returned by 'source' command:" "source $bashProfileTargetFile" "Error Code: $bashProfileEnvarsErrCode" "Function: configBashrcEnvars()" "Script File: utilsAppConfig.sh"
 
     return $bashProfileEnvarsErrCode
   }
@@ -1090,7 +1090,7 @@ function configDirStructure() {
 
 # Configures Envars Variables in 
 # HOME/.config/shell/envars directory.
-# configBashProfileEnvars() should be
+# configBashrcEnvars() should be
 # call immediately after this function.
 function configEnvars() {
 
@@ -1207,7 +1207,7 @@ function configKrusader() {
 
 # Configures Envars Variables in 
 # HOME/.config/shell/envars directory.
-# configBashProfileEnvars() should be
+# configBashrcEnvars() should be
 # call immediately after this function.
 function configUserFuncs() {
 
