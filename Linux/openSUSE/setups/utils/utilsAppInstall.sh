@@ -758,6 +758,16 @@ function installNcurses() {
 
 }
 
+function installNerdFontSymbols() {
+
+  sudo zypper install symbols-only-nerd-fonts
+}
+
+# Font for LaTeX and  LuaLaTeX
+function installTexliveInconsolataFont() {
+  sudo zypper install texlive-inconsolata-nerd-font
+}
+
 function installNpm() {
 
   sudo zypper install npm-default

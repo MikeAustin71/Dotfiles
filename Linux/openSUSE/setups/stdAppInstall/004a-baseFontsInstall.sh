@@ -39,7 +39,16 @@ function getWallpaper() {
   source "$scriptFile"
 }
 
-
+msgNotify "Installing Terminus Bit Map Fonts" &&
+installTerminusBitMapFonts &&
+msgNotify "Installing Terminus Consoleet Fonts" &&
+installTerminusConsoleetFonts &&
+msgNotify "Installing Font Awesome" &&
+installFontAwesome &&
+msgNotify "Installing NerdFontSymbols" &&
+installNerdFontSymbols &&
+msgNotify "Installing texlive-inconsolata-nerd-font" &&
+installTexliveInconsolataFont &&
 msgNotify "Installing Nerd Fonts" &&
 installNerdFonts &&
 msgNotify "Installing Google Fonts" &&
