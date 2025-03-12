@@ -419,6 +419,8 @@ function installGimp() {
 
 }
 
+# Install 'git' 'git-core' and
+# 'lazygit'
 function installGit() {
 
   local -i errCode=0
@@ -448,6 +450,21 @@ function installGit() {
     echo "Function: installGit()"
     echo "Script: utilsAppInstall.sh"
   }
+
+
+  sudo zypper install lazygit || {
+
+    errCode=$?
+
+    echo "     *** ERROR ***"
+    echo "Error occurred while installing 'lazygit' !!"
+    echo "Command: sudo zypper install lazygit"
+    echo "Error Code: $errCode"
+    echo "Function: installGit()"
+    echo "Script: utilsAppInstall.sh"
+  }
+
+
 
   return $errCode
 }
@@ -669,7 +686,11 @@ function installLibFuse2() {
 
 }
 
+# Install 'lazygit' git helper
+function installLazyGit() {
 
+  sudo zypper install lazygit
+}
 
 # Low Level Virtual Machine
 # https://en.wikipedia.org/wiki/LLVM

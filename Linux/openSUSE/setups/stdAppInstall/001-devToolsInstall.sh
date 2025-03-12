@@ -132,7 +132,7 @@ configUserPath() {
 
 msgNotify "Installing VmWare Tools" &&
 installVmwareTools &&
-msgNotify "Installing 'git'" &&
+msgNotify "Installing 'git' 'git-core' and 'lazygit' " &&
 installGit
 msgNotify "Installing 'nano'" &&
 installNano &&
