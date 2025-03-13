@@ -224,7 +224,7 @@ function update2() {
 #                FUNCTION
 #                update3
 # Full Update. Update Everything
-# zypper, flatpak, npm and rust
+# zypper, flatpak, npm, rust and gem
 # zypper uses --allow-vendor-change
 ###############################################
 function update3() {
@@ -236,7 +236,7 @@ function update3() {
   echo "**********************************************"
   echo "          Function: update3()"
   echo "Update Everything:"
-  echo "       zypper, flatpak, npm and rust "
+  echo "       zypper, flatpak, npm, rust and gem"
   echo "USES --allow-vendor-change"
   echo "**********************************************"
   echo ""
@@ -296,6 +296,20 @@ function update3() {
     errorCode=$?
      echo "Error while updating 'rust'"
      echo "Command: 'rustup update'"
+     echo "Terminating Update Operation!"
+     echo "Error Code: $errorCode"
+     echo "Function: update3"
+     echo "Script File: userFunctions.sh"
+
+     return $errorCode
+
+  }
+
+  sudo gem update || {
+
+    errorCode=$?
+     echo "Error while updating 'gem'"
+     echo "Command: 'sudo gem update'"
      echo "Terminating Update Operation!"
      echo "Error Code: $errorCode"
      echo "Function: update3"
