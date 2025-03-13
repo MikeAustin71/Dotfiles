@@ -172,6 +172,10 @@ msgNotify "Installing 'flatseal'" &&
 installFlatSeal &&
 msgNotify "Installing 'openssh'" &&
 installSSH &&
+msgNotify "Installing lua54-luarocks" &&
+installLuaRocks &&
+msgNotify "Installing ruby + utilities" &&
+installRuby &&
 #msgNotify "Installing KVM Tools" &&
 #installKvmTools &&
 #msgNotify "Installing KVM Server" &&

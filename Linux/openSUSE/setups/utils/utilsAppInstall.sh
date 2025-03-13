@@ -723,7 +723,7 @@ function installLua() {
 
 function installLuaRocks() {
 
-  sudo zypper install luarocks
+  sudo zypper install lua54-luarocks
 
 }
 
@@ -1051,6 +1051,51 @@ comment
 
   return $theErrCode
 }
+
+# Install 'ruby' and associated utilities
+function installRuby() {
+
+  local -i theErrCode=0
+
+  sudo zypper install ruby ruby3.4-devel ruby-devel || {
+
+    theErrCode=$?
+
+    echo "Error: 'ruby' installation FAILED!"
+    echo "Command: sudo zypper install ruby ruby3.4-devel ruby-devel"
+    echo "Function: installRuby()"
+    echo "Script: utilsAppInstall.sh"
+    echo "Error Code: $theErrCode"
+    return $theErrCode
+ }
+
+  sudo zypper install libyaml-devel ruby3.4-doc || {
+
+    theErrCode=$?
+
+    echo "Error: Ruby Utilities installation FAILED!"
+    echo "Command: sudo zypper install libyaml-devel ruby3.4-doc"
+    echo "Function: installRuby()"
+    echo "Script: utilsAppInstall.sh"
+    echo "Error Code: $theErrCode"
+
+    return $theErrCode
+ }
+
+  sudo gem install neovim || {
+
+    theErrCode=$?
+
+    echo "Error: gem-neovim installation FAILED!"
+    echo "Command: sudo gem install neovimc"
+    echo "Function: installRuby()"
+    echo "Script: utilsAppInstall.sh"
+    echo "Error Code: $theErrCode"
+  }
+
+  return $theErrCode
+}
+
 
 function installSamba() {
 
