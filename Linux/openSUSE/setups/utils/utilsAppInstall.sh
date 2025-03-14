@@ -814,6 +814,26 @@ function installNeofetch() {
 
 }
 
+function installNeovimUtilities() {
+
+  local -i lastExitCode=0
+
+  sudo npm install -g tree-sitter-cli ||
+  {
+
+    theErrCode=$?
+
+    echo "Error: Installation of neovim 'tree-sitter-cli' Failed!"
+    echo "Command: sudo npm install -g tree-sitter-cli"
+    echo "Function: installNeovimUtilities()"
+    echo "Script: utilsAppInstall.sh"
+    echo "Error Code: $theErrCode"
+
+  }
+
+  return "$theErrCode"
+}
+
 function installNetworkManager() {
 
   local -i lastExitCode=0
@@ -1010,7 +1030,7 @@ function installRust() {
     echo "Function: installRust()"
     echo "Script: utilsAppInstall.sh"
     echo "Error Code: $theErrCode"
-    return $theErrCode
+    return "$theErrCode"
 
 
   }
@@ -1025,29 +1045,7 @@ function installRust() {
     echo "Script: utilsAppInstall.sh"
     echo "Error Code: $theErrCode"
 
-    return $theErrCode
   }
-
-
-<<comment
-
-  Old Command
-  sudo zypper install rustup && rustup toolchain install stable || {
-
-      rustErrCode=$?
-
-      echo
-      echo "   *** ERROR ***"
-      echo "Error returned while installing 'rust' tools"
-      echo "Error Code: $rustErrCode"
-      echo "Function: installRust()"
-      echo "Script: utilsAppInstall.sh"
-      echo
-
-      return $rustErrCode
-  }
-
-comment
 
   return $theErrCode
 }
