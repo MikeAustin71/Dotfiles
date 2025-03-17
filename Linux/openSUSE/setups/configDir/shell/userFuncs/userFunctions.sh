@@ -241,7 +241,11 @@ function update3() {
   echo "**********************************************"
   echo ""
 
-
+  echo ""
+  echo "**********************************************"
+  echo "            Repository Refresh"
+  echo "**********************************************"
+  echo ""
 
   sudo zypper refresh || {
     errorCode=$?
@@ -254,7 +258,13 @@ function update3() {
     return $errorCode
   }
 
-  sudo zypper dup --allow-vendor-change || {
+  echo ""
+  echo "**********************************************"
+  echo "          Starting zypper Update"
+  echo "**********************************************"
+  echo ""
+
+    sudo zypper dup --allow-vendor-change || {
     errorCode=$?
      echo "Error from 'sudo zypper dup --allow-vendor-change'"
      echo "Terminating Update Operation!"
@@ -265,6 +275,12 @@ function update3() {
      return $errorCode
 
   }
+
+  echo ""
+  echo "**********************************************"
+  echo "             Updating Flatpak"
+  echo "**********************************************"
+  echo ""
 
   sudo flatpak update || {
 
@@ -278,6 +294,12 @@ function update3() {
      return $errorCode
   }
 
+  echo ""
+  echo "**********************************************"
+  echo "             Updating npm"
+  echo "**********************************************"
+  echo ""
+
   sudo npm update || {
 
     errorCode=$?
@@ -290,6 +312,11 @@ function update3() {
      return $errorCode
   }
 
+  echo ""
+  echo "**********************************************"
+  echo "             Updating rust"
+  echo "**********************************************"
+  echo ""
 
   rustup update || {
 
@@ -304,6 +331,12 @@ function update3() {
      return $errorCode
 
   }
+
+  echo ""
+  echo "**********************************************"
+  echo "             Updating gem"
+  echo "**********************************************"
+  echo ""
 
   sudo gem update || {
 
