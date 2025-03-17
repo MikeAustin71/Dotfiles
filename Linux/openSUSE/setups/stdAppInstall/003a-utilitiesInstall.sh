@@ -37,6 +37,10 @@ msgNotify "Installing 'font-manager'" &&
 installFontMgr &&
 msgNotify "Installing fastfetch" &&
 installFastFetch &&
+msgNotify "Installing 'broot'" &&
+installBroot &&
+msgNotify "Configuring 'broot' aliases" &&
+configAliasesBroot &&
 msgNotify "Returning to Home Base" &&
 changeToDir "$baseSetups5Dir/stdAppInstall" &&
 successMsg "All Phase-3a Utilities Installed." "003a-utilitiesInstall" || {
