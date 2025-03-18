@@ -69,5 +69,5 @@ successMsg "$HOME/.inputrc" "to" "$HOME/.config/shell/backups/inputrcBak"  "Scri
 
   errXMsg "inputrcBakUpToShell.sh" "Error-Exit!"
 
-  return $inputrcBakToShell_ErrorCode
+  exit $inputrcBakToShell_ErrorCode
 }

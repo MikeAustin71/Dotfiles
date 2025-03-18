@@ -69,5 +69,5 @@ successMsg "$HOME/.bash_profile" "to" "$HOME/.config/shell/backups/profileBak"  
 
   errXMsg "bash_profileBakUpToShell.sh" "Error-Exit!"
 
-  return $bash_profileBakToShell_ErrorCode
+  exit $bash_profileBakToShell_ErrorCode
 }

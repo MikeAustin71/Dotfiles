@@ -129,6 +129,6 @@ successMsg "saveConfigsToVM.sh - Successful Completion!" "Copied Home Configs to
 
   errXMsg "saveConfigsToVM.sh" "Error-Exit!" "Error Code: $saveCfgShellToVMShare_ErrorCode"
 
-  return $saveCfgShellToVMShare_ErrorCode
+  exit $saveCfgShellToVMShare_ErrorCode
 
 }

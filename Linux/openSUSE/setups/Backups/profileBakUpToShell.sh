@@ -70,6 +70,6 @@ successMsg "$HOME/.profile" "to" "$HOME/.config/shell/backups/profileBak"  "Scri
 
   errXMsg "profileBakUpToShell.sh" "Error-Exit!"
 
-  return $profileBakToShell_ErrorCode
+  exit $profileBakToShell_ErrorCode
 
 }

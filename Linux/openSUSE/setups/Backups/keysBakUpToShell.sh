@@ -191,5 +191,5 @@ successMsg "Completed Backup of public and private keys"  "Script:  keysBakUpToS
 
   errXMsg " keysBakUpToShell.sh" "Error-Exit!"
 
-  return $keysBakToShell_ErrorCode
+  exit $keysBakToShell_ErrorCode
 }

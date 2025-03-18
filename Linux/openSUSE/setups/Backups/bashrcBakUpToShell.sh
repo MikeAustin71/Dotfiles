@@ -72,6 +72,6 @@ successMsg "$HOME/.bashrc" "to" "$HOME/.config/shell/backups/bashrcBak"  "Script
 
   errXMsg "bashrcBakUpToShell.sh" "Error-Exit!"
 
-  return $bashrcBakToShell_ErrorCode
+  exit $bashrcBakToShell_ErrorCode
 
 }
