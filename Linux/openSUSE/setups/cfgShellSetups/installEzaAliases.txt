@@ -43,6 +43,9 @@
 # ltr - List tree with 3-levels
   alias ltr='eza -TL 3 -a --color=always'
 
+# lw - List directory names in rows
+  alias lw="eza -Ga --color=always"
+
 # ===================================================
 #      END OF 'eza' Aliases
 # ===================================================
