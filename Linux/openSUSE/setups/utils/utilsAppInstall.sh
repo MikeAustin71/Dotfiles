@@ -818,6 +818,21 @@ function installNeovimUtilities() {
 
   local -i lastExitCode=0
 
+
+  sudo npm install -g neovim ||
+  {
+
+    theErrCode=$?
+
+    echo "Error: Installation of npm 'neovim' Failed!"
+    echo "Command: sudo npm install -g neovim"
+    echo "Function: installNeovimUtilities()"
+    echo "Script: utilsAppInstall.sh"
+    echo "Error Code: $theErrCode"
+
+  }
+
+
   sudo npm install -g tree-sitter-cli ||
   {
 
@@ -830,6 +845,8 @@ function installNeovimUtilities() {
     echo "Error Code: $theErrCode"
 
   }
+
+
 
   return "$theErrCode"
 }
