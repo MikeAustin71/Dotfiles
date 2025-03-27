@@ -818,6 +818,20 @@ function installNeovimUtilities() {
 
   local -i lastExitCode=0
 
+  sudo zypper install nvim-treesitter ||
+  {
+
+    theErrCode=$?
+
+    echo "Error: Installation of 'nvim-treesitter' Failed!"
+    echo "Command: sudo zypper install nvim-treesitter"
+    echo "Function: installNeovimUtilities()"
+    echo "Script: utilsAppInstall.sh"
+    echo "Error Code: $theErrCode"
+
+    return "$theErrCode"
+  }
+
 
   sudo npm install -g neovim ||
   {
@@ -830,6 +844,7 @@ function installNeovimUtilities() {
     echo "Script: utilsAppInstall.sh"
     echo "Error Code: $theErrCode"
 
+    return "$theErrCode"
   }
 
 
@@ -845,8 +860,6 @@ function installNeovimUtilities() {
     echo "Error Code: $theErrCode"
 
   }
-
-
 
   return "$theErrCode"
 }
