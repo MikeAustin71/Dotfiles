@@ -1301,11 +1301,27 @@ function install_x_Drivers_ati() {
 
 }
 
+
+
+# Yazi Terminal File Manager
+# https://yazi-rs.github.io/
+# Be sure to configure .bashrc
+# for yazi. See configBashrcYazi()
+# Latest OpenSUSE installation
+# version.
+function installOsYazi() {
+
+ sudo zypper install yazi
+
+}
+
+
 # Yazi Terminal File Manager
 # https://yazi-rs.github.io/
 # Be sure to configure .bashrc
 # for yazi. See configBashrcYazi()
 # in utilsAppConfig.sh.
+# DEPRICATED!
 function installYazi() {
 
   local -i theErrCode=0

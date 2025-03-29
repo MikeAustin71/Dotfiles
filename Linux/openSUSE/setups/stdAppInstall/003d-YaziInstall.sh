@@ -12,7 +12,7 @@ source "$baseSetups3dDir"/utils/utilsAppInstall.sh
 source "$baseSetups3dDir"/utils/utilsAppConfig.sh
 
 msgNotify "Installing 'Yazi' File Manager" &&
-installYazi &&
+installOsYazi &&
 msgNotify "Configuring User Functions for 'Yazi' File Manager" &&
 configFuncsYazi
 msgNotify "Returning to Home Base" &&
