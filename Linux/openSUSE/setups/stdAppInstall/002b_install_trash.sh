@@ -1,7 +1,6 @@
 #!/bin/bash
-# Installs Trash
-# This procedure is error prone and
-# requires user intervention.
+# Installs Trash ('trash-cli')
+
 
 declare baseSetups2bDir="$HOME"/bashOps/setups
 
