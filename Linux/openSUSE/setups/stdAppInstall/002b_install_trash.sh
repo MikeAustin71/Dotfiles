@@ -3,16 +3,19 @@
 # This procedure is error prone and
 # requires user intervention.
 
-echo
-echo "Installing Trash"
-echo
+declare baseSetups2bDir="$HOME"/bashOps/setups
 
-# No longer required
-# sudo zypper addrepo https://download.opensuse.org/repositories/home:our-obo-ros/openSUSE_Tumbleweed/home:our-obo-ros.repo
-
-
-sudo zypper refresh
+source "$baseSetups2bDir"/utils/utilsLib.sh
+source "$baseSetups2bDir"/utils/utilsAppConfig.sh
+source "$baseSetups2bDir"/utils/utilsAppInstall.sh
 
 
-sudo zypper install trash-cli
+msgNotify "Installing 'trash-cli" &&
+installTrashCli &&
+msgNotify "Returning to Home Base" &&
+changeToDir "$baseSetups2bDir/stdAppInstall" &&
+successMsg "'trash-cli' Installed." "002b_install_trash.sh" "Reboot This PC!!!" || {
 
+  errXMsg "002b_install_trash.sh Execution Failed" "'trash-cli' Installation Error" "Error-Exit!"
+
+}

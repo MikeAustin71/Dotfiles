@@ -1207,6 +1207,28 @@ function installTmux() {
 
 }
 
+function installTrashCli() {
+
+  local -i trashErrCode=0
+
+  sudo zypper install trash-cli || {
+
+      trashErrCode=$?
+
+      echo
+      echo "   *** ERROR ***"
+      echo "Error returned while installing 'trash-cli'"
+      echo "Command: 'sudo zypper install trash-cli' "
+      echo "Error Code: $trashErrCode"
+      echo "Function: installTrashCli()"
+      echo "Script: utilsAppInstall.sh"
+      echo
+  }
+
+  return $trashErrCode
+}
+
+
 function installTypora() {
 
   local -i typoraErrCode=0
