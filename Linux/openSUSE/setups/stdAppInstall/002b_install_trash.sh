@@ -7,7 +7,8 @@ echo
 echo "Installing Trash"
 echo
 
-sudo zypper addrepo https://download.opensuse.org/repositories/home:our-obo-ros/openSUSE_Tumbleweed/home:our-obo-ros.repo
+# No longer required
+# sudo zypper addrepo https://download.opensuse.org/repositories/home:our-obo-ros/openSUSE_Tumbleweed/home:our-obo-ros.repo
 
 
 sudo zypper refresh
