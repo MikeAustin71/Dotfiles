@@ -263,6 +263,7 @@ function update3() {
   echo "          Starting zypper Update"
   echo "**********************************************"
   echo ""
+  echo ""
 
     sudo zypper dup --allow-vendor-change || {
     errorCode=$?
@@ -276,6 +277,7 @@ function update3() {
 
   }
 
+  echo ""
   echo ""
   echo "**********************************************"
   echo "             Updating Flatpak"
@@ -295,6 +297,7 @@ function update3() {
   }
 
   echo ""
+  echo ""
   echo "**********************************************"
   echo "             Updating npm"
   echo "**********************************************"
@@ -312,6 +315,7 @@ function update3() {
      return $errorCode
   }
 
+  echo ""
   echo ""
   echo "**********************************************"
   echo "             Updating rust"
@@ -332,6 +336,8 @@ function update3() {
 
   }
 
+
+  echo ""
   echo ""
   echo "**********************************************"
   echo "             Updating gem"
@@ -352,7 +358,7 @@ function update3() {
 
   }
 
-
+  echo ""
   echo ""
   echo "******************************************"
   echo "   update3() Successfully Completed!"
