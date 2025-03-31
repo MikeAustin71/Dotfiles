@@ -22,8 +22,6 @@ msgNotify "Configuring User Functions in .bashrc" &&
 configBashrcFuncs &&
 msgNotify "Configuring Aliases in .bashrc" &&
 configBashrcAliases &&
-msgNotify "Configuring ssh-agent in .bashrc" &&
-configBashrcSSH &&
 msgNotify "Installing 'bash-completion'" &&
 installBashCompletion &&
 msgNotify "Configuring 'bash-completion' in .bashrc" &&
