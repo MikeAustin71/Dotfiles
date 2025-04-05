@@ -157,7 +157,27 @@ function deleteNeovimDirs() {
 
   fi
 
-  msgNotify "Successfully deleted 'neovim' directories" " "
+  targetDir="/opt/nvim"
+
+  if [[ -d $targetDir ]]
+  then
+
+    removeDir "$targetDir" || {
+
+      theErrCode=$?
+
+      arg1=" Failed to delete Neovim /opt/nvim Directory!"
+      arg2=" Command: removeDir $targetDir"
+      argErrCode=" Error Code: $theErrCode"
+
+      errXMsg  "$arg1" "$arg2" "$argErrCode" "$argFuncName" "$argScriptName"
+
+      return $theErrCode
+    }
+
+  fi
+
+  msgNotify "Successfully deleted existing 'neovim' directories" " "
 
   return $theErrCode
 }
