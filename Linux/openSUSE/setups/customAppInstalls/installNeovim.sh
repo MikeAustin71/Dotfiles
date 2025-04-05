@@ -123,6 +123,8 @@ function installNeovimSupportApps() {
 
   sudo zypper install nvim-treesitter
 
+  sudo zypper install julia
+
 }
 
 
