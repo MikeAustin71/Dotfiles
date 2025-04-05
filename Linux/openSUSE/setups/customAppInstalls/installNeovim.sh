@@ -71,7 +71,7 @@ function installNeovim() {
 
       theErrCode=$?
 
-      arg1=" Failed to delete Neovim $targetExeDir Directory!"
+      arg1=" Failed to delete Neovim opt's 'nvim' directory!"
       arg2=" Command: removeDir $targetExeDir"
       argErrCode=" Error Code: $theErrCode"
 
@@ -81,6 +81,7 @@ function installNeovim() {
     }
 
   fi
+
 
   targetExeDir="/opt/nvim-linux-x86_64"
 
@@ -91,7 +92,7 @@ function installNeovim() {
 
       theErrCode=$?
 
-      arg1=" Failed to delete Neovim $targetExeDir!"
+      arg1=" Failed to delete Neovim opt's nvim-linux-x86_64 directory!"
       arg2=" Command: removeDir $targetExeDir"
       argErrCode=" Error Code: $theErrCode"
 
@@ -102,6 +103,7 @@ function installNeovim() {
 
   fi
 
+  # Actual installation operation
   sudo tar -C /opt -xzf nvim-linux-x86_64.tar.gz || {
 
       theErrCode=$?
@@ -117,9 +119,18 @@ function installNeovim() {
   return $theErrCode
 }
 
+function installNeovimSupportApps() {
+
+  sudo zypper install nvim-treesitter
+
+}
+
+
 msgNotify "Installing new version of Neovim" " " &&
 installNeovim &&
+msgNotify "Installing Neovim Supporting Apps" " " &&
 msgNotify "Returning to Home Base" &&
+installNeovimSupportApps &&
 changeToDir "$currInNvimDir" &&
 successMsg "Neovim has been Installed" "installNeovim.sh" "Install Dir: /opt/nvim-linux-x86_64/bin" "Don't forget to update PATH!" || {
 
