@@ -1,5 +1,12 @@
 #!/bin/bash
-# Install neovim editor
+# Installs neovim editor
+# ++++++++++++++++++++++++++++++++++++++++++++++
+#       IMPORTANT
+# ++++++++++++++++++++++++++++++++++++++++++++++
+# Download nvim-linux-x86_64.tar.gz to the
+# local downloads directory FIRST!
+# ~/Downloads
+#
 # Remember to add Neovim to your PATH
 # export PATH="$PATH:/opt/nvim-linux-x86_64/bin"
 
@@ -22,6 +29,10 @@ function installNeovim() {
   local argFuncName=" Function: installNeovim()"
   local argScriptName=" Script File: installNeovim.sh"
   local workDir="$HOME"/scratch
+  local dwnLoadDir="$HOME"/Downloads
+  local srcFile="nvim-linux-x86_64.tar.gz"
+  local targetSrcFile="$dwnLoadDir"/"$srcFile"
+  local targetDestFile="$workDir"/"$srcFile"
 
   changeToDir "$workDir" || {
 
@@ -36,33 +47,52 @@ function installNeovim() {
       return $theErrCode
   }
 
-  curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim-linux-x86_64.tar.gz || {
+  mv "$targetSrcFile" "$targetDestFile" || {
 
       theErrCode=$?
 
-      arg1=" Failed to download latest version of Neovim!"
-      arg2=" curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim-linux-x86_64.tar.gz"
+      arg1=" Failed to move Neovim tarball from Downloads Directory to Temp Directory!"
+      arg2=" Command: mv $targetSrcFile $targetDestFile"
       argErrCode=" Error Code: $theErrCode"
 
       errXMsg  "$arg1" "$arg2" "$argErrCode" "$argFuncName" "$argScriptName"
 
       return $theErrCode
-
   }
 
   # sudo rm -rf /opt/nvim
 
-  local targetDir="/opt/nvim"
+  local targetExeDir="/opt/nvim"
 
-  if [[ -d $targetDir ]]
+  if [[ -d $targetExeDir ]]
   then
 
-    removeDir "$targetDir" || {
+    removeDir "$targetExeDir" || {
 
       theErrCode=$?
 
-      arg1=" Failed to delete Neovim /opt/nvim Directory!"
-      arg2=" Command: removeDir $targetDir"
+      arg1=" Failed to delete Neovim $targetExeDir Directory!"
+      arg2=" Command: removeDir $targetExeDir"
+      argErrCode=" Error Code: $theErrCode"
+
+      errXMsg  "$arg1" "$arg2" "$argErrCode" "$argFuncName" "$argScriptName"
+
+      return $theErrCode
+    }
+
+  fi
+
+  targetExeDir="/opt/nvim-linux-x86_64"
+
+  if [[ -d $targetExeDir ]]
+  then
+
+    removeDir "$targetExeDir" || {
+
+      theErrCode=$?
+
+      arg1=" Failed to delete Neovim $targetExeDir!"
+      arg2=" Command: removeDir $targetExeDir"
       argErrCode=" Error Code: $theErrCode"
 
       errXMsg  "$arg1" "$arg2" "$argErrCode" "$argFuncName" "$argScriptName"
@@ -91,7 +121,7 @@ msgNotify "Installing new version of Neovim" " " &&
 installNeovim &&
 msgNotify "Returning to Home Base" &&
 changeToDir "$currInNvimDir" &&
-successMsg "Neovim has been Installed" "installNeovim.sh" || {
+successMsg "Neovim has been Installed" "installNeovim.sh" "Install Dir: /opt/nvim-linux-x86_64/bin" "Don't forget to update PATH!" || {
 
   errXMsg "installNeovim.sh Execution Failed" "Error-Exit!"
 
