@@ -125,6 +125,8 @@ function installNeovimSupportApps() {
 
   sudo zypper install julia
 
+  sudo zypper install StyLua
+
   sudo gem install neovim
 
 }
