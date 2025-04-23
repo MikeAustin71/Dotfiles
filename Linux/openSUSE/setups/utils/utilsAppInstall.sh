@@ -1438,6 +1438,27 @@ function installYazi() {
   return $theErrCode
 }
 
+# Installs 'yarn'
+# https://software.opensuse.org/package/yarn?search_term=yarn
+function installYarn() {
+
+  local -i theErrCode=0
+
+  sudo zypper install yarn || {
+
+    theErrCode=$?
+
+    echo "Error: 'yarn' install command FAILED!"
+    echo "Command: sudo zypper install yarn"
+    echo "Function: installYarn()"
+    echo "Script: utilsAppInstall.sh"
+    echo "Error Code: $theErrCode"
+
+  }
+
+  return $theErrCode
+}
+
 # zoxide
 # zoxide is a smarter cd command, inspired by z and autojump.
 # https://github.com/ajeetdsouza/zoxide
