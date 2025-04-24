@@ -164,8 +164,6 @@ msgNotify "Installing 'npm'" &&
 installNpm &&
 msgNotify "Installing NodeJS" &&
 installNodeJs &&
-msgNotify "Installing 'yarn'" &&
-installYarn &&
 msgNotify "Installing Go" &&
 installGo &&
 msgNotify "Installing 'rust' tools" &&
