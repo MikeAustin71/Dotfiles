@@ -1026,6 +1026,13 @@ function installRanger() {
 
 }
 
+# Graphics library
+function installResvg() {
+
+  sudo zypper install resvg
+
+}
+
 function installRetext() {
 
   sudo zypper install retext

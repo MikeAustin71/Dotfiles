@@ -176,6 +176,8 @@ msgNotify "Installing lua54-luarocks" &&
 installLuaRocks &&
 msgNotify "Installing ruby + utilities" &&
 installRuby &&
+msgNotify "Installing 'resvg' Graphics Library" &&
+installResvg &&
 msgNotify "Installing Neovim Utilities" &&
 installNeovimUtilities &&
 #msgNotify "Installing KVM Tools" &&
