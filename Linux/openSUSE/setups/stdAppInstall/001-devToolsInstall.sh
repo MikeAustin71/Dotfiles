@@ -178,6 +178,8 @@ msgNotify "Installing ruby + utilities" &&
 installRuby &&
 msgNotify "Installing 'resvg' Graphics Library" &&
 installResvg &&
+msgNotify "Installing 'glow' - Render Markdown on CLI" &&
+installGlow &&
 msgNotify "Installing Neovim Utilities" &&
 installNeovimUtilities &&
 #msgNotify "Installing KVM Tools" &&

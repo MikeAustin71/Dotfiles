@@ -494,6 +494,13 @@ function installScriptGHQ() {
 
 }
 
+# Render markdown on CLI
+function installGlow() {
+
+  sudo zypper install glow
+
+}
+
 function installGrubCustomizer() {
 
   sudo zypper install grub-customizer
