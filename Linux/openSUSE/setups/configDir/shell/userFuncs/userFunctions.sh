@@ -243,6 +243,23 @@ function update3() {
 
   echo ""
   echo "**********************************************"
+  echo "            Repository Clean All"
+  echo "**********************************************"
+  echo ""
+
+  sudo zypper clean --all || {
+    errorCode=$?
+    echo "Error from 'sudo zypper clean --all'"
+    echo "Terminating Update Operation!"
+    echo "Error Code: $errorCode"
+    echo "Function: update3()"
+    echo "Script File: userFunctions.sh"
+
+    return $errorCode
+  }
+
+  echo ""
+  echo "**********************************************"
   echo "            Repository Refresh"
   echo "**********************************************"
   echo ""
@@ -260,7 +277,8 @@ function update3() {
 
   echo ""
   echo "**********************************************"
-  echo "          Starting zypper Update"
+  echo "       Starting zypper 'dup' Update           "
+  echo "   sudo zypper dup --allow-vendor-change      "
   echo "**********************************************"
   echo ""
   echo ""
