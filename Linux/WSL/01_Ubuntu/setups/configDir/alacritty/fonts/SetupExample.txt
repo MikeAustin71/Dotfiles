@@ -1,0 +1,7 @@
+# Add this to main alacritty.yml file:
+import:
+  - /path/to/MesloLGS_NF_Fonts_.yml
+
+# Important. For alacritty you have to 
+# use the entire path. Example:
+#  ~/.config/alacritty/fonts/MesloLGS_NF_Fonts_.yml

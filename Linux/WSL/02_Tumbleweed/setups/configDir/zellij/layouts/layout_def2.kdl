@@ -1,0 +1,12 @@
+layout {
+
+    pane split_direction="vertical" {
+        pane
+        pane
+    }
+
+    pane size=10 {
+        plugin location="zellij:status-bar"
+    }
+
+}

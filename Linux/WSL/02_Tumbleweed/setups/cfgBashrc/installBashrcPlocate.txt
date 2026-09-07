@@ -1,0 +1,6 @@
+
+
+# Update plocate database everytime
+# you launch bash
+
+sudo updatedb

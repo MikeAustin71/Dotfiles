@@ -1,0 +1,7 @@
+# You don't need to install this.
+# It's installed automatically when you
+# install 'hishtory'.
+
+# Hishtory Config:
+export PATH="$PATH:/home/mike/.hishtory"
+source /home/mike/.hishtory/config.sh

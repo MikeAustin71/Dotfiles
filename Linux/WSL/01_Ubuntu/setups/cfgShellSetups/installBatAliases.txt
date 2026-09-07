@@ -1,0 +1,10 @@
+
+# Aliases for 'bat'
+# 'bat' is a replacement for 'cat'
+# https://github.com/sharkdp/bat
+
+# alias cat='bat -paging=never'
+
+alias pnt='bat -paging=never'
+
+alias pat='bat -paging=always'

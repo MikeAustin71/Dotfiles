@@ -1,0 +1,6 @@
+# Information on the shell/keys Directory
+# ########################################
+# Directory ~/.config/shell/keys is used to back up
+# the "$HOME"/.gnupg directory as well as the
+# $HOME"/privkey.asc and "$HOME"/pubkey.asc directories.
+#

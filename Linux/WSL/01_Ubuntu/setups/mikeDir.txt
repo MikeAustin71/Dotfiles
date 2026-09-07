@@ -1,0 +1,1 @@
+"$HOME/shares/VMShare/VMSharedData//OpenSUSE/Tumbleweed/setups"

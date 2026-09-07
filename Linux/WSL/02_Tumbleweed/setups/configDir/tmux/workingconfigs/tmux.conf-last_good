@@ -1,0 +1,128 @@
+# Bind Ctrl+Space as prefix key
+unbind C-Space
+unbind C-b
+set -g prefix C-Space
+bind C-Space send-prefix
+
+# Start windows and panes at 1, not 0
+set -g base-index 1
+set -g pane-base-index 1
+set-window-option -g pane-base-index 1
+set-option -g renumber-windows on
+
+# C-Space+n = New Window
+bind-key n new-window
+
+# Set easier window split keys
+bind-key v split-window -v
+bind-key h split-window -h
+
+# Use Alt+arrow keys to switch panes
+bind -n M-Left select-pane -L
+bind -n M-Right select-pane -R
+bind -n M-Up select-pane -U
+bind -n M-Down select-pane -D
+
+# Shift arrow to switch windows
+bind -n S-Left previous-window
+bind -n S-Right next-window
+
+# Use xclip to copy and paste with the system clipboard
+# bind-key Ctrl+c = Copy
+# bind-key Ctrl+v = Paste
+bind C-c run "tmux save-buffer - | xclip -i -sel clip"
+bind C-v run "tmux set-buffer $(xclip -o -sel clip); tmux paste-buffer"
+
+# Set History Limit = 5000
+set -g history-limit 5000
+
+# Required by Neovim
+# set -sa terminal-overrides ',alacritty:RGB'
+
+# Required by Neovim
+set -g -sg escape-time 10
+
+# Required by Neovim
+set -g focus-events on
+
+# Set 256 Colors. Required by Neovim
+#set -g default-terminal "screen-256color"
+set -g default-terminal "tmux-256color"
+
+# statusbar
+
+#set -g status-position bottom
+#set -g status-justify left
+#set -g status-style 'fg=colour1'
+#set -g status-left ''
+#set -g status-right '%Y-%m-%d %H:%M '
+#set -g status-right-length 50
+#set -g status-left-length 10
+#setw -g window-status-current-style 'fg=colour0 bg=colour1 bold'
+#setw -g window-status-current-format ' #I #W #F '
+#setw -g window-status-style 'fg=colour1 dim'
+#setw -g window-status-format ' #I #[fg=colour7]#W #[fg=colour1]#F #[fg=colour7]'
+#setw -g window-status-bell-style 'fg=colour2 bg=colour1 bold'
+
+
+# messages
+#set -g message-style 'fg=colour2 bg=colour0 bold'
+
+set -g status-bg colour26
+set -g window-status-style bg=yellow
+set -g window-status-current-style bg=colour7,fg=black
+
+# Move Status Bar to Top of Screen
+set-option -g status-position top
+
+# Set Mouse on
+set -g mouse on
+
+# Easy config file reload
+unbind r
+bind r source-file ~/.config/tmux/tmux.conf \; display "'tmux' Reloaded!"
+
+# List of plugins
+
+set -g @plugin 'tmux-plugins/tpm'
+
+
+# Don't want this one
+# set -g @plugin 'tmux-plugins/tmux-sensible'
+
+
+# Other examples:
+
+# set -g @plugin 'github_username/plugin_name'
+
+# set -g @plugin 'github_username/plugin_name#branch'
+
+# set -g @plugin 'git@github.com:user/plugin'
+
+# set -g @plugin 'git@bitbucket.com:user/plugin'
+
+set -g @plugin 'catppuccin/tmux'
+set -g @catppuccin_flavour 'latte' # or frappe, macchiato, mocha
+
+set -g @catppuccin_window_left_separator ""
+set -g @catppuccin_window_right_separator " "
+set -g @catppuccin_window_middle_separator " █"
+set -g @catppuccin_window_number_position "right"
+
+set -g @catppuccin_window_default_fill "number"
+set -g @catppuccin_window_default_text "#W"
+
+set -g @catppuccin_window_current_fill "number"
+set -g @catppuccin_window_current_text "#W"
+
+set -g @catppuccin_status_modules_right "directory session"
+set -g @catppuccin_status_left_separator  " "
+set -g @catppuccin_status_right_separator ""
+set -g @catppuccin_status_fill "icon"
+set -g @catppuccin_status_connect_separator "no"
+
+set -g @catppuccin_directory_text "#{pane_current_path}"
+
+# Initialize TMUX plugin manager (keep this line at the very bottom of tmux.conf)
+
+run '~/.config/tmux/plugins/tpm/tpm'
