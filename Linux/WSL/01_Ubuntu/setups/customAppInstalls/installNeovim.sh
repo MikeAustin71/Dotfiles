@@ -121,11 +121,11 @@ function installNeovim() {
 
 function installNeovimSupportApps() {
 
-  sudo zypper install nvim-treesitter
+  sudo apt install nvim-treesitter
 
-  sudo zypper install julia
+  sudo apt install julia
 
-  sudo zypper install StyLua
+  sudo apt install StyLua
 
   sudo gem install neovim
 

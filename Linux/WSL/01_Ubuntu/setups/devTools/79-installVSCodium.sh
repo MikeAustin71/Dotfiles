@@ -24,12 +24,12 @@ echo
 
   }
 
-  sudo zypper addrepo -cfp 90 'https://paulcarroty.gitlab.io/vscodium-deb-rpm-repo/rpms/' vscodium || {
+  sudo apt addrepo -cfp 90 'https://paulcarroty.gitlab.io/vscodium-deb-rpm-repo/rpms/' vscodium || {
 
     theVSCodiumErrCode=$?
 
     echo "Error: Installation of VSCodium repository FAILED!"
-    echo "Command: sudo zypper addrepo -cfp 90 'https://paulcarroty.gitlab.io/vscodium-deb-rpm-repo/rpms/' vscodium"
+    echo "Command: sudo apt addrepo -cfp 90 'https://paulcarroty.gitlab.io/vscodium-deb-rpm-repo/rpms/' vscodium"
     echo "Script: 79-installVSCodium.sh"
     echo "Error Code: $theVSCodiumErrCode"
 
@@ -37,12 +37,12 @@ echo
   }
 
 
-  sudo zypper install vscodium-insiders || {
+  sudo apt install vscodium-insiders || {
 
     theVSCodiumErrCode=$?
 
     echo "Error: Primary Installation of VSCodium FAILED!"
-    echo "Command: sudo zypper install vscodium-insiders"
+    echo "Command: sudo apt install vscodium-insiders"
     echo "Script: 79-installVSCodium.sh"
     echo "Error Code: $theVSCodiumErrCode"
 
@@ -51,12 +51,12 @@ echo
   }
 comment
 
-  sudo zypper install codium || {
+  sudo apt install codium || {
 
     theVSCodiumErrCode=$?
 
     echo "Error: Primary Installation of VSCodium FAILED!"
-    echo "Command: sudo zypper install codium"
+    echo "Command: sudo apt install codium"
     echo "Script: 79-installVSCodium.sh"
     echo "Error Code: $theVSCodiumErrCode"
 

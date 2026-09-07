@@ -48,8 +48,8 @@ function mPwrOff() {
 ###############################################
 #                FUNCTION
 #                update0
-# Update zypper only
-# zypper DOES NOT USE --allow-vendor-change
+# Update apt only
+# apt DOES NOT USE --allow-vendor-change
 ###############################################
 function update0() {
 
@@ -58,16 +58,16 @@ function update0() {
   echo ""
   echo "*********************************************"
   echo "          Function: update0()"
-  echo "Update zypper ONLY."
+  echo "Update apt ONLY."
   echo "DOES NOT USE --allow-vendor-change"
-  echo "sudo zypper dup"
+  echo "sudo apt dup"
   echo "*********************************************"
   echo ""
 
 
-  sudo zypper refresh || {
+  sudo apt refresh || {
     errorCode=$?
-    echo "Error from 'sudo zypper refresh'"
+    echo "Error from 'sudo apt refresh'"
     echo "Terminating Update Operation!"
     echo "Error Code: $errorCode"
     echo "Function: update0()"
@@ -76,9 +76,9 @@ function update0() {
     return $errorCode
   }
 
-  sudo zypper dup || {
+  sudo apt dup || {
     errorCode=$?
-     echo "Error from 'sudo zypper dup'"
+     echo "Error from 'sudo apt dup'"
      echo "Terminating Update Operation!"
      echo "Error Code: $errorCode"
      echo "Function: update0()"
@@ -102,8 +102,8 @@ function update0() {
 ###############################################
 #                FUNCTION
 #                update1
-# Update zypper only
-# zypper uses --allow-vendor-change
+# Update apt only
+# apt uses --allow-vendor-change
 ###############################################
 function update1() {
 
@@ -113,16 +113,16 @@ function update1() {
   echo ""
   echo "*********************************************"
   echo "          Function: update1()"
-  echo "Update zypper ONLY."
+  echo "Update apt ONLY."
   echo "USES --allow-vendor-change"
-  echo "sudo zypper dup --allow-vendor-change"
+  echo "sudo apt dup --allow-vendor-change"
   echo "*********************************************"
   echo ""
 
 
-  sudo zypper refresh || {
+  sudo apt refresh || {
     errorCode=$?
-    echo "Error from 'sudo zypper refresh'"
+    echo "Error from 'sudo apt refresh'"
     echo "Terminating Update Operation!"
     echo "Error Code: $errorCode"
     echo "Function: update1()"
@@ -131,9 +131,9 @@ function update1() {
     return $errorCode
   }
 
-  sudo zypper dup --allow-vendor-change || {
+  sudo apt dup --allow-vendor-change || {
     errorCode=$?
-     echo "Error from 'sudo zypper dup --allow-vendor-change'"
+     echo "Error from 'sudo apt dup --allow-vendor-change'"
      echo "Terminating Update Operation!"
      echo "Error Code: $errorCode"
      echo "Function: update1()"
@@ -157,8 +157,8 @@ function update1() {
 ###############################################
 #                FUNCTION
 #                update2
-# Update zypper and flatpak
-# zypper uses --allow-vendor-change
+# Update apt and flatpak
+# apt uses --allow-vendor-change
 ###############################################
 
 function update2() {
@@ -169,16 +169,16 @@ function update2() {
   echo ""
   echo "*********************************************"
   echo "          Function: update2()"
-  echo "Update zypper and flatpak"
+  echo "Update apt and flatpak"
   echo "USES --allow-vendor-change"
   echo "*********************************************"
   echo ""
 
 
 
-  sudo zypper refresh || {
+  sudo apt refresh || {
     errorCode=$?
-    echo "Error from 'sudo zypper refresh'"
+    echo "Error from 'sudo apt refresh'"
     echo "Terminating Update Operation!"
     echo "Error Code: $errorCode"
     echo "Function: update2()"
@@ -187,9 +187,9 @@ function update2() {
     return $errorCode
   }
 
-  sudo zypper dup --allow-vendor-change || {
+  sudo apt dup --allow-vendor-change || {
     errorCode=$?
-     echo "Error from 'sudo zypper dup --allow-vendor-change'"
+     echo "Error from 'sudo apt dup --allow-vendor-change'"
      echo "Terminating Update Operation!"
      echo "Error Code: $errorCode"
      echo "Function: update2()"
@@ -224,8 +224,8 @@ function update2() {
 #                FUNCTION
 #                update3
 # Full Update. Update Everything
-# zypper, flatpak, npm, rust and gem
-# zypper uses --allow-vendor-change
+# apt, flatpak, npm, rust and gem
+# apt uses --allow-vendor-change
 ###############################################
 function update3() {
 
@@ -236,7 +236,7 @@ function update3() {
   echo "**********************************************"
   echo "          Function: update3()"
   echo "Update Everything:"
-  echo "       zypper, flatpak, npm, rust and gem"
+  echo "       apt, flatpak, npm, rust and gem"
   echo "USES --allow-vendor-change"
   echo "**********************************************"
   echo ""
@@ -247,9 +247,9 @@ function update3() {
   echo "**********************************************"
   echo ""
 
-  sudo zypper clean --all || {
+  sudo apt clean --all || {
     errorCode=$?
-    echo "Error from 'sudo zypper clean --all'"
+    echo "Error from 'sudo apt clean --all'"
     echo "Terminating Update Operation!"
     echo "Error Code: $errorCode"
     echo "Function: update3()"
@@ -264,9 +264,9 @@ function update3() {
   echo "**********************************************"
   echo ""
 
-  sudo zypper refresh || {
+  sudo apt refresh || {
     errorCode=$?
-    echo "Error from 'sudo zypper refresh'"
+    echo "Error from 'sudo apt refresh'"
     echo "Terminating Update Operation!"
     echo "Error Code: $errorCode"
     echo "Function: update3()"
@@ -277,15 +277,15 @@ function update3() {
 
   echo ""
   echo "**********************************************"
-  echo "       Starting zypper 'dup' Update           "
-  echo "   sudo zypper dup --allow-vendor-change      "
+  echo "       Starting apt 'dup' Update           "
+  echo "   sudo apt dup --allow-vendor-change      "
   echo "**********************************************"
   echo ""
   echo ""
 
-    sudo zypper dup --allow-vendor-change || {
+    sudo apt dup --allow-vendor-change || {
     errorCode=$?
-     echo "Error from 'sudo zypper dup --allow-vendor-change'"
+     echo "Error from 'sudo apt dup --allow-vendor-change'"
      echo "Terminating Update Operation!"
      echo "Error Code: $errorCode"
      echo "Function: update3()"

@@ -6,14 +6,14 @@ echo
 echo "Installing Lua language"
 echo
 
-sudo zypper install lua54 || {
+sudo apt install lua54 || {
 
   declare -i theErrCode=0
 
   theErrCode=$?
 
   echo "Error: Installation of 'lua' FAILED"
-  echo "Command: sudo zypper install lua54"
+  echo "Command: sudo apt install lua54"
   echo "Script: 07-installLua.sh"
   echo "Error Code: $theErrCode"
 
@@ -23,14 +23,14 @@ sudo zypper install lua54 || {
 }
 
 
-sudo zypper install lua54-doc || {
+sudo apt install lua54-doc || {
 
   declare -i theErrCode=0
 
   theErrCode=$?
 
   echo "Error: Installation of 'lua54-doc' FAILED"
-  echo "Command: zypper install lua54-doc"
+  echo "Command: apt install lua54-doc"
   echo "Script: 07-installLua.sh"
   echo "Error Code: $theErrCode"
 

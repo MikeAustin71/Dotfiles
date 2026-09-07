@@ -3,4 +3,4 @@
 # enhance media codecs operations in Fedora.
 # RUN THIS SCRIPT AS SUDO!!
 
-sudo zypper groupupdate sound-and-video
+sudo apt groupupdate sound-and-video

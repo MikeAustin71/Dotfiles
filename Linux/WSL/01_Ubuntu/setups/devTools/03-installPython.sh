@@ -6,14 +6,14 @@ echo
 echo "Installing Python 3"
 echo
 
-  sudo zypper install -t pattern devel_python3  || {
+  sudo apt install -t pattern devel_python3  || {
 
     declare -i theErrCode=0
 
     theErrCode=$?
 
     echo "Error: Installation of pattern devel_python3 FAILED!"
-    echo "Command: sudo zypper install -t pattern devel_python3 "
+    echo "Command: sudo apt install -t pattern devel_python3 "
     echo "Script: 03-installPython.sh"
     echo "Error Code: $theErrCode"
 

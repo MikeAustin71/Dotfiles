@@ -7,14 +7,14 @@ declare -i appInstallErrCode=0
 # Alacritty Terminal Emulator
 function installAlacritty() {
 
-  sudo zypper install alacritty alacritty-bash-completion
+  sudo apt install alacritty alacritty-bash-completion
 
 }
 
 # Advanced Linux Sound Architecture (ALSA) utilities
 function installAlsaUtils() {
 
-  sudo zypper install alsa-utils 
+  sudo apt install alsa-utils 
 
 }
 
@@ -25,27 +25,27 @@ function installAlsaUtils() {
 #
 function installAtuin() {
 
-  sudo zypper install atuin
+  sudo apt install atuin
 
 }
 
 
 function installAutoJump() {
 
-  sudo zypper install autojump 
+  sudo apt install autojump 
 
 }
 
 # Installs Awesome Window Manager
 function installAwesomeWM() {
 
-  sudo zypper install awesome 
+  sudo apt install awesome 
 
 }
 
 function installBashCompletion() {
 
-  sudo zypper install bash-completion bash-completion-doc
+  sudo apt install bash-completion bash-completion-doc
 }
 
 # A replacement for cat
@@ -53,14 +53,14 @@ function installBashCompletion() {
 # (https://github.com/sharkdp/bat)
 function installBat() {
 
-  sudo zypper install bat 
+  sudo apt install bat 
 
 }
 
 # Hex Editor
 function installBless() {
 
-  sudo zypper install bless bless-doc
+  sudo apt install bless bless-doc
 
 }
 
@@ -71,24 +71,24 @@ function installBless() {
 # Inspired by gtop, gotop, and htop.
 function installBottom() {
 
-  sudo zypper install bottom
+  sudo apt install bottom
 }
 
 function installBroot() {
 
-  sudo zypper install broot 
+  sudo apt install broot 
   
 }
 
 function installBtop() {
 
-  sudo zypper install btop 
+  sudo apt install btop 
 
 }
 
 function installCheat() {
 
-  sudo zypper install cheat 
+  sudo apt install cheat 
 
 }
 
@@ -96,7 +96,7 @@ function installCheat() {
 # https://cockpit-project.org/
 function installCockpit() {
 
-  sudo zypper install cockpit cockpit-bridge cockpit-doc cockpit-kdump cockpit-machines cockpit-networkmanager cockpit-packagekit cockpit-podman cockpit-selinux cockpit-storaged cockpit-system cockpit-tukit cockpit-ws cockpit-pcp sssd-dbus
+  sudo apt install cockpit cockpit-bridge cockpit-doc cockpit-kdump cockpit-machines cockpit-networkmanager cockpit-packagekit cockpit-podman cockpit-selinux cockpit-storaged cockpit-system cockpit-tukit cockpit-ws cockpit-pcp sssd-dbus
 }
 
 #
@@ -121,7 +121,7 @@ function installCopyQ() {
 
 function installCoreUtils() {
 
-  sudo zypper install coreutils 
+  sudo apt install coreutils 
 
 }
 
@@ -129,7 +129,7 @@ function installCompressionUtilities() {
 
  local -i THE_ERR_Code=0
 
-  sudo zypper install tar gzip bzip2 lzop zip p7zip gzip || {
+  sudo apt install tar gzip bzip2 lzop zip p7zip gzip || {
 
     THE_ERR_Code=$?
 
@@ -144,13 +144,13 @@ function installCompressionUtilities() {
     return $THE_ERR_Code
   }
 
-  sudo zypper install lz4 unrar rar lha arj || {
+  sudo apt install lz4 unrar rar lha arj || {
 
     THE_ERR_Code=$?
 
     echo
     echo "Error installing compression apps series-2"
-    echo "Command: sudo zypper install lz4 unrar rar lha arj"
+    echo "Command: sudo apt install lz4 unrar rar lha arj"
     echo "Error Code: $THE_ERR_Code"
     echo "Function: installCompressionUtilities()"
     echo "Script File: utilsAppInstall.sh"
@@ -162,7 +162,7 @@ function installCompressionUtilities() {
 
 function installCurl() {
 
-  sudo zypper install curl 
+  sudo apt install curl 
 
 }
 
@@ -171,15 +171,15 @@ function installCurl() {
 #   'podman'
 function installDistroBox() {
 
- sudo zypper install distrobox &&
+ sudo apt install distrobox &&
 
- sudo zypper install distrobox-bash-completion
+ sudo apt install distrobox-bash-completion
 
 }
 
 function installDolfin() {
 
-  sudo zypper install dolphin 
+  sudo apt install dolphin 
 
 }
 
@@ -195,7 +195,7 @@ function installDrawIO() {
 
 function installDuf() {
 
-  sudo zypper install duf 
+  sudo apt install duf 
 
 }
 
@@ -203,14 +203,14 @@ function installDuf() {
 # https://github.com/dunst-project/dunst
 function installDunst() {
 
-  sudo zypper install dunst libnotify 
+  sudo apt install dunst libnotify 
 
 }
 
 # https://github.com/bootandy/dust
 function installDust() {
 
-  sudo zypper install dust
+  sudo apt install dust
 
 }
 
@@ -219,7 +219,7 @@ function installDust() {
 # https://github.com/eza-community/eza
 function installEza() {
 
-  sudo zypper install eza 
+  sudo apt install eza 
 
 }
 
@@ -227,7 +227,7 @@ function installEza() {
 # https://github.com/fastfetch-cli/fastfetch
 function installFastFetch() {
 
-  sudo zypper install fastfetch fastfetch-bash-completion
+  sudo apt install fastfetch fastfetch-bash-completion
 
 }
 
@@ -239,13 +239,13 @@ function installFastFetch() {
 # use cases.
 function installFd() {
 
-  sudo zypper install fd
+  sudo apt install fd
 
 }
 
 function installFirefox() {
 
-  sudo zypper install firefox 
+  sudo apt install firefox 
 
 }
 
@@ -269,7 +269,7 @@ function installFlatSeal() {
 
 function installFontAwesome() {
 
-  sudo zypper install fontawesome-fonts 
+  sudo apt install fontawesome-fonts 
 
 }
 
@@ -278,7 +278,7 @@ function installFontAwesome() {
 # Font Preview with GUI
 function installFontMgr() {
 
-  sudo zypper install font-manager
+  sudo apt install font-manager
 }
 
 
@@ -288,7 +288,7 @@ function installFontMgr() {
 # Call configBashrcFzf() in utilsAppConfig.sh
 function installFuzzyFinder() {
 
-  sudo zypper install fzf fzf-bash-integration fzf-tmux
+  sudo apt install fzf fzf-bash-integration fzf-tmux
 
 }
 
@@ -296,7 +296,7 @@ function installFuzzyFinder() {
 function installGeany() {
 
 
-  sudo zypper install geany geany-doc geany-lang libgeany0 || {
+  sudo apt install geany geany-doc geany-lang libgeany0 || {
 
     appInstallErrCode=$?
 
@@ -347,12 +347,12 @@ function installGeany() {
 
 # Calculator: speedcrunch
 function installGenius() {
-  sudo zypper install genius
+  sudo apt install genius
 }
 
 function installGhostwriter() {
 
-  sudo zypper install ghostwriter
+  sudo apt install ghostwriter
 
 }
 
@@ -363,12 +363,12 @@ function installGimp() {
 
   local -i theErrCode=0
 
-  sudo zypper install libcanberra-gtk3-module || {
+  sudo apt install libcanberra-gtk3-module || {
 
     theErrCode=$?
 
     echo "Error: Installation of required library for 'Gimp' FAILED"
-    echo "Command: sudo zypper install libcanberra-gtk3-module"
+    echo "Command: sudo apt install libcanberra-gtk3-module"
     echo "Function: installGimp()"
     echo "Script: utilsAppInstall.sh"
     echo "Error Code: $theErrCode"
@@ -377,12 +377,12 @@ function installGimp() {
   }
 
 
-  sudo zypper addrepo https://download.opensuse.org/repositories/graphics/openSUSE_Tumbleweed/graphics.repo || {
+  sudo apt addrepo https://download.opensuse.org/repositories/graphics/openSUSE_Tumbleweed/graphics.repo || {
 
     theErrCode=$?
 
     echo "Error occurred while adding gimp repository "
-    echo "Command: sudo zypper addrepo https://download.opensuse.org/repositories/graphics/openSUSE_Tumbleweed/graphics.repo"
+    echo "Command: sudo apt addrepo https://download.opensuse.org/repositories/graphics/openSUSE_Tumbleweed/graphics.repo"
     echo "Error Code: $theErrCode"
     echo "Function: installGimp()"
     echo "Script: utilsAppInstall.sh"
@@ -390,12 +390,12 @@ function installGimp() {
     return $theErrCode
   }
 
-  sudo zypper refresh || {
+  sudo apt refresh || {
 
     theErrCode=$?
 
     echo "Error occurred while refreshing repositories "
-    echo "Command: zypper refresh"
+    echo "Command: apt refresh"
     echo "Error Code: $theErrCode"
     echo "Function: installGimp()"
     echo "Script: utilsAppInstall.sh"
@@ -403,12 +403,12 @@ function installGimp() {
     return $theErrCode
   }
 
-  sudo zypper install gimp || {
+  sudo apt install gimp || {
 
     theErrCode=$?
 
     echo "Error occurred while installing 'gimp' "
-    echo "Command: sudo zypper install gimp"
+    echo "Command: sudo apt install gimp"
     echo "Error Code: $theErrCode"
     echo "Function: installGimp()"
     echo "Script: utilsAppInstall.sh"
@@ -425,13 +425,13 @@ function installGit() {
 
   local -i errCode=0
 
-  sudo zypper install git || {
+  sudo apt install git || {
 
     errCode=$?
 
     echo "     *** ERROR ***"
     echo "Error occurred while installing 'git' !!"
-    echo "Command: sudo zypper install git"
+    echo "Command: sudo apt install git"
     echo "Error Code: $errCode"
     echo "Function: installGit()"
     echo "Script: utilsAppInstall.sh"
@@ -439,26 +439,26 @@ function installGit() {
     return $errCode
   }
 
-  sudo zypper install git-core || {
+  sudo apt install git-core || {
 
     errCode=$?
 
     echo "     *** ERROR ***"
     echo "Error occurred while installing 'git-core' !!"
-    echo "Command: sudo zypper install git-core"
+    echo "Command: sudo apt install git-core"
     echo "Error Code: $errCode"
     echo "Function: installGit()"
     echo "Script: utilsAppInstall.sh"
   }
 
 
-  sudo zypper install lazygit || {
+  sudo apt install lazygit || {
 
     errCode=$?
 
     echo "     *** ERROR ***"
     echo "Error occurred while installing 'lazygit' !!"
-    echo "Command: sudo zypper install lazygit"
+    echo "Command: sudo apt install lazygit"
     echo "Error Code: $errCode"
     echo "Function: installGit()"
     echo "Script: utilsAppInstall.sh"
@@ -497,13 +497,13 @@ function installScriptGHQ() {
 # Render markdown on CLI
 function installGlow() {
 
-  sudo zypper install glow
+  sudo apt install glow
 
 }
 
 function installGrubCustomizer() {
 
-  sudo zypper install grub-customizer
+  sudo apt install grub-customizer
 
 }
 
@@ -557,7 +557,7 @@ function installHisHtory() {
 # manipulating images
 function installImageMagick() {
 
-  sudo zypper install ImageMagick
+  sudo apt install ImageMagick
 
 }
 
@@ -566,14 +566,14 @@ function installKate() {
 
   local -i kateErrorCode=0
 
-  sudo zypper install kate || {
+  sudo apt install kate || {
 
       kateErrorCode=$?
 
      echo "     *** ERROR ***"
      echo "Error returned while installing"
      echo "'Kate' Text Editor."
-     echo "Command: sudo zypper install kate"
+     echo "Command: sudo apt install kate"
      echo "Error Code: $kateErrorCode"
      echo "Function: installKate()"
      echo "Script: utilsAppInstall.sh"
@@ -595,7 +595,7 @@ function installKile() {
 
 function installKdiff3() {
 
-  sudo zypper install kdiff3 kdiff3-lang
+  sudo apt install kdiff3 kdiff3-lang
 
 }
 
@@ -604,12 +604,12 @@ function installKdiff3() {
 # https://apps.kde.org/kget/
 function installKget() {
 
-  sudo zypper install kget
+  sudo apt install kget
 }
 
 function installKitty() {
 
-  sudo zypper install kitty kitty-shell-integration
+  sudo apt install kitty kitty-shell-integration
 
 }
 
@@ -646,32 +646,32 @@ function installKeePassXC() {
 # https://apps.kde.org/krename/
 function installKrename() {
 
-   sudo zypper install krename
+   sudo apt install krename
 
 }
 
 function installKrusader() {
 
-  sudo zypper install krusader krusader-doc krusader-lang
+  sudo apt install krusader krusader-doc krusader-lang
 
 }
 
 
 function installKvmTools() {
 
-  sudo zypper install -t pattern kvm_tools
+  sudo apt install -t pattern kvm_tools
 
 }
 
 function installKvmServer () {
 
-  sudo zypper install -t pattern kvm_server
+  sudo apt install -t pattern kvm_server
 }
 
 
 function installLibdrm() {
 
-  sudo zypper install libdrm 
+  sudo apt install libdrm 
 
 }
 
@@ -681,7 +681,7 @@ function installLibdrm() {
 # to run.
 function installLibGlib() {
 
-  sudo zypper install libglib-2_0-0
+  sudo apt install libglib-2_0-0
 
 }
 
@@ -689,28 +689,28 @@ function installLibGlib() {
 # LibFuse2
 function installLibFuse2() {
 
-  sudo zypper install libfuse2
+  sudo apt install libfuse2
 
 }
 
 # Install 'lazygit' git helper
 function installLazyGit() {
 
-  sudo zypper install lazygit
+  sudo apt install lazygit
 }
 
 # Low Level Virtual Machine
 # https://en.wikipedia.org/wiki/LLVM
 function installLLVM() {
 
-  sudo zypper install llvm 
+  sudo apt install llvm 
 
 }
 
 # Lynis - Security hardening tool
 function installLynis() {
 
-  sudo zypper install lynis
+  sudo apt install lynis
 
 }
 
@@ -718,44 +718,44 @@ function installLynis() {
 # https://www.howtogeek.com/devops/how-to-use-lshw-in-linux-with-a-practical-example/
 function installLshw() {
 
-  sudo zypper install lshw
+  sudo apt install lshw
 
 }
 
 function installLua() {
 
-  sudo zypper install lua 
+  sudo apt install lua 
 
 }
 
 function installLuaRocks() {
 
-  sudo zypper install lua54-luarocks
+  sudo apt install lua54-luarocks
 
 }
 
 # A modern replacement for neofetch.
 function installMacChina() {
 
-  sudo zypper install macchina
+  sudo apt install macchina
 
 }
 
 function installMesaVulkanDrivers() {
 
-  sudo zypper install mesa-vulkan-drivers
+  sudo apt install mesa-vulkan-drivers
 
 }
 
 function installMicro() {
 
-  sudo zypper install micro-editor
+  sudo apt install micro-editor
 
 }
 
 function installMidnightCommander() {
 
-  sudo zypper install mc
+  sudo apt install mc
 
 }
 
@@ -763,7 +763,7 @@ function installMidnightCommander() {
 # https://meldmerge.org/
 function installMeld() {
 
-  sudo zypper install meld
+  sudo apt install meld
 
 }
 
@@ -775,49 +775,49 @@ function installMeld() {
 #  You MUST install 'ncurses' first!
 function installMultiTail() {
 
-  sudo zypper install multitail
+  sudo apt install multitail
 
 }
 
 # Dependency required for 'multitail'
 function installNcurses() {
 
-  sudo zypper install libncurses6
+  sudo apt install libncurses6
 
 }
 
 function installNerdFontSymbols() {
 
-  sudo zypper install symbols-only-nerd-fonts
+  sudo apt install symbols-only-nerd-fonts
 }
 
 # Font for LaTeX and  LuaLaTeX
 function installTexliveInconsolataFont() {
-  sudo zypper install texlive-inconsolata-nerd-font
+  sudo apt install texlive-inconsolata-nerd-font
 }
 
 function installNpm() {
 
-  sudo zypper install npm-default
+  sudo apt install npm-default
 
 }
 
 function installNano() {
 
-  sudo zypper install mc 
+  sudo apt install mc 
 
 }
 
 # ncdu = Disk Usage
 function installNcdu() {
 
-  sudo zypper install ncdu 
+  sudo apt install ncdu 
 
 }
 
 function installNeofetch() {
 
-  sudo zypper install neofetch 
+  sudo apt install neofetch 
 
 }
 
@@ -825,13 +825,13 @@ function installNeovimUtilities() {
 
   local -i lastExitCode=0
 
-  sudo zypper install nvim-treesitter ||
+  sudo apt install nvim-treesitter ||
   {
 
     theErrCode=$?
 
     echo "Error: Installation of 'nvim-treesitter' Failed!"
-    echo "Command: sudo zypper install nvim-treesitter"
+    echo "Command: sudo apt install nvim-treesitter"
     echo "Function: installNeovimUtilities()"
     echo "Script: utilsAppInstall.sh"
     echo "Error Code: $theErrCode"
@@ -875,7 +875,7 @@ function installNetworkManager() {
 
   local -i lastExitCode=0
 
-  sudo zypper install NetworkManager  ||
+  sudo apt install NetworkManager  ||
   {
     lastExitCode=$?
 
@@ -924,31 +924,31 @@ function installNetworkManager() {
 
 function installNitrogen() {
 
-  sudo zypper install nitrogen 
+  sudo apt install nitrogen 
 
 }
 
 function installNodeJs() {
 
-  sudo zypper install nodejs-common nodejs-default nodejs-devel-default
+  sudo apt install nodejs-common nodejs-default nodejs-devel-default
 
 }
 
 function installPandoc() {
 
-  sudo zypper install pandoc 
+  sudo apt install pandoc 
 
 }
 
 function installPapirusIconTheme() {
 
-  sudo zypper install papirus-icon-theme
+  sudo apt install papirus-icon-theme
 
 }
 
 function installProcs() {
 
-  sudo zypper install procs
+  sudo apt install procs
 
 }
 
@@ -967,7 +967,7 @@ function installScriptPeco() {
 # Compositor for xorg
 function installPicom() {
 
-  sudo zypper install picom 
+  sudo apt install picom 
 
 }
 
@@ -981,7 +981,7 @@ function installPicom() {
 # immediately after installing plocate
 function installPlocate() {
 
- sudo zypper install plocate
+ sudo apt install plocate
 
 }
 
@@ -991,7 +991,7 @@ function installPlocate() {
 # 'distrobox'.
 function installPodman() {
 
- sudo zypper install podman
+ sudo apt install podman
 
 }
 
@@ -1011,9 +1011,9 @@ function installPodmanDesktop {
 # Qalculate Calculator
 function installQalculate() {
 
- sudo zypper install qalculate
+ sudo apt install qalculate
 
- sudo zypper install qalculate-data libqalculate23 libqalculate-devel
+ sudo apt install qalculate-data libqalculate23 libqalculate-devel
 }
 
 # Calculator
@@ -1022,42 +1022,42 @@ function installQalculate() {
 # Qalculate Calculator
 function installQalculateQt() {
 
- sudo zypper install qalculate-qt
+ sudo apt install qalculate-qt
 
 }
 
 # https://github.com/ranger/ranger
 function installRanger() {
 
-  sudo zypper install ranger 
+  sudo apt install ranger 
 
 }
 
 # Graphics library
 function installResvg() {
 
-  sudo zypper install resvg
+  sudo apt install resvg
 
 }
 
 function installRetext() {
 
-  sudo zypper install retext
+  sudo apt install retext
 
 }
 
 function installRipGrep() {
 
-  sudo zypper install ripgrep 
+  sudo apt install ripgrep 
 
 }
 
 # https://github.com/davatorium/rofi
 function installRofi() {
 
-  sudo zypper install rofi
+  sudo apt install rofi
 
-  sudo zypper papirus-icon-theme
+  sudo apt papirus-icon-theme
 
 }
 
@@ -1099,24 +1099,24 @@ function installRuby() {
 
   local -i theErrCode=0
 
-  sudo zypper install ruby ruby3.4-devel ruby-devel || {
+  sudo apt install ruby ruby3.4-devel ruby-devel || {
 
     theErrCode=$?
 
     echo "Error: 'ruby' installation FAILED!"
-    echo "Command: sudo zypper install ruby ruby3.4-devel ruby-devel"
+    echo "Command: sudo apt install ruby ruby3.4-devel ruby-devel"
     echo "Function: installRuby()"
     echo "Script: utilsAppInstall.sh"
     echo "Error Code: $theErrCode"
     return $theErrCode
  }
 
-  sudo zypper install libyaml-devel ruby3.4-doc || {
+  sudo apt install libyaml-devel ruby3.4-doc || {
 
     theErrCode=$?
 
     echo "Error: Ruby Utilities installation FAILED!"
-    echo "Command: sudo zypper install libyaml-devel ruby3.4-doc"
+    echo "Command: sudo apt install libyaml-devel ruby3.4-doc"
     echo "Function: installRuby()"
     echo "Script: utilsAppInstall.sh"
     echo "Error Code: $theErrCode"
@@ -1141,20 +1141,20 @@ function installRuby() {
 
 function installSamba() {
 
-  sudo zypper install samba samba-client yast2-samba*
+  sudo apt install samba samba-client yast2-samba*
 }
 
 # Calculator: speedcrunch
 function installSpeedcrunch() {
 
-  sudo zypper install speedcrunch
+  sudo apt install speedcrunch
 
 }
 
 # Installs 'openssh'
 function installSSH() {
 
-  sudo zypper install openssh
+  sudo apt install openssh
 
 }
 
@@ -1182,7 +1182,7 @@ function installStarship() {
 
 function installSxhkd() {
 
-  sudo zypper install sxhkd 
+  sudo apt install sxhkd 
 }
 
 
@@ -1194,13 +1194,13 @@ function installTldr() {
 
 function installTerminusBitMapFonts() {
 
-  sudo zypper install terminus-bitmap-fonts
+  sudo apt install terminus-bitmap-fonts
 
 }
 
 function installTerminusConsoleetFonts() {
 
-  sudo zypper install consoleet-terminus-fonts
+  sudo apt install consoleet-terminus-fonts
 
 }
 
@@ -1217,7 +1217,7 @@ function installTexMaker() {
 
 function installTmux() {
 
-  sudo zypper install tmux tmux-powerline
+  sudo apt install tmux tmux-powerline
 
 }
 
@@ -1225,14 +1225,14 @@ function installTrashCli() {
 
   local -i trashErrCode=0
 
-  sudo zypper install trash-cli || {
+  sudo apt install trash-cli || {
 
       trashErrCode=$?
 
       echo
       echo "   *** ERROR ***"
       echo "Error returned while installing 'trash-cli'"
-      echo "Command: 'sudo zypper install trash-cli' "
+      echo "Command: 'sudo apt install trash-cli' "
       echo "Error Code: $trashErrCode"
       echo "Function: installTrashCli()"
       echo "Script: utilsAppInstall.sh"
@@ -1247,7 +1247,7 @@ function installTypora() {
 
   local -i typoraErrCode=0
 
-  sudo zypper addrepo https://download.opensuse.org/repositories/home:fusionfuture:typora/openSUSE_Tumbleweed/home:fusionfuture:typora.repo || {
+  sudo apt addrepo https://download.opensuse.org/repositories/home:fusionfuture:typora/openSUSE_Tumbleweed/home:fusionfuture:typora.repo || {
 
       typoraErrCode=$?
 
@@ -1263,13 +1263,13 @@ function installTypora() {
       return $typoraErrCode
     }
 
-  sudo zypper refresh || {
+  sudo apt refresh || {
 
       typoraErrCode=$?
 
       echo
       echo "   *** ERROR ***"
-      echo "'zypper refresh' FAILED!"
+      echo "'apt refresh' FAILED!"
       echo "Error Code: $typoraErrCode"
       echo "Function: installTypora()"
       echo "Script: utilsAppInstall.sh"
@@ -1278,13 +1278,13 @@ function installTypora() {
       return $typoraErrCode
  }
 
-  sudo zypper install typora || {
+  sudo apt install typora || {
 
       typoraErrCode=$?
 
       echo
       echo "   *** ERROR ***"
-      echo "'zypper refresh' FAILED!"
+      echo "'apt refresh' FAILED!"
       echo "Error Code: $typoraErrCode"
       echo "Function: installTypora()"
       echo "Script: utilsAppInstall.sh"
@@ -1298,19 +1298,19 @@ function installTypora() {
 
 function installUdiskie() {
 
-  sudo zypper install udiskie udiskie-lang
+  sudo apt install udiskie udiskie-lang
 
 }
 
 function installVmwareTools() {
 
-  sudo zypper install open-vm-tools 
+  sudo apt install open-vm-tools 
 
 }
 
 function installWget() {
 
-  sudo zypper install wget 
+  sudo apt install wget 
 
 }
 
@@ -1319,20 +1319,20 @@ function installWget() {
 
 function install_x11() {
 
-  sudo zypper install xorg-x11-server-Xorg xorg-x11-xinit xorg-x11-xauth libX11 libXinerama libXrandr libXft xrdb xorg-x11-drv-vmware xrandr xclip xsel 
+  sudo apt install xorg-x11-server-Xorg xorg-x11-xinit xorg-x11-xauth libX11 libXinerama libXrandr libXft xrdb xorg-x11-drv-vmware xrandr xclip xsel 
 
 }
 
 function install_x_Copy() {
 
-  sudo zypper install xclip xsel
+  sudo apt install xclip xsel
 
 
 }
 
 function install_x_Drivers_ati() {
 
-  sudo zypper install xorg-x11-drv-ati
+  sudo apt install xorg-x11-drv-ati
 
 
 }
@@ -1347,7 +1347,7 @@ function install_x_Drivers_ati() {
 # version.
 function installOsYazi() {
 
- sudo zypper install yazi
+ sudo apt install yazi
 
 }
 
@@ -1458,12 +1458,12 @@ function installYarn() {
 
   local -i theErrCode=0
 
-  sudo zypper install yarn || {
+  sudo apt install yarn || {
 
     theErrCode=$?
 
     echo "Error: 'yarn' install command FAILED!"
-    echo "Command: sudo zypper install yarn"
+    echo "Command: sudo apt install yarn"
     echo "Function: installYarn()"
     echo "Script: utilsAppInstall.sh"
     echo "Error Code: $theErrCode"
@@ -1478,7 +1478,7 @@ function installYarn() {
 # https://github.com/ajeetdsouza/zoxide
 function installZoxide() {
 
-  sudo zypper install zoxide 
+  sudo apt install zoxide 
 
 }
 
