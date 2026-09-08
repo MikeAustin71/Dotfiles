@@ -1,18 +1,16 @@
 #!/bin/bash
-# DEPRECATED!!!!  NO LONGER USED!!!!
 # Configure environment variables in
 # .bash_profile
-#
 
-declare bashOpsSetups="$HOME"/bashOps/setups
+bashOpsSetups="$HOME"/bashOps/setups
 
-declare targetBashProfile="$HOME/.bash_profile"
+targetBashProfile="$HOME/.bash_profile"
 
-declare sourceBashProfile="$bashOpsSetups/homeDir/bash_profile.txt"
+sourceBashProfile="$bashOpsSetups/homeDir/bash_profile.txt"
 
 declare -i bashProfErrCode=0
 
-source "$bashOpsSetups"/utils/utilsLib.sh
+source "$bashOpsSetups/utils/utilsLib.sh"
 
 
 if [[ ! -f $sourceBashProfile ]]

@@ -55,4 +55,5 @@ makeDirIfNotExist "$HOME/shares" "777" "" &&
 makeDirIfNotExist "$HOME/thingsToDo" "775" "" &&
 makeDirIfNotExist "$HOME/vaults" "775" "" &&
 makeDirIfNotExist "$HOME/workNotes" "777" "" &&
+makeDirIfNotExist "$HOME/.data/zoxide" "775" "" &&
 successMsg "Base Directory Structure Creation Completed!"

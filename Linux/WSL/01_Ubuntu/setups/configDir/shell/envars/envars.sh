@@ -7,8 +7,10 @@ export VISUAL="kate"
 
 export VIEWER="micro"
 
+export _ZO_DATA_DIR="$HOME/.data/zoxide"
+
 #export XDG_DATA_HOME="$HOME/.local/share:/var/lib/flatpak/exports/share"
-export XDG_DATA_HOME="$HOME"/.local/share
+export XDG_DATA_HOME="$HOME/.local/share"
 
 export XDG_RUNTIME_DIR="/run/user/$UID"
 
@@ -56,21 +58,21 @@ export MIKE_Setup_Utilities="$HOME/bashOps/setups/utils"
 
 export MIKE_Git_Repos="$HOME/repos"
 
-export MIKE_DotFiles_Repo="$HOME/repos/Dotfiles"
+#export MIKE_DotFiles_Repo="$HOME/repos/Dotfiles"
 
-export MIKE_GitRepo_DotFiles="https://github.com/MikeAustin71/Dotfiles.git"
+#export MIKE_GitRepo_DotFiles="https://github.com/MikeAustin71/Dotfiles.git"
 
 # ghq root directory
 # GitHub page:
 #    https://github.com/x-motemen/ghq
-export GHQ_ROOT="$HOME/repos"
+#export GHQ_ROOT="$HOME/repos"
 
 # Additional 2Tb Hard Drive
-export MIKEHARDDRIVE2="/Edrv"
+#export MIKEHARDDRIVE2="/Edrv"
 
 # VMware Shared Directory
 # Set this to the correct path for your VM
-export VMShare="$HOME/shares/VMShare/VMSharedData"
+#export VMShare="$HOME/shares/VMShare/VMSharedData"
 
 # Configure Distrobox Backend
-export DISTROBOX_BACKEND=podman
+#export DISTROBOX_BACKEND=podman
