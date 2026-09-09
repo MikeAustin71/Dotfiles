@@ -3,9 +3,9 @@
 # to "$HOME"/.config/shell/backups/bash_profileBak directory.
 #
 
-declare baseSetups572Dir="$HOME"/bashOps/setups
+declare baseSetups572Dir="$HOME/bashOps/setups"
 
-source "$baseSetups572Dir"/utils/utilsLib.sh
+source "$baseSetups572Dir/utils/utilsLib.sh"
 
 declare -i bash_profileBakToShell_ErrorCode
 
@@ -13,15 +13,15 @@ function bakupBashProfileToShellBackup() {
 
   local -i THE_ErrorCode=0
 
-  local sourceBashProfileFile="$HOME"/.bash_profile
+  local sourceBashProfileFile="$HOME/.bash_profile"
 
-  local targetBakDir="$HOME"/.config/shell/backups/bash_profileBak
+  local targetBakDir="$HOME/.config/shell/backups/bash_profileBak"
 
   local fileDateTime
 
   fileDateTime=$(getDateTimeForFileName)
 
-  local targetBackBashProfileFile="$targetBakDir"/"$fileDateTime"_bash_profile.bak
+  local targetBackBashProfileFile="$targetBakDir/${fileDateTime}_bash_profile.bak"
 
   if [[ ! -f $sourceBashProfileFile ]]; then
 

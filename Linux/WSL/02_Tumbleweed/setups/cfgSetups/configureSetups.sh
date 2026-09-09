@@ -15,9 +15,9 @@
 # Permissions for all files in the setup
 # directory tree will be configured.
 
-declare origStartingDir=""
+origStartingDir=""
 
-declare targetScriptsDir="$HOME"/bashOps/setups
+targetScriptsDir="$HOME/bashOps/setups"
 
 
 # This function identifies and saves

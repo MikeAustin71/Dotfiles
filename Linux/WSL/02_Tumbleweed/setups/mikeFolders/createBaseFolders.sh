@@ -8,10 +8,11 @@ source "$HOME"/bashOps/setups/utils/utilsLib.sh
 makeDirIfNotExist "$HOME/bin" "775" "" &&
 # makeDirIfNotExist "$HOME/.cargo" "775" "" &&
 # makeDirIfNotExist "$HOME/.cargo/bin" "775" "" &&
-makeDirIfNotExist "$HOME/.config" "775" "" &&
-makeDirIfNotExist "$HOME/.config" "775" "" &&
+# makeDirIfNotExist "$HOME/.config" "775" "" &&
+# makeDirIfNotExist "$HOME/.config" "775" "" &&
 # makeDirIfNotExist "$HOME/.config/JetBrains" "775" "" &&
 makeDirIfNotExist "$HOME/.config/shell" "775" "" &&
+makeDirIfNotExist "$HOME/.config/shell/appNotes_Mike" "775" "" &&
 makeDirIfNotExist "$HOME/.config/shell/aliases" "775" "" &&
 makeDirIfNotExist "$HOME/.config/shell/envars" "775" "" &&
 makeDirIfNotExist "$HOME/.config/shell/path" "775" "" &&
@@ -55,4 +56,5 @@ makeDirIfNotExist "$HOME/shares" "777" "" &&
 makeDirIfNotExist "$HOME/thingsToDo" "775" "" &&
 makeDirIfNotExist "$HOME/vaults" "775" "" &&
 makeDirIfNotExist "$HOME/workNotes" "777" "" &&
+makeDirIfNotExist "$HOME/.data/zoxide" "775" "" &&
 successMsg "Base Directory Structure Creation Completed!"

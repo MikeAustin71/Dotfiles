@@ -8,7 +8,7 @@
 #  User Path is configured in 001-devToolsInstall.sh
 ###################################################################
 
-declare baseSetups2Dir="$HOME"/bashOps/setups
+baseSetups2Dir="$HOME/bashOps/setups"
 
 source "$baseSetups2Dir"/utils/utilsLib.sh
 source "$baseSetups2Dir"/utils/utilsAppConfig.sh

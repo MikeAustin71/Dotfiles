@@ -3,8 +3,8 @@
 # 'bat' is a replacement for 'cat'
 # https://github.com/sharkdp/bat
 
-# alias cat='bat -paging=never'
+# alias cat='batcat -paging=never'
 
-alias pnt='bat -paging=never'
+alias pnt='batcat -paging=never'
 
-alias pat='bat -paging=always'
+alias pat='batcat -paging=always'

@@ -34,7 +34,7 @@ function unInstallNvimOpenSuse() {
 
     theErrCode=$?
 
-    arg1=" 'zypper' Error uninstalling 'neovim'!"
+    arg1=" 'apt' Error uninstalling 'neovim'!"
     arg2=" Command: sudo zypper rm -u neovim"
     argErrCode=" Error Code: $theErrCode"
 
@@ -43,7 +43,7 @@ function unInstallNvimOpenSuse() {
     return $theErrCode
   }
 
-  msgNotify "Successfully Uninstalled 'neovim' using 'zypper'" " "
+  msgNotify "Successfully Uninstalled 'neovim' using 'apt'" " "
 
   return $theErrCode
 }
@@ -182,7 +182,7 @@ function deleteNeovimDirs() {
   return $theErrCode
 }
 
-msgNotify "Uninstalling Neovim using 'zypper'" " " &&
+msgNotify "Uninstalling Neovim using 'apt'" " " &&
 unInstallNvimOpenSuse &&
 msgNotify "Deleting Neovim binary and configuration directories." " " &&
 deleteNeovimDirs &&

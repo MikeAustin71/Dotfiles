@@ -1,0 +1,39 @@
+# eza file listing utility
+# eza website
+# https://eza.rocks/
+# https://github.com/eza-community/eza
+# ====================================================
+
+# ALIAS 'rm' !!!!
+# sudo zypper install trash-cli
+# Run Trash from CLI
+# ====================================================
+
+# fzf
+# fuzzy Finder
+# Website: https://github.com/junegunn/fzf
+#
+# Install: sudo zypper install fzf
+#
+# in .bashrc
+# Set up fzf key bindings and fuzzy completion
+eval "$(fzf --bash)"
+# ====================================================
+
+# Zoxide
+# https://github.com/ajeetdsouza/zoxide
+# Install method:
+#        curl -sSfL https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | sh
+# Data Directory is set by Environment Variable: _ZO_DATA_DIR
+#  _ZO_DATA_DIR="$HOME/.data/zoxide"
+# Add to .bashrc
+#    eval "$(zoxide init bash)"
+# ====================================================
+
+# Broot - Directory Tree Navigator
+# Requires: 'fzf'
+# Requires: Rust - Linux Install Instructions: https://rustup.rs/
+# Rust Install WSL/Linux:
+#        curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+#
+# ====================================================

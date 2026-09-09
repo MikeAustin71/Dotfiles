@@ -30,7 +30,7 @@ sudo zypper install lua54-doc || {
   theErrCode=$?
 
   echo "Error: Installation of 'lua54-doc' FAILED"
-  echo "Command: zypper install lua54-doc"
+  echo "Command: apt install lua54-doc"
   echo "Script: 07-installLua.sh"
   echo "Error Code: $theErrCode"
 

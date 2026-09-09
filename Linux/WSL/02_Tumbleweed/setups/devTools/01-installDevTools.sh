@@ -1,8 +1,8 @@
 #!/bin/bash
 # Installs GNU C and C++ Development Tools
 # https://www.pragmaticlinux.com/2022/01/how-to-install-build-essential-on-opensuse/
-# zypper search -t pattern
-# zypper info -t pattern devel_basis
+# apt search -t pattern
+# apt info -t pattern devel_basis
 
 
 echo

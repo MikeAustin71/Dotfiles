@@ -4,7 +4,7 @@
 ###################################################################
 #
 
-declare baseSetups0Dir="$HOME"/bashOps/setups
+baseSetups0Dir="$HOME/bashOps/setups"
 
 source "$baseSetups0Dir"/utils/utilsLib.sh
 source "$baseSetups0Dir"/utils/utilsAppConfig.sh

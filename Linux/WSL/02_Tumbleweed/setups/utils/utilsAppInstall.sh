@@ -14,7 +14,7 @@ function installAlacritty() {
 # Advanced Linux Sound Architecture (ALSA) utilities
 function installAlsaUtils() {
 
-  sudo zypper install alsa-utils 
+  sudo zypper install alsa-utils
 
 }
 
@@ -32,14 +32,14 @@ function installAtuin() {
 
 function installAutoJump() {
 
-  sudo zypper install autojump 
+  sudo zypper install autojump
 
 }
 
 # Installs Awesome Window Manager
 function installAwesomeWM() {
 
-  sudo zypper install awesome 
+  sudo zypper install awesome
 
 }
 
@@ -53,7 +53,7 @@ function installBashCompletion() {
 # (https://github.com/sharkdp/bat)
 function installBat() {
 
-  sudo zypper install bat 
+  sudo zypper install bat
 
 }
 
@@ -76,19 +76,19 @@ function installBottom() {
 
 function installBroot() {
 
-  sudo zypper install broot 
+  sudo zypper install broot
   
 }
 
 function installBtop() {
 
-  sudo zypper install btop 
+  sudo zypper install btop
 
 }
 
 function installCheat() {
 
-  sudo zypper install cheat 
+  sudo zypper install cheat
 
 }
 
@@ -121,7 +121,7 @@ function installCopyQ() {
 
 function installCoreUtils() {
 
-  sudo zypper install coreutils 
+  sudo zypper install coreutils
 
 }
 
@@ -135,7 +135,7 @@ function installCompressionUtilities() {
 
     echo
     echo "Error installing compression apps series-1"
-    echo "Command: sudo apt install tar gzip bzip2 lzop zip p7zip gzip"
+    echo "Command: sudo zypper install tar gzip bzip2 lzop zip p7zip gzip"
     echo "Error Code: $THE_ERR_Code"
     echo "Function: installCompressionUtilities()"
     echo "Script File: utilsAppInstall.sh"
@@ -162,7 +162,7 @@ function installCompressionUtilities() {
 
 function installCurl() {
 
-  sudo zypper install curl 
+  sudo zypper install curl
 
 }
 
@@ -179,7 +179,7 @@ function installDistroBox() {
 
 function installDolfin() {
 
-  sudo zypper install dolphin 
+  sudo zypper install dolphin
 
 }
 
@@ -195,7 +195,7 @@ function installDrawIO() {
 
 function installDuf() {
 
-  sudo zypper install duf 
+  sudo zypper install duf
 
 }
 
@@ -203,7 +203,7 @@ function installDuf() {
 # https://github.com/dunst-project/dunst
 function installDunst() {
 
-  sudo zypper install dunst libnotify 
+  sudo zypper install dunst libnotify
 
 }
 
@@ -219,7 +219,7 @@ function installDust() {
 # https://github.com/eza-community/eza
 function installEza() {
 
-  sudo zypper install eza 
+  sudo zypper install eza
 
 }
 
@@ -245,7 +245,7 @@ function installFd() {
 
 function installFirefox() {
 
-  sudo zypper install firefox 
+  sudo zypper install firefox
 
 }
 
@@ -269,7 +269,7 @@ function installFlatSeal() {
 
 function installFontAwesome() {
 
-  sudo zypper install fontawesome-fonts 
+  sudo zypper install fontawesome-fonts
 
 }
 
@@ -395,7 +395,7 @@ function installGimp() {
     theErrCode=$?
 
     echo "Error occurred while refreshing repositories "
-    echo "Command: zypper refresh"
+    echo "Command: apt refresh"
     echo "Error Code: $theErrCode"
     echo "Function: installGimp()"
     echo "Script: utilsAppInstall.sh"
@@ -671,7 +671,7 @@ function installKvmServer () {
 
 function installLibdrm() {
 
-  sudo zypper install libdrm 
+  sudo zypper install libdrm
 
 }
 
@@ -703,7 +703,7 @@ function installLazyGit() {
 # https://en.wikipedia.org/wiki/LLVM
 function installLLVM() {
 
-  sudo zypper install llvm 
+  sudo zypper install llvm
 
 }
 
@@ -724,7 +724,7 @@ function installLshw() {
 
 function installLua() {
 
-  sudo zypper install lua 
+  sudo zypper install lua
 
 }
 
@@ -804,20 +804,20 @@ function installNpm() {
 
 function installNano() {
 
-  sudo zypper install mc 
+  sudo zypper install mc
 
 }
 
 # ncdu = Disk Usage
 function installNcdu() {
 
-  sudo zypper install ncdu 
+  sudo zypper install ncdu
 
 }
 
 function installNeofetch() {
 
-  sudo zypper install neofetch 
+  sudo zypper install neofetch
 
 }
 
@@ -924,7 +924,7 @@ function installNetworkManager() {
 
 function installNitrogen() {
 
-  sudo zypper install nitrogen 
+  sudo zypper install nitrogen
 
 }
 
@@ -936,7 +936,7 @@ function installNodeJs() {
 
 function installPandoc() {
 
-  sudo zypper install pandoc 
+  sudo zypper install pandoc
 
 }
 
@@ -967,7 +967,7 @@ function installScriptPeco() {
 # Compositor for xorg
 function installPicom() {
 
-  sudo zypper install picom 
+  sudo zypper install picom
 
 }
 
@@ -1029,7 +1029,7 @@ function installQalculateQt() {
 # https://github.com/ranger/ranger
 function installRanger() {
 
-  sudo zypper install ranger 
+  sudo zypper install ranger
 
 }
 
@@ -1048,7 +1048,7 @@ function installRetext() {
 
 function installRipGrep() {
 
-  sudo zypper install ripgrep 
+  sudo zypper install ripgrep
 
 }
 
@@ -1182,7 +1182,7 @@ function installStarship() {
 
 function installSxhkd() {
 
-  sudo zypper install sxhkd 
+  sudo zypper install sxhkd
 }
 
 
@@ -1269,7 +1269,7 @@ function installTypora() {
 
       echo
       echo "   *** ERROR ***"
-      echo "'zypper refresh' FAILED!"
+      echo "'apt refresh' FAILED!"
       echo "Error Code: $typoraErrCode"
       echo "Function: installTypora()"
       echo "Script: utilsAppInstall.sh"
@@ -1284,7 +1284,7 @@ function installTypora() {
 
       echo
       echo "   *** ERROR ***"
-      echo "'zypper refresh' FAILED!"
+      echo "'apt refresh' FAILED!"
       echo "Error Code: $typoraErrCode"
       echo "Function: installTypora()"
       echo "Script: utilsAppInstall.sh"
@@ -1304,13 +1304,13 @@ function installUdiskie() {
 
 function installVmwareTools() {
 
-  sudo zypper install open-vm-tools 
+  sudo zypper install open-vm-tools
 
 }
 
 function installWget() {
 
-  sudo zypper install wget 
+  sudo zypper install wget
 
 }
 
@@ -1319,7 +1319,7 @@ function installWget() {
 
 function install_x11() {
 
-  sudo zypper install xorg-x11-server-Xorg xorg-x11-xinit xorg-x11-xauth libX11 libXinerama libXrandr libXft xrdb xorg-x11-drv-vmware xrandr xclip xsel 
+  sudo zypper install xorg-x11-server-Xorg xorg-x11-xinit xorg-x11-xauth libX11 libXinerama libXrandr libXft xrdb xorg-x11-drv-vmware xrandr xclip xsel
 
 }
 
@@ -1478,7 +1478,7 @@ function installYarn() {
 # https://github.com/ajeetdsouza/zoxide
 function installZoxide() {
 
-  sudo zypper install zoxide 
+  sudo zypper install zoxide
 
 }
 

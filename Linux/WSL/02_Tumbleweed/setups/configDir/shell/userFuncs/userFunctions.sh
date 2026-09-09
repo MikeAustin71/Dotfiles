@@ -48,8 +48,8 @@ function mPwrOff() {
 ###############################################
 #                FUNCTION
 #                update0
-# Update zypper only
-# zypper DOES NOT USE --allow-vendor-change
+# Update apt only
+# apt DOES NOT USE --allow-vendor-change
 ###############################################
 function update0() {
 
@@ -58,7 +58,7 @@ function update0() {
   echo ""
   echo "*********************************************"
   echo "          Function: update0()"
-  echo "Update zypper ONLY."
+  echo "Update apt ONLY."
   echo "DOES NOT USE --allow-vendor-change"
   echo "sudo zypper dup"
   echo "*********************************************"
@@ -102,8 +102,8 @@ function update0() {
 ###############################################
 #                FUNCTION
 #                update1
-# Update zypper only
-# zypper uses --allow-vendor-change
+# Update apt only
+# apt uses --allow-vendor-change
 ###############################################
 function update1() {
 
@@ -113,7 +113,7 @@ function update1() {
   echo ""
   echo "*********************************************"
   echo "          Function: update1()"
-  echo "Update zypper ONLY."
+  echo "Update apt ONLY."
   echo "USES --allow-vendor-change"
   echo "sudo zypper dup --allow-vendor-change"
   echo "*********************************************"
@@ -157,8 +157,8 @@ function update1() {
 ###############################################
 #                FUNCTION
 #                update2
-# Update zypper and flatpak
-# zypper uses --allow-vendor-change
+# Update apt and flatpak
+# apt uses --allow-vendor-change
 ###############################################
 
 function update2() {
@@ -169,7 +169,7 @@ function update2() {
   echo ""
   echo "*********************************************"
   echo "          Function: update2()"
-  echo "Update zypper and flatpak"
+  echo "Update apt and flatpak"
   echo "USES --allow-vendor-change"
   echo "*********************************************"
   echo ""
@@ -224,8 +224,8 @@ function update2() {
 #                FUNCTION
 #                update3
 # Full Update. Update Everything
-# zypper, flatpak, npm, rust and gem
-# zypper uses --allow-vendor-change
+# apt, flatpak, npm, rust and gem
+# apt uses --allow-vendor-change
 ###############################################
 function update3() {
 
@@ -236,7 +236,7 @@ function update3() {
   echo "**********************************************"
   echo "          Function: update3()"
   echo "Update Everything:"
-  echo "       zypper, flatpak, npm, rust and gem"
+  echo "       apt, flatpak, npm, rust and gem"
   echo "USES --allow-vendor-change"
   echo "**********************************************"
   echo ""
@@ -277,7 +277,7 @@ function update3() {
 
   echo ""
   echo "**********************************************"
-  echo "       Starting zypper 'dup' Update           "
+  echo "       Starting apt 'dup' Update           "
   echo "   sudo zypper dup --allow-vendor-change      "
   echo "**********************************************"
   echo ""
