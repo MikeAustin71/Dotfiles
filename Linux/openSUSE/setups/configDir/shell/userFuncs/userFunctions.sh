@@ -7,6 +7,7 @@
 #
 # Reboots the computer.
 # systemctl reboot
+# This duplicates Function mReboot()
 ###############################################
 function mBoot() {
 
@@ -37,13 +38,34 @@ function mPwrOff() {
   echo "**********************************************"
   echo "          mPwrOff()"
   echo ""
-  echo "Powering off the comuter ..."
+  echo "Powering off the computer ..."
   echo "**********************************************"
   echo ""
 
   sudo systemctl poweroff
 }
 
+###############################################
+#                FUNCTION
+#                mReboot
+#
+# Reboots the computer
+# sudo systemctl reboot
+# This duplicates Function mBoot()
+###############################################
+function mReboot() {
+
+
+  echo ""
+  echo "**********************************************"
+  echo "          mReboot()"
+  echo ""
+  echo "Rebooting the computer ..."
+  echo "**********************************************"
+  echo ""
+
+  sudo systemctl reboot
+}
 
 ###############################################
 #                FUNCTION
